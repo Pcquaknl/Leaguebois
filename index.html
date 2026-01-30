@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoL Role & Champion Randomizer</title>
+    <title>LoL Role Randomizer</title>
     <link rel="stylesheet" href="style.css">
     <!-- Optioneel: Google Fonts voor fantasy-stijl font -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>League of Legends Role & Champion Randomizer</h1>
+        <h1>League of Legends Role Randomizer</h1>
         
         <!-- Stap 1: Spelers invoeren -->
         <div id="player-input">
@@ -20,13 +20,13 @@
             <input type="text" id="player3" placeholder="Speler 3">
             <input type="text" id="player4" placeholder="Speler 4">
             <input type="text" id="player5" placeholder="Speler 5">
-            <p><input type="checkbox" id="enable-champion-wheel" checked> Enable Champion Selection with Wheel</p>
             <button id="start-btn">Start</button>
         </div>
         
-        <!-- Stap 2 & 3: Rollen en champions rollen -->
+        <!-- Stap 2: Rollen rollen -->
         <div id="game" class="hidden">
             <div id="wheel-container">
+                <div id="arrow" class="arrow"></div> <!-- De vaste pijl -->
                 <div id="wheel" class="wheel"></div> <!-- Het draaiende rad -->
                 <p id="current-player">Huidige speler: ...</p>
             </div>
