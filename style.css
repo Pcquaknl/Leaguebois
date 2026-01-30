@@ -1,0 +1,116 @@
+/* Basisstijl: Dark fantasy thema met goud accenten */
+body {
+    background-color: #1a1a1a; /* Donker grijs/zwart */
+    color: #e6e6e6; /* Lichte tekst */
+    font-family: 'Cinzel', serif; /* Fantasy font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+    border: 2px solid #d4af37; /* Goud rand */
+    border-radius: 10px;
+    background-color: #2c2c2c; /* Donkerder achtergrond */
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); /* Glowing goud effect */
+}
+
+h1 {
+    color: #d4af37; /* Goud titel */
+    text-shadow: 0 0 10px #d4af37; /* Glowing highlight */
+}
+
+input[type="text"] {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    background-color: #3c3c3c;
+    border: 1px solid #d4af37;
+    color: #e6e6e6;
+    border-radius: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Cinzel', serif;
+    box-shadow: 0 0 10px #d4af37;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Rad stijl: Visueel draaiend wiel */
+.wheel {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #3c3c3c;
+    border: 5px solid #d4af37;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px #d4af37;
+    animation: spin 1s linear infinite; /* Standaard spin animatie, wordt overschreven in JS */
+}
+
+.wheel::before {
+    content: attr(data-display); /* Toont de huidige item in het midden */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #d4af37;
+    text-shadow: 0 0 10px #d4af37;
+    text-align: center;
+    max-width: 80%;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Resultaten stijl */
+#results p {
+    font-size: 18px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #3c3c3c;
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #d4af37;
+}
+
+#results img {
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+#current-player {
+    color: #d4af37;
+    font-size: 20px;
+    text-shadow: 0 0 5px #d4af37;
+}
