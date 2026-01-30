@@ -25,7 +25,7 @@ h1 {
     text-shadow: 0 0 10px #d4af37; /* Glowing highlight */
 }
 
-input {
+input[type="text"] {
     display: block;
     margin: 10px auto;
     padding: 10px;
@@ -34,6 +34,10 @@ input {
     border: 1px solid #d4af37;
     color: #e6e6e6;
     border-radius: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
 }
 
 button {
@@ -57,57 +61,32 @@ button:hover {
     display: none;
 }
 
-/* Rad stijl: Wheel of Fortune met segmenten en pijl */
-#wheel-container {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    margin: 20px auto;
-}
-
+/* Rad stijl: Visueel draaiend wiel */
 .wheel {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
+    background-color: #3c3c3c;
     border: 5px solid #d4af37;
+    margin: 20px auto;
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 15px #d4af37;
-    background: conic-gradient(
-        #ff0000 0deg 72deg,   /* Rood voor Top */
-        #00ff00 72deg 144deg, /* Groen voor Jungle */
-        #0000ff 144deg 216deg,/* Blauw voor Mid */
-        #ffff00 216deg 288deg,/* Geel voor ADC */
-        #ff00ff 288deg 360deg /* Paars voor Support */
-    );
-    transition: transform 4s ease-out; /* Voor soepele stop */
-}
-
-.wheel .segment-label {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    animation: spin 1s linear infinite; /* Standaard spin animatie, wordt overschreven in JS */
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 18px;
-    color: #1a1a1a;
-    text-shadow: 0 0 5px #d4af37;
-    transform: rotate(var(--rotate)); /* Roteren voor positionering */
 }
 
-.arrow {
-    position: absolute;
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 40px solid #d4af37;
-    z-index: 10;
-    box-shadow: 0 0 10px #d4af37;
+.wheel-icon {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 0 5px #d4af37);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Resultaten stijl */
@@ -119,10 +98,22 @@ button:hover {
     border: 1px solid #d4af37;
     border-radius: 5px;
     box-shadow: 0 0 5px #d4af37;
+    display: flex;
+    align-items: center;
+}
+
+#results img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
 }
 
 #current-player {
     color: #d4af37;
     font-size: 20px;
     text-shadow: 0 0 5px #d4af37;
+    max-width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    margin: 0 auto;
 }
