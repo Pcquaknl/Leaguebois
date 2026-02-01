@@ -89,6 +89,39 @@ button:hover {
     100% { transform: rotate(360deg); }
 }
 
+/* Slotmachine stijl voor DJ */
+.slotmachine {
+    width: 200px;
+    height: 50px; /* Hoogte voor één naam */
+    margin: 20px auto;
+    border: 2px solid #d4af37;
+    overflow: hidden;
+    background-color: #3c3c3c;
+    box-shadow: 0 0 15px #d4af37;
+    border-radius: 5px;
+}
+
+.slotmachine ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    animation: slot-spin 0.1s linear infinite; /* Snellere casino-style spin */
+}
+
+.slotmachine li {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color: #d4af37;
+    text-shadow: 0 0 5px #d4af37;
+}
+
+@keyframes slot-spin {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50px); } /* Verschuif per naam hoogte */
+}
+
 /* Resultaten stijl */
 #results p {
     font-size: 18px;
@@ -108,7 +141,7 @@ button:hover {
     margin-left: 10px;
 }
 
-#current-player {
+#current-player, #dj-message {
     color: #d4af37;
     font-size: 20px;
     text-shadow: 0 0 5px #d4af37;
