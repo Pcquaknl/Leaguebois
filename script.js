@@ -25,6 +25,9 @@ const wheelContainer = document.getElementById('wheel-container');
 const wheel = document.getElementById('wheel');
 const wheelIcon = document.getElementById('wheel-icon');
 const currentPlayerP = document.getElementById('current-player');
+const slotmachineContainer = document.getElementById('slotmachine-container');
+const slotmachineList = document.getElementById('slotmachine-list');
+const djMessage = document.getElementById('dj-message');
 const resultsDiv = document.getElementById('results');
 const resetBtn = document.getElementById('reset-btn');
 
@@ -50,9 +53,6 @@ function startGame() {
     }
     
     enableDJ = djCheckbox.checked;
-    if (enableDJ) {
-        djPlayer = players[Math.floor(Math.random() * players.length)];
-    }
     
     // Willekeurig eerste speler kiezen
     currentPlayerIndex = Math.floor(Math.random() * players.length);
@@ -100,9 +100,15 @@ function spinWheelForCurrentPlayer() {
         // Volgende speler
         currentPlayerIndex = (currentPlayerIndex + 1) % players.length;
         
-        // Als alle spelers gedaan, wacht 2 seconden en toon resultaten
+        // Als alle spelers gedaan, ga naar DJ als enabled, anders resultaten
         if (availableRoles.length === roles.length - players.length) {
-            setTimeout(showResults, 2000);
+            setTimeout(() => {
+                if (enableDJ) {
+                    spinDJ();
+                } else {
+                    showResults();
+                }
+            }, 2000);
         } else {
             // Wacht 2 seconden en ga naar volgende
             setTimeout(spinWheelForCurrentPlayer, 2000);
@@ -110,10 +116,46 @@ function spinWheelForCurrentPlayer() {
     }, 3000); // Spin duur: 3 seconden
 }
 
+// Functie om DJ te spinnen met slotmachine
+function spinDJ() {
+    wheelContainer.classList.add('hidden');
+    currentPlayerP.classList.add('hidden');
+    slotmachineContainer.classList.remove('hidden');
+    djMessage.textContent = 'Kiezen van DJ...';
+    
+    // Kies willekeurige DJ
+    djPlayer = players[Math.floor(Math.random() * players.length)];
+    
+    // Vul slotmachine met namen (dupliceer meer voor langere loop, om alle te zien)
+    slotmachineList.innerHTML = '';
+    const duplicatedPlayers = [...players, ...players, ...players, ...players, ...players, ...players, ...players]; // Dupliceer 7 keer voor betere zichtbaarheid
+    duplicatedPlayers.forEach(name => {
+        const li = document.createElement('li');
+        li.textContent = name;
+        slotmachineList.appendChild(li);
+    });
+    
+    // Start animatie
+    slotmachineList.style.animation = 'slot-spin 0.1s linear infinite'; // Snellere casino-style
+    
+    // Stop na 3 seconden
+    setTimeout(() => {
+        slotmachineList.style.animation = 'none';
+        
+        // Bereken positie om te stoppen bij gekozen DJ (eerste occurrence na duplicatie)
+        const nameHeight = 50; // Hoogte per li
+        const djIndex = players.indexOf(djPlayer) + players.length * 3; // Middelste duplicatie voor centrering
+        const stopPosition = -djIndex * nameHeight;
+        slotmachineList.style.transform = `translateY(${stopPosition}px)`;
+        
+        // Wacht 2 seconden en toon resultaten
+        setTimeout(showResults, 2000);
+    }, 3000);
+}
+
 // Functie om resultaten te tonen
 function showResults() {
-    wheelContainer.classList.add('hidden'); // Verberg hele wheel container
-    currentPlayerP.classList.add('hidden');
+    slotmachineContainer.classList.add('hidden');
     
     resultsDiv.innerHTML = '<h2>Resultaten:</h2>';
     players.forEach(player => {
@@ -143,9 +185,12 @@ function resetGame() {
     gameDiv.classList.add('hidden');
     wheelContainer.classList.remove('hidden');
     currentPlayerP.classList.remove('hidden');
+    slotmachineContainer.classList.add('hidden');
     resultsDiv.innerHTML = '';
     resetBtn.classList.add('hidden');
     wheelIcon.src = '';
     wheelIcon.alt = '';
     wheel.style.animation = 'none';
+    slotmachineList.innerHTML = '';
+    slotmachineList.style.transform = 'translateY(0)';
 }
