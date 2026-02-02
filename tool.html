@@ -41,7 +41,192 @@
     </div>
 
     <script>
-        // JS code hier
+  let champions = [];
+        let version = '';
+        let myChampId = '';
+        let enemyChampId = '';
+
+        // Lijst van kernwoorden om dik te drukken (bold)
+        const keywords = ['slow', 'slows','slowing', 'knocking up', 'stuns', 'true damage', 'silences', 'stun', 'silence', 'knock up', 'knockup', 'knockups']; // Voeg meer toe als nodig
+
+        // Functie om tekst te highlighten
+        function highlightKeywords(text) {
+            keywords.forEach(word => {
+                const regex = new RegExp(`\\b(${word})\\b`, 'gi'); // Case-insensitive, whole word
+                text = text.replace(regex, '<strong>$1</strong>');
+            });
+            return text;
+        }
+
+        // Haal version
+        async function getVersion() {
+            try {
+                const response = await fetch('https://ddragon.leagueoflegends.com/api/versions.json');
+                const data = await response.json();
+                return data[0];
+            } catch (error) {
+                console.error('Error fetching version:', error);
+                alert('Fout bij laden van data. Probeer later opnieuw.');
+                return '';
+            }
+        }
+
+        // Haal champions
+        async function getChampions() {
+            version = await getVersion();
+            if (!version) return;
+            try {
+                const response = await fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion.json`);
+                const data = await response.json();
+                champions = Object.values(data.data).sort((a, b) => a.name.localeCompare(b.name));
+                populateGrids();
+            } catch (error) {
+                console.error('Error fetching champions:', error);
+                alert('Fout bij laden van champions. Check je internet.');
+            }
+        }
+
+        // Vul grids met icons
+        function populateGrids() {
+            const myGrid = document.getElementById('myGrid');
+            const enemyGrid = document.getElementById('enemyGrid');
+            myGrid.innerHTML = '';
+            enemyGrid.innerHTML = '';
+            champions.forEach(champ => {
+                const icon = createIcon(champ);
+                myGrid.appendChild(icon.cloneNode(true));
+                enemyGrid.appendChild(icon);
+            });
+        }
+
+        // Maak icon element
+        function createIcon(champ) {
+            const div = document.createElement('div');
+            div.className = 'icon';
+            div.dataset.id = champ.id;
+            div.innerHTML = `<img src="https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${champ.id}.png" alt="${champ.name}">
+                             <p>${champ.name}</p>`;
+            return div;
+        }
+
+        // Filter icons op search
+        function filterIcons(type) {
+            const search = document.getElementById(`${type}Search`).value.toLowerCase();
+            const grid = document.getElementById(`${type}Grid`);
+            Array.from(grid.children).forEach(icon => {
+                const name = icon.querySelector('p').textContent.toLowerCase();
+                icon.style.display = name.includes(search) ? 'block' : 'none';
+            });
+        }
+
+        // Event listeners voor clicks
+        document.getElementById('myGrid').addEventListener('click', e => {
+            const icon = e.target.closest('.icon');
+            if (icon) selectChampion(icon, 'my');
+        });
+        document.getElementById('enemyGrid').addEventListener('click', e => {
+            const icon = e.target.closest('.icon');
+            if (icon) selectChampion(icon, 'enemy');
+        });
+
+        // Selecteer champion
+        function selectChampion(icon, type) {
+            const grid = document.getElementById(`${type}Grid`);
+            const prevSelected = grid.querySelector('.selected');
+            if (prevSelected) prevSelected.classList.remove('selected');
+            icon.classList.add('selected');
+            const id = icon.dataset.id;
+            const name = icon.querySelector('p').textContent;
+            if (type === 'my') {
+                myChampId = id;
+                document.getElementById('mySelected').textContent = `Geselecteerd: ${name}`;
+            } else {
+                enemyChampId = id;
+                document.getElementById('enemySelected').textContent = `Geselecteerd: ${name}`;
+            }
+        }
+
+        // Toon strategie
+        async function showStrategy() {
+            if (!myChampId || !enemyChampId) {
+                alert('Selecteer beide champions.');
+                return;
+            }
+            const myChamp = champions.find(c => c.id === myChampId);
+            const enemyChamp = champions.find(c => c.id === enemyChampId);
+
+            const mySlug = myChampId.toLowerCase();
+            const enemySlug = enemyChampId.toLowerCase();
+            const lolalyticsUrl = `https://lolalytics.com/lol/${mySlug}/vs/${enemySlug}/build/?lane=top&tier=platinum_plus`;
+
+            const enemyDetails = await getChampionDetails(enemyChampId);
+
+            const paddedId = enemyChamp.key.padStart(4, '0');
+            const baseVideoUrl = `https://d28xe8vt774jo5.cloudfront.net/`;
+            const videoPaths = {
+                P: `champion-abilities/${paddedId}/ability_${paddedId}_P1.webm`,
+                Q: `champion-abilities/${paddedId}/ability_${paddedId}_Q1.webm`,
+                W: `champion-abilities/${paddedId}/ability_${paddedId}_W1.webm`,
+                E: `champion-abilities/${paddedId}/ability_${paddedId}_E1.webm`,
+                R: `champion-abilities/${paddedId}/ability_${paddedId}_R1.webm`
+            };
+
+            let html = `<h2>Strategie: ${myChamp.name} vs ${enemyChamp.name}</h2>`;
+            html += `<p><strong>Builds met beste winrate (van LoLalytics):</strong> <a href="${lolalyticsUrl}" target="_blank">Bekijk matchup builds</a></p>`;
+            html += `<p><strong>Officiële champion page:</strong> <a href="https://www.leagueoflegends.com/en-us/champions/${enemySlug}/" target="_blank">Bekijk op League site</a></p>`;
+            html += `<div class="abilities-section"><h3>Abilities van ${enemyChamp.name}</h3>`;
+
+            // Passive
+            const passive = enemyDetails.passive;
+            const passiveImg = `https://ddragon.leagueoflegends.com/cdn/${version}/img/passive/${passive.image.full}`;
+            const passiveVideoSrc = baseVideoUrl + videoPaths.P;
+            const passiveDesc = highlightKeywords(passive.description);
+            html += `
+                <div class="ability-item">
+                    <video poster="${passiveImg}" src="${passiveVideoSrc}" muted loop playsinline onclick="this.paused ? this.play() : this.pause()"></video>
+                    <div class="ability-content">
+                        <h3>Passive: ${passive.name}</h3>
+                        <p>${passiveDesc}</p>
+                    </div>
+                </div>`;
+
+            // Spells (Q, W, E, R) verticaal
+            const keys = ['Q', 'W', 'E', 'R'];
+            enemyDetails.spells.forEach((spell, index) => {
+                const spellKey = keys[index];
+                const spellImg = `https://ddragon.leagueoflegends.com/cdn/${version}/img/spell/${spell.image.full}`;
+                const spellVideoSrc = baseVideoUrl + videoPaths[spellKey];
+                const spellDesc = highlightKeywords(spell.description);
+                html += `
+                    <div class="ability-item">
+                        <video poster="${spellImg}" src="${spellVideoSrc}" muted loop playsinline onclick="this.paused ? this.play() : this.pause()"></video>
+                        <div class="ability-content">
+                            <h3>${spellKey}: ${spell.name}</h3>
+                            <p>${spellDesc}</p>
+                        </div>
+                    </div>`;
+            });
+            html += `</div>`;
+
+            document.getElementById('results').innerHTML = html;
+        }
+
+        // Haal detailed champion data
+        async function getChampionDetails(champId) {
+            try {
+                const response = await fetch(`https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/champion/${champId}.json`);
+                const data = await response.json();
+                return data.data[champId];
+            } catch (error) {
+                console.error('Error fetching champion details:', error);
+                alert('Fout bij laden van champion details.');
+                return {};
+            }
+        }
+
+        // Start: Laad champions bij page load
+        getChampions();
     </script>
 </body>
 </html>
+
