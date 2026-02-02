@@ -1,4 +1,202 @@
-/* ... Je oorspronkelijke styles blijven bovenaan ... */
+/* Basisstijl: Dark fantasy thema met goud accenten */
+body {
+    background-color: #1a1a1a; /* Donker grijs/zwart */
+    color: #e6e6e6; /* Lichte tekst */
+    font-family: 'Cinzel', serif; /* Fantasy font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+    border: 2px solid #d4af37; /* Goud rand */
+    border-radius: 10px;
+    background-color: #2c2c2c; /* Donkerder achtergrond */
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); /* Glowing goud effect */
+}
+
+h1 {
+    color: #d4af37; /* Goud titel */
+    text-shadow: 0 0 10px #d4af37; /* Glowing highlight */
+}
+
+input[type="text"] {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    background-color: #3c3c3c;
+    border: 1px solid #d4af37;
+    color: #e6e6e6;
+    border-radius: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+button {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Cinzel', serif;
+    box-shadow: 0 0 10px #d4af37;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Rad stijl: Visueel draaiend wiel */
+.wheel {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #3c3c3c;
+    border: 5px solid #d4af37;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px #d4af37;
+    animation: spin 1s linear infinite; /* Standaard spin animatie, wordt overschreven in JS */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wheel-icon {
+    width: 100px;
+    height: 100px;
+    filter: drop-shadow(0 0 5px #d4af37);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Slotmachine stijl voor DJ */
+.slotmachine {
+    width: 200px;
+    height: 50px; /* Hoogte voor één naam */
+    margin: 20px auto;
+    border: 2px solid #d4af37;
+    overflow: hidden;
+    background-color: #3c3c3c;
+    box-shadow: 0 0 15px #d4af37;
+    border-radius: 5px;
+}
+
+.slotmachine ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    animation: slot-spin 0.1s linear infinite; /* Snellere casino-style spin */
+}
+
+.slotmachine li {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+    color: #d4af37;
+    text-shadow: 0 0 5px #d4af37;
+}
+
+@keyframes slot-spin {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-50px); } /* Verschuif per naam hoogte */
+}
+
+/* Resultaten stijl */
+#results p {
+    font-size: 18px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #3c3c3c;
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #d4af37;
+    display: flex;
+    align-items: center;
+}
+
+#results img {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+#current-player, #dj-message {
+    color: #d4af37;
+    font-size: 20px;
+    text-shadow: 0 0 5px #d4af37;
+    max-width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    margin: 0 auto;
+}
+
+/* Navigatiebalk styles */
+.navbar {
+    background-color: #2c2c2c; /* Donkerder achtergrond */
+    border-bottom: 2px solid #d4af37; /* Goud rand onderaan */
+    padding: 10px 0;
+    position: fixed; /* Fixed bovenaan (verwijder dit als je wilt dat hij mee-scrollt) */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Boven alles */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Ruimte tussen links */
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    color: #e6e6e6; /* Lichte tekst */
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.navbar a:hover {
+    background-color: #d4af37;
+    color: #1a1a1a;
+    box-shadow: 0 0 10px #d4af37;
+}
+
+/* Pas body aan voor fixed nav (voorkom overlap) */
+body {
+    padding-top: 60px; /* Ruimte voor de nav bar */
+}
 
 /* Tool-specifieke styles (toegevoegd voor tool.html) */
 .tool-container {
