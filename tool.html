@@ -4,30 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoL Toplane Strategie Tool - LeagueBois</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> <!-- Link naar je bestaande style.css -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Je font -->
 </head>
-
-<body class="tool-page">
-    <!-- Nieuwe navigatiebalk -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Role Randomizer</a></li>
-            <li><a href="tool.html">Toplane Tool</a></li>
-        </ul>
-    </nav>
-    
-    <div class="tool-container">
+<body>
+    <div class="tool-container"> <!-- Unieke class om conflicten met je .container te voorkomen -->
         <h1>LoL Toplane Strategie Tool</h1>
-
-        <div class="select-container">
+        <div class="select-container"> <!-- Unieke class voor selectie-secties -->
             <div class="section" id="mySection">
                 <h2>Mijn Champion</h2>
                 <input type="text" id="mySearch" placeholder="Zoek champion..." oninput="filterIcons('my')">
                 <div class="grid" id="myGrid"></div>
                 <p id="mySelected">Geselecteerd: Geen</p>
             </div>
-
             <div class="section" id="enemySection">
                 <h2>Tegenstander</h2>
                 <input type="text" id="enemySearch" placeholder="Zoek champion..." oninput="filterIcons('enemy')">
@@ -35,18 +24,28 @@
                 <p id="enemySelected">Geselecteerd: Geen</p>
             </div>
         </div>
-
         <button onclick="showStrategy()">Toon Strategie</button>
         <div id="results"></div>
     </div>
 
     <script>
-  let champions = [];
+        let champions = [];
         let version = '';
         let myChampId = '';
         let enemyChampId = '';
 
-       
+        // Lijst van kernwoorden om dik te drukken (bold)
+        const keywords = ['slow', 'knocking up', 'stuns', 'true damage', 'silences', 'stun', 'silence', 'knock up', 'knockup', 'knockups']; // Voeg meer toe als nodig
+
+        // Functie om tekst te highlighten
+        function highlightKeywords(text) {
+            keywords.forEach(word => {
+                const regex = new RegExp(`\\b(${word})\\b`, 'gi'); // Case-insensitive, whole word
+                text = text.replace(regex, '<strong>$1</strong>');
+            });
+            return text;
+        }
+
         // Haal version
         async function getVersion() {
             try {
@@ -218,6 +217,3 @@
     </script>
 </body>
 </html>
-
-
-
