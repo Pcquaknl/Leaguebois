@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoL Toplane Strategie Tool - LeagueBois</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link naar je bestaande style.css -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Je font -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body>
+
+<body class="tool-page">
     <!-- Nieuwe navigatiebalk -->
     <nav class="navbar">
         <ul>
@@ -16,15 +17,17 @@
         </ul>
     </nav>
     
-    <div class="tool-container"> <!-- Unieke class om conflicten met je .container te voorkomen -->
+    <div class="tool-container">
         <h1>LoL Toplane Strategie Tool</h1>
-        <div class="select-container"> <!-- Unieke class voor selectie-secties -->
+
+        <div class="select-container">
             <div class="section" id="mySection">
                 <h2>Mijn Champion</h2>
                 <input type="text" id="mySearch" placeholder="Zoek champion..." oninput="filterIcons('my')">
                 <div class="grid" id="myGrid"></div>
                 <p id="mySelected">Geselecteerd: Geen</p>
             </div>
+
             <div class="section" id="enemySection">
                 <h2>Tegenstander</h2>
                 <input type="text" id="enemySearch" placeholder="Zoek champion..." oninput="filterIcons('enemy')">
@@ -32,12 +35,13 @@
                 <p id="enemySelected">Geselecteerd: Geen</p>
             </div>
         </div>
+
         <button onclick="showStrategy()">Toon Strategie</button>
         <div id="results"></div>
     </div>
 
     <script>
-        // ... (de volledige JS code van de tool, zoals in mijn vorige bericht - kopieer het hierin)
+        // JS code hier
     </script>
 </body>
 </html>
