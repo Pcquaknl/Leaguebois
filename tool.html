@@ -46,18 +46,7 @@
         let myChampId = '';
         let enemyChampId = '';
 
-        // Lijst van kernwoorden om dik te drukken (bold)
-        const keywords = ['slow', 'slows','slowing', 'knocking up', 'stuns', 'true damage', 'silences', 'stun', 'silence', 'knock up', 'knockup', 'knockups']; // Voeg meer toe als nodig
-
-        // Functie om tekst te highlighten
-        function highlightKeywords(text) {
-            keywords.forEach(word => {
-                const regex = new RegExp(`\\b(${word})\\b`, 'gi'); // Case-insensitive, whole word
-                text = text.replace(regex, '<strong>$1</strong>');
-            });
-            return text;
-        }
-
+       
         // Haal version
         async function getVersion() {
             try {
@@ -229,4 +218,5 @@
     </script>
 </body>
 </html>
+
 
