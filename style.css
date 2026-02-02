@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     margin: 0;
     text-align: center;
+    padding-top: 60px; /* Ruimte voor nav bar */
 }
 
 .container {
@@ -193,11 +194,6 @@ button:hover {
     box-shadow: 0 0 10px #d4af37;
 }
 
-/* Pas body aan voor fixed nav (voorkom overlap) */
-body {
-    padding-top: 60px; /* Ruimte voor de nav bar */
-}
-
 /* Tool-specifieke styles (toegevoegd voor tool.html) */
 .tool-container {
     max-width: 1200px;
@@ -335,4 +331,12 @@ body {
         width: 200px;
         height: 200px;
     }
+}
+
+/* Override voor tool.html om icons zichtbaar te maken (verwijder flex center op body) */
+.tool-page body {
+    display: block;
+    align-items: initial;
+    justify-content: initial;
+    padding: 20px;
 }
