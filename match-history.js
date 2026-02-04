@@ -2,8 +2,8 @@
 const apiKey = 'RGAPI-595f14a5-b125-4180-85e6-80d8cb5aee65'; // Vervang dit door je eigen Riot API key (haal er een op https://developer.riotgames.com/)
 
 const players = [
-    { gameName: 'CZ7', tagLine: '007' },
-    { gameName: 'Hoekuhnees', tagLine: 'EUW' },
+    { gameName: 'CZ', tagLine: '007' },
+    { gameName: 'Hoekuhkoek', tagLine: 'EUW' },
     { gameName: 'Kipknots', tagLine: 'EUW' },
     { gameName: 'Principlenl', tagLine: '1994' }
     // Voeg hier makkelijk nieuwe spelers toe, bijv. { gameName: 'Nieuw', tagLine: 'TAG' }
@@ -39,7 +39,7 @@ async function getSummonerData(gameName, tagLine) {
 
 async function getMatchHistory(puuid) {
     const version = await getLatestVersion();
-    const matchesUrl = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?count=5&api_key=${apiKey}`;
+    const matchesUrl = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?count=20&api_key=${apiKey}`; // Uitgebreid naar 20 matches voor streaks
     const matchesRes = await fetch(matchesUrl);
     if (!matchesRes.ok) throw new Error('Geen matches gevonden');
     const matchIds = await matchesRes.json();
@@ -66,6 +66,27 @@ async function getMatchHistory(puuid) {
     return matches;
 }
 
+function calculateStreaks(history) {
+    let maxWinStreak = 0;
+    let maxLossStreak = 0;
+    let currentWinStreak = 0;
+    let currentLossStreak = 0;
+
+    history.forEach(match => {
+        if (match.win === 'Win') {
+            currentWinStreak++;
+            currentLossStreak = 0;
+            if (currentWinStreak > maxWinStreak) maxWinStreak = currentWinStreak;
+        } else {
+            currentLossStreak++;
+            currentWinStreak = 0;
+            if (currentLossStreak > maxLossStreak) maxLossStreak = currentLossStreak;
+        }
+    });
+
+    return { maxWinStreak, maxLossStreak };
+}
+
 function displayPlayers() {
     players.forEach(async (player) => {
         try {
@@ -79,17 +100,28 @@ function displayPlayers() {
             div.addEventListener('click', async () => {
                 try {
                     const history = await getMatchHistory(data.puuid);
-                    matchHistoryDiv.innerHTML = `<h2>Match History voor ${data.fullName}</h2>`;
-                    history.forEach((match, index) => {
-                        const matchDiv = document.createElement('div');
-                        matchDiv.classList.add('match-item');
-                        matchDiv.innerHTML = `
-                            <h3>Match ${index + 1}: <img src="${match.championIcon}" alt="${match.champion}" width="30" style="vertical-align: middle;"> ${match.champion} - ${match.win}</h3>
-                            <p>KDA: ${match.kda}</p>
-                            <p>Datum en tijd: ${match.date}</p>
-                        `;
-                        matchHistoryDiv.appendChild(matchDiv);
-                    });
+                    const { maxWinStreak, maxLossStreak } = calculateStreaks(history);
+
+                    matchHistoryDiv.innerHTML = `
+                        <div class="streaks-left">
+                            <h3>Langste Win Streak</h3>
+                            <p>${maxWinStreak}</p>
+                        </div>
+                        <div class="matches-center">
+                            <h2>Match History voor ${data.fullName}</h2>
+                            ${history.map((match, index) => `
+                                <div class="match-item">
+                                    <h3>Match ${index + 1}: <img src="${match.championIcon}" alt="${match.champion}" width="30" style="vertical-align: middle;"> ${match.champion} - ${match.win}</h3>
+                                    <p>KDA: ${match.kda}</p>
+                                    <p>Datum en tijd: ${match.date}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="streaks-right">
+                            <h3>Langste Loss Streak</h3>
+                            <p>${maxLossStreak}</p>
+                        </div>
+                    `;
                     matchHistoryDiv.classList.remove('hidden');
                 } catch (error) {
                     alert('Fout bij ophalen match history: ' + error.message);
@@ -101,6 +133,5 @@ function displayPlayers() {
         }
     });
 }
-
 
 displayPlayers();
