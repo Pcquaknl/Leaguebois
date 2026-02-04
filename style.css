@@ -1,4 +1,4 @@
-/* Basisstijl: Dark fantasy thema met goud accenten */
+/* Updated style.css - add styles for match history */
 body {
     background-color: #1a1a1a; /* Donker grijs/zwart */
     color: #e6e6e6; /* Lichte tekst */
@@ -339,4 +339,59 @@ button:hover {
     align-items: initial;
     justify-content: initial;
     padding: 20px;
+}
+
+/* Nieuwe styles voor match-history */
+#players-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.player-icon {
+    cursor: pointer;
+    text-align: center;
+}
+
+.player-icon img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #d4af37;
+    box-shadow: 0 0 10px #d4af37;
+    transition: transform 0.2s;
+}
+
+.player-icon:hover img {
+    transform: scale(1.1);
+}
+
+.player-icon p {
+    margin-top: 5px;
+    color: #d4af37;
+    font-size: 16px;
+}
+
+#match-history {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #3c3c3c;
+    border: 1px solid #d4af37;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.match-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #d4af37;
+}
+
+.match-item h3 {
+    color: #d4af37;
+}
+
+.match-item p {
+    color: #e6e6e6;
 }
