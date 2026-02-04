@@ -1,5 +1,5 @@
 // Updated match-history.js
-const apiKey = 'RGAPI-595f14a5-b125-4180-85e6-80d8cb5aee65'; // Vervang dit door je eigen Riot API key (haal er een op https://developer.riotgames.com/)
+const apiKey = 'RGAPI-cac8629a-3d2e-445a-a002-25319ad968b8'; // Vervang dit door je eigen Riot API key (haal er een op https://developer.riotgames.com/)
 
 const players = [
     { gameName: 'CZ7', tagLine: '007' },
@@ -135,5 +135,6 @@ function displayPlayers() {
 }
 
 displayPlayers();
+
 
 
