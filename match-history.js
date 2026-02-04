@@ -18,12 +18,18 @@ async function getLatestVersion() {
     return versions[0];
 }
 
+async function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 async function getSummonerData(gameName, tagLine) {
     const accountUrl = `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}?api_key=${apiKey}`;
     const accountRes = await fetch(accountUrl);
     if (!accountRes.ok) throw new Error('Account niet gevonden');
     const account = await accountRes.json();
     const puuid = account.puuid;
+
+    await delay(50); // Delay to respect rate limits
 
     const summonerUrl = `https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${puuid}?api_key=${apiKey}`;
     const summonerRes = await fetch(summonerUrl);
@@ -39,13 +45,14 @@ async function getSummonerData(gameName, tagLine) {
 
 async function getMatchHistory(puuid) {
     const version = await getLatestVersion();
-    const matchesUrl = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?count=20&api_key=${apiKey}`; // Uitgebreid naar 20 matches voor streaks
+    const matchesUrl = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?count=20&api_key=${apiKey}`;
     const matchesRes = await fetch(matchesUrl);
     if (!matchesRes.ok) throw new Error('Geen matches gevonden');
     const matchIds = await matchesRes.json();
 
     const matches = [];
     for (let id of matchIds) {
+        await delay(50); // Delay tussen elke match request om 20/sec niet te overschrijden
         const matchUrl = `https://europe.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${apiKey}`;
         const matchRes = await fetch(matchUrl);
         if (!matchRes.ok) continue;
@@ -135,6 +142,3 @@ function displayPlayers() {
 }
 
 displayPlayers();
-
-
-
