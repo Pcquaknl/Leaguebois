@@ -11,6 +11,7 @@ const players = [
 
 const playersList = document.getElementById('players-list');
 const matchHistoryDiv = document.getElementById('match-history');
+const globalStreakDiv = document.getElementById('global-streak');
 
 async function getLatestVersion() {
     const res = await fetch('https://ddragon.leagueoflegends.com/api/versions.json');
@@ -45,14 +46,14 @@ async function getSummonerData(gameName, tagLine) {
 
 async function getMatchHistory(puuid) {
     const version = await getLatestVersion();
-    const matchesUrl = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?count=20&api_key=${apiKey}`;
+    const matchesUrl = `https://europe.api.riotgames.com/lol/match/v5/matches/by-puuid/${puuid}/ids?count=6&api_key=${apiKey}`; // Veranderd naar 6
     const matchesRes = await fetch(matchesUrl);
     if (!matchesRes.ok) throw new Error('Geen matches gevonden');
     const matchIds = await matchesRes.json();
 
     const matches = [];
     for (let id of matchIds) {
-        await delay(50); // Delay tussen elke match request om 20/sec niet te overschrijden
+        await delay(50); // Delay tussen elke match request
         const matchUrl = `https://europe.api.riotgames.com/lol/match/v5/matches/${id}?api_key=${apiKey}`;
         const matchRes = await fetch(matchUrl);
         if (!matchRes.ok) continue;
@@ -94,9 +95,36 @@ function calculateStreaks(history) {
     return { maxWinStreak, maxLossStreak };
 }
 
-function displayPlayers() {
-    players.forEach(async (player) => {
+async function initGlobalStreak() {
+    let maxLossStreak = 0;
+    let playerWithMaxLoss = '';
+
+    for (let player of players) {
         try {
+            await delay(50); // Extra delay tussen spelers
+            const data = await getSummonerData(player.gameName, player.tagLine);
+            const history = await getMatchHistory(data.puuid);
+            const { maxLossStreak: playerLossStreak } = calculateStreaks(history);
+            if (playerLossStreak > maxLossStreak) {
+                maxLossStreak = playerLossStreak;
+                playerWithMaxLoss = data.fullName;
+            }
+        } catch (error) {
+            console.error(`Fout bij ophalen data voor ${player.gameName}: ${error.message}`);
+        }
+    }
+
+    if (playerWithMaxLoss) {
+        globalStreakDiv.innerHTML = `<p>De speler met de langste loss streak is ${playerWithMaxLoss} met ${maxLossStreak} losses.</p>`;
+    } else {
+        globalStreakDiv.innerHTML = `<p>Kon geen loss streaks berekenen.</p>`;
+    }
+}
+
+async function displayPlayers() {
+    for (let player of players) { // Sequentieel om rate limits te respecteren
+        try {
+            await delay(50); // Delay tussen spelers
             const data = await getSummonerData(player.gameName, player.tagLine);
             const div = document.createElement('div');
             div.classList.add('player-icon');
@@ -138,7 +166,9 @@ function displayPlayers() {
         } catch (error) {
             console.error('Fout bij ophalen summoner data voor ' + player.gameName);
         }
-    });
+    }
 }
 
+// Start
 displayPlayers();
+initGlobalStreak();
