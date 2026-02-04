@@ -2,8 +2,8 @@
 const apiKey = 'RGAPI-595f14a5-b125-4180-85e6-80d8cb5aee65'; // Vervang dit door je eigen Riot API key (haal er een op https://developer.riotgames.com/)
 
 const players = [
-    { gameName: 'CZ', tagLine: '007' },
-    { gameName: 'Hoekuhkoek', tagLine: 'EUW' },
+    { gameName: 'CZ7', tagLine: '007' },
+    { gameName: 'Hoekuhnees', tagLine: 'EUW' },
     { gameName: 'Kipknots', tagLine: 'EUW' },
     { gameName: 'Principlenl', tagLine: '1994' }
     // Voeg hier makkelijk nieuwe spelers toe, bijv. { gameName: 'Nieuw', tagLine: 'TAG' }
@@ -135,3 +135,4 @@ function displayPlayers() {
 }
 
 displayPlayers();
+
