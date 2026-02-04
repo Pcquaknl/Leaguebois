@@ -1,4 +1,4 @@
-/* Updated style.css - add styles for match history */
+/* Updated style.css - add styles for streaks */
 body {
     background-color: #1a1a1a; /* Donker grijs/zwart */
     color: #e6e6e6; /* Lichte tekst */
@@ -380,6 +380,31 @@ button:hover {
     border: 1px solid #d4af37;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.streaks-left, .streaks-right {
+    width: 20%;
+    text-align: center;
+    padding: 10px;
+    background-color: #2c2c2c;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.streaks-left h3, .streaks-right h3 {
+    color: #d4af37;
+}
+
+.streaks-left p, .streaks-right p {
+    font-size: 24px;
+    color: #e6e6e6;
+}
+
+.matches-center {
+    width: 60%;
 }
 
 .match-item {
@@ -394,4 +419,13 @@ button:hover {
 
 .match-item p {
     color: #e6e6e6;
+}
+
+@media (max-width: 768px) {
+    #match-history {
+        flex-direction: column;
+    }
+    .streaks-left, .streaks-right, .matches-center {
+        width: 100%;
+    }
 }
