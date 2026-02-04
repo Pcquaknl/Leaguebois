@@ -1,32 +1,26 @@
-/* Updated style.css - add styles for streaks */
+/* Basisstijl: Dark fantasy thema met goud accenten /
 body {
-    background-color: #1a1a1a; /* Donker grijs/zwart */
-    color: #e6e6e6; /* Lichte tekst */
-    font-family: 'Cinzel', serif; /* Fantasy font */
+    background-color: #1a1a1a; / Donker grijs/zwart /
+    color: #e6e6e6; / Lichte tekst /
+    font-family: 'Cinzel', serif; / Fantasy font /
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
     text-align: center;
-    padding-top: 60px; /* Ruimte voor nav bar */
-}
-
-.container {
+    padding-top: 60px; / Ruimte voor nav bar */
+}.container {
     max-width: 800px;
     padding: 20px;
-    border: 2px solid #d4af37; /* Goud rand */
+    border: 2px solid #d4af37; /* Goud rand /
     border-radius: 10px;
-    background-color: #2c2c2c; /* Donkerder achtergrond */
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); /* Glowing goud effect */
-}
-
-h1 {
-    color: #d4af37; /* Goud titel */
-    text-shadow: 0 0 10px #d4af37; /* Glowing highlight */
-}
-
-input[type="text"] {
+    background-color: #2c2c2c; / Donkerder achtergrond /
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); / Glowing goud effect */
+}h1 {
+    color: #d4af37; /* Goud titel /
+    text-shadow: 0 0 10px #d4af37; / Glowing highlight */
+}input[type="text"] {
     display: block;
     margin: 10px auto;
     padding: 10px;
@@ -35,13 +29,9 @@ input[type="text"] {
     border: 1px solid #d4af37;
     color: #e6e6e6;
     border-radius: 5px;
-}
-
-input[type="checkbox"] {
+}input[type="checkbox"] {
     margin-right: 10px;
-}
-
-button {
+}button {
     background-color: #d4af37;
     color: #1a1a1a;
     border: none;
@@ -52,17 +42,11 @@ button {
     font-family: 'Cinzel', serif;
     box-shadow: 0 0 10px #d4af37;
     transition: transform 0.2s;
-}
-
-button:hover {
+}button:hover {
     transform: scale(1.05);
-}
-
-.hidden {
+}.hidden {
     display: none;
-}
-
-/* Rad stijl: Visueel draaiend wiel */
+}/* Rad stijl: Visueel draaiend wiel /
 .wheel {
     width: 200px;
     height: 200px;
@@ -73,57 +57,45 @@ button:hover {
     position: relative;
     overflow: hidden;
     box-shadow: 0 0 15px #d4af37;
-    animation: spin 1s linear infinite; /* Standaard spin animatie, wordt overschreven in JS */
+    animation: spin 1s linear infinite; / Standaard spin animatie, wordt overschreven in JS */
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.wheel-icon {
+}.wheel-icon {
     width: 100px;
     height: 100px;
     filter: drop-shadow(0 0 5px #d4af37);
-}
-
-@keyframes spin {
+}@keyframes
+ spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-}
-
-/* Slotmachine stijl voor DJ */
+}/* Slotmachine stijl voor DJ /
 .slotmachine {
     width: 200px;
-    height: 50px; /* Hoogte voor één naam */
+    height: 50px; / Hoogte voor één naam */
     margin: 20px auto;
     border: 2px solid #d4af37;
     overflow: hidden;
     background-color: #3c3c3c;
     box-shadow: 0 0 15px #d4af37;
     border-radius: 5px;
-}
-
-.slotmachine ul {
+}.slotmachine ul {
     list-style: none;
     margin: 0;
     padding: 0;
     animation: slot-spin 0.1s linear infinite; /* Snellere casino-style spin */
-}
-
-.slotmachine li {
+}.slotmachine li {
     height: 50px;
     line-height: 50px;
     text-align: center;
     font-size: 18px;
     color: #d4af37;
     text-shadow: 0 0 5px #d4af37;
-}
-
-@keyframes slot-spin {
+}@keyframes
+ slot-spin {
     0% { transform: translateY(0); }
     100% { transform: translateY(-50px); } /* Verschuif per naam hoogte */
-}
-
-/* Resultaten stijl */
+}/* Resultaten stijl */
 #results p {
     font-size: 18px;
     margin: 10px;
@@ -134,15 +106,11 @@ button:hover {
     box-shadow: 0 0 5px #d4af37;
     display: flex;
     align-items: center;
-}
-
-#results img {
+}#results img {
     width: 30px;
     height: 30px;
     margin-left: 10px;
-}
-
-#current-player, #dj-message {
+}#current-player, #dj-message {
     color: #d4af37;
     font-size: 20px;
     text-shadow: 0 0 5px #d4af37;
@@ -150,35 +118,27 @@ button:hover {
     white-space: normal;
     word-wrap: break-word;
     margin: 0 auto;
-}
-
-/* Navigatiebalk styles */
+}/* Navigatiebalk styles /
 .navbar {
-    background-color: #2c2c2c; /* Donkerder achtergrond */
-    border-bottom: 2px solid #d4af37; /* Goud rand onderaan */
+    background-color: #2c2c2c; / Donkerder achtergrond /
+    border-bottom: 2px solid #d4af37; / Goud rand onderaan /
     padding: 10px 0;
-    position: fixed; /* Fixed bovenaan (verwijder dit als je wilt dat hij mee-scrollt) */
+    position: fixed; / Fixed bovenaan (verwijder dit als je wilt dat hij mee-scrollt) /
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Boven alles */
+    z-index: 1000; / Boven alles */
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-}
-
-.navbar ul {
+}.navbar ul {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     gap: 30px; /* Ruimte tussen links */
-}
-
-.navbar li {
+}.navbar li {
     display: inline;
-}
-
-.navbar a {
+}.navbar a {
     color: #e6e6e6; /* Lichte tekst */
     text-decoration: none;
     font-size: 1.2em;
@@ -186,96 +146,68 @@ button:hover {
     padding: 10px 20px;
     border-radius: 5px;
     transition: all 0.2s;
-}
-
-.navbar a:hover {
+}.navbar a:hover {
     background-color: #d4af37;
     color: #1a1a1a;
     box-shadow: 0 0 10px #d4af37;
-}
-
-/* Tool-specifieke styles (toegevoegd voor tool.html) */
+}/* Tool-specifieke styles (toegevoegd voor tool.html) /
 .tool-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    border: 2px solid #d4af37; /* Goud rand */
+    border: 2px solid #d4af37; / Goud rand /
     border-radius: 10px;
-    background-color: #2c2c2c; /* Donkerder achtergrond */
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); /* Glowing goud effect */
-}
-
-.select-container {
+    background-color: #2c2c2c; / Donkerder achtergrond /
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5); / Glowing goud effect */
+}.select-container {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-}
-
-.section {
+}.section {
     flex: 1;
     padding: 20px;
     background-color: #3c3c3c;
     border: 1px solid #d4af37;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
-}
-
-.section h2 {
+}.section h2 {
     color: #d4af37;
     text-shadow: 0 0 5px #d4af37;
     margin-bottom: 15px;
-}
-
-.grid {
+}.grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
     gap: 10px;
     max-height: 400px;
     overflow-y: auto;
     padding: 10px;
-}
-
-.icon {
+}.icon {
     cursor: pointer;
     text-align: center;
     padding: 5px;
     border-radius: 10px;
     transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.icon img {
+}.icon img {
     width: 48px;
     height: 48px;
     border-radius: 50%;
     filter: drop-shadow(0 0 5px #d4af37);
     transition: transform 0.2s;
-}
-
-.icon:hover img {
+}.icon:hover img {
     transform: scale(1.1);
-}
-
-.icon.selected {
+}.icon.selected {
     background-color: rgba(212, 175, 55, 0.2);
     box-shadow: 0 0 15px #d4af37;
-}
-
-.icon.selected img {
+}.icon.selected img {
     border: 2px solid #d4af37;
     transform: scale(1.1);
-}
-
-.icon p {
+}.icon p {
     font-size: 11px;
     color: #e6e6e6;
     margin-top: 3px;
-}
-
-.abilities-section {
+}.abilities-section {
     margin-top: 30px;
-}
-
-.ability-item {
+}.ability-item {
     display: flex;
     align-items: flex-start;
     margin-bottom: 30px;
@@ -285,9 +217,7 @@ button:hover {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
     gap: 25px;
-}
-
-.ability-item video {
+}.ability-item video {
     width: 250px;
     height: 250px;
     border-radius: 10px;
@@ -295,30 +225,21 @@ button:hover {
     cursor: pointer;
     object-fit: cover;
     transition: transform 0.2s;
-}
-
-.ability-item video:hover {
+}.ability-item video:hover {
     transform: scale(1.05);
-}
-
-.ability-content {
+}.ability-content {
     flex: 1;
     text-align: left;
-}
-
-.ability-content h3 {
+}.ability-content h3 {
     color: #d4af37;
     margin-bottom: 10px;
     font-size: 1.4em;
-}
-
-.ability-content p {
+}.ability-content p {
     font-size: 16px;
     color: #e6e6e6;
     line-height: 1.5;
-}
-
-@media (max-width: 768px) {
+}@media
+ (max-width: 768px) {
     .select-container {
         flex-direction: column;
     }
@@ -331,49 +252,35 @@ button:hover {
         width: 200px;
         height: 200px;
     }
-}
-
-/* Override voor tool.html om icons zichtbaar te maken (verwijder flex center op body) */
+}/* Override voor tool.html om icons zichtbaar te maken (verwijder flex center op body) */
 .tool-page body {
     display: block;
     align-items: initial;
     justify-content: initial;
     padding: 20px;
-}
-
-/* Nieuwe styles voor match-history */
+}/* Nieuwe styles voor match-history */
 #players-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-}
-
-.player-icon {
+}.player-icon {
     cursor: pointer;
     text-align: center;
-}
-
-.player-icon img {
+}.player-icon img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
     border: 2px solid #d4af37;
     box-shadow: 0 0 10px #d4af37;
     transition: transform 0.2s;
-}
-
-.player-icon:hover img {
+}.player-icon:hover img {
     transform: scale(1.1);
-}
-
-.player-icon p {
+}.player-icon p {
     margin-top: 5px;
     color: #d4af37;
     font-size: 16px;
-}
-
-#match-history {
+}#match-history {
     margin-top: 30px;
     padding: 20px;
     background-color: #3c3c3c;
@@ -383,49 +290,47 @@ button:hover {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-}
-
-.streaks-left, .streaks-right {
+}.streaks-left, .streaks-right {
     width: 20%;
     text-align: center;
     padding: 10px;
     background-color: #2c2c2c;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-}
-
-.streaks-left h3, .streaks-right h3 {
+}.streaks-left h3, .streaks-right h3 {
     color: #d4af37;
-}
-
-.streaks-left p, .streaks-right p {
+}.streaks-left p, .streaks-right p {
     font-size: 24px;
     color: #e6e6e6;
-}
-
-.matches-center {
+}.matches-center {
     width: 60%;
-}
-
-.match-item {
+}.match-item {
     margin-bottom: 20px;
     padding: 10px;
     border-bottom: 1px solid #d4af37;
-}
-
-.match-item h3 {
+}.match-item h3 {
     color: #d4af37;
-}
-
-.match-item p {
+}.match-item p {
     color: #e6e6e6;
-}
-
-@media (max-width: 768px) {
+}@media
+ (max-width: 768px) {
     #match-history {
         flex-direction: column;
     }
     .streaks-left, .streaks-right, .matches-center {
         width: 100%;
     }
+}/* Updated style.css - add style for global-streak */
+.global-streak {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #3c3c3c;
+    border: 1px solid #d4af37;
+    border-radius: 5px;
+    text-align: center;
+    color: #e6e6e6;
+}.global-streak p {
+    font-size: 18px;
+    color: #d4af37;
 }
+
