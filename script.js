@@ -135,8 +135,11 @@ function spinDJ() {
         ul.style.display = 'inline-block';
         ul.style.margin = '0 10px'; // Ruimte tussen reels
         ul.style.overflow = 'hidden'; // Zorg dat overflow hidden is voor slot effect
-        ul.style.height = '150px'; // Hoogte voor 3 items zichtbaar, maar we centreren op 1
+        ul.style.height = '50px'; // Hoogte voor 1 item zichtbaar
         ul.style.position = 'relative';
+        ul.style.listStyle = 'none';
+        ul.style.padding = '0';
+        ul.style.width = '150px'; // Vaste breedte voor zichtbaarheid
         slotmachineContainer.appendChild(ul);
 
         // Vul met gedupliceerde namen
@@ -147,6 +150,9 @@ function spinDJ() {
             li.style.height = '50px';
             li.style.lineHeight = '50px';
             li.style.textAlign = 'center';
+            li.style.width = '150px'; // Vaste breedte
+            li.style.margin = '0';
+            li.style.listStyle = 'none';
             ul.appendChild(li);
         });
         reels.push(ul);
@@ -166,7 +172,7 @@ function spinDJ() {
             const nameHeight = 50;
             const playerIndex = players.indexOf(chosenPlayers[i]);
             const djIndex = playerIndex + players.length * 3;
-            const stopPosition = -djIndex * nameHeight + 50; // Aanpassen om te centreren (als hoogte 150px, midden op 50px)
+            const stopPosition = -djIndex * nameHeight; // Positioneer gekozen naam bovenaan het zichtbare gebied
             ul.style.transform = `translateY(${stopPosition}px)`;
         });
 
