@@ -143,8 +143,8 @@ function spinDJ() {
         ul.style.border = '1px solid black'; // Toegevoegd voor zichtbaarheid
         slotmachineContainer.appendChild(ul);
 
-        // Vul met gedupliceerde namen
-        const duplicatedPlayers = [...players, ...players, ...players, ...players, ...players, ...players, ...players];
+        // Vul met gedupliceerde namen (meer duplicaties voor veiligheid)
+        const duplicatedPlayers = Array(10).fill(players).flat();
         duplicatedPlayers.forEach(name => {
             const li = document.createElement('li');
             li.textContent = name;
@@ -173,9 +173,10 @@ function spinDJ() {
             // Bereken positie om te stoppen bij gekozen player (middelste duplicatie)
             const nameHeight = 50;
             const playerIndex = players.indexOf(chosenPlayers[i]);
-            const djIndex = playerIndex + players.length * 3;
-            const stopPosition = -djIndex * nameHeight + nameHeight; // Centreer de gekozen naam
+            const djIndex = playerIndex + players.length * 5; // Middelste van 10 duplicaties
+            const stopPosition = -djIndex * nameHeight + 50; // Centreer de gekozen naam
             ul.style.transform = `translateY(${stopPosition}px)`;
+            let dummy = ul.offsetHeight; // Force reflow om styles toe te passen
         });
 
         // Sla de chosen players op als djPlayers
