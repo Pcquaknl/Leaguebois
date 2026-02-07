@@ -13,7 +13,7 @@ let currentPlayerIndex = 0;
 let availableRoles = [...roles]; // Kopie van rollen
 let assignments = {}; // Toewijzingen: speler -> role
 let enableDJ = false;
-let djPlayer = null;
+let djPlayers = []; // Nu een array voor meerdere shotjes
 
 // Elementen ophalen
 const playerInputs = document.querySelectorAll('input[type="text"]');
@@ -26,7 +26,6 @@ const wheel = document.getElementById('wheel');
 const wheelIcon = document.getElementById('wheel-icon');
 const currentPlayerP = document.getElementById('current-player');
 const slotmachineContainer = document.getElementById('slotmachine-container');
-const slotmachineList = document.getElementById('slotmachine-list');
 const djMessage = document.getElementById('dj-message');
 const resultsDiv = document.getElementById('results');
 const resetBtn = document.getElementById('reset-btn');
@@ -116,38 +115,62 @@ function spinWheelForCurrentPlayer() {
     }, 3000); // Spin duur: 3 seconden
 }
 
-// Functie om DJ te spinnen met slotmachine
+// Functie om DJ te spinnen met slotmachine (nu met 3 reels voor 3 rolls)
 function spinDJ() {
     wheelContainer.classList.add('hidden');
     currentPlayerP.classList.add('hidden');
     slotmachineContainer.classList.remove('hidden');
     djMessage.textContent = 'Shotjeeeeeeeeeee 🦜';
-    
-    // Kies willekeurige DJ
-    djPlayer = players[Math.floor(Math.random() * players.length)];
-    
-    // Vul slotmachine met namen (dupliceer meer voor langere loop, om alle te zien)
-    slotmachineList.innerHTML = '';
-    const duplicatedPlayers = [...players, ...players, ...players, ...players, ...players, ...players, ...players]; // Dupliceer 7 keer voor betere zichtbaarheid
-    duplicatedPlayers.forEach(name => {
-        const li = document.createElement('li');
-        li.textContent = name;
-        slotmachineList.appendChild(li);
+
+    // Clear de container en maak 3 reels
+    slotmachineContainer.innerHTML = '';
+    const reels = [];
+    const chosenPlayers = [];
+    for (let i = 0; i < 3; i++) {
+        chosenPlayers.push(players[Math.floor(Math.random() * players.length)]);
+        
+        const ul = document.createElement('ul');
+        ul.style.display = 'inline-block';
+        ul.style.margin = '0 10px'; // Ruimte tussen reels
+        ul.style.overflow = 'hidden'; // Zorg dat overflow hidden is voor slot effect
+        ul.style.height = '150px'; // Hoogte voor 3 items zichtbaar, maar we centreren op 1
+        ul.style.position = 'relative';
+        slotmachineContainer.appendChild(ul);
+
+        // Vul met gedupliceerde namen
+        const duplicatedPlayers = [...players, ...players, ...players, ...players, ...players, ...players, ...players];
+        duplicatedPlayers.forEach(name => {
+            const li = document.createElement('li');
+            li.textContent = name;
+            li.style.height = '50px';
+            li.style.lineHeight = '50px';
+            li.style.textAlign = 'center';
+            ul.appendChild(li);
+        });
+        reels.push(ul);
+    }
+
+    // Start animatie voor elke reel
+    reels.forEach(ul => {
+        ul.style.animation = 'slot-spin 0.1s linear infinite';
     });
-    
-    // Start animatie
-    slotmachineList.style.animation = 'slot-spin 0.1s linear infinite'; // Snellere casino-style
-    
+
     // Stop na 3 seconden
     setTimeout(() => {
-        slotmachineList.style.animation = 'none';
-        
-        // Bereken positie om te stoppen bij gekozen DJ (eerste occurrence na duplicatie)
-        const nameHeight = 50; // Hoogte per li
-        const djIndex = players.indexOf(djPlayer) + players.length * 3; // Middelste duplicatie voor centrering
-        const stopPosition = -djIndex * nameHeight;
-        slotmachineList.style.transform = `translateY(${stopPosition}px)`;
-        
+        reels.forEach((ul, i) => {
+            ul.style.animation = 'none';
+            
+            // Bereken positie om te stoppen bij gekozen player (middelste duplicatie)
+            const nameHeight = 50;
+            const playerIndex = players.indexOf(chosenPlayers[i]);
+            const djIndex = playerIndex + players.length * 3;
+            const stopPosition = -djIndex * nameHeight + 50; // Aanpassen om te centreren (als hoogte 150px, midden op 50px)
+            ul.style.transform = `translateY(${stopPosition}px)`;
+        });
+
+        // Sla de chosen players op als djPlayers
+        djPlayers = chosenPlayers;
+
         // Wacht 2 seconden en toon resultaten
         setTimeout(showResults, 2000);
     }, 3000);
@@ -164,7 +187,16 @@ function showResults() {
         resultsDiv.innerHTML += `<p>${player}: ${role} <img src="${iconUrl}" alt="${role}"></p>`;
     });
     if (enableDJ) {
-        resultsDiv.innerHTML += `<p>Shotjeeeee 🐦: ${djPlayer}</p>`;
+        // Tel het aantal shotjes per speler
+        const shotCount = {};
+        players.forEach(p => shotCount[p] = 0);
+        djPlayers.forEach(p => shotCount[p]++);
+        
+        for (let p in shotCount) {
+            if (shotCount[p] > 0) {
+                resultsDiv.innerHTML += `<p>${p}: ${shotCount[p]} shotje${shotCount[p] > 1 ? 's' : ''} 🐦</p>`;
+            }
+        }
     }
     
     resetBtn.classList.remove('hidden');
@@ -178,7 +210,7 @@ function resetGame() {
     availableRoles = [...roles];
     assignments = {};
     enableDJ = false;
-    djPlayer = null;
+    djPlayers = [];
     
     // UI reset (namen en checkbox blijven behouden)
     playerInputDiv.classList.remove('hidden');
@@ -186,13 +218,10 @@ function resetGame() {
     wheelContainer.classList.remove('hidden');
     currentPlayerP.classList.remove('hidden');
     slotmachineContainer.classList.add('hidden');
+    slotmachineContainer.innerHTML = ''; // Clear de reels
     resultsDiv.innerHTML = '';
     resetBtn.classList.add('hidden');
     wheelIcon.src = '';
     wheelIcon.alt = '';
     wheel.style.animation = 'none';
-    slotmachineList.innerHTML = '';
-    slotmachineList.style.transform = 'translateY(0)';
 }
-
-
