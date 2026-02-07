@@ -164,7 +164,7 @@ function showResults() {
         resultsDiv.innerHTML += `<p>${player}: ${role} <img src="${iconUrl}" alt="${role}"></p>`;
     });
     if (enableDJ) {
-        resultsDiv.innerHTML += `<p>DJ: ${djPlayer}</p>`;
+        resultsDiv.innerHTML += `<p>Shotjeeeee 🐦: ${djPlayer}</p>`;
     }
     
     resetBtn.classList.remove('hidden');
@@ -194,3 +194,4 @@ function resetGame() {
     slotmachineList.innerHTML = '';
     slotmachineList.style.transform = 'translateY(0)';
 }
+
