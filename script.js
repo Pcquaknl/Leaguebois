@@ -121,7 +121,7 @@ function spinDJ() {
     wheelContainer.classList.add('hidden');
     currentPlayerP.classList.add('hidden');
     slotmachineContainer.classList.remove('hidden');
-    djMessage.textContent = 'Kiezen van DJ...';
+    djMessage.textContent = 'Shotjeeeeeeeeeee 🦜';
     
     // Kies willekeurige DJ
     djPlayer = players[Math.floor(Math.random() * players.length)];
@@ -194,4 +194,5 @@ function resetGame() {
     slotmachineList.innerHTML = '';
     slotmachineList.style.transform = 'translateY(0)';
 }
+
 
