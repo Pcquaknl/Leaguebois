@@ -124,6 +124,8 @@ function spinDJ() {
 
     // Clear de container en maak 3 reels
     slotmachineContainer.innerHTML = '';
+    slotmachineContainer.appendChild(djMessage);
+
     const reels = [];
     const chosenPlayers = [];
     for (let i = 0; i < 3; i++) {
