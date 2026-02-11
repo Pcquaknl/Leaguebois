@@ -428,4 +428,31 @@ button:hover {
     .streaks-left, .streaks-right, .matches-center {
         width: 100%;
     }
+/* Tier select styles */
+#tier-select {
+    margin: 20px 0;
+    text-align: left;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+#tier-select label {
+    display: inline-block;
+    margin: 5px 10px;
+    color: #e6e6e6;
+}
+
+#tier-select input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Voor champion icons in results */
+#results img.champ-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+
