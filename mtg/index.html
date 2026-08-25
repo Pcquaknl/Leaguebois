@@ -1,0 +1,2503 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d0d0f">
+  <meta id="metaDescription" name="description" content="Bekijk welke Magic: The Gathering-sets en kaarten momenteel binnen ieder format speelbaar zijn en wanneer roterende sets verdwijnen.">
+  <meta id="ogTitle" property="og:title" content="MTG Set Legality">
+  <meta id="ogDescription" property="og:description" content="Welke sets en kaarten zijn legal? Bekijk het direct per MTG-format.">
+  <title>MTG Set Legality</title>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"MTG Set Legality","applicationCategory":"ReferenceApplication","operatingSystem":"Any","inLanguage":"nl-NL","description":"Actuele gids voor Magic: The Gathering-set- en kaartlegaliteit per format."}</script>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d0d0f;
+      --bg-deep: #080809;
+      --surface: #151518;
+      --surface-2: #1b1b1f;
+      --line: rgba(255,255,255,.1);
+      --line-strong: rgba(255,255,255,.18);
+      --text: #f6f1e7;
+      --muted: #aaa59d;
+      --muted-2: #77736d;
+      --gold: #d2a65a;
+      --copper: #a85f3c;
+      --accent: #d2a65a;
+      --accent-rgb: 210, 166, 90;
+      --good: #75bd8b;
+      --warn: #e9ae61;
+      --digital: #8ba4df;
+      --danger: #d87469;
+      --mana-w: #efe0ad;
+      --mana-u: #559bc4;
+      --mana-b: #80748f;
+      --mana-r: #c66343;
+      --mana-g: #5d936c;
+      --shadow: 0 20px 60px rgba(0,0,0,.34);
+      --radius: 20px;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      min-width: 320px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% -8%, rgba(198,99,67,.15), transparent 35rem),
+        radial-gradient(circle at 88% 4%, rgba(85,155,196,.08), transparent 28rem),
+        radial-gradient(circle at 72% 48%, rgba(93,147,108,.045), transparent 34rem),
+        linear-gradient(180deg, var(--bg-deep), var(--bg) 24rem);
+      font-family: var(--sans);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .22;
+      z-index: -1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.09'/%3E%3C/svg%3E");
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: min(66vw, 760px);
+      aspect-ratio: 1;
+      right: -24vw;
+      top: 16vh;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .22;
+      background:
+        radial-gradient(circle, transparent 0 29%, rgba(210,166,90,.08) 29.2% 29.45%, transparent 29.7%),
+        conic-gradient(from 18deg, transparent 0 19%, rgba(210,166,90,.055) 19.2% 19.45%, transparent 19.7% 39%, rgba(85,155,196,.045) 39.2% 39.45%, transparent 39.7% 59%, rgba(128,116,143,.045) 59.2% 59.45%, transparent 59.7% 79%, rgba(198,99,67,.045) 79.2% 79.45%, transparent 79.7%);
+      border: 1px solid rgba(210,166,90,.045);
+      border-radius: 50%;
+      transform: rotate(-8deg);
+    }
+
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { color: inherit; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    [hidden] { display: none !important; }
+
+    :focus-visible {
+      outline: 3px solid rgba(var(--accent-rgb), .86);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 12px;
+      top: 12px;
+      z-index: 100;
+      transform: translateY(-160%);
+      border-radius: 10px;
+      background: var(--text);
+      color: var(--bg);
+      padding: 12px 16px;
+      font-weight: 800;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .shell { width: min(1520px, calc(100% - 32px)); margin: 0 auto; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(10,10,11,.84);
+      backdrop-filter: blur(18px);
+    }
+
+    .topbar::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--mana-w), var(--mana-u), var(--mana-b), var(--mana-r), var(--mana-g));
+      opacity: .48;
+    }
+
+    .topbar-inner {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .topbar-left {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hub-link {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      color: var(--muted);
+      text-decoration: none;
+      background: rgba(255,255,255,.025);
+      transition: color .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .hub-link:hover {
+      color: var(--gold);
+      border-color: rgba(210,166,90,.45);
+      background: rgba(210,166,90,.07);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      border: 0;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .brand-mark {
+      width: 34px;
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      position: relative;
+      border: 1px solid rgba(239,224,173,.32);
+      border-radius: 50%;
+      background: conic-gradient(from -18deg, var(--mana-w) 0 18%, var(--mana-u) 18% 38%, var(--mana-b) 38% 58%, var(--mana-r) 58% 78%, var(--mana-g) 78% 100%);
+      box-shadow: 0 0 20px rgba(210,166,90,.08);
+      font-size: 0;
+    }
+
+    .brand-mark::before { content: ""; position: absolute; inset: 5px; border-radius: 50%; background: #111114; box-shadow: inset 0 0 0 1px rgba(255,255,255,.09); }
+    .brand-mark::after { content: "✦"; position: relative; color: var(--gold); font-family: var(--serif); font-size: 13px; }
+
+    .brand-copy strong { display: block; font-family: var(--serif); font-size: 17px; letter-spacing: .02em; }
+    .brand-copy span { display: block; margin-top: 1px; color: var(--muted-2); font-size: 11px; text-transform: uppercase; letter-spacing: .14em; }
+
+    .updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .updated::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--good);
+      box-shadow: 0 0 0 4px rgba(117,189,139,.1);
+      animation: livePulse 2.8s ease-out infinite;
+    }
+
+    @keyframes livePulse { 0%, 45% { box-shadow: 0 0 0 3px rgba(117,189,139,.12); } 75%, 100% { box-shadow: 0 0 0 8px rgba(117,189,139,0); } }
+
+    main { min-height: calc(100vh - 66px); }
+
+    .home-view { padding: 36px 0 82px; }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+      gap: 38px;
+      align-items: end;
+      margin-bottom: 23px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 32px; height: 1px; background: currentColor; }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 900px;
+      margin-bottom: 17px;
+      font-family: var(--serif);
+      font-size: clamp(43px, 6vw, 76px);
+      font-weight: 500;
+      line-height: .94;
+      letter-spacing: -.045em;
+    }
+    h1 em { color: var(--gold); font-weight: inherit; }
+
+    .lead { max-width: 670px; margin-bottom: 0; color: var(--muted); font-size: clamp(15px, 1.7vw, 18px); line-height: 1.6; }
+
+    .intro-note {
+      border-left: 1px solid rgba(210,166,90,.42);
+      padding: 6px 0 6px 22px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .intro-note strong { display: block; margin-bottom: 6px; color: var(--text); font-family: var(--serif); font-size: 19px; font-weight: 500; }
+
+    .mana-row { display: flex; gap: 7px; margin: 16px 0 0; }
+    .mana-row i { width: 9px; height: 9px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; box-shadow: inset 0 0 0 2px rgba(8,8,9,.45); }
+    .mana-row i:nth-child(1) { background: var(--mana-w); }
+    .mana-row i:nth-child(2) { background: var(--mana-u); }
+    .mana-row i:nth-child(3) { background: var(--mana-b); }
+    .mana-row i:nth-child(4) { background: var(--mana-r); }
+    .mana-row i:nth-child(5) { background: var(--mana-g); }
+
+    .card-finder {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 9px;
+      max-width: 920px;
+      margin: 0 0 18px;
+      border: 1px solid rgba(210,166,90,.2);
+      border-radius: 18px;
+      padding: 8px;
+      background: linear-gradient(110deg, rgba(210,166,90,.075), rgba(255,255,255,.018));
+      box-shadow: 0 16px 42px rgba(0,0,0,.2);
+    }
+    .card-finder-label { grid-column: 1 / -1; padding: 4px 9px 0; color: var(--muted); font-size: 11px; line-height: 1.45; }
+    .card-finder-label strong { color: var(--text); }
+    .card-query-wrap { position: relative; min-width: 0; }
+    .card-query { width: 100%; min-width: 0; min-height: 50px; border: 0; border-radius: 12px; background: rgba(5,5,6,.54); padding: 0 44px 0 16px; color: var(--text); }
+    .card-query::placeholder { color: var(--muted-2); }
+    .card-query:focus { outline: 1px solid rgba(210,166,90,.58); outline-offset: 0; }
+    .card-query-wrap::after {
+      content: "⌕";
+      position: absolute;
+      right: 16px;
+      top: 25px;
+      transform: translateY(-50%);
+      color: var(--muted-2);
+      font-size: 20px;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .card-suggestions {
+      position: absolute;
+      z-index: 60;
+      top: calc(100% + 8px);
+      left: 0;
+      width: 100%;
+      max-height: 328px;
+      overflow-y: auto;
+      margin: 0;
+      border: 1px solid rgba(210,166,90,.3);
+      border-radius: 14px;
+      padding: 6px;
+      list-style: none;
+      background: #151413;
+      box-shadow: 0 22px 55px rgba(0,0,0,.55);
+      scrollbar-width: thin;
+      scrollbar-color: var(--line-strong) transparent;
+    }
+    .card-suggestions[hidden] { display: none; }
+    .card-suggestion {
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-radius: 9px;
+      padding: 9px 11px;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+    .card-suggestion::after { content: "↵"; flex: 0 0 auto; color: var(--muted-2); font-size: 11px; }
+    .card-suggestion:hover, .card-suggestion[aria-selected="true"] { background: rgba(210,166,90,.11); color: var(--text); }
+    .card-suggestion-status { min-height: 44px; display: flex; align-items: center; padding: 9px 11px; color: var(--muted-2); font-size: 12px; }
+    .finder-btn { min-height: 50px; border: 1px solid rgba(210,166,90,.35); border-radius: 12px; background: rgba(210,166,90,.13); padding: 0 19px; color: var(--text); cursor: pointer; font-size: 12px; font-weight: 850; }
+    .finder-btn:hover { background: rgba(210,166,90,.2); }
+    .finder-btn[disabled] { cursor: wait; opacity: .6; }
+
+    .home-notices { display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 12px; }
+    .resume-btn, .change-notice { min-height: 42px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.025); padding: 0 14px; color: var(--muted); font-size: 12px; }
+    .resume-btn { cursor: pointer; }
+    .resume-btn:hover { color: var(--text); border-color: rgba(210,166,90,.35); }
+    .change-notice { border-color: rgba(117,189,139,.24); color: #a9cfb4; }
+
+    .card-result { margin: 0 0 22px; border: 1px solid rgba(210,166,90,.24); border-radius: 20px; background: linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.014)); padding: clamp(18px,3vw,28px); box-shadow: var(--shadow); }
+    .card-result-layout { display: grid; grid-template-columns: minmax(180px, 220px) minmax(0, 1fr); gap: clamp(20px,3vw,32px); align-items: start; }
+    .card-result-info { min-width: 0; }
+    .card-preview { width: 100%; }
+    .card-image-stage {
+      position: relative;
+      aspect-ratio: 488 / 680;
+      overflow: hidden;
+      border: 1px solid rgba(210,166,90,.28);
+      border-radius: 16px;
+      background: radial-gradient(circle at 50% 35%, rgba(210,166,90,.1), rgba(0,0,0,.28));
+      box-shadow: 0 18px 42px rgba(0,0,0,.42);
+    }
+    .card-face-image { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .card-face-image[hidden] { display: none; }
+    .card-face-btn {
+      width: 100%;
+      min-height: 44px;
+      margin-top: 10px;
+      border: 1px solid rgba(210,166,90,.28);
+      border-radius: 12px;
+      background: rgba(210,166,90,.08);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .card-face-btn:hover { background: rgba(210,166,90,.15); }
+    .card-image-credit { display: block; margin-top: 8px; color: var(--muted-2); font-size: 10px; text-align: center; }
+    .card-image-placeholder { aspect-ratio: 488 / 680; display: grid; place-items: center; border: 1px dashed var(--line-strong); border-radius: 16px; background: rgba(0,0,0,.18); }
+    .card-image-placeholder img { width: 68px; height: 68px; filter: invert(88%) sepia(18%) saturate(421%) hue-rotate(352deg) brightness(106%); }
+    .card-image-placeholder .set-code { font-size: 20px; }
+    .card-result-head { display: grid; grid-template-columns: 64px minmax(0,1fr) auto; gap: 16px; align-items: center; margin-bottom: 20px; }
+    .card-result-symbol { width: 64px; height: 64px; display: grid; place-items: center; border: 1px solid rgba(210,166,90,.22); border-radius: 50%; background: rgba(210,166,90,.06); }
+    .card-result-symbol img { width: 38px; height: 38px; filter: invert(88%) sepia(18%) saturate(421%) hue-rotate(352deg) brightness(106%); }
+    .card-result h2 { margin: 0 0 4px; font-family: var(--serif); font-size: clamp(25px,4vw,38px); font-weight: 500; }
+    .card-result-meta { margin: 0; color: var(--muted); font-size: 12px; }
+    .card-result-error { margin: 0; color: #dfaaa4; }
+    .legality-grid { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 8px; }
+    .legality-item { min-width: 0; border: 1px solid var(--line); border-radius: 12px; padding: 10px; background: rgba(0,0,0,.14); }
+    .legality-item span { display: block; overflow: hidden; color: var(--muted); font-size: 10px; font-weight: 850; text-overflow: ellipsis; white-space: nowrap; }
+    .legality-item strong { display: flex; align-items: center; gap: 6px; margin-top: 5px; color: #dfaaa4; font-size: 11px; }
+    .legality-item strong::before { content: ""; width: 7px; height: 7px; flex: 0 0 auto; border-radius: 50%; background: currentColor; }
+    .legality-item.legal strong { color: #9bd1a9; }
+    .legality-item.restricted strong { color: #e8b975; }
+    .legality-item.unknown strong { color: var(--muted-2); }
+
+    .deck-checker {
+      margin: 0 0 22px;
+      border: 1px solid rgba(210,166,90,.2);
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(210,166,90,.055), rgba(255,255,255,.014));
+      box-shadow: 0 14px 38px rgba(0,0,0,.18);
+    }
+    .deck-checker summary {
+      min-height: 82px;
+      display: grid;
+      grid-template-columns: 50px minmax(0,1fr) auto;
+      align-items: center;
+      gap: 15px;
+      padding: 14px 18px;
+      list-style: none;
+      cursor: pointer;
+    }
+    .deck-checker summary::-webkit-details-marker { display: none; }
+    .deck-checker summary:hover .deck-summary-title { color: var(--gold); }
+    .deck-summary-icon { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid rgba(210,166,90,.3); border-radius: 14px 14px 14px 5px; background: rgba(210,166,90,.08); color: var(--gold); }
+    .deck-summary-icon svg { width: 26px; height: 26px; fill: none; stroke: currentColor; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; }
+    .deck-summary-copy { min-width: 0; }
+    .deck-summary-title { display: block; color: var(--text); font-family: var(--serif); font-size: 21px; font-weight: 500; transition: color .2s ease; }
+    .deck-summary-copy small { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; line-height: 1.45; }
+    .deck-summary-arrow { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--muted); transition: transform .2s ease, color .2s ease; }
+    .deck-checker[open] .deck-summary-arrow { transform: rotate(180deg); color: var(--gold); }
+    .deck-checker-body { border-top: 1px solid var(--line); padding: clamp(18px,3vw,28px); }
+    .deck-controls { display: grid; grid-template-columns: minmax(190px, 1fr) auto; gap: 12px; align-items: end; margin-bottom: 13px; }
+    .deck-field { display: grid; gap: 7px; color: var(--muted); font-size: 11px; font-weight: 800; }
+    .deck-select { width: 100%; min-height: 48px; border: 1px solid var(--line-strong); border-radius: 12px; background: #111112; padding: 0 42px 0 14px; color: var(--text); cursor: pointer; }
+    .deck-file-button { position: relative; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; overflow: hidden; border: 1px solid rgba(210,166,90,.3); border-radius: 12px; background: rgba(210,166,90,.08); padding: 0 16px; color: var(--text); cursor: pointer; font-size: 11px; font-weight: 850; }
+    .deck-file-button:hover, .deck-file-button:focus-within { border-color: rgba(210,166,90,.55); background: rgba(210,166,90,.14); }
+    .deck-file-button input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+    .deck-list-label { display: block; margin-bottom: 7px; color: var(--muted); font-size: 11px; font-weight: 800; }
+    .deck-list {
+      width: 100%;
+      min-height: 210px;
+      resize: vertical;
+      border: 1px solid var(--line-strong);
+      border-radius: 14px;
+      background: rgba(5,5,6,.5);
+      padding: 15px 16px;
+      color: var(--text);
+      font: 13px/1.6 var(--sans);
+    }
+    .deck-list::placeholder { color: var(--muted-2); }
+    .deck-list:focus, .deck-select:focus { outline: 1px solid rgba(210,166,90,.62); outline-offset: 2px; }
+    .deck-actions { display: flex; align-items: center; gap: 14px; margin-top: 12px; }
+    .deck-submit { min-width: 160px; }
+    .deck-count { color: var(--muted); font-size: 11px; }
+    .deck-help { margin: 11px 0 0; color: var(--muted-2); font-size: 10px; line-height: 1.55; }
+    .deck-result { margin-top: 20px; }
+    .deck-result-summary { display: grid; grid-template-columns: 42px minmax(0,1fr); gap: 13px; align-items: center; border: 1px solid var(--line); border-radius: 14px; padding: 14px; background: rgba(0,0,0,.16); }
+    .deck-result-summary.pass { border-color: rgba(117,189,139,.34); background: rgba(117,189,139,.055); }
+    .deck-result-summary.fail { border-color: rgba(205,104,91,.36); background: rgba(205,104,91,.055); }
+    .deck-result-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.05); color: #dfaaa4; font-size: 18px; font-weight: 900; }
+    .deck-result-summary.pass .deck-result-mark { color: #9bd1a9; }
+    .deck-result-summary strong { display: block; margin-bottom: 3px; font-family: var(--serif); font-size: 19px; font-weight: 500; }
+    .deck-result-summary p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.5; }
+    .deck-result-stats { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0; }
+    .deck-stat { min-height: 30px; display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; color: var(--muted); background: rgba(0,0,0,.12); font-size: 10px; font-weight: 800; }
+    .deck-card-list { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+    .deck-card-row { display: grid; grid-template-columns: 46px minmax(0,1fr) auto; gap: 11px; align-items: center; min-height: 48px; border: 1px solid var(--line); border-radius: 11px; padding: 8px 11px; background: rgba(0,0,0,.12); }
+    .deck-card-row.issue { border-color: rgba(205,104,91,.28); }
+    .deck-card-row.warning { border-color: rgba(232,185,117,.25); }
+    .deck-quantity { color: var(--muted); font-size: 11px; font-weight: 850; }
+    .deck-card-name { min-width: 0; overflow-wrap: anywhere; color: var(--text); font-size: 12px; font-weight: 750; }
+    a.deck-card-name:hover { color: var(--gold); }
+    .deck-card-status { justify-self: end; color: #9bd1a9; font-size: 10px; font-weight: 850; text-align: right; }
+    .deck-card-row.issue .deck-card-status { color: #dfaaa4; }
+    .deck-card-row.warning .deck-card-status { color: #e8b975; }
+    .deck-result-note { margin: 13px 0 0; border-left: 2px solid rgba(210,166,90,.38); padding-left: 11px; color: var(--muted-2); font-size: 10px; line-height: 1.55; }
+
+    .filter-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 3px 2px 13px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--line-strong) transparent;
+    }
+
+    .filter-btn, .ghost-btn, .icon-btn, .primary-btn, .view-btn {
+      min-height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.025);
+      cursor: pointer;
+      transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .filter-btn { flex: 0 0 auto; padding: 0 17px; color: var(--muted); font-size: 13px; font-weight: 700; }
+    .filter-btn:hover, .filter-btn[aria-pressed="true"] { border-color: rgba(210,166,90,.48); background: rgba(210,166,90,.09); color: var(--text); }
+
+    .format-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .format-card {
+      position: relative;
+      min-height: 224px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(90deg, rgba(var(--card-rgb),.25), transparent 38%) top / 100% 1px no-repeat,
+        linear-gradient(145deg, rgba(255,255,255,.047), rgba(255,255,255,.014));
+      padding: 0;
+      text-align: left;
+      box-shadow: inset 0 0 0 1px rgba(var(--card-rgb),.025), 0 12px 34px rgba(0,0,0,.18);
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+
+    .format-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -40px -70px auto;
+      width: 160px;
+      aspect-ratio: 1;
+      border: 1px solid rgba(var(--card-rgb), .24);
+      border-radius: 50%;
+      box-shadow: 0 0 60px rgba(var(--card-rgb), .12), inset 0 0 40px rgba(var(--card-rgb), .06);
+      pointer-events: none;
+    }
+    .format-card::after {
+      content: attr(data-index);
+      position: absolute;
+      right: 18px;
+      top: 16px;
+      color: rgba(255,255,255,.17);
+      font-family: var(--serif);
+      font-size: 12px;
+      pointer-events: none;
+    }
+    .format-card:hover { transform: translateY(-4px); border-color: rgba(var(--card-rgb), .44); box-shadow: 0 20px 50px rgba(0,0,0,.3); }
+    .format-card:has(.format-open:active) { transform: translateY(-1px); }
+    .format-card[hidden] { display: none; }
+    .format-card.is-favorite { border-color: rgba(var(--card-rgb),.48); }
+    .format-open { width: 100%; min-height: 222px; display: block; border: 0; background: none; padding: 23px; color: inherit; text-align: left; text-decoration: none; cursor: pointer; }
+    .favorite-btn { position: absolute; right: 12px; top: 34px; z-index: 2; width: 42px; height: 42px; border: 0; border-radius: 50%; background: transparent; color: var(--muted-2); cursor: pointer; font-size: 18px; }
+    .favorite-btn:hover, .favorite-btn[aria-pressed="true"] { background: rgba(var(--card-rgb),.09); color: rgb(var(--card-rgb)); }
+
+    .format-glyph {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 24px;
+      border: 1px solid rgba(var(--card-rgb), .36);
+      border-radius: 17px 17px 17px 5px;
+      background:
+        radial-gradient(circle at 32% 25%, rgba(var(--card-rgb), .18), transparent 56%),
+        rgba(var(--card-rgb), .075);
+      color: rgb(var(--card-rgb));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.025), 0 8px 24px rgba(0,0,0,.17);
+    }
+    .format-glyph svg {
+      width: 29px;
+      height: 29px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.65;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+    }
+    .format-card h2 { margin-bottom: 8px; font-family: var(--serif); font-size: 26px; font-weight: 500; }
+    .format-card p { min-height: 42px; margin-bottom: 18px; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .format-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 9px;
+      color: var(--muted);
+      background: rgba(0,0,0,.14);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    .tag.rotating { border-color: rgba(233,174,97,.25); color: #ecc388; }
+    .tag.arena { border-color: rgba(139,164,223,.25); color: #aebfec; }
+
+    .detail-view { padding: 28px 0 86px; }
+
+    .detail-nav { display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .favorite-detail { min-height: 44px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.025); padding: 0 15px; color: var(--muted); cursor: pointer; font-size: 12px; font-weight: 800; }
+    .favorite-detail[aria-pressed="true"] { border-color: rgba(var(--accent-rgb),.42); color: rgb(var(--accent-rgb)); background: rgba(var(--accent-rgb),.08); }
+
+    .back-btn {
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 0;
+      background: none;
+      padding: 0 5px 0 0;
+      color: var(--muted);
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .back-btn:hover { color: var(--text); }
+
+    .format-head {
+      position: relative;
+      overflow: hidden;
+      margin-top: 18px;
+      border: 1px solid rgba(var(--accent-rgb), .22);
+      border-radius: 26px;
+      padding: clamp(25px, 4vw, 48px);
+      background:
+        radial-gradient(circle at 90% 12%, rgba(var(--accent-rgb), .16), transparent 26rem),
+        linear-gradient(90deg, rgba(var(--accent-rgb),.32), transparent 34%) top / 100% 1px no-repeat,
+        linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.012));
+      box-shadow: var(--shadow);
+    }
+
+    .format-head::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      aspect-ratio: 1;
+      right: -78px;
+      top: -95px;
+      border: 1px solid rgba(var(--accent-rgb), .22);
+      border-radius: 50%;
+      box-shadow: inset 0 0 80px rgba(var(--accent-rgb), .08);
+      pointer-events: none;
+    }
+
+    .format-head::before {
+      content: "✦";
+      position: absolute;
+      right: 69px;
+      top: 29px;
+      color: rgba(var(--accent-rgb),.22);
+      font-family: var(--serif);
+      font-size: 30px;
+      pointer-events: none;
+    }
+
+    .detail-kicker { margin-bottom: 11px; color: rgb(var(--accent-rgb)); font-size: 11px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    .detail-title { margin-bottom: 12px; font-family: var(--serif); font-size: clamp(42px, 6vw, 76px); font-weight: 500; line-height: .98; letter-spacing: -.035em; }
+    .detail-description { max-width: 780px; margin-bottom: 28px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+
+    .stat-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .stat {
+      min-width: 142px;
+      border-top: 1px solid rgba(var(--accent-rgb), .3);
+      padding: 12px 18px 0 0;
+    }
+    .stat span { display: block; margin-bottom: 5px; color: var(--muted-2); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .stat strong { font-family: var(--serif); font-size: 17px; font-weight: 500; }
+
+    .rotation-callout, .scope-callout, .api-alert {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-top: 15px;
+      border: 1px solid rgba(233,174,97,.22);
+      border-radius: 14px;
+      background: rgba(233,174,97,.055);
+      padding: 14px 16px;
+      color: #d9c5a6;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .rotation-callout strong, .scope-callout strong { color: var(--text); }
+    .scope-callout { border-color: rgba(139,164,223,.2); background: rgba(139,164,223,.045); color: #b9c3da; }
+    .callout-icon { flex: 0 0 auto; width: 22px; height: 22px; display: grid; place-items: center; border: 1px solid currentColor; border-radius: 50%; font-size: 11px; font-weight: 900; }
+    .rotation-copy { min-width: 0; flex: 1; }
+    .rotation-preview { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 11px; }
+    .rotation-mini { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgba(233,174,97,.2); border-radius: 50%; background: rgba(0,0,0,.17); }
+    .rotation-mini img { width: 23px; height: 23px; object-fit: contain; filter: invert(88%) sepia(18%) saturate(421%) hue-rotate(352deg) brightness(106%); }
+    .countdown { display: inline-flex; margin-left: 5px; color: #f1c787; }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto auto;
+      gap: 11px;
+      align-items: center;
+      margin: 26px 0 14px;
+    }
+
+    .search-wrap { position: relative; }
+    .search-wrap svg { position: absolute; left: 16px; top: 50%; width: 18px; transform: translateY(-50%); color: var(--muted-2); }
+    .search-input {
+      width: 100%;
+      min-height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      padding: 0 18px 0 45px;
+      color: var(--text);
+    }
+    .search-input::placeholder { color: var(--muted-2); }
+    .search-input:focus { border-color: rgba(var(--accent-rgb), .5); outline: none; box-shadow: 0 0 0 3px rgba(var(--accent-rgb), .08); }
+
+    .view-switch { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+    .view-btn { min-height: 40px; border: 0; padding: 0 14px; color: var(--muted); }
+    .view-btn[aria-pressed="true"] { background: rgba(var(--accent-rgb), .12); color: var(--text); }
+    .icon-btn, .ghost-btn, .primary-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 0 16px; font-weight: 800; font-size: 12px; }
+    .ghost-btn:hover, .icon-btn:hover { border-color: rgba(var(--accent-rgb), .42); background: rgba(var(--accent-rgb), .08); }
+    .primary-btn { border-color: rgba(var(--accent-rgb), .38); background: rgba(var(--accent-rgb), .12); }
+    .primary-btn:hover { background: rgba(var(--accent-rgb), .2); }
+    .icon-btn svg, .ghost-btn svg, .primary-btn svg { width: 17px; height: 17px; }
+
+    .toolbar-secondary { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .results-label { color: var(--muted); font-size: 12px; }
+    .results-label strong { color: var(--text); }
+    .secondary-actions { display: flex; gap: 8px; }
+
+    .set-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .set-card {
+      position: relative;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(150deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+      padding: 16px;
+      box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb),.025), 0 12px 28px rgba(0,0,0,.18);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .set-card:hover { transform: translateY(-3px); border-color: rgba(var(--accent-rgb), .36); background: linear-gradient(150deg, rgba(var(--accent-rgb),.065), rgba(255,255,255,.016)); }
+    .set-card.next-out { border-color: rgba(233,174,97,.58); box-shadow: 0 0 0 1px rgba(233,174,97,.08), 0 18px 38px rgba(0,0,0,.25); }
+    .set-card.next-out::before { content: "Volgende rotatie"; position: absolute; right: 10px; top: 10px; border-radius: 999px; background: #e9ae61; color: #24170b; padding: 5px 8px; font-size: 8px; font-weight: 950; letter-spacing: .07em; text-transform: uppercase; }
+
+    .symbol-wrap {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      border: 1px solid rgba(var(--accent-rgb), .16);
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(var(--accent-rgb), .13), rgba(var(--accent-rgb),.035) 52%, transparent 69%);
+      box-shadow: inset 0 0 0 5px rgba(255,255,255,.012);
+    }
+    .set-symbol { width: 40px; height: 40px; object-fit: contain; filter: invert(88%) sepia(18%) saturate(421%) hue-rotate(352deg) brightness(106%); opacity: .94; }
+    .symbol-fallback { display: none; color: rgb(var(--accent-rgb)); font-family: var(--serif); font-size: 19px; font-weight: 700; text-transform: uppercase; }
+    .symbol-wrap.broken .set-symbol { display: none; }
+    .symbol-wrap.broken .symbol-fallback { display: block; }
+
+    .set-code { margin-bottom: 8px; color: rgb(var(--accent-rgb)); font-size: 10px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .set-card h3 { min-height: 46px; margin-bottom: 12px; overflow-wrap: anywhere; font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.22; }
+    .set-meta { display: grid; gap: 8px; margin: 0; }
+    .set-meta div { display: flex; justify-content: space-between; gap: 9px; border-top: 1px solid rgba(255,255,255,.065); padding-top: 8px; }
+    .set-meta dt { color: var(--muted-2); font-size: 10px; }
+    .set-meta dd { margin: 0; color: var(--muted); font-size: 10px; font-weight: 700; text-align: right; }
+
+    .status-pill { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; border-radius: 999px; padding: 7px 9px; background: rgba(117,189,139,.085); color: #9bd1a9; font-size: 9px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+    .status-pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .status-pill.warning { background: rgba(233,174,97,.1); color: #e8b975; }
+    .status-pill.digital { background: rgba(139,164,223,.1); color: #aebfec; }
+
+    .set-grid.timeline { display: block; position: relative; padding-left: 34px; }
+    .set-grid.timeline::before { content: ""; position: absolute; left: 11px; top: 14px; bottom: 14px; width: 1px; background: linear-gradient(rgb(var(--accent-rgb)), rgba(var(--accent-rgb),.08)); }
+    .set-grid.timeline .set-card { min-height: 0; display: grid; grid-template-columns: 72px minmax(180px, 1fr) minmax(230px, 1.4fr) auto; gap: 18px; align-items: center; margin-bottom: 10px; padding: 15px 18px; overflow: visible; }
+    .set-grid.timeline .set-card::after { content: ""; position: absolute; left: -29px; top: 50%; width: 9px; height: 9px; transform: translateY(-50%); border: 2px solid var(--bg); border-radius: 50%; background: rgb(var(--accent-rgb)); box-shadow: 0 0 0 3px rgba(var(--accent-rgb),.2); }
+    .set-grid.timeline .symbol-wrap { width: 56px; height: 56px; margin: 0; }
+    .set-grid.timeline .set-symbol { width: 34px; height: 34px; }
+    .set-grid.timeline .set-code { margin: 0 0 4px; }
+    .set-grid.timeline h3 { min-height: 0; margin: 0; }
+    .set-grid.timeline .set-meta { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .set-grid.timeline .status-pill { margin: 0; justify-self: end; }
+
+    .empty-state { grid-column: 1 / -1; border: 1px dashed var(--line-strong); border-radius: 18px; padding: 50px 20px; color: var(--muted); text-align: center; }
+    .year-divider { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; margin: 13px 0 0; color: rgb(var(--accent-rgb)); font-family: var(--serif); font-size: 18px; font-weight: 500; }
+    .year-divider::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, rgba(var(--accent-rgb),.3), transparent); }
+    .load-more-wrap { display: flex; justify-content: center; margin: 24px 0 0; }
+    .load-more-btn { min-height: 48px; border: 1px solid rgba(var(--accent-rgb),.32); border-radius: 999px; background: rgba(var(--accent-rgb),.08); padding: 0 22px; color: var(--text); cursor: pointer; font-size: 12px; font-weight: 850; }
+    .load-more-btn:hover { background: rgba(var(--accent-rgb),.14); }
+
+    .api-alert { margin: 18px 0 0; border-color: rgba(216,116,105,.25); background: rgba(216,116,105,.06); color: #dfaaa4; }
+    .api-alert .ghost-btn { min-height: 36px; margin-left: auto; flex: 0 0 auto; }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 26px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      color: var(--muted-2);
+      font-size: 11px;
+    }
+    .legend span { display: inline-flex; align-items: center; gap: 7px; }
+    .legend i { width: 8px; height: 8px; border-radius: 50%; background: var(--good); }
+    .legend .soon { background: var(--warn); }
+    .legend .dig { background: var(--digital); }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 38px; color: var(--muted-2); font-size: 11px; line-height: 1.65; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 30px; }
+    .footer-inner p { max-width: 800px; margin-bottom: 0; }
+    .footer-links { display: flex; gap: 16px; flex: 0 0 auto; }
+    .footer-links a:hover { color: var(--text); }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 80;
+      transform: translate(-50%, 20px);
+      border: 1px solid rgba(var(--accent-rgb), .32);
+      border-radius: 999px;
+      background: #1a1918;
+      padding: 12px 17px;
+      color: var(--text);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 1180px) {
+      .format-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .set-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 860px) {
+      .shell { width: min(100% - 24px, 720px); }
+      .intro { grid-template-columns: 1fr; gap: 24px; }
+      .intro-note { max-width: 600px; }
+      .card-result-layout { grid-template-columns: 180px minmax(0,1fr); gap: 20px; }
+      .legality-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+      .format-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .set-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .toolbar { grid-template-columns: 1fr auto; }
+      .search-wrap { grid-column: 1 / -1; }
+      .set-grid.timeline .set-card { grid-template-columns: 56px 1fr auto; }
+      .set-grid.timeline .set-meta { display: none; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (max-width: 620px) {
+      .shell { width: min(100% - 20px, 560px); }
+      .topbar-inner { min-height: 60px; }
+      .brand-mark { width: 31px; }
+      .brand-copy span, .updated::before { display: none; }
+      .updated { max-width: 132px; justify-content: flex-end; text-align: right; font-size: 10px; }
+      .home-view { padding-top: 38px; }
+      .card-finder { grid-template-columns: 1fr; }
+      .card-finder-label { grid-column: 1; }
+      .deck-checker summary { grid-template-columns: 46px minmax(0,1fr) auto; padding: 13px; }
+      .deck-summary-copy small { font-size: 10px; }
+      .deck-controls { grid-template-columns: 1fr; }
+      .deck-file-button { width: 100%; }
+      .deck-actions { align-items: stretch; flex-direction: column; }
+      .deck-submit { width: 100%; }
+      .deck-card-row { grid-template-columns: 40px minmax(0,1fr); }
+      .deck-card-status { grid-column: 2; justify-self: start; }
+      .card-result-layout { grid-template-columns: 1fr; }
+      .card-preview { width: min(100%, 240px); margin-inline: auto; }
+      .card-result-head { grid-template-columns: 54px minmax(0,1fr); }
+      .card-result-head .ghost-btn { grid-column: 1 / -1; }
+      .format-grid { gap: 10px; }
+      .format-card { min-height: 206px; padding: 0; }
+      .format-open { min-height: 204px; padding: 18px; }
+      .format-card h2 { font-size: 22px; }
+      .format-card p { font-size: 12px; }
+      .format-glyph { margin-bottom: 22px; }
+      .detail-view { padding-top: 18px; }
+      .format-head { border-radius: 20px; }
+      .stat-row { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .stat { min-width: 0; }
+      .toolbar { grid-template-columns: 1fr; }
+      .view-switch { width: 100%; }
+      .view-btn { flex: 1; }
+      .toolbar > .icon-btn { width: 100%; }
+      .toolbar-secondary { align-items: flex-start; }
+      .secondary-actions { width: 100%; }
+      .secondary-actions button { flex: 1; padding: 0 9px; }
+      .set-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .set-card { padding: 15px; }
+      .symbol-wrap { width: 58px; height: 58px; margin-bottom: 17px; }
+      .set-symbol { width: 36px; height: 36px; }
+      .set-card h3 { min-height: 48px; font-size: 17px; }
+      .set-meta div { display: block; }
+      .set-meta dd { margin-top: 3px; text-align: left; }
+      .set-grid.timeline { padding-left: 24px; }
+      .set-grid.timeline::before { left: 6px; }
+      .set-grid.timeline .set-card { grid-template-columns: 46px minmax(0,1fr); gap: 12px; padding: 14px; }
+      .set-grid.timeline .set-card::after { left: -23px; }
+      .set-grid.timeline .symbol-wrap { width: 44px; height: 44px; }
+      .set-grid.timeline .status-pill { grid-column: 1 / -1; justify-self: start; }
+      .api-alert { flex-wrap: wrap; }
+      .api-alert .ghost-btn { width: 100%; margin-left: 0; }
+      .footer-links { flex-wrap: wrap; }
+    }
+
+    @media (max-width: 480px) {
+      .legality-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .format-grid { grid-template-columns: 1fr; }
+      .format-card { min-height: 190px; }
+      .format-open { min-height: 188px; }
+      .set-grid { grid-template-columns: 1fr; }
+      .set-card { display: grid; grid-template-columns: 62px minmax(0,1fr); column-gap: 14px; }
+      .set-card .symbol-wrap { grid-row: 1 / 5; }
+      .set-card .set-code, .set-card h3, .set-card .set-meta, .set-card .status-pill { grid-column: 2; }
+      .set-card h3 { min-height: 0; }
+      .year-divider { font-size: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .001ms !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Naar hoofdinhoud</a>
+
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="topbar-left">
+        <a class="hub-link" href="../" aria-label="Terug naar Leaguebois" title="Terug naar Leaguebois">←</a>
+        <button class="brand" id="brandButton" type="button" aria-label="Terug naar alle formats">
+          <span class="brand-mark" aria-hidden="true">✦</span>
+          <span class="brand-copy"><strong>MTG Set Legality</strong><span>Actuele formatgids</span></span>
+        </button>
+      </div>
+      <span class="updated" id="updatedLabel" aria-live="polite">Live gegevens worden voorbereid…</span>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="home-view" id="homeView" aria-labelledby="homeTitle">
+      <div class="shell">
+        <div class="intro">
+          <div>
+            <p class="eyebrow">Deckbouw zonder twijfel</p>
+            <h1 id="homeTitle">Welke sets zijn <em>legal?</em></h1>
+            <p class="lead">Kies je format en zie direct welke Magic-sets je kunt gebruiken, welke sets roteren en wanneer dat gebeurt.</p>
+          </div>
+          <aside class="intro-note">
+            <strong>Eén belangrijk verschil</strong>
+            Bij sommige formats is de kaart zelf bepalend, niet het setsymbool. Daarom maken we duidelijk onderscheid tussen setlegaliteit en een kaartpool-overzicht.
+            <span class="mana-row" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+          </aside>
+        </div>
+
+        <form class="card-finder" id="cardFinder">
+          <label class="card-finder-label" for="cardQuery"><strong>Controleer een losse kaart</strong> · typ minimaal vier tekens voor suggesties en zie direct waar de kaart legal, verboden of restricted is.</label>
+          <div class="card-query-wrap">
+            <input class="card-query" id="cardQuery" type="search" autocomplete="off" spellcheck="false" placeholder="Bijvoorbeeld Light…" required role="combobox" aria-autocomplete="list" aria-controls="cardSuggestions" aria-expanded="false">
+            <ul class="card-suggestions" id="cardSuggestions" role="listbox" aria-label="Mogelijke Magic-kaarten" hidden></ul>
+          </div>
+          <button class="finder-btn" id="cardSearchButton" type="submit">Controleer kaart</button>
+        </form>
+
+        <section class="card-result" id="cardResult" hidden aria-live="polite" aria-label="Resultaat kaartlegaliteit"></section>
+
+        <details class="deck-checker" id="deckChecker">
+          <summary>
+            <span class="deck-summary-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="6" width="11" height="14" rx="2"></rect><path d="M8 6V4a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-1M8 10h5M8 13h5"></path></svg></span>
+            <span class="deck-summary-copy"><strong class="deck-summary-title">Controleer een compleet deck</strong><small>Plak een decklijst of laad een tekstbestand en toets alle kaarten aan één format.</small></span>
+            <span class="deck-summary-arrow" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="deck-checker-body">
+            <form id="deckForm">
+              <div class="deck-controls">
+                <label class="deck-field" for="deckFormat">Kies het format
+                  <select class="deck-select" id="deckFormat" required></select>
+                </label>
+                <label class="deck-file-button">↥ Deckbestand laden
+                  <input id="deckFile" type="file" accept=".txt,.dek,.dec,text/plain" aria-label="Laad een decklijst als tekstbestand">
+                </label>
+              </div>
+              <label class="deck-list-label" for="deckList">Decklijst</label>
+              <textarea class="deck-list" id="deckList" placeholder="4 Lightning Bolt&#10;4 Monastery Swiftspear&#10;20 Mountain" aria-describedby="deckHelp" required></textarea>
+              <div class="deck-actions">
+                <button class="finder-btn deck-submit" id="deckSubmit" type="submit">Controleer deck</button>
+                <span class="deck-count" id="deckCount">Nog geen kaarten ingevoerd</span>
+              </div>
+              <p class="deck-help" id="deckHelp">Ondersteunt gangbare Arena-, Moxfield- en ManaBox-tekstlijsten. Alleen kaartnamen worden voor de controle naar Scryfall gestuurd; het bestand zelf blijft in je browser.</p>
+            </form>
+            <section class="deck-result" id="deckResult" hidden aria-live="polite" aria-label="Resultaat decklegaliteit"></section>
+          </div>
+        </details>
+
+        <div class="home-notices" id="homeNotices">
+          <button class="resume-btn" id="resumeButton" type="button" hidden></button>
+          <span class="change-notice" id="changeNotice" hidden></span>
+        </div>
+
+        <nav class="filter-row" aria-label="Filter formats">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">Alle formats</button>
+          <button class="filter-btn" type="button" data-filter="paper" aria-pressed="false">Papier</button>
+          <button class="filter-btn" type="button" data-filter="arena" aria-pressed="false">MTG Arena</button>
+          <button class="filter-btn" type="button" data-filter="rotating" aria-pressed="false">Roterend</button>
+          <button class="filter-btn" type="button" data-filter="nonrotating" aria-pressed="false">Niet-roterend</button>
+        </nav>
+
+        <div class="format-grid" id="formatGrid" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="detail-view" id="detailView" hidden aria-labelledby="detailTitle">
+      <div class="shell">
+        <div class="detail-nav">
+          <button class="back-btn" id="backButton" type="button"><span aria-hidden="true">←</span> Alle formats</button>
+          <button class="favorite-detail" id="favoriteDetail" type="button" aria-pressed="false">☆ Bewaar format</button>
+        </div>
+
+        <div class="format-head">
+          <p class="detail-kicker" id="detailKicker"></p>
+          <h1 class="detail-title" id="detailTitle"></h1>
+          <p class="detail-description" id="detailDescription"></p>
+          <div class="stat-row" id="statRow"></div>
+          <div id="calloutArea"></div>
+        </div>
+
+        <div class="api-alert" id="apiAlert" role="status" hidden>
+          <span class="callout-icon" aria-hidden="true">!</span>
+          <span id="apiAlertText">De live setgegevens konden niet worden vernieuwd. De ingebouwde gegevens worden getoond.</span>
+          <button class="ghost-btn" id="retryButton" type="button">Opnieuw proberen</button>
+        </div>
+
+        <div class="toolbar" aria-label="Weergaveopties">
+          <label class="search-wrap">
+            <span class="sr-only" hidden>Zoek op setnaam of setcode</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+            <input class="search-input" id="setSearch" type="search" autocomplete="off" placeholder="Zoek op setnaam of setcode…">
+          </label>
+          <div class="view-switch" role="group" aria-label="Kies weergave">
+            <button class="view-btn" type="button" data-view="grid" aria-pressed="true">Raster</button>
+            <button class="view-btn" type="button" data-view="timeline" aria-pressed="false">Tijdlijn</button>
+          </div>
+          <button class="icon-btn" id="reverseButton" type="button" aria-label="Draai sorteervolgorde om">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 7h11M8 12h8M8 17h5"></path><path d="m4 5-2 2 2 2M2 7v10"></path></svg>
+            <span>Oudste eerst</span>
+          </button>
+        </div>
+
+        <div class="toolbar-secondary">
+          <span class="results-label" id="resultsLabel"></span>
+          <div class="secondary-actions">
+            <a class="ghost-btn" id="sourceLink" href="#" target="_blank" rel="noreferrer">Bron bekijken ↗</a>
+            <button class="primary-btn" id="copyButton" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"></rect><path d="M15 9V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3"></path></svg>
+              Kopieer link
+            </button>
+          </div>
+        </div>
+
+        <div class="set-grid" id="setGrid" aria-live="polite"></div>
+        <div class="load-more-wrap" id="loadMoreWrap" hidden>
+          <button class="load-more-btn" id="loadMoreButton" type="button"></button>
+        </div>
+
+        <div class="legend" aria-label="Legenda">
+          <span><i></i> Momenteel speelbaar</span>
+          <span><i class="soon"></i> Verdwijnt bij volgende rotatie</span>
+          <span><i class="dig"></i> Alleen digitaal</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <p>Magic: The Gathering en alle bijbehorende merknamen zijn eigendom van Wizards of the Coast LLC. Deze onafhankelijke website is niet verbonden aan of goedgekeurd door Wizards of the Coast. Controleer voor toernooien altijd de officiële banned &amp; restricted list.</p>
+      <div class="footer-links">
+        <a href="https://magic.wizards.com/en/banned-restricted-list" target="_blank" rel="noreferrer">Banned &amp; Restricted</a>
+        <a href="https://scryfall.com/docs/api" target="_blank" rel="noreferrer">Setdata: Scryfall</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    "use strict";
+
+    /* ================================================================
+       CONFIGURATIE EN OFFLINE FALLBACK
+
+       • Nieuw format: voeg hieronder één item toe aan FORMAT_DATA.
+       • Nieuwe reguliere releases hoeven NIET te worden toegevoegd: de site
+         haalt sets en actuele Standard/Alchemy-legaliteit live bij Scryfall.
+       • Alleen een uitzonderingsproduct voeg je toe aan FORMAT_EXCEPTIONS.
+       • Rotatie volgt automatisch uit releasedatum + formatmodel. Pas alleen
+         `rotationModel` aan wanneer Wizards de regels van een format wijzigt.
+       • Formatpictogram: wijzig het bijbehorende item in FORMAT_ICONS.
+       • `fallbackUpdated` is uitsluitend de datum van de offline snapshot.
+
+       Alle handmatige regels staan bewust in dit ene blok. Verderop staan
+       alleen generieke afleidings-, weergave- en cachefuncties.
+       ================================================================ */
+
+    const SITE_CONFIG = {
+      fallbackUpdated: "2026-08-24",
+      setsEndpoint: "https://api.scryfall.com/sets",
+      cardsSearchEndpoint: "https://api.scryfall.com/cards/search",
+      cardNamedEndpoint: "https://api.scryfall.com/cards/named",
+      cardAutocompleteEndpoint: "https://api.scryfall.com/cards/autocomplete",
+      cardsCollectionEndpoint: "https://api.scryfall.com/cards/collection",
+      autocompleteMinChars: 4,
+      autocompleteLimit: 8,
+      autocompleteDelayMs: 240,
+      deckBatchSize: 75,
+      deckMaxUniqueCards: 250,
+      deckFileMaxBytes: 1048576,
+      cacheKey: "mtg-set-legality-scryfall-v3",
+      cacheHours: 24,
+      probeDelayMs: 85
+    };
+
+    // Deze codes zijn alleen het ingebouwde noodscenario. Na iedere live sync
+    // worden ze volledig vervangen door de door Scryfall gevonden legaliteit.
+    const FALLBACK_LIVE_LEGALITY = {
+      standard: ["hob","msh","sos","tmt","ecl","tla","om1","spm","eoe","fin","tdm","dft","fdn","dsk","blb","big","otj","mkm","lci","woe"],
+      alchemy: ["hob","msh","ysos","sos","tmt","yecl","ecl","tla","om1","spm","yeoe","eoe","fin","ytdm","tdm","ydft","dft","fdn","ydsk","dsk","yblb","blb"]
+    };
+
+    const FORMAT_EXCEPTIONS = {
+      modernDirect: new Set(["mh1","mh2","mh3","acr","ltr"]),
+      arenaSupplemental: new Set(["mh3","ltr","jmp","j21","j22","sir","pio","pa1","akr","klr"]),
+      explorerSupplemental: new Set(["sir","pio","pa1","akr","klr"])
+    };
+
+    const PAPER_SET_TYPES = new Set([
+      "expansion","core","masters","commander","draft_innovation","box","duel_deck",
+      "starter","from_the_vault","planechase","archenemy","spellbook","premium_deck","arsenal","vanguard","eternal"
+    ]);
+
+    // Compacte, originele lijniconen. De SVG's gebruiken currentColor, zodat
+    // ieder pictogram automatisch de eigen accentkleur van het format krijgt.
+    const FORMAT_ICONS = {
+      standard: `<svg viewBox="0 0 24 24" focusable="false"><rect x="5" y="5" width="11" height="15" rx="2"/><path d="M8 5V4a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-1M8 9h5M8 12h5"/></svg>`,
+      pioneer: `<svg viewBox="0 0 24 24" focusable="false"><path d="M5 21V4M6 5h11l-3 4 3 4H6M3 21h6"/></svg>`,
+      modern: `<svg viewBox="0 0 24 24" focusable="false"><path d="M3 19h18M5 19V10l4 3 4-7 3 6 3-3v10"/><circle cx="18" cy="5" r="2"/></svg>`,
+      legacy: `<svg viewBox="0 0 24 24" focusable="false"><path d="M4 21h16M6 18h12M8 8v10M12 8v10M16 8v10M6 8h12L12 3z"/></svg>`,
+      vintage: `<svg viewBox="0 0 24 24" focusable="false"><path d="M7 3h10M7 21h10M8 3c0 5 1 6 4 9-3 3-4 4-4 9M16 3c0 5-1 6-4 9 3 3 4 4 4 9"/></svg>`,
+      pauper: `<svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M9 8h4a2.5 2.5 0 0 1 0 5H9M9 6.5v11M12 6.5V8M12 13v4.5"/></svg>`,
+      commander: `<svg viewBox="0 0 24 24" focusable="false"><path d="m4 8 4 3 4-7 4 7 4-3-2 10H6zM7 21h10"/></svg>`,
+      brawl: `<svg viewBox="0 0 24 24" focusable="false"><path d="M12 3 19 6v5c0 5-3 8-7 10-4-2-7-5-7-10V6zM9 8l6 7M15 8l-6 7"/></svg>`,
+      alchemy: `<svg viewBox="0 0 24 24" focusable="false"><path d="M9 3h6M10 3v5l-5 9a2 2 0 0 0 2 3h10a2 2 0 0 0 2-3l-5-9V3M7.5 15h9M10 12h4"/></svg>`,
+      historic: `<svg viewBox="0 0 24 24" focusable="false"><path d="M6 4h10a2 2 0 0 1 2 2v7M8 20a2 2 0 0 1-2-2V4M8 8h7M8 11h5"/><circle cx="16" cy="17" r="4"/><path d="M16 15v2l1.5 1"/></svg>`,
+      explorer: `<svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 4-4 2 2-4zM12 3v2M12 19v2M3 12h2M19 12h2"/></svg>`,
+      timeless: `<svg viewBox="0 0 24 24" focusable="false"><path d="M8 7c-3 0-5 2-5 5s2 5 5 5c4 0 4-10 8-10 3 0 5 2 5 5s-2 5-5 5c-4 0-4-10-8-10z"/></svg>`
+    };
+
+    const FORMAT_DATA = {
+      standard: {
+        name: "Standard",
+        platform: "paper-arena",
+        categories: ["paper","arena","rotating"],
+        rotating: true,
+        accent: "205, 151, 79",
+        short: "De meest recente premier sets.",
+        description: "Standard gebruikt de recente premier sets. De kaartpool wordt live uit Scryfall afgeleid. Vanaf 2027 roteert het format bij de eerste set van het kalenderjaar; Foundations blijft minstens tot en met 2029 legal.",
+        source: "https://magic.wizards.com/en/formats/standard",
+        scope: "live-legality",
+        legalityKey: "standard",
+        rotationModel: "standard-calendar"
+      },
+      pioneer: {
+        name: "Pioneer",
+        platform: "paper-arena",
+        categories: ["paper","arena","nonrotating"],
+        rotating: false,
+        accent: "111, 157, 132",
+        short: "Vanaf Return to Ravnica.",
+        description: "Pioneer is een niet-roterend format met premier sets vanaf Return to Ravnica. Losse kaarten kunnen verboden zijn; reprints veranderen niet automatisch de setstatus.",
+        source: "https://magic.wizards.com/en/formats/pioneer",
+        scope: "pioneer"
+      },
+      modern: {
+        name: "Modern",
+        platform: "paper",
+        categories: ["paper","nonrotating"],
+        rotating: false,
+        accent: "157, 126, 183",
+        short: "Vanaf Eighth Edition plus Horizons.",
+        description: "Modern omvat reguliere premier sets vanaf Eighth Edition, plus specifieke rechtstreeks-naar-Modern releases. Het format roteert niet, maar heeft wel een banned list.",
+        source: "https://magic.wizards.com/en/formats/modern",
+        scope: "modern"
+      },
+      legacy: {
+        name: "Legacy",
+        platform: "paper",
+        categories: ["paper","nonrotating"],
+        rotating: false,
+        accent: "103, 144, 179",
+        short: "Kaarten uit vrijwel heel Magic.",
+        description: "Legacy roteert niet en staat kaarten uit vrijwel alle papieren Magic-sets toe, behalve kaarten op de banned list. Het overzicht toont daarom de setgeschiedenis; legaliteit wordt op kaartniveau bepaald.",
+        source: "https://magic.wizards.com/en/formats/legacy",
+        scope: "all-paper",
+        cardLevel: true
+      },
+      vintage: {
+        name: "Vintage",
+        platform: "paper",
+        categories: ["paper","nonrotating"],
+        rotating: false,
+        accent: "181, 115, 93",
+        short: "De volledige papieren kaartgeschiedenis.",
+        description: "Vintage gebruikt vrijwel de volledige papieren kaartgeschiedenis. Een kleine groep kaarten is banned en meerdere krachtige kaarten zijn restricted tot één exemplaar.",
+        source: "https://magic.wizards.com/en/formats/vintage",
+        scope: "all-paper",
+        cardLevel: true
+      },
+      pauper: {
+        name: "Pauper",
+        platform: "paper",
+        categories: ["paper","nonrotating"],
+        rotating: false,
+        accent: "159, 142, 101",
+        short: "Commons uit de hele geschiedenis.",
+        description: "In Pauper is een kaart legal wanneer die ooit als common in een papieren Magic-product of op Magic Online verscheen, tenzij de kaart is verboden. De set alleen is dus nooit voldoende bewijs.",
+        source: "https://magic.wizards.com/en/formats/pauper",
+        scope: "all-paper",
+        cardLevel: true
+      },
+      commander: {
+        name: "Commander",
+        platform: "paper",
+        categories: ["paper","nonrotating"],
+        rotating: false,
+        accent: "173, 111, 95",
+        short: "Vrijwel alle sets, singleton decks.",
+        description: "Commander is niet-roterend en gebruikt kaarten uit vrijwel alle Magic-producten. De kleuridentiteit van je commander en de actuele banned list bepalen uiteindelijk welke losse kaarten je mag spelen.",
+        source: "https://magic.wizards.com/en/formats/commander",
+        scope: "all-paper",
+        cardLevel: true
+      },
+      brawl: {
+        name: "Brawl",
+        platform: "arena",
+        categories: ["arena","nonrotating"],
+        rotating: false,
+        accent: "91, 143, 183",
+        short: "Singleton met de Arena-kaartpool.",
+        description: "Het huidige Brawl op MTG Arena gebruikt een brede, niet-roterende Arena-kaartpool. Beschikbaarheid in de client, kleuridentiteit en de Brawl banned list blijven bepalend.",
+        source: "https://magic.wizards.com/en/formats/brawl",
+        scope: "arena-pool",
+        cardLevel: true
+      },
+      alchemy: {
+        name: "Alchemy",
+        platform: "arena",
+        categories: ["arena","rotating"],
+        rotating: true,
+        accent: "104, 123, 197",
+        short: "Twee jaar Standard plus digital-only.",
+        description: "Alchemy combineert een tweejarige Standard-achtige kaartpool met digitale releases en gerebalanceerde kaarten. De site volgt de actuele kaartpool live via Scryfall, zodat rotaties zonder handmatige setlijst worden verwerkt.",
+        source: "https://magic.wizards.com/en/news/mtg-arena/updates-to-standard-and-alchemy-on-mtg-arena",
+        scope: "live-legality",
+        legalityKey: "alchemy",
+        rotationModel: "alchemy-live"
+      },
+      historic: {
+        name: "Historic",
+        platform: "arena",
+        categories: ["arena","nonrotating"],
+        rotating: false,
+        accent: "176, 102, 142",
+        short: "Een gecureerde Arena-kaartpool.",
+        description: "Historic is een niet-roterend, digitaal format met reguliere Arena-sets, anthologies, digitale kaarten en gerebalanceerde versies. Wizards cureert de kaartpool op kaartniveau.",
+        source: "https://magic.wizards.com/en/formats/historic",
+        scope: "arena-pool",
+        cardLevel: true
+      },
+      explorer: {
+        name: "Explorer",
+        platform: "arena",
+        categories: ["arena","nonrotating"],
+        rotating: false,
+        accent: "92, 163, 153",
+        short: "Pioneer-legale kaarten op Arena.",
+        description: "Explorer gebruikt de Pioneer-legale kaarten die op MTG Arena beschikbaar zijn. Oudere kaarten komen onder meer via remastered sets en Pioneer Masters binnen; niet iedere oorspronkelijke set is volledig in de client aanwezig.",
+        source: "https://magic.wizards.com/en/news/mtg-arena/mtg-arena-state-of-the-formats-2024",
+        scope: "explorer",
+        cardLevel: true
+      },
+      timeless: {
+        name: "Timeless",
+        platform: "arena",
+        categories: ["arena","nonrotating"],
+        rotating: false,
+        accent: "190, 133, 83",
+        short: "Iedere kaart op MTG Arena.",
+        description: "Timeless laat iedere kaart toe die op MTG Arena beschikbaar is en gebruikt een restricted list voor uitzonderlijk krachtige kaarten. Het overzicht toont de bronnen van de Arena-kaartpool.",
+        source: "https://magic.wizards.com/en/formats/timeless",
+        scope: "arena-pool",
+        cardLevel: true
+      }
+    };
+
+    // Koppeling tussen de namen op deze site en de legaliteitsvelden die
+    // Scryfall bij een losse kaart teruggeeft. Brawl kent twee veldnamen,
+    // afhankelijk van de API-versie; de site accepteert beide.
+    const CARD_LEGALITY_KEYS = {
+      standard: ["standard"], pioneer: ["pioneer"], modern: ["modern"],
+      legacy: ["legacy"], vintage: ["vintage"], pauper: ["pauper"],
+      commander: ["commander"], brawl: ["brawl", "standardbrawl"],
+      alchemy: ["alchemy"], historic: ["historic"], explorer: ["explorer"],
+      timeless: ["timeless"]
+    };
+
+    // Ingebouwde Scryfall-snapshot. Wordt hieronder automatisch ingevoegd.
+    const FALLBACK_SETS = [{"code":"hoc","name":"The Hobbit Eternal","released_at":"2026-08-14","icon_svg_uri":"https://svgs.scryfall.io/sets/hoc.svg?1786939200","set_type":"eternal","digital":false},{"code":"hob","name":"The Hobbit","released_at":"2026-08-14","icon_svg_uri":"https://svgs.scryfall.io/sets/hob.svg?1786939200","set_type":"expansion","digital":false},{"code":"msc","name":"Marvel Super Heroes Commander","released_at":"2026-06-26","icon_svg_uri":"https://svgs.scryfall.io/sets/msc.svg?1786939200","set_type":"commander","digital":false},{"code":"msh","name":"Marvel Super Heroes","released_at":"2026-06-26","icon_svg_uri":"https://svgs.scryfall.io/sets/msh.svg?1786939200","set_type":"expansion","digital":false},{"code":"ysos","name":"Alchemy: Secrets of Strixhaven","released_at":"2026-05-19","icon_svg_uri":"https://svgs.scryfall.io/sets/y26.svg?1786939200","set_type":"alchemy","digital":true},{"code":"soc","name":"Secrets of Strixhaven Commander","released_at":"2026-04-24","icon_svg_uri":"https://svgs.scryfall.io/sets/soc.svg?1786939200","set_type":"commander","digital":false},{"code":"sos","name":"Secrets of Strixhaven","released_at":"2026-04-24","icon_svg_uri":"https://svgs.scryfall.io/sets/sos.svg?1786939200","set_type":"expansion","digital":false},{"code":"tmt","name":"Teenage Mutant Ninja Turtles","released_at":"2026-03-06","icon_svg_uri":"https://svgs.scryfall.io/sets/tmt.svg?1786939200","set_type":"expansion","digital":false},{"code":"tmc","name":"Teenage Mutant Ninja Turtles Eternal","released_at":"2026-03-06","icon_svg_uri":"https://svgs.scryfall.io/sets/tmc.svg?1786939200","set_type":"eternal","digital":false},{"code":"yecl","name":"Alchemy: Lorwyn Eclipsed","released_at":"2026-02-03","icon_svg_uri":"https://svgs.scryfall.io/sets/y26.svg?1786939200","set_type":"alchemy","digital":true},{"code":"ecc","name":"Lorwyn Eclipsed Commander","released_at":"2026-01-23","icon_svg_uri":"https://svgs.scryfall.io/sets/ecc.svg?1786939200","set_type":"commander","digital":false},{"code":"ecl","name":"Lorwyn Eclipsed","released_at":"2026-01-23","icon_svg_uri":"https://svgs.scryfall.io/sets/ecl.svg?1786939200","set_type":"expansion","digital":false},{"code":"tla","name":"Avatar: The Last Airbender","released_at":"2025-11-21","icon_svg_uri":"https://svgs.scryfall.io/sets/tla.svg?1786939200","set_type":"expansion","digital":false},{"code":"tle","name":"Avatar: The Last Airbender Eternal","released_at":"2025-11-21","icon_svg_uri":"https://svgs.scryfall.io/sets/tle.svg?1786939200","set_type":"eternal","digital":false},{"code":"spe","name":"Marvel's Spider-Man Eternal","released_at":"2025-09-26","icon_svg_uri":"https://svgs.scryfall.io/sets/spe.svg?1786939200","set_type":"eternal","digital":false},{"code":"spm","name":"Marvel's Spider-Man","released_at":"2025-09-26","icon_svg_uri":"https://svgs.scryfall.io/sets/spm.svg?1786939200","set_type":"expansion","digital":false},{"code":"aa4","name":"Arena Anthology 4","released_at":"2025-09-23","icon_svg_uri":"https://svgs.scryfall.io/sets/mtga.svg?1786939200","set_type":"box","digital":true},{"code":"aa3","name":"Arena Anthology 3","released_at":"2025-09-23","icon_svg_uri":"https://svgs.scryfall.io/sets/mtga.svg?1786939200","set_type":"box","digital":true},{"code":"om1","name":"Through the Omenpaths","released_at":"2025-09-23","icon_svg_uri":"https://svgs.scryfall.io/sets/om1.svg?1786939200","set_type":"expansion","digital":true},{"code":"ph23","name":"2023 Heroes of the Realm","released_at":"2025-08-24","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"funny","digital":false},{"code":"aa2","name":"Arena Anthology 2","released_at":"2025-08-19","icon_svg_uri":"https://svgs.scryfall.io/sets/mtga.svg?1786939200","set_type":"box","digital":true},{"code":"yeoe","name":"Alchemy: Edge of Eternities","released_at":"2025-08-19","icon_svg_uri":"https://svgs.scryfall.io/sets/y25.svg?1786939200","set_type":"alchemy","digital":true},{"code":"aa1","name":"Arena Anthology 1","released_at":"2025-08-19","icon_svg_uri":"https://svgs.scryfall.io/sets/mtga.svg?1786939200","set_type":"box","digital":true},{"code":"eoe","name":"Edge of Eternities","released_at":"2025-08-01","icon_svg_uri":"https://svgs.scryfall.io/sets/eoe.svg?1786939200","set_type":"expansion","digital":false},{"code":"eoc","name":"Edge of Eternities Commander","released_at":"2025-08-01","icon_svg_uri":"https://svgs.scryfall.io/sets/eoc.svg?1786939200","set_type":"commander","digital":false},{"code":"fic","name":"Final Fantasy Commander","released_at":"2025-06-13","icon_svg_uri":"https://svgs.scryfall.io/sets/fic.svg?1786939200","set_type":"commander","digital":false},{"code":"fin","name":"Final Fantasy","released_at":"2025-06-13","icon_svg_uri":"https://svgs.scryfall.io/sets/fin.svg?1786939200","set_type":"expansion","digital":false},{"code":"pa1","name":"Pioneer Anthology 1","released_at":"2025-05-05","icon_svg_uri":"https://svgs.scryfall.io/sets/mtga.svg?1786939200","set_type":"box","digital":true},{"code":"ytdm","name":"Alchemy: Tarkir","released_at":"2025-04-29","icon_svg_uri":"https://svgs.scryfall.io/sets/y25.svg?1786939200","set_type":"alchemy","digital":true},{"code":"tdc","name":"Tarkir: Dragonstorm Commander","released_at":"2025-04-11","icon_svg_uri":"https://svgs.scryfall.io/sets/tdc.svg?1786939200","set_type":"commander","digital":false},{"code":"tdm","name":"Tarkir: Dragonstorm","released_at":"2025-04-11","icon_svg_uri":"https://svgs.scryfall.io/sets/tdm.svg?1786939200","set_type":"expansion","digital":false},{"code":"ydft","name":"Alchemy: Aetherdrift","released_at":"2025-03-04","icon_svg_uri":"https://svgs.scryfall.io/sets/y25.svg?1786939200","set_type":"alchemy","digital":true},{"code":"dft","name":"Aetherdrift","released_at":"2025-02-14","icon_svg_uri":"https://svgs.scryfall.io/sets/dft.svg?1786939200","set_type":"expansion","digital":false},{"code":"drc","name":"Aetherdrift Commander","released_at":"2025-02-14","icon_svg_uri":"https://svgs.scryfall.io/sets/drc.svg?1786939200","set_type":"commander","digital":false},{"code":"inr","name":"Innistrad Remastered","released_at":"2025-01-24","icon_svg_uri":"https://svgs.scryfall.io/sets/inr.svg?1786939200","set_type":"masters","digital":false},{"code":"pio","name":"Pioneer Masters","released_at":"2024-12-10","icon_svg_uri":"https://svgs.scryfall.io/sets/pio.svg?1786939200","set_type":"masters","digital":true},{"code":"fdn","name":"Foundations","released_at":"2024-11-15","icon_svg_uri":"https://svgs.scryfall.io/sets/fdn.svg?1786939200","set_type":"core","digital":false},{"code":"fdc","name":"Foundations Commander","released_at":"2024-11-15","icon_svg_uri":"https://svgs.scryfall.io/sets/fdc.svg?1786939200","set_type":"commander","digital":false},{"code":"j25","name":"Foundations Jumpstart","released_at":"2024-11-15","icon_svg_uri":"https://svgs.scryfall.io/sets/j25.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"ydsk","name":"Alchemy: Duskmourn","released_at":"2024-10-15","icon_svg_uri":"https://svgs.scryfall.io/sets/y25.svg?1786939200","set_type":"alchemy","digital":true},{"code":"dsk","name":"Duskmourn: House of Horror","released_at":"2024-09-27","icon_svg_uri":"https://svgs.scryfall.io/sets/dsk.svg?1786939200","set_type":"expansion","digital":false},{"code":"dsc","name":"Duskmourn: House of Horror Commander","released_at":"2024-09-27","icon_svg_uri":"https://svgs.scryfall.io/sets/dsc.svg?1786939200","set_type":"commander","digital":false},{"code":"yblb","name":"Alchemy: Bloomburrow","released_at":"2024-08-20","icon_svg_uri":"https://svgs.scryfall.io/sets/y25.svg?1786939200","set_type":"alchemy","digital":true},{"code":"blb","name":"Bloomburrow","released_at":"2024-08-02","icon_svg_uri":"https://svgs.scryfall.io/sets/blb.svg?1786939200","set_type":"expansion","digital":false},{"code":"mb2","name":"Mystery Booster 2","released_at":"2024-08-02","icon_svg_uri":"https://svgs.scryfall.io/sets/mb2.svg?1786939200","set_type":"masters","digital":false},{"code":"blc","name":"Bloomburrow Commander","released_at":"2024-08-02","icon_svg_uri":"https://svgs.scryfall.io/sets/blc.svg?1786939200","set_type":"commander","digital":false},{"code":"acr","name":"Assassin's Creed","released_at":"2024-07-05","icon_svg_uri":"https://svgs.scryfall.io/sets/acr.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"mh3","name":"Modern Horizons 3","released_at":"2024-06-14","icon_svg_uri":"https://svgs.scryfall.io/sets/mh3.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"m3c","name":"Modern Horizons 3 Commander","released_at":"2024-06-14","icon_svg_uri":"https://svgs.scryfall.io/sets/m3c.svg?1786939200","set_type":"commander","digital":false},{"code":"h2r","name":"Modern Horizons 2 Timeshifts","released_at":"2024-06-14","icon_svg_uri":"https://svgs.scryfall.io/sets/mh2.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"yotj","name":"Alchemy: Outlaws of Thunder Junction","released_at":"2024-05-07","icon_svg_uri":"https://svgs.scryfall.io/sets/y24.svg?1786939200","set_type":"alchemy","digital":true},{"code":"otc","name":"Outlaws of Thunder Junction Commander","released_at":"2024-04-19","icon_svg_uri":"https://svgs.scryfall.io/sets/otc.svg?1786939200","set_type":"commander","digital":false},{"code":"big","name":"The Big Score","released_at":"2024-04-19","icon_svg_uri":"https://svgs.scryfall.io/sets/big.svg?1786939200","set_type":"expansion","digital":false},{"code":"otj","name":"Outlaws of Thunder Junction","released_at":"2024-04-19","icon_svg_uri":"https://svgs.scryfall.io/sets/otj.svg?1786939200","set_type":"expansion","digital":false},{"code":"pip","name":"Fallout","released_at":"2024-03-08","icon_svg_uri":"https://svgs.scryfall.io/sets/pip.svg?1786939200","set_type":"commander","digital":false},{"code":"ymkm","name":"Alchemy: Murders at Karlov Manor","released_at":"2024-03-05","icon_svg_uri":"https://svgs.scryfall.io/sets/y24.svg?1786939200","set_type":"alchemy","digital":true},{"code":"punk","name":"Black Lotus Unknown Planechase","released_at":"2024-02-24","icon_svg_uri":"https://svgs.scryfall.io/sets/planeswalker.svg?1786939200","set_type":"funny","digital":false},{"code":"clu","name":"Ravnica: Clue Edition","released_at":"2024-02-23","icon_svg_uri":"https://svgs.scryfall.io/sets/clu.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"mkm","name":"Murders at Karlov Manor","released_at":"2024-02-09","icon_svg_uri":"https://svgs.scryfall.io/sets/mkm.svg?1786939200","set_type":"expansion","digital":false},{"code":"mkc","name":"Murders at Karlov Manor Commander","released_at":"2024-02-09","icon_svg_uri":"https://svgs.scryfall.io/sets/mkc.svg?1786939200","set_type":"commander","digital":false},{"code":"rvr","name":"Ravnica Remastered","released_at":"2024-01-12","icon_svg_uri":"https://svgs.scryfall.io/sets/rvr.svg?1786939200","set_type":"masters","digital":false},{"code":"ylci","name":"Alchemy: Ixalan","released_at":"2023-12-05","icon_svg_uri":"https://svgs.scryfall.io/sets/y24.svg?1786939200","set_type":"alchemy","digital":true},{"code":"lcc","name":"The Lost Caverns of Ixalan Commander","released_at":"2023-11-17","icon_svg_uri":"https://svgs.scryfall.io/sets/lcc.svg?1786939200","set_type":"commander","digital":false},{"code":"rex","name":"Jurassic World Collection","released_at":"2023-11-17","icon_svg_uri":"https://svgs.scryfall.io/sets/rex.svg?1786939200","set_type":"eternal","digital":false},{"code":"lci","name":"The Lost Caverns of Ixalan","released_at":"2023-11-17","icon_svg_uri":"https://svgs.scryfall.io/sets/lci.svg?1786939200","set_type":"expansion","digital":false},{"code":"who","name":"Doctor Who","released_at":"2023-10-13","icon_svg_uri":"https://svgs.scryfall.io/sets/who.svg?1786939200","set_type":"commander","digital":false},{"code":"ywoe","name":"Alchemy: Wilds of Eldraine","released_at":"2023-10-10","icon_svg_uri":"https://svgs.scryfall.io/sets/y24.svg?1786939200","set_type":"alchemy","digital":true},{"code":"woc","name":"Wilds of Eldraine Commander","released_at":"2023-09-08","icon_svg_uri":"https://svgs.scryfall.io/sets/woc.svg?1786939200","set_type":"commander","digital":false},{"code":"woe","name":"Wilds of Eldraine","released_at":"2023-09-08","icon_svg_uri":"https://svgs.scryfall.io/sets/woe.svg?1786939200","set_type":"expansion","digital":false},{"code":"cmm","name":"Commander Masters","released_at":"2023-08-04","icon_svg_uri":"https://svgs.scryfall.io/sets/cmm.svg?1786939200","set_type":"masters","digital":false},{"code":"ph22","name":"2022 Heroes of the Realm","released_at":"2023-08-01","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"funny","digital":false},{"code":"ha7","name":"Historic Anthology 7","released_at":"2023-07-18","icon_svg_uri":"https://svgs.scryfall.io/sets/ha1.svg?1786939200","set_type":"box","digital":true},{"code":"ea3","name":"Explorer Anthology 3","released_at":"2023-07-18","icon_svg_uri":"https://svgs.scryfall.io/sets/mtga.svg?1786939200","set_type":"box","digital":true},{"code":"ltc","name":"Tales of Middle-earth Commander","released_at":"2023-06-23","icon_svg_uri":"https://svgs.scryfall.io/sets/ltc.svg?1786939200","set_type":"commander","digital":false},{"code":"ltr","name":"The Lord of the Rings: Tales of Middle-earth","released_at":"2023-06-23","icon_svg_uri":"https://svgs.scryfall.io/sets/ltr.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"mat","name":"March of the Machine: The Aftermath","released_at":"2023-05-12","icon_svg_uri":"https://svgs.scryfall.io/sets/mat.svg?1786939200","set_type":"expansion","digital":false},{"code":"moc","name":"March of the Machine Commander","released_at":"2023-04-21","icon_svg_uri":"https://svgs.scryfall.io/sets/moc.svg?1786939200","set_type":"commander","digital":false},{"code":"mom","name":"March of the Machine","released_at":"2023-04-21","icon_svg_uri":"https://svgs.scryfall.io/sets/mom.svg?1786939200","set_type":"expansion","digital":false},{"code":"sis","name":"Shadows of the Past","released_at":"2023-03-21","icon_svg_uri":"https://svgs.scryfall.io/sets/sis.svg?1786939200","set_type":"masters","digital":true},{"code":"sir","name":"Shadows over Innistrad Remastered","released_at":"2023-03-21","icon_svg_uri":"https://svgs.scryfall.io/sets/sir.svg?1786939200","set_type":"masters","digital":true},{"code":"yone","name":"Alchemy: Phyrexia","released_at":"2023-02-28","icon_svg_uri":"https://svgs.scryfall.io/sets/y23.svg?1786939200","set_type":"alchemy","digital":true},{"code":"unk","name":"Unknown Event","released_at":"2023-02-15","icon_svg_uri":"https://svgs.scryfall.io/sets/planeswalker.svg?1786939200","set_type":"funny","digital":false},{"code":"onc","name":"Phyrexia: All Will Be One Commander","released_at":"2023-02-10","icon_svg_uri":"https://svgs.scryfall.io/sets/onc.svg?1786939200","set_type":"commander","digital":false},{"code":"one","name":"Phyrexia: All Will Be One","released_at":"2023-02-10","icon_svg_uri":"https://svgs.scryfall.io/sets/one.svg?1786939200","set_type":"expansion","digital":false},{"code":"dmr","name":"Dominaria Remastered","released_at":"2023-01-13","icon_svg_uri":"https://svgs.scryfall.io/sets/dmr.svg?1786939200","set_type":"masters","digital":false},{"code":"ybro","name":"Alchemy: The Brothers' War","released_at":"2022-12-13","icon_svg_uri":"https://svgs.scryfall.io/sets/y23.svg?1786939200","set_type":"alchemy","digital":true},{"code":"ea2","name":"Explorer Anthology 2","released_at":"2022-12-13","icon_svg_uri":"https://svgs.scryfall.io/sets/mtga.svg?1786939200","set_type":"box","digital":true},{"code":"scd","name":"Starter Commander Decks","released_at":"2022-12-02","icon_svg_uri":"https://svgs.scryfall.io/sets/scd.svg?1786939200","set_type":"commander","digital":false},{"code":"j22","name":"Jumpstart 2022","released_at":"2022-12-02","icon_svg_uri":"https://svgs.scryfall.io/sets/j22.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"brc","name":"The Brothers' War Commander","released_at":"2022-11-18","icon_svg_uri":"https://svgs.scryfall.io/sets/brc.svg?1786939200","set_type":"commander","digital":false},{"code":"bot","name":"Transformers","released_at":"2022-11-18","icon_svg_uri":"https://svgs.scryfall.io/sets/bot.svg?1786939200","set_type":"eternal","digital":false},{"code":"bro","name":"The Brothers' War","released_at":"2022-11-18","icon_svg_uri":"https://svgs.scryfall.io/sets/bro.svg?1786939200","set_type":"expansion","digital":false},{"code":"slc","name":"Secret Lair Countdown","released_at":"2022-11-01","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"box","digital":false},{"code":"gn3","name":"Game Night: Free-for-All","released_at":"2022-10-14","icon_svg_uri":"https://svgs.scryfall.io/sets/gn3.svg?1786939200","set_type":"box","digital":false},{"code":"ulst","name":"The List (Unfinity Foil Edition)","released_at":"2022-10-07","icon_svg_uri":"https://svgs.scryfall.io/sets/planeswalker.svg?1786939200","set_type":"funny","digital":false},{"code":"unf","name":"Unfinity","released_at":"2022-10-07","icon_svg_uri":"https://svgs.scryfall.io/sets/unf.svg?1786939200","set_type":"funny","digital":false},{"code":"sunf","name":"Unfinity Sticker Sheets","released_at":"2022-10-07","icon_svg_uri":"https://svgs.scryfall.io/sets/unf.svg?1786939200","set_type":"funny","digital":false},{"code":"40k","name":"Warhammer 40,000 Commander","released_at":"2022-10-07","icon_svg_uri":"https://svgs.scryfall.io/sets/40k.svg?1786939200","set_type":"commander","digital":false},{"code":"ydmu","name":"Alchemy: Dominaria","released_at":"2022-10-05","icon_svg_uri":"https://svgs.scryfall.io/sets/y23.svg?1786939200","set_type":"alchemy","digital":true},{"code":"dmu","name":"Dominaria United","released_at":"2022-09-09","icon_svg_uri":"https://svgs.scryfall.io/sets/dmu.svg?1786939200","set_type":"expansion","digital":false},{"code":"dmc","name":"Dominaria United Commander","released_at":"2022-09-09","icon_svg_uri":"https://svgs.scryfall.io/sets/dmc.svg?1786939200","set_type":"commander","digital":false},{"code":"ph21","name":"2021 Heroes of the Realm","released_at":"2022-08-01","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"funny","digital":false},{"code":"ea1","name":"Explorer Anthology 1","released_at":"2022-07-28","icon_svg_uri":"https://svgs.scryfall.io/sets/mtga.svg?1786939200","set_type":"box","digital":true},{"code":"ha6","name":"Historic Anthology 6","released_at":"2022-07-28","icon_svg_uri":"https://svgs.scryfall.io/sets/ha1.svg?1786939200","set_type":"box","digital":true},{"code":"2x2","name":"Double Masters 2022","released_at":"2022-07-08","icon_svg_uri":"https://svgs.scryfall.io/sets/2x2.svg?1786939200","set_type":"masters","digital":false},{"code":"hbg","name":"Alchemy Horizons: Baldur's Gate","released_at":"2022-07-07","icon_svg_uri":"https://svgs.scryfall.io/sets/hbg.svg?1786939200","set_type":"alchemy","digital":true},{"code":"clb","name":"Commander Legends: Battle for Baldur's Gate","released_at":"2022-06-10","icon_svg_uri":"https://svgs.scryfall.io/sets/clb.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"ysnc","name":"Alchemy: New Capenna","released_at":"2022-06-02","icon_svg_uri":"https://svgs.scryfall.io/sets/y22.svg?1786939200","set_type":"alchemy","digital":true},{"code":"snc","name":"Streets of New Capenna","released_at":"2022-04-29","icon_svg_uri":"https://svgs.scryfall.io/sets/snc.svg?1786939200","set_type":"expansion","digital":false},{"code":"ncc","name":"New Capenna Commander","released_at":"2022-04-29","icon_svg_uri":"https://svgs.scryfall.io/sets/ncc.svg?1786939200","set_type":"commander","digital":false},{"code":"q07","name":"Challenger Decks 2022","released_at":"2022-04-01","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"box","digital":false},{"code":"yneo","name":"Alchemy: Kamigawa","released_at":"2022-03-17","icon_svg_uri":"https://svgs.scryfall.io/sets/y22.svg?1786939200","set_type":"alchemy","digital":true},{"code":"slx","name":"Universes Within","released_at":"2022-03-03","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"masters","digital":false},{"code":"neo","name":"Kamigawa: Neon Dynasty","released_at":"2022-02-18","icon_svg_uri":"https://svgs.scryfall.io/sets/neo.svg?1786939200","set_type":"expansion","digital":false},{"code":"nec","name":"Neon Dynasty Commander","released_at":"2022-02-18","icon_svg_uri":"https://svgs.scryfall.io/sets/nec.svg?1786939200","set_type":"commander","digital":false},{"code":"cc2","name":"Commander Collection: Black","released_at":"2022-01-28","icon_svg_uri":"https://svgs.scryfall.io/sets/cc2.svg?1786939200","set_type":"arsenal","digital":false},{"code":"dbl","name":"Innistrad: Double Feature","released_at":"2022-01-28","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"ymid","name":"Alchemy: Innistrad","released_at":"2021-12-09","icon_svg_uri":"https://svgs.scryfall.io/sets/y22.svg?1786939200","set_type":"alchemy","digital":true},{"code":"vow","name":"Innistrad: Crimson Vow","released_at":"2021-11-19","icon_svg_uri":"https://svgs.scryfall.io/sets/vow.svg?1786939200","set_type":"expansion","digital":false},{"code":"voc","name":"Crimson Vow Commander","released_at":"2021-11-19","icon_svg_uri":"https://svgs.scryfall.io/sets/voc.svg?1786939200","set_type":"commander","digital":false},{"code":"q06","name":"Pioneer Challenger Decks 2021","released_at":"2021-10-15","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"box","digital":false},{"code":"mic","name":"Midnight Hunt Commander","released_at":"2021-09-24","icon_svg_uri":"https://svgs.scryfall.io/sets/mic.svg?1786939200","set_type":"commander","digital":false},{"code":"mid","name":"Innistrad: Midnight Hunt","released_at":"2021-09-24","icon_svg_uri":"https://svgs.scryfall.io/sets/mid.svg?1786939200","set_type":"expansion","digital":false},{"code":"j21","name":"Jumpstart: Historic Horizons","released_at":"2021-08-26","icon_svg_uri":"https://svgs.scryfall.io/sets/j21.svg?1786939200","set_type":"draft_innovation","digital":true},{"code":"cmb2","name":"Mystery Booster Playtest Cards 2021","released_at":"2021-08-20","icon_svg_uri":"https://svgs.scryfall.io/sets/planeswalker.svg?1786939200","set_type":"funny","digital":false},{"code":"ph20","name":"2020 Heroes of the Realm","released_at":"2021-08-01","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"funny","digital":false},{"code":"afc","name":"Forgotten Realms Commander","released_at":"2021-07-23","icon_svg_uri":"https://svgs.scryfall.io/sets/afc.svg?1786939200","set_type":"commander","digital":false},{"code":"afr","name":"Adventures in the Forgotten Realms","released_at":"2021-07-23","icon_svg_uri":"https://svgs.scryfall.io/sets/afr.svg?1786939200","set_type":"expansion","digital":false},{"code":"h1r","name":"Modern Horizons 1 Timeshifts","released_at":"2021-06-18","icon_svg_uri":"https://svgs.scryfall.io/sets/mh1.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"mh2","name":"Modern Horizons 2","released_at":"2021-06-18","icon_svg_uri":"https://svgs.scryfall.io/sets/mh2.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"ha5","name":"Historic Anthology 5","released_at":"2021-05-27","icon_svg_uri":"https://svgs.scryfall.io/sets/ha1.svg?1786939200","set_type":"box","digital":true},{"code":"c21","name":"Commander 2021","released_at":"2021-04-23","icon_svg_uri":"https://svgs.scryfall.io/sets/c21.svg?1786939200","set_type":"commander","digital":false},{"code":"stx","name":"Strixhaven: School of Mages","released_at":"2021-04-23","icon_svg_uri":"https://svgs.scryfall.io/sets/stx.svg?1786939200","set_type":"expansion","digital":false},{"code":"tsr","name":"Time Spiral Remastered","released_at":"2021-03-19","icon_svg_uri":"https://svgs.scryfall.io/sets/tsr.svg?1786939200","set_type":"masters","digital":false},{"code":"ha4","name":"Historic Anthology 4","released_at":"2021-03-11","icon_svg_uri":"https://svgs.scryfall.io/sets/ha1.svg?1786939200","set_type":"box","digital":true},{"code":"khc","name":"Kaldheim Commander","released_at":"2021-02-05","icon_svg_uri":"https://svgs.scryfall.io/sets/khc.svg?1786939200","set_type":"commander","digital":false},{"code":"khm","name":"Kaldheim","released_at":"2021-02-05","icon_svg_uri":"https://svgs.scryfall.io/sets/khm.svg?1786939200","set_type":"expansion","digital":false},{"code":"cc1","name":"Commander Collection: Green","released_at":"2020-12-04","icon_svg_uri":"https://svgs.scryfall.io/sets/cc1.svg?1786939200","set_type":"arsenal","digital":false},{"code":"cmr","name":"Commander Legends","released_at":"2020-11-20","icon_svg_uri":"https://svgs.scryfall.io/sets/cmr.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"klr","name":"Kaladesh Remastered","released_at":"2020-11-12","icon_svg_uri":"https://svgs.scryfall.io/sets/klr.svg?1786939200","set_type":"masters","digital":true},{"code":"plst","name":"The List","released_at":"2020-09-26","icon_svg_uri":"https://svgs.scryfall.io/sets/planeswalker.svg?1786939200","set_type":"masters","digital":false},{"code":"znr","name":"Zendikar Rising","released_at":"2020-09-25","icon_svg_uri":"https://svgs.scryfall.io/sets/znr.svg?1786939200","set_type":"expansion","digital":false},{"code":"znc","name":"Zendikar Rising Commander","released_at":"2020-09-25","icon_svg_uri":"https://svgs.scryfall.io/sets/znc.svg?1786939200","set_type":"commander","digital":false},{"code":"anb","name":"Arena Beginner Set","released_at":"2020-08-13","icon_svg_uri":"https://svgs.scryfall.io/sets/mtga.svg?1786939200","set_type":"starter","digital":true},{"code":"akr","name":"Amonkhet Remastered","released_at":"2020-08-13","icon_svg_uri":"https://svgs.scryfall.io/sets/akr.svg?1786939200","set_type":"masters","digital":true},{"code":"2xm","name":"Double Masters","released_at":"2020-08-07","icon_svg_uri":"https://svgs.scryfall.io/sets/2xm.svg?1786939200","set_type":"masters","digital":false},{"code":"ph19","name":"2019 Heroes of the Realm","released_at":"2020-08-01","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"funny","digital":false},{"code":"ajmp","name":"Jumpstart Arena Exclusives","released_at":"2020-07-17","icon_svg_uri":"https://svgs.scryfall.io/sets/jmp.svg?1786939200","set_type":"starter","digital":true},{"code":"jmp","name":"Jumpstart","released_at":"2020-07-17","icon_svg_uri":"https://svgs.scryfall.io/sets/jmp.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"m21","name":"Core Set 2021","released_at":"2020-07-03","icon_svg_uri":"https://svgs.scryfall.io/sets/m21.svg?1786939200","set_type":"core","digital":false},{"code":"ss3","name":"Signature Spellbook: Chandra","released_at":"2020-06-26","icon_svg_uri":"https://svgs.scryfall.io/sets/ss3.svg?1786939200","set_type":"spellbook","digital":false},{"code":"slu","name":"Secret Lair: Ultimate Edition","released_at":"2020-05-29","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"box","digital":false},{"code":"ha3","name":"Historic Anthology 3","released_at":"2020-05-21","icon_svg_uri":"https://svgs.scryfall.io/sets/ha1.svg?1786939200","set_type":"box","digital":true},{"code":"iko","name":"Ikoria: Lair of Behemoths","released_at":"2020-04-24","icon_svg_uri":"https://svgs.scryfall.io/sets/iko.svg?1786939200","set_type":"expansion","digital":false},{"code":"c20","name":"Commander 2020","released_at":"2020-04-17","icon_svg_uri":"https://svgs.scryfall.io/sets/c20.svg?1786939200","set_type":"commander","digital":false},{"code":"ha2","name":"Historic Anthology 2","released_at":"2020-03-12","icon_svg_uri":"https://svgs.scryfall.io/sets/ha1.svg?1786939200","set_type":"box","digital":true},{"code":"und","name":"Unsanctioned","released_at":"2020-02-29","icon_svg_uri":"https://svgs.scryfall.io/sets/und.svg?1786939200","set_type":"funny","digital":false},{"code":"thb","name":"Theros Beyond Death","released_at":"2020-01-24","icon_svg_uri":"https://svgs.scryfall.io/sets/thb.svg?1786939200","set_type":"expansion","digital":false},{"code":"sld","name":"Secret Lair Drop","released_at":"2019-12-02","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"box","digital":false},{"code":"ha1","name":"Historic Anthology 1","released_at":"2019-11-21","icon_svg_uri":"https://svgs.scryfall.io/sets/ha1.svg?1786939200","set_type":"box","digital":true},{"code":"gn2","name":"Game Night 2019","released_at":"2019-11-15","icon_svg_uri":"https://svgs.scryfall.io/sets/gn2.svg?1786939200","set_type":"box","digital":false},{"code":"cmb1","name":"Mystery Booster Playtest Cards 2019","released_at":"2019-11-07","icon_svg_uri":"https://svgs.scryfall.io/sets/planeswalker.svg?1786939200","set_type":"funny","digital":false},{"code":"ptg","name":"Ponies: The Galloping","released_at":"2019-10-22","icon_svg_uri":"https://svgs.scryfall.io/sets/ptg.svg?1786939200","set_type":"funny","digital":false},{"code":"eld","name":"Throne of Eldraine","released_at":"2019-10-04","icon_svg_uri":"https://svgs.scryfall.io/sets/eld.svg?1786939200","set_type":"expansion","digital":false},{"code":"c19","name":"Commander 2019","released_at":"2019-08-23","icon_svg_uri":"https://svgs.scryfall.io/sets/c19.svg?1786939200","set_type":"commander","digital":false},{"code":"ph18","name":"2018 Heroes of the Realm","released_at":"2019-08-01","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"funny","digital":false},{"code":"m20","name":"Core Set 2020","released_at":"2019-07-12","icon_svg_uri":"https://svgs.scryfall.io/sets/m20.svg?1786939200","set_type":"core","digital":false},{"code":"ss2","name":"Signature Spellbook: Gideon","released_at":"2019-06-28","icon_svg_uri":"https://svgs.scryfall.io/sets/ss2.svg?1786939200","set_type":"spellbook","digital":false},{"code":"mh1","name":"Modern Horizons","released_at":"2019-06-14","icon_svg_uri":"https://svgs.scryfall.io/sets/mh1.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"war","name":"War of the Spark","released_at":"2019-05-03","icon_svg_uri":"https://svgs.scryfall.io/sets/war.svg?1786939200","set_type":"expansion","digital":false},{"code":"gk2","name":"RNA Guild Kit","released_at":"2019-02-15","icon_svg_uri":"https://svgs.scryfall.io/sets/rna.svg?1786939200","set_type":"box","digital":false},{"code":"rna","name":"Ravnica Allegiance","released_at":"2019-01-25","icon_svg_uri":"https://svgs.scryfall.io/sets/rna.svg?1786939200","set_type":"expansion","digital":false},{"code":"uma","name":"Ultimate Masters","released_at":"2018-12-07","icon_svg_uri":"https://svgs.scryfall.io/sets/uma.svg?1786939200","set_type":"masters","digital":false},{"code":"gnt","name":"Game Night","released_at":"2018-11-16","icon_svg_uri":"https://svgs.scryfall.io/sets/gnt.svg?1786939200","set_type":"box","digital":false},{"code":"g18","name":"M19 Gift Pack","released_at":"2018-11-16","icon_svg_uri":"https://svgs.scryfall.io/sets/m19.svg?1786939200","set_type":"box","digital":false},{"code":"gk1","name":"GRN Guild Kit","released_at":"2018-11-02","icon_svg_uri":"https://svgs.scryfall.io/sets/grn.svg?1786939200","set_type":"box","digital":false},{"code":"grn","name":"Guilds of Ravnica","released_at":"2018-10-05","icon_svg_uri":"https://svgs.scryfall.io/sets/grn.svg?1786939200","set_type":"expansion","digital":false},{"code":"c18","name":"Commander 2018","released_at":"2018-08-10","icon_svg_uri":"https://svgs.scryfall.io/sets/c18.svg?1786939200","set_type":"commander","digital":false},{"code":"ph17","name":"2017 Heroes of the Realm","released_at":"2018-08-01","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"funny","digital":false},{"code":"ana","name":"Arena New Player Experience","released_at":"2018-07-14","icon_svg_uri":"https://svgs.scryfall.io/sets/mtga.svg?1786939200","set_type":"starter","digital":true},{"code":"oana","name":"Arena New Player Experience Cards","released_at":"2018-07-14","icon_svg_uri":"https://svgs.scryfall.io/sets/mtga.svg?1786939200","set_type":"starter","digital":true},{"code":"m19","name":"Core Set 2019","released_at":"2018-07-13","icon_svg_uri":"https://svgs.scryfall.io/sets/m19.svg?1786939200","set_type":"core","digital":false},{"code":"gs1","name":"Global Series Jiang Yanggu & Mu Yanling","released_at":"2018-06-22","icon_svg_uri":"https://svgs.scryfall.io/sets/gs1.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"ss1","name":"Signature Spellbook: Jace","released_at":"2018-06-15","icon_svg_uri":"https://svgs.scryfall.io/sets/ss1.svg?1786939200","set_type":"spellbook","digital":false},{"code":"bbd","name":"Battlebond","released_at":"2018-06-08","icon_svg_uri":"https://svgs.scryfall.io/sets/bbd.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"cm2","name":"Commander Anthology Volume II","released_at":"2018-06-08","icon_svg_uri":"https://svgs.scryfall.io/sets/cm2.svg?1786939200","set_type":"commander","digital":false},{"code":"dom","name":"Dominaria","released_at":"2018-04-27","icon_svg_uri":"https://svgs.scryfall.io/sets/dom.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddu","name":"Duel Decks: Elves vs. Inventors","released_at":"2018-04-06","icon_svg_uri":"https://svgs.scryfall.io/sets/ddu.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"a25","name":"Masters 25","released_at":"2018-03-16","icon_svg_uri":"https://svgs.scryfall.io/sets/a25.svg?1786939200","set_type":"masters","digital":false},{"code":"rix","name":"Rivals of Ixalan","released_at":"2018-01-19","icon_svg_uri":"https://svgs.scryfall.io/sets/rix.svg?1786939200","set_type":"expansion","digital":false},{"code":"ust","name":"Unstable","released_at":"2017-12-08","icon_svg_uri":"https://svgs.scryfall.io/sets/ust.svg?1786939200","set_type":"funny","digital":false},{"code":"v17","name":"From the Vault: Transform","released_at":"2017-11-24","icon_svg_uri":"https://svgs.scryfall.io/sets/v17.svg?1786939200","set_type":"from_the_vault","digital":false},{"code":"e02","name":"Explorers of Ixalan","released_at":"2017-11-24","icon_svg_uri":"https://svgs.scryfall.io/sets/e02.svg?1786939200","set_type":"box","digital":false},{"code":"ima","name":"Iconic Masters","released_at":"2017-11-17","icon_svg_uri":"https://svgs.scryfall.io/sets/ima.svg?1786939200","set_type":"masters","digital":false},{"code":"ddt","name":"Duel Decks: Merfolk vs. Goblins","released_at":"2017-10-24","icon_svg_uri":"https://svgs.scryfall.io/sets/ddt.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"g17","name":"2017 Gift Pack","released_at":"2017-10-20","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"box","digital":false},{"code":"xln","name":"Ixalan","released_at":"2017-09-29","icon_svg_uri":"https://svgs.scryfall.io/sets/xln.svg?1786939200","set_type":"expansion","digital":false},{"code":"h17","name":"HasCon 2017","released_at":"2017-09-20","icon_svg_uri":"https://svgs.scryfall.io/sets/h17.svg?1786939200","set_type":"funny","digital":false},{"code":"phtr","name":"2016 Heroes of the Realm","released_at":"2017-09-20","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"funny","digital":false},{"code":"c17","name":"Commander 2017","released_at":"2017-08-25","icon_svg_uri":"https://svgs.scryfall.io/sets/c17.svg?1786939200","set_type":"commander","digital":false},{"code":"hou","name":"Hour of Devastation","released_at":"2017-07-14","icon_svg_uri":"https://svgs.scryfall.io/sets/hou.svg?1786939200","set_type":"expansion","digital":false},{"code":"oe01","name":"Archenemy: Nicol Bolas Schemes","released_at":"2017-06-16","icon_svg_uri":"https://svgs.scryfall.io/sets/e01.svg?1786939200","set_type":"archenemy","digital":false},{"code":"e01","name":"Archenemy: Nicol Bolas","released_at":"2017-06-16","icon_svg_uri":"https://svgs.scryfall.io/sets/e01.svg?1786939200","set_type":"archenemy","digital":false},{"code":"cma","name":"Commander Anthology","released_at":"2017-06-09","icon_svg_uri":"https://svgs.scryfall.io/sets/cma.svg?1786939200","set_type":"commander","digital":false},{"code":"akh","name":"Amonkhet","released_at":"2017-04-28","icon_svg_uri":"https://svgs.scryfall.io/sets/akh.svg?1786939200","set_type":"expansion","digital":false},{"code":"w17","name":"Welcome Deck 2017","released_at":"2017-04-15","icon_svg_uri":"https://svgs.scryfall.io/sets/w17.svg?1786939200","set_type":"starter","digital":false},{"code":"dds","name":"Duel Decks: Mind vs. Might","released_at":"2017-03-31","icon_svg_uri":"https://svgs.scryfall.io/sets/dds.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"mm3","name":"Modern Masters 2017","released_at":"2017-03-17","icon_svg_uri":"https://svgs.scryfall.io/sets/mm3.svg?1786939200","set_type":"masters","digital":false},{"code":"aer","name":"Aether Revolt","released_at":"2017-01-20","icon_svg_uri":"https://svgs.scryfall.io/sets/aer.svg?1786939200","set_type":"expansion","digital":false},{"code":"pca","name":"Planechase Anthology","released_at":"2016-11-25","icon_svg_uri":"https://svgs.scryfall.io/sets/pca.svg?1786939200","set_type":"planechase","digital":false},{"code":"opca","name":"Planechase Anthology Planes","released_at":"2016-11-25","icon_svg_uri":"https://svgs.scryfall.io/sets/pca.svg?1786939200","set_type":"planechase","digital":false},{"code":"c16","name":"Commander 2016","released_at":"2016-11-11","icon_svg_uri":"https://svgs.scryfall.io/sets/c16.svg?1786939200","set_type":"commander","digital":false},{"code":"kld","name":"Kaladesh","released_at":"2016-09-30","icon_svg_uri":"https://svgs.scryfall.io/sets/kld.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddr","name":"Duel Decks: Nissa vs. Ob Nixilis","released_at":"2016-09-02","icon_svg_uri":"https://svgs.scryfall.io/sets/ddr.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"cn2","name":"Conspiracy: Take the Crown","released_at":"2016-08-26","icon_svg_uri":"https://svgs.scryfall.io/sets/cn2.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"v16","name":"From the Vault: Lore","released_at":"2016-08-19","icon_svg_uri":"https://svgs.scryfall.io/sets/v16.svg?1786939200","set_type":"from_the_vault","digital":false},{"code":"emn","name":"Eldritch Moon","released_at":"2016-07-22","icon_svg_uri":"https://svgs.scryfall.io/sets/emn.svg?1786939200","set_type":"expansion","digital":false},{"code":"ema","name":"Eternal Masters","released_at":"2016-06-10","icon_svg_uri":"https://svgs.scryfall.io/sets/ema.svg?1786939200","set_type":"masters","digital":false},{"code":"soi","name":"Shadows over Innistrad","released_at":"2016-04-08","icon_svg_uri":"https://svgs.scryfall.io/sets/soi.svg?1786939200","set_type":"expansion","digital":false},{"code":"w16","name":"Welcome Deck 2016","released_at":"2016-04-08","icon_svg_uri":"https://svgs.scryfall.io/sets/w16.svg?1786939200","set_type":"starter","digital":false},{"code":"ddq","name":"Duel Decks: Blessed vs. Cursed","released_at":"2016-02-26","icon_svg_uri":"https://svgs.scryfall.io/sets/ddq.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"ogw","name":"Oath of the Gatewatch","released_at":"2016-01-22","icon_svg_uri":"https://svgs.scryfall.io/sets/ogw.svg?1786939200","set_type":"expansion","digital":false},{"code":"c15","name":"Commander 2015","released_at":"2015-11-13","icon_svg_uri":"https://svgs.scryfall.io/sets/c15.svg?1786939200","set_type":"commander","digital":false},{"code":"bfz","name":"Battle for Zendikar","released_at":"2015-10-02","icon_svg_uri":"https://svgs.scryfall.io/sets/bfz.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddp","name":"Duel Decks: Zendikar vs. Eldrazi","released_at":"2015-08-28","icon_svg_uri":"https://svgs.scryfall.io/sets/ddp.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"v15","name":"From the Vault: Angels","released_at":"2015-08-21","icon_svg_uri":"https://svgs.scryfall.io/sets/v15.svg?1786939200","set_type":"from_the_vault","digital":false},{"code":"cp3","name":"Magic Origins Clash Pack","released_at":"2015-07-17","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"starter","digital":false},{"code":"ori","name":"Magic Origins","released_at":"2015-07-17","icon_svg_uri":"https://svgs.scryfall.io/sets/ori.svg?1786939200","set_type":"core","digital":false},{"code":"mm2","name":"Modern Masters 2015","released_at":"2015-05-22","icon_svg_uri":"https://svgs.scryfall.io/sets/mm2.svg?1786939200","set_type":"masters","digital":false},{"code":"tpr","name":"Tempest Remastered","released_at":"2015-05-06","icon_svg_uri":"https://svgs.scryfall.io/sets/tpr.svg?1786939200","set_type":"masters","digital":true},{"code":"dtk","name":"Dragons of Tarkir","released_at":"2015-03-27","icon_svg_uri":"https://svgs.scryfall.io/sets/dtk.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddo","name":"Duel Decks: Elspeth vs. Kiora","released_at":"2015-02-27","icon_svg_uri":"https://svgs.scryfall.io/sets/ddo.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"cp2","name":"Fate Reforged Clash Pack","released_at":"2015-01-23","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"starter","digital":false},{"code":"frf","name":"Fate Reforged","released_at":"2015-01-23","icon_svg_uri":"https://svgs.scryfall.io/sets/frf.svg?1786939200","set_type":"expansion","digital":false},{"code":"dvd","name":"Duel Decks Anthology: Divine vs. Demonic","released_at":"2014-12-05","icon_svg_uri":"https://svgs.scryfall.io/sets/ddc.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"jvc","name":"Duel Decks Anthology: Jace vs. Chandra","released_at":"2014-12-05","icon_svg_uri":"https://svgs.scryfall.io/sets/dd2.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"gvl","name":"Duel Decks Anthology: Garruk vs. Liliana","released_at":"2014-12-05","icon_svg_uri":"https://svgs.scryfall.io/sets/ddd.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"evg","name":"Duel Decks Anthology: Elves vs. Goblins","released_at":"2014-12-05","icon_svg_uri":"https://svgs.scryfall.io/sets/dd1.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"c14","name":"Commander 2014","released_at":"2014-11-07","icon_svg_uri":"https://svgs.scryfall.io/sets/c14.svg?1786939200","set_type":"commander","digital":false},{"code":"ktk","name":"Khans of Tarkir","released_at":"2014-09-26","icon_svg_uri":"https://svgs.scryfall.io/sets/ktk.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddn","name":"Duel Decks: Speed vs. Cunning","released_at":"2014-09-05","icon_svg_uri":"https://svgs.scryfall.io/sets/ddn.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"v14","name":"From the Vault: Annihilation","released_at":"2014-08-22","icon_svg_uri":"https://svgs.scryfall.io/sets/v14.svg?1786939200","set_type":"from_the_vault","digital":false},{"code":"cp1","name":"Magic 2015 Clash Pack","released_at":"2014-07-18","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"starter","digital":false},{"code":"m15","name":"Magic 2015","released_at":"2014-07-18","icon_svg_uri":"https://svgs.scryfall.io/sets/m15.svg?1786939200","set_type":"core","digital":false},{"code":"vma","name":"Vintage Masters","released_at":"2014-06-16","icon_svg_uri":"https://svgs.scryfall.io/sets/vma.svg?1786939200","set_type":"masters","digital":true},{"code":"cns","name":"Conspiracy","released_at":"2014-06-06","icon_svg_uri":"https://svgs.scryfall.io/sets/cns.svg?1786939200","set_type":"draft_innovation","digital":false},{"code":"md1","name":"Modern Event Deck 2014","released_at":"2014-05-30","icon_svg_uri":"https://svgs.scryfall.io/sets/md1.svg?1786939200","set_type":"box","digital":false},{"code":"jou","name":"Journey into Nyx","released_at":"2014-05-02","icon_svg_uri":"https://svgs.scryfall.io/sets/jou.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddm","name":"Duel Decks: Jace vs. Vraska","released_at":"2014-03-14","icon_svg_uri":"https://svgs.scryfall.io/sets/ddm.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"bng","name":"Born of the Gods","released_at":"2014-02-07","icon_svg_uri":"https://svgs.scryfall.io/sets/bng.svg?1786939200","set_type":"expansion","digital":false},{"code":"c13","name":"Commander 2013","released_at":"2013-11-01","icon_svg_uri":"https://svgs.scryfall.io/sets/c13.svg?1786939200","set_type":"commander","digital":false},{"code":"ths","name":"Theros","released_at":"2013-09-27","icon_svg_uri":"https://svgs.scryfall.io/sets/ths.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddl","name":"Duel Decks: Heroes vs. Monsters","released_at":"2013-09-06","icon_svg_uri":"https://svgs.scryfall.io/sets/ddl.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"v13","name":"From the Vault: Twenty","released_at":"2013-08-23","icon_svg_uri":"https://svgs.scryfall.io/sets/v13.svg?1786939200","set_type":"from_the_vault","digital":false},{"code":"m14","name":"Magic 2014","released_at":"2013-07-19","icon_svg_uri":"https://svgs.scryfall.io/sets/m14.svg?1786939200","set_type":"core","digital":false},{"code":"mma","name":"Modern Masters","released_at":"2013-06-07","icon_svg_uri":"https://svgs.scryfall.io/sets/mma.svg?1786939200","set_type":"masters","digital":false},{"code":"dgm","name":"Dragon's Maze","released_at":"2013-05-03","icon_svg_uri":"https://svgs.scryfall.io/sets/dgm.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddk","name":"Duel Decks: Sorin vs. Tibalt","released_at":"2013-03-15","icon_svg_uri":"https://svgs.scryfall.io/sets/ddk.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"gtc","name":"Gatecrash","released_at":"2013-02-01","icon_svg_uri":"https://svgs.scryfall.io/sets/gtc.svg?1786939200","set_type":"expansion","digital":false},{"code":"cm1","name":"Commander's Arsenal","released_at":"2012-11-02","icon_svg_uri":"https://svgs.scryfall.io/sets/cm1.svg?1786939200","set_type":"arsenal","digital":false},{"code":"rtr","name":"Return to Ravnica","released_at":"2012-10-05","icon_svg_uri":"https://svgs.scryfall.io/sets/rtr.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddj","name":"Duel Decks: Izzet vs. Golgari","released_at":"2012-09-07","icon_svg_uri":"https://svgs.scryfall.io/sets/ddj.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"v12","name":"From the Vault: Realms","released_at":"2012-08-31","icon_svg_uri":"https://svgs.scryfall.io/sets/v12.svg?1786939200","set_type":"from_the_vault","digital":false},{"code":"m13","name":"Magic 2013","released_at":"2012-07-13","icon_svg_uri":"https://svgs.scryfall.io/sets/m13.svg?1786939200","set_type":"core","digital":false},{"code":"opc2","name":"Planechase 2012 Planes","released_at":"2012-06-01","icon_svg_uri":"https://svgs.scryfall.io/sets/pc2.svg?1786939200","set_type":"planechase","digital":false},{"code":"pc2","name":"Planechase 2012","released_at":"2012-06-01","icon_svg_uri":"https://svgs.scryfall.io/sets/pc2.svg?1786939200","set_type":"planechase","digital":false},{"code":"avr","name":"Avacyn Restored","released_at":"2012-05-04","icon_svg_uri":"https://svgs.scryfall.io/sets/avr.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddi","name":"Duel Decks: Venser vs. Koth","released_at":"2012-03-30","icon_svg_uri":"https://svgs.scryfall.io/sets/ddi.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"dka","name":"Dark Ascension","released_at":"2012-02-03","icon_svg_uri":"https://svgs.scryfall.io/sets/dka.svg?1786939200","set_type":"expansion","digital":false},{"code":"pd3","name":"Premium Deck Series: Graveborn","released_at":"2011-11-18","icon_svg_uri":"https://svgs.scryfall.io/sets/pd3.svg?1786939200","set_type":"premium_deck","digital":false},{"code":"isd","name":"Innistrad","released_at":"2011-09-30","icon_svg_uri":"https://svgs.scryfall.io/sets/isd.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddh","name":"Duel Decks: Ajani vs. Nicol Bolas","released_at":"2011-09-02","icon_svg_uri":"https://svgs.scryfall.io/sets/ddh.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"v11","name":"From the Vault: Legends","released_at":"2011-08-26","icon_svg_uri":"https://svgs.scryfall.io/sets/v11.svg?1786939200","set_type":"from_the_vault","digital":false},{"code":"m12","name":"Magic 2012","released_at":"2011-07-15","icon_svg_uri":"https://svgs.scryfall.io/sets/m12.svg?1786939200","set_type":"core","digital":false},{"code":"cmd","name":"Commander 2011","released_at":"2011-06-17","icon_svg_uri":"https://svgs.scryfall.io/sets/cmd.svg?1786939200","set_type":"commander","digital":false},{"code":"td2","name":"Duel Decks: Mirrodin Pure vs. New Phyrexia","released_at":"2011-05-14","icon_svg_uri":"https://svgs.scryfall.io/sets/td2.svg?1786939200","set_type":"duel_deck","digital":true},{"code":"nph","name":"New Phyrexia","released_at":"2011-05-13","icon_svg_uri":"https://svgs.scryfall.io/sets/nph.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddg","name":"Duel Decks: Knights vs. Dragons","released_at":"2011-04-01","icon_svg_uri":"https://svgs.scryfall.io/sets/ddg.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"mbs","name":"Mirrodin Besieged","released_at":"2011-02-04","icon_svg_uri":"https://svgs.scryfall.io/sets/mbs.svg?1786939200","set_type":"expansion","digital":false},{"code":"me4","name":"Masters Edition IV","released_at":"2011-01-10","icon_svg_uri":"https://svgs.scryfall.io/sets/me4.svg?1786939200","set_type":"masters","digital":true},{"code":"ps11","name":"Salvat 2011","released_at":"2011-01-01","icon_svg_uri":"https://svgs.scryfall.io/sets/psal.svg?1786939200","set_type":"box","digital":false},{"code":"pd2","name":"Premium Deck Series: Fire and Lightning","released_at":"2010-11-19","icon_svg_uri":"https://svgs.scryfall.io/sets/pd2.svg?1786939200","set_type":"premium_deck","digital":false},{"code":"td0","name":"Magic Online Theme Decks","released_at":"2010-11-08","icon_svg_uri":"https://svgs.scryfall.io/sets/td0.svg?1786939200","set_type":"box","digital":true},{"code":"som","name":"Scars of Mirrodin","released_at":"2010-10-01","icon_svg_uri":"https://svgs.scryfall.io/sets/som.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddf","name":"Duel Decks: Elspeth vs. Tezzeret","released_at":"2010-09-03","icon_svg_uri":"https://svgs.scryfall.io/sets/ddf.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"v10","name":"From the Vault: Relics","released_at":"2010-08-27","icon_svg_uri":"https://svgs.scryfall.io/sets/v10.svg?1786939200","set_type":"from_the_vault","digital":false},{"code":"m11","name":"Magic 2011","released_at":"2010-07-16","icon_svg_uri":"https://svgs.scryfall.io/sets/m11.svg?1786939200","set_type":"core","digital":false},{"code":"oarc","name":"Archenemy Schemes","released_at":"2010-06-18","icon_svg_uri":"https://svgs.scryfall.io/sets/arc.svg?1786939200","set_type":"archenemy","digital":false},{"code":"arc","name":"Archenemy","released_at":"2010-06-18","icon_svg_uri":"https://svgs.scryfall.io/sets/arc.svg?1786939200","set_type":"archenemy","digital":false},{"code":"dpa","name":"Duels of the Planeswalkers","released_at":"2010-06-04","icon_svg_uri":"https://svgs.scryfall.io/sets/dpa.svg?1786939200","set_type":"box","digital":false},{"code":"roe","name":"Rise of the Eldrazi","released_at":"2010-04-23","icon_svg_uri":"https://svgs.scryfall.io/sets/roe.svg?1786939200","set_type":"expansion","digital":false},{"code":"dde","name":"Duel Decks: Phyrexia vs. the Coalition","released_at":"2010-03-19","icon_svg_uri":"https://svgs.scryfall.io/sets/dde.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"wwk","name":"Worldwake","released_at":"2010-02-05","icon_svg_uri":"https://svgs.scryfall.io/sets/wwk.svg?1786939200","set_type":"expansion","digital":false},{"code":"h09","name":"Premium Deck Series: Slivers","released_at":"2009-11-20","icon_svg_uri":"https://svgs.scryfall.io/sets/h09.svg?1786939200","set_type":"premium_deck","digital":false},{"code":"ddd","name":"Duel Decks: Garruk vs. Liliana","released_at":"2009-10-30","icon_svg_uri":"https://svgs.scryfall.io/sets/ddd.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"zen","name":"Zendikar","released_at":"2009-10-02","icon_svg_uri":"https://svgs.scryfall.io/sets/zen.svg?1786939200","set_type":"expansion","digital":false},{"code":"me3","name":"Masters Edition III","released_at":"2009-09-07","icon_svg_uri":"https://svgs.scryfall.io/sets/me3.svg?1786939200","set_type":"masters","digital":true},{"code":"ohop","name":"Planechase Planes","released_at":"2009-09-04","icon_svg_uri":"https://svgs.scryfall.io/sets/hop.svg?1786939200","set_type":"planechase","digital":false},{"code":"hop","name":"Planechase","released_at":"2009-09-04","icon_svg_uri":"https://svgs.scryfall.io/sets/hop.svg?1786939200","set_type":"planechase","digital":false},{"code":"v09","name":"From the Vault: Exiled","released_at":"2009-08-28","icon_svg_uri":"https://svgs.scryfall.io/sets/v09.svg?1786939200","set_type":"from_the_vault","digital":false},{"code":"m10","name":"Magic 2010","released_at":"2009-07-17","icon_svg_uri":"https://svgs.scryfall.io/sets/m10.svg?1786939200","set_type":"core","digital":false},{"code":"arb","name":"Alara Reborn","released_at":"2009-04-30","icon_svg_uri":"https://svgs.scryfall.io/sets/arb.svg?1786939200","set_type":"expansion","digital":false},{"code":"ddc","name":"Duel Decks: Divine vs. Demonic","released_at":"2009-04-10","icon_svg_uri":"https://svgs.scryfall.io/sets/ddc.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"con","name":"Conflux","released_at":"2009-02-06","icon_svg_uri":"https://svgs.scryfall.io/sets/con.svg?1786939200","set_type":"expansion","digital":false},{"code":"dd2","name":"Duel Decks: Jace vs. Chandra","released_at":"2008-11-07","icon_svg_uri":"https://svgs.scryfall.io/sets/dd2.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"ala","name":"Shards of Alara","released_at":"2008-10-03","icon_svg_uri":"https://svgs.scryfall.io/sets/ala.svg?1786939200","set_type":"expansion","digital":false},{"code":"me2","name":"Masters Edition II","released_at":"2008-09-22","icon_svg_uri":"https://svgs.scryfall.io/sets/me2.svg?1786939200","set_type":"masters","digital":true},{"code":"drb","name":"From the Vault: Dragons","released_at":"2008-08-29","icon_svg_uri":"https://svgs.scryfall.io/sets/drb.svg?1786939200","set_type":"from_the_vault","digital":false},{"code":"eve","name":"Eventide","released_at":"2008-07-25","icon_svg_uri":"https://svgs.scryfall.io/sets/eve.svg?1786939200","set_type":"expansion","digital":false},{"code":"shm","name":"Shadowmoor","released_at":"2008-05-02","icon_svg_uri":"https://svgs.scryfall.io/sets/shm.svg?1786939200","set_type":"expansion","digital":false},{"code":"mor","name":"Morningtide","released_at":"2008-02-01","icon_svg_uri":"https://svgs.scryfall.io/sets/mor.svg?1786939200","set_type":"expansion","digital":false},{"code":"dd1","name":"Duel Decks: Elves vs. Goblins","released_at":"2007-11-16","icon_svg_uri":"https://svgs.scryfall.io/sets/dd1.svg?1786939200","set_type":"duel_deck","digital":false},{"code":"lrw","name":"Lorwyn","released_at":"2007-10-12","icon_svg_uri":"https://svgs.scryfall.io/sets/lrw.svg?1786939200","set_type":"expansion","digital":false},{"code":"me1","name":"Masters Edition","released_at":"2007-09-10","icon_svg_uri":"https://svgs.scryfall.io/sets/me1.svg?1786939200","set_type":"masters","digital":true},{"code":"10e","name":"Tenth Edition","released_at":"2007-07-13","icon_svg_uri":"https://svgs.scryfall.io/sets/10e.svg?1786939200","set_type":"core","digital":false},{"code":"fut","name":"Future Sight","released_at":"2007-05-04","icon_svg_uri":"https://svgs.scryfall.io/sets/fut.svg?1786939200","set_type":"expansion","digital":false},{"code":"plc","name":"Planar Chaos","released_at":"2007-02-02","icon_svg_uri":"https://svgs.scryfall.io/sets/plc.svg?1786939200","set_type":"expansion","digital":false},{"code":"hho","name":"Happy Holidays","released_at":"2006-12-31","icon_svg_uri":"https://svgs.scryfall.io/sets/star.svg?1786939200","set_type":"funny","digital":false},{"code":"tsb","name":"Time Spiral Timeshifted","released_at":"2006-10-06","icon_svg_uri":"https://svgs.scryfall.io/sets/tsp.svg?1786939200","set_type":"expansion","digital":false},{"code":"tsp","name":"Time Spiral","released_at":"2006-10-06","icon_svg_uri":"https://svgs.scryfall.io/sets/tsp.svg?1786939200","set_type":"expansion","digital":false},{"code":"csp","name":"Coldsnap","released_at":"2006-07-21","icon_svg_uri":"https://svgs.scryfall.io/sets/csp.svg?1786939200","set_type":"expansion","digital":false},{"code":"cst","name":"Coldsnap Theme Decks","released_at":"2006-07-21","icon_svg_uri":"https://svgs.scryfall.io/sets/csp.svg?1786939200","set_type":"box","digital":false},{"code":"dis","name":"Dissension","released_at":"2006-05-05","icon_svg_uri":"https://svgs.scryfall.io/sets/dis.svg?1786939200","set_type":"expansion","digital":false},{"code":"gpt","name":"Guildpact","released_at":"2006-02-03","icon_svg_uri":"https://svgs.scryfall.io/sets/gpt.svg?1786939200","set_type":"expansion","digital":false},{"code":"phuk","name":"Hachette UK","released_at":"2006-01-01","icon_svg_uri":"https://svgs.scryfall.io/sets/phuk.svg?1786939200","set_type":"box","digital":false},{"code":"rav","name":"Ravnica: City of Guilds","released_at":"2005-10-07","icon_svg_uri":"https://svgs.scryfall.io/sets/rav.svg?1786939200","set_type":"expansion","digital":false},{"code":"psal","name":"Salvat 2005","released_at":"2005-08-22","icon_svg_uri":"https://svgs.scryfall.io/sets/phuk.svg?1786939200","set_type":"box","digital":false},{"code":"9ed","name":"Ninth Edition","released_at":"2005-07-29","icon_svg_uri":"https://svgs.scryfall.io/sets/9ed.svg?1786939200","set_type":"core","digital":false},{"code":"sok","name":"Saviors of Kamigawa","released_at":"2005-06-03","icon_svg_uri":"https://svgs.scryfall.io/sets/sok.svg?1786939200","set_type":"expansion","digital":false},{"code":"bok","name":"Betrayers of Kamigawa","released_at":"2005-02-04","icon_svg_uri":"https://svgs.scryfall.io/sets/bok.svg?1786939200","set_type":"expansion","digital":false},{"code":"unh","name":"Unhinged","released_at":"2004-11-19","icon_svg_uri":"https://svgs.scryfall.io/sets/unh.svg?1786939200","set_type":"funny","digital":false},{"code":"chk","name":"Champions of Kamigawa","released_at":"2004-10-01","icon_svg_uri":"https://svgs.scryfall.io/sets/chk.svg?1786939200","set_type":"expansion","digital":false},{"code":"5dn","name":"Fifth Dawn","released_at":"2004-06-04","icon_svg_uri":"https://svgs.scryfall.io/sets/5dn.svg?1786939200","set_type":"expansion","digital":false},{"code":"dst","name":"Darksteel","released_at":"2004-02-06","icon_svg_uri":"https://svgs.scryfall.io/sets/dst.svg?1786939200","set_type":"expansion","digital":false},{"code":"mrd","name":"Mirrodin","released_at":"2003-10-02","icon_svg_uri":"https://svgs.scryfall.io/sets/mrd.svg?1786939200","set_type":"expansion","digital":false},{"code":"8ed","name":"Eighth Edition","released_at":"2003-07-28","icon_svg_uri":"https://svgs.scryfall.io/sets/8ed.svg?1786939200","set_type":"core","digital":false},{"code":"scg","name":"Scourge","released_at":"2003-05-26","icon_svg_uri":"https://svgs.scryfall.io/sets/scg.svg?1786939200","set_type":"expansion","digital":false},{"code":"lgn","name":"Legions","released_at":"2003-02-03","icon_svg_uri":"https://svgs.scryfall.io/sets/lgn.svg?1786939200","set_type":"expansion","digital":false},{"code":"pmoa","name":"Magic Online Avatars","released_at":"2003-01-01","icon_svg_uri":"https://svgs.scryfall.io/sets/mtgo.svg?1786939200","set_type":"vanguard","digital":true},{"code":"ons","name":"Onslaught","released_at":"2002-10-07","icon_svg_uri":"https://svgs.scryfall.io/sets/ons.svg?1786939200","set_type":"expansion","digital":false},{"code":"jud","name":"Judgment","released_at":"2002-05-27","icon_svg_uri":"https://svgs.scryfall.io/sets/jud.svg?1786939200","set_type":"expansion","digital":false},{"code":"tor","name":"Torment","released_at":"2002-02-04","icon_svg_uri":"https://svgs.scryfall.io/sets/tor.svg?1786939200","set_type":"expansion","digital":false},{"code":"dkm","name":"Deckmasters","released_at":"2001-12-01","icon_svg_uri":"https://svgs.scryfall.io/sets/dkm.svg?1786939200","set_type":"box","digital":false},{"code":"ody","name":"Odyssey","released_at":"2001-10-01","icon_svg_uri":"https://svgs.scryfall.io/sets/ody.svg?1786939200","set_type":"expansion","digital":false},{"code":"psdg","name":"Sega Dreamcast Cards","released_at":"2001-06-28","icon_svg_uri":"https://svgs.scryfall.io/sets/psdg.svg?1786939200","set_type":"box","digital":true},{"code":"apc","name":"Apocalypse","released_at":"2001-06-04","icon_svg_uri":"https://svgs.scryfall.io/sets/apc.svg?1786939200","set_type":"expansion","digital":false},{"code":"7ed","name":"Seventh Edition","released_at":"2001-04-11","icon_svg_uri":"https://svgs.scryfall.io/sets/7ed.svg?1786939200","set_type":"core","digital":false},{"code":"pls","name":"Planeshift","released_at":"2001-02-05","icon_svg_uri":"https://svgs.scryfall.io/sets/pls.svg?1786939200","set_type":"expansion","digital":false},{"code":"inv","name":"Invasion","released_at":"2000-10-02","icon_svg_uri":"https://svgs.scryfall.io/sets/inv.svg?1786939200","set_type":"expansion","digital":false},{"code":"btd","name":"Beatdown Box Set","released_at":"2000-10-01","icon_svg_uri":"https://svgs.scryfall.io/sets/btd.svg?1786939200","set_type":"box","digital":false},{"code":"pcy","name":"Prophecy","released_at":"2000-06-05","icon_svg_uri":"https://svgs.scryfall.io/sets/pcy.svg?1786939200","set_type":"expansion","digital":false},{"code":"s00","name":"Starter 2000","released_at":"2000-04-01","icon_svg_uri":"https://svgs.scryfall.io/sets/s00.svg?1786939200","set_type":"starter","digital":false},{"code":"nem","name":"Nemesis","released_at":"2000-02-14","icon_svg_uri":"https://svgs.scryfall.io/sets/nem.svg?1786939200","set_type":"expansion","digital":false},{"code":"brb","name":"Battle Royale Box Set","released_at":"1999-11-12","icon_svg_uri":"https://svgs.scryfall.io/sets/brb.svg?1786939200","set_type":"box","digital":false},{"code":"mmq","name":"Mercadian Masques","released_at":"1999-10-04","icon_svg_uri":"https://svgs.scryfall.io/sets/mmq.svg?1786939200","set_type":"expansion","digital":false},{"code":"s99","name":"Starter 1999","released_at":"1999-07-01","icon_svg_uri":"https://svgs.scryfall.io/sets/s99.svg?1786939200","set_type":"starter","digital":false},{"code":"uds","name":"Urza's Destiny","released_at":"1999-06-07","icon_svg_uri":"https://svgs.scryfall.io/sets/uds.svg?1786939200","set_type":"expansion","digital":false},{"code":"ptk","name":"Portal Three Kingdoms","released_at":"1999-05-01","icon_svg_uri":"https://svgs.scryfall.io/sets/ptk.svg?1786939200","set_type":"starter","digital":false},{"code":"6ed","name":"Classic Sixth Edition","released_at":"1999-04-21","icon_svg_uri":"https://svgs.scryfall.io/sets/6ed.svg?1786939200","set_type":"core","digital":false},{"code":"ulg","name":"Urza's Legacy","released_at":"1999-02-15","icon_svg_uri":"https://svgs.scryfall.io/sets/ulg.svg?1786939200","set_type":"expansion","digital":false},{"code":"ath","name":"Anthologies","released_at":"1998-11-01","icon_svg_uri":"https://svgs.scryfall.io/sets/ath.svg?1786939200","set_type":"box","digital":false},{"code":"usg","name":"Urza's Saga","released_at":"1998-10-12","icon_svg_uri":"https://svgs.scryfall.io/sets/usg.svg?1786939200","set_type":"expansion","digital":false},{"code":"ugl","name":"Unglued","released_at":"1998-08-11","icon_svg_uri":"https://svgs.scryfall.io/sets/ugl.svg?1786939200","set_type":"funny","digital":false},{"code":"p02","name":"Portal Second Age","released_at":"1998-06-24","icon_svg_uri":"https://svgs.scryfall.io/sets/p02.svg?1786939200","set_type":"starter","digital":false},{"code":"exo","name":"Exodus","released_at":"1998-06-15","icon_svg_uri":"https://svgs.scryfall.io/sets/exo.svg?1786939200","set_type":"expansion","digital":false},{"code":"sth","name":"Stronghold","released_at":"1998-03-02","icon_svg_uri":"https://svgs.scryfall.io/sets/sth.svg?1786939200","set_type":"expansion","digital":false},{"code":"tmp","name":"Tempest","released_at":"1997-10-14","icon_svg_uri":"https://svgs.scryfall.io/sets/tmp.svg?1786939200","set_type":"expansion","digital":false},{"code":"wth","name":"Weatherlight","released_at":"1997-06-09","icon_svg_uri":"https://svgs.scryfall.io/sets/wth.svg?1786939200","set_type":"expansion","digital":false},{"code":"por","name":"Portal","released_at":"1997-05-01","icon_svg_uri":"https://svgs.scryfall.io/sets/por.svg?1786939200","set_type":"starter","digital":false},{"code":"pvan","name":"Vanguard Series","released_at":"1997-05-01","icon_svg_uri":"https://svgs.scryfall.io/sets/van.svg?1786939200","set_type":"vanguard","digital":false},{"code":"past","name":"Astral Cards","released_at":"1997-04-01","icon_svg_uri":"https://svgs.scryfall.io/sets/past.svg?1786939200","set_type":"box","digital":true},{"code":"5ed","name":"Fifth Edition","released_at":"1997-03-24","icon_svg_uri":"https://svgs.scryfall.io/sets/5ed.svg?1786939200","set_type":"core","digital":false},{"code":"vis","name":"Visions","released_at":"1997-02-03","icon_svg_uri":"https://svgs.scryfall.io/sets/vis.svg?1786939200","set_type":"expansion","digital":false},{"code":"itp","name":"Introductory Two-Player Set","released_at":"1996-12-31","icon_svg_uri":"https://svgs.scryfall.io/sets/x2ps.svg?1786939200","set_type":"starter","digital":false},{"code":"mgb","name":"Multiverse Gift Box","released_at":"1996-11-01","icon_svg_uri":"https://svgs.scryfall.io/sets/vis.svg?1786939200","set_type":"box","digital":false},{"code":"mir","name":"Mirage","released_at":"1996-10-08","icon_svg_uri":"https://svgs.scryfall.io/sets/mir.svg?1786939200","set_type":"expansion","digital":false},{"code":"rqs","name":"Rivals Quick Start Set","released_at":"1996-07-01","icon_svg_uri":"https://svgs.scryfall.io/sets/default.svg?1786939200","set_type":"box","digital":false},{"code":"all","name":"Alliances","released_at":"1996-06-10","icon_svg_uri":"https://svgs.scryfall.io/sets/all.svg?1786939200","set_type":"expansion","digital":false},{"code":"hml","name":"Homelands","released_at":"1995-10-01","icon_svg_uri":"https://svgs.scryfall.io/sets/hml.svg?1786939200","set_type":"expansion","digital":false},{"code":"rin","name":"Rinascimento","released_at":"1995-08-01","icon_svg_uri":"https://svgs.scryfall.io/sets/rin.svg?1786939200","set_type":"masters","digital":false},{"code":"ren","name":"Renaissance","released_at":"1995-08-01","icon_svg_uri":"https://svgs.scryfall.io/sets/ren.svg?1786939200","set_type":"masters","digital":false},{"code":"chr","name":"Chronicles","released_at":"1995-07-01","icon_svg_uri":"https://svgs.scryfall.io/sets/chr.svg?1786939200","set_type":"masters","digital":false},{"code":"bchr","name":"Chronicles Foreign Black Border","released_at":"1995-07-01","icon_svg_uri":"https://svgs.scryfall.io/sets/chr.svg?1786939200","set_type":"masters","digital":false},{"code":"ice","name":"Ice Age","released_at":"1995-06-03","icon_svg_uri":"https://svgs.scryfall.io/sets/ice.svg?1786939200","set_type":"expansion","digital":false},{"code":"4bb","name":"Fourth Edition Foreign Black Border","released_at":"1995-04-01","icon_svg_uri":"https://svgs.scryfall.io/sets/4ed.svg?1786939200","set_type":"core","digital":false},{"code":"4ed","name":"Fourth Edition","released_at":"1995-04-01","icon_svg_uri":"https://svgs.scryfall.io/sets/4ed.svg?1786939200","set_type":"core","digital":false},{"code":"fem","name":"Fallen Empires","released_at":"1994-11-01","icon_svg_uri":"https://svgs.scryfall.io/sets/fem.svg?1786939200","set_type":"expansion","digital":false},{"code":"drk","name":"The Dark","released_at":"1994-08-01","icon_svg_uri":"https://svgs.scryfall.io/sets/drk.svg?1786939200","set_type":"expansion","digital":false},{"code":"sum","name":"Summer Magic / Edgar","released_at":"1994-06-21","icon_svg_uri":"https://svgs.scryfall.io/sets/psum.svg?1786939200","set_type":"core","digital":false},{"code":"leg","name":"Legends","released_at":"1994-06-01","icon_svg_uri":"https://svgs.scryfall.io/sets/leg.svg?1786939200","set_type":"expansion","digital":false},{"code":"3ed","name":"Revised Edition","released_at":"1994-04-11","icon_svg_uri":"https://svgs.scryfall.io/sets/3ed.svg?1786939200","set_type":"core","digital":false},{"code":"fbb","name":"Foreign Black Border","released_at":"1994-04-11","icon_svg_uri":"https://svgs.scryfall.io/sets/3ed.svg?1786939200","set_type":"core","digital":false},{"code":"atq","name":"Antiquities","released_at":"1994-03-04","icon_svg_uri":"https://svgs.scryfall.io/sets/atq.svg?1786939200","set_type":"expansion","digital":false},{"code":"arn","name":"Arabian Nights","released_at":"1993-12-17","icon_svg_uri":"https://svgs.scryfall.io/sets/arn.svg?1786939200","set_type":"expansion","digital":false},{"code":"2ed","name":"Unlimited Edition","released_at":"1993-12-01","icon_svg_uri":"https://svgs.scryfall.io/sets/2ed.svg?1786939200","set_type":"core","digital":false},{"code":"leb","name":"Limited Edition Beta","released_at":"1993-10-04","icon_svg_uri":"https://svgs.scryfall.io/sets/leb.svg?1786939200","set_type":"core","digital":false},{"code":"lea","name":"Limited Edition Alpha","released_at":"1993-08-05","icon_svg_uri":"https://svgs.scryfall.io/sets/lea.svg?1786939200","set_type":"core","digital":false}];
+
+    /* ======================= EINDE ONDERHOUDSBLOK ======================= */
+
+    function safeStorageGet(key, fallback = null) {
+      try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; }
+    }
+
+    function safeStorageSet(key, value) {
+      try { localStorage.setItem(key, value); } catch { /* Privémodus of geblokkeerde opslag. */ }
+    }
+
+    const state = {
+      sets: FALLBACK_SETS,
+      legality: {
+        standard: [...FALLBACK_LIVE_LEGALITY.standard],
+        alchemy: [...FALLBACK_LIVE_LEGALITY.alchemy]
+      },
+      selectedFormat: null,
+      homeFilter: "all",
+      view: safeStorageGet("mtg-legality-view", "grid"),
+      ascending: false,
+      query: "",
+      visibleLimit: 40,
+      pageSize: 40,
+      favoriteFormat: safeStorageGet("mtg-legality-favorite"),
+      lastFormat: safeStorageGet("mtg-legality-last-format"),
+      changeSummary: "",
+      apiFailed: false,
+      liveStatus: "fallback",
+      lastSync: null,
+      staleCache: null,
+      cardSuggestions: [],
+      activeSuggestion: -1,
+      autocompleteRequest: 0,
+      autocompleteController: null,
+      autocompleteCache: new Map(),
+      deckCheckController: null
+    };
+
+    const elements = {
+      homeView: document.getElementById("homeView"),
+      detailView: document.getElementById("detailView"),
+      formatGrid: document.getElementById("formatGrid"),
+      cardFinder: document.getElementById("cardFinder"),
+      cardQuery: document.getElementById("cardQuery"),
+      cardSuggestions: document.getElementById("cardSuggestions"),
+      cardSearchButton: document.getElementById("cardSearchButton"),
+      cardResult: document.getElementById("cardResult"),
+      deckChecker: document.getElementById("deckChecker"),
+      deckForm: document.getElementById("deckForm"),
+      deckFormat: document.getElementById("deckFormat"),
+      deckFile: document.getElementById("deckFile"),
+      deckList: document.getElementById("deckList"),
+      deckSubmit: document.getElementById("deckSubmit"),
+      deckCount: document.getElementById("deckCount"),
+      deckResult: document.getElementById("deckResult"),
+      resumeButton: document.getElementById("resumeButton"),
+      changeNotice: document.getElementById("changeNotice"),
+      detailKicker: document.getElementById("detailKicker"),
+      detailTitle: document.getElementById("detailTitle"),
+      detailDescription: document.getElementById("detailDescription"),
+      statRow: document.getElementById("statRow"),
+      calloutArea: document.getElementById("calloutArea"),
+      setGrid: document.getElementById("setGrid"),
+      loadMoreWrap: document.getElementById("loadMoreWrap"),
+      loadMoreButton: document.getElementById("loadMoreButton"),
+      setSearch: document.getElementById("setSearch"),
+      resultsLabel: document.getElementById("resultsLabel"),
+      sourceLink: document.getElementById("sourceLink"),
+      apiAlert: document.getElementById("apiAlert"),
+      apiAlertText: document.getElementById("apiAlertText"),
+      reverseButton: document.getElementById("reverseButton"),
+      favoriteDetail: document.getElementById("favoriteDetail"),
+      toast: document.getElementById("toast"),
+      updatedLabel: document.getElementById("updatedLabel")
+    };
+
+    const dateFormatter = new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "long", year: "numeric" });
+
+    function parseDate(dateString) {
+      if (!dateString) return null;
+      const date = new Date(dateString + "T12:00:00Z");
+      return Number.isNaN(date.getTime()) ? null : date;
+    }
+
+    function formatDate(dateString) {
+      const date = parseDate(dateString);
+      return date ? dateFormatter.format(date) : dateString || "Onbekend";
+    }
+
+    function daysUntil(dateString) {
+      const date = parseDate(dateString);
+      if (!date) return null;
+      const today = parseDate(todayIso());
+      return Math.max(0, Math.ceil((date - today) / 86400000));
+    }
+
+    function todayIso() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, "0");
+      const day = String(now.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>'"]/g, character => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+      })[character]);
+    }
+
+    function validCurrentSet(set) {
+      return set && set.code && set.released_at && set.released_at <= todayIso();
+    }
+
+    function uniqueByCode(sets) {
+      const map = new Map();
+      sets.filter(Boolean).forEach(set => map.set(set.code, set));
+      return Array.from(map.values());
+    }
+
+    function getSetMap() {
+      return new Map(state.sets.map(set => [set.code, set]));
+    }
+
+    function isMainSet(set) {
+      return set.set_type === "expansion" || set.set_type === "core";
+    }
+
+    function isArenaSet(set) {
+      if (!validCurrentSet(set)) return false;
+      const regularArenaRelease = isMainSet(set) && set.released_at >= "2017-09-29";
+      const numberedSupplement = /^(ha|ea|aa)\d+$/i.test(set.code);
+      const supportedDigitalType = ["expansion","core","alchemy","masters","draft_innovation","box","starter","commander"].includes(set.set_type);
+      const currentDigitalProduct = set.digital && supportedDigitalType && set.released_at >= "2017-09-29";
+      return currentDigitalProduct || regularArenaRelease || numberedSupplement || FORMAT_EXCEPTIONS.arenaSupplemental.has(set.code);
+    }
+
+    function getFormatSets(format) {
+      const map = getSetMap();
+      let sets = [];
+
+      if (format.scope === "live-legality") {
+        sets = (state.legality[format.legalityKey] || []).map(code => map.get(code)).filter(Boolean);
+      } else if (format.scope === "pioneer") {
+        sets = state.sets.filter(set => {
+          return validCurrentSet(set) && isMainSet(set) && set.released_at >= "2012-10-05";
+        });
+      } else if (format.scope === "modern") {
+        sets = state.sets.filter(set => {
+          const regular = isMainSet(set) && set.released_at >= "2003-07-28";
+          return validCurrentSet(set) && (regular || FORMAT_EXCEPTIONS.modernDirect.has(set.code));
+        });
+      } else if (format.scope === "explorer") {
+        sets = state.sets.filter(set => {
+          const arenaPremier = isArenaSet(set) && isMainSet(set) && set.released_at >= "2012-10-05";
+          return arenaPremier || (validCurrentSet(set) && FORMAT_EXCEPTIONS.explorerSupplemental.has(set.code));
+        });
+      } else if (format.scope === "all-paper") {
+        sets = state.sets.filter(set => validCurrentSet(set) && !set.digital && PAPER_SET_TYPES.has(set.set_type));
+      } else if (format.scope === "arena-pool") {
+        sets = state.sets.filter(isArenaSet);
+      }
+
+      return uniqueByCode(sets).sort((a, b) => b.released_at.localeCompare(a.released_at));
+    }
+
+    function firstPremierReleaseInYear(year) {
+      const releases = state.sets
+        .filter(set => isMainSet(set) && !set.digital && set.released_at?.startsWith(String(year)))
+        .sort((a, b) => a.released_at.localeCompare(b.released_at));
+      return releases[0]?.released_at || null;
+    }
+
+    function standardRotationInfo(set) {
+      if (set.code === "fdn") {
+        return { label: "Langlopend legal", detail: "Minstens t/m 2029", sortKey: "9999-12-31", next: false };
+      }
+      const releaseYear = Number(set.released_at.slice(0, 4));
+      const exitYear = releaseYear < 2025 ? 2027 : releaseYear + 3;
+      const exactDate = firstPremierReleaseInYear(exitYear);
+      return {
+        label: exactDate ? `Roteert op ${formatDate(exactDate)}` : `Roteert bij de eerste set van ${exitYear}`,
+        detail: exactDate ? formatDate(exactDate) : `Eerste set van ${exitYear}`,
+        sortKey: exactDate || `${exitYear}-01-01`,
+        exactDate,
+        next: false
+      };
+    }
+
+    function getNextRotationInfo(format) {
+      const sets = getFormatSets(format);
+      if (!format.rotating || !sets.length) return { label: "Roteert niet", codes: [] };
+
+      if (format.rotationModel === "standard-calendar") {
+        const entries = sets.map(set => ({ set, info: standardRotationInfo(set) })).filter(entry => entry.info.sortKey < "9999");
+        const firstKey = entries.map(entry => entry.info.sortKey).sort()[0];
+        const codes = entries.filter(entry => entry.info.sortKey === firstKey).map(entry => entry.set.code);
+        const first = entries.find(entry => entry.info.sortKey === firstKey)?.info;
+        return { label: first?.detail || "Automatisch berekend", sortKey: firstKey, exactDate: first?.exactDate || null, codes, estimated: !first?.exactDate };
+      }
+
+      const oldestYear = Math.min(...sets.map(set => Number(set.released_at.slice(0, 4))).filter(Number.isFinite));
+      return {
+        label: `Verwachte oudste jaargang: ${oldestYear}`,
+        sortKey: `${oldestYear}-01-01`,
+        exactDate: null,
+        estimated: true,
+        codes: sets.filter(set => Number(set.released_at.slice(0, 4)) === oldestYear).map(set => set.code)
+      };
+    }
+
+    function platformLabel(format) {
+      if (format.platform === "paper") return "Papier";
+      if (format.platform === "arena") return "MTG Arena";
+      return "Papier + Arena";
+    }
+
+    function updateHomeNotices() {
+      const last = FORMAT_DATA[state.lastFormat];
+      if (last) {
+        elements.resumeButton.hidden = false;
+        elements.resumeButton.dataset.resume = state.lastFormat;
+        elements.resumeButton.textContent = `↗ Verder met ${last.name}`;
+      } else {
+        elements.resumeButton.hidden = true;
+      }
+      elements.changeNotice.hidden = !state.changeSummary;
+      elements.changeNotice.textContent = state.changeSummary;
+    }
+
+    function setFavorite(slug) {
+      state.favoriteFormat = state.favoriteFormat === slug ? null : slug;
+      if (state.favoriteFormat) safeStorageSet("mtg-legality-favorite", state.favoriteFormat);
+      else {
+        try { localStorage.removeItem("mtg-legality-favorite"); } catch { /* Opslag kan geblokkeerd zijn. */ }
+      }
+      renderFormats();
+      if (state.selectedFormat) updateFavoriteDetail();
+      showToast(state.favoriteFormat ? `${FORMAT_DATA[state.favoriteFormat].name} bewaard als favoriet` : "Favoriet verwijderd");
+    }
+
+    function updateFavoriteDetail() {
+      const active = state.favoriteFormat === state.selectedFormat;
+      elements.favoriteDetail.setAttribute("aria-pressed", String(active));
+      elements.favoriteDetail.textContent = active ? "★ Favoriet format" : "☆ Bewaar format";
+    }
+
+    function renderFormats() {
+      elements.formatGrid.innerHTML = Object.entries(FORMAT_DATA).map(([slug, format], index) => {
+        const visible = state.homeFilter === "all" || format.categories.includes(state.homeFilter);
+        const rotationTag = format.rotating ? "Roteert" : "Roteert niet";
+        const favorite = state.favoriteFormat === slug;
+        return `
+          <article class="format-card ${favorite ? "is-favorite" : ""}" data-index="${String(index + 1).padStart(2, "0")}" style="--card-rgb:${format.accent}" ${visible ? "" : "hidden"}>
+            <a class="format-open" href="#${slug}" data-format="${slug}" aria-label="Open ${escapeHtml(format.name)}">
+              <span class="format-glyph" aria-hidden="true">${FORMAT_ICONS[slug]}</span>
+              <h2>${escapeHtml(format.name)}</h2>
+              <p>${escapeHtml(format.short)}</p>
+              <span class="format-tags">
+                <span class="tag ${format.rotating ? "rotating" : ""}">${rotationTag}</span>
+                <span class="tag ${format.platform === "arena" ? "arena" : ""}">${platformLabel(format)}</span>
+              </span>
+            </a>
+            <button class="favorite-btn" type="button" data-favorite="${slug}" aria-label="${favorite ? "Verwijder" : "Bewaar"} ${escapeHtml(format.name)} als favoriet" aria-pressed="${favorite}">${favorite ? "★" : "☆"}</button>
+          </article>`;
+      }).join("");
+      updateHomeNotices();
+    }
+
+    function rotationStatus(format, set) {
+      if (!format.rotating) return { label: "Roteert niet", type: set.digital ? "digital" : "legal", detail: "Geen rotatie" };
+      const nextRotation = getNextRotationInfo(format);
+      const next = nextRotation.codes.includes(set.code);
+
+      if (format.rotationModel === "standard-calendar") {
+        const info = standardRotationInfo(set);
+        return { ...info, label: next ? "Roteert bij volgende rotatie" : info.label, type: next ? "warning" : "legal", next };
+      }
+
+      return {
+        label: next ? "Verwachte volgende rotatiegroep" : "Momenteel legal",
+        type: next ? "warning" : set.digital ? "digital" : "legal",
+        detail: next ? "Verwachte oudste jaargang" : "Live gevolgd via Scryfall",
+        next
+      };
+    }
+
+    function renderSetCard(set, format) {
+      const status = rotationStatus(format, set);
+      const digital = set.digital || set.set_type === "alchemy" || set.code.startsWith("y") || set.code === "om1";
+      const pillClass = status.type === "warning" ? "warning" : digital ? "digital" : "";
+      const pillText = digital && !format.rotating ? "Digital only" : status.label;
+      return `
+        <article class="set-card ${status.next ? "next-out" : ""}">
+          <div class="symbol-wrap">
+            <img class="set-symbol" src="${escapeHtml(set.icon_svg_uri)}" alt="Setsymbool van ${escapeHtml(set.name)}" loading="lazy" referrerpolicy="no-referrer">
+            <span class="symbol-fallback" aria-hidden="true">${escapeHtml(set.code)}</span>
+          </div>
+          <div>
+            <p class="set-code">${escapeHtml(set.code)}</p>
+            <h3>${escapeHtml(set.name)}</h3>
+          </div>
+          <dl class="set-meta">
+            <div><dt>Uitgebracht</dt><dd>${formatDate(set.released_at)}</dd></div>
+            <div><dt>${format.rotating ? "Uit roulatie" : "Rotatie"}</dt><dd>${escapeHtml(status.detail)}</dd></div>
+          </dl>
+          <span class="status-pill ${pillClass}">${escapeHtml(pillText)}</span>
+        </article>`;
+    }
+
+    function renderSetList() {
+      if (!state.selectedFormat) return;
+      const format = FORMAT_DATA[state.selectedFormat];
+      const query = state.query.trim().toLocaleLowerCase("nl-NL");
+      let sets = getFormatSets(format).filter(set => !query || set.name.toLocaleLowerCase("nl-NL").includes(query) || set.code.toLocaleLowerCase("nl-NL").includes(query));
+      if (state.ascending) sets.reverse();
+      const total = getFormatSets(format).length;
+      const shouldPaginate = total > state.pageSize;
+      const visibleSets = shouldPaginate ? sets.slice(0, state.visibleLimit) : sets;
+
+      elements.setGrid.className = `set-grid ${state.view === "timeline" ? "timeline" : ""}`;
+      if (!visibleSets.length) {
+        elements.setGrid.innerHTML = `<div class="empty-state"><strong>Geen sets gevonden.</strong><br>Probeer een andere naam of setcode.</div>`;
+      } else {
+        let lastYear = null;
+        elements.setGrid.innerHTML = visibleSets.map(set => {
+          const year = set.released_at.slice(0, 4);
+          const divider = shouldPaginate && year !== lastYear ? `<h2 class="year-divider">${year}</h2>` : "";
+          lastYear = year;
+          return divider + renderSetCard(set, format);
+        }).join("");
+      }
+
+      elements.setGrid.querySelectorAll(".set-symbol").forEach(image => {
+        image.addEventListener("error", () => image.closest(".symbol-wrap").classList.add("broken"), { once: true });
+      });
+
+      elements.resultsLabel.innerHTML = `<strong>${visibleSets.length}</strong> van ${sets.length}${query ? ` gevonden (${total} totaal)` : " sets"} getoond · ${state.ascending ? "oudste naar nieuwste" : "nieuwste naar oudste"}`;
+      elements.reverseButton.querySelector("span").textContent = state.ascending ? "Nieuwste eerst" : "Oudste eerst";
+      const remaining = Math.max(0, sets.length - visibleSets.length);
+      elements.loadMoreWrap.hidden = remaining === 0;
+      elements.loadMoreButton.textContent = `Toon ${Math.min(state.pageSize, remaining)} meer · ${remaining} resterend`;
+    }
+
+    function renderDetail(slug) {
+      const format = FORMAT_DATA[slug];
+      if (!format) return showHome(false);
+      const changedFormat = state.selectedFormat !== slug;
+      state.selectedFormat = slug;
+      state.lastFormat = slug;
+      safeStorageSet("mtg-legality-last-format", slug);
+      if (changedFormat) {
+        state.query = "";
+        state.visibleLimit = state.pageSize;
+        elements.setSearch.value = "";
+      }
+      document.documentElement.style.setProperty("--accent-rgb", format.accent);
+      document.documentElement.style.setProperty("--accent", `rgb(${format.accent})`);
+
+      elements.homeView.hidden = true;
+      elements.detailView.hidden = false;
+      elements.detailKicker.textContent = `${platformLabel(format)} · ${format.rotating ? "Roterend format" : "Niet-roterend format"}`;
+      elements.detailTitle.textContent = format.name;
+      elements.detailDescription.textContent = format.description;
+      elements.sourceLink.href = format.source;
+      updateFavoriteDetail();
+
+      const sets = getFormatSets(format);
+      const nextRotation = getNextRotationInfo(format);
+      const remainingDays = nextRotation.exactDate ? daysUntil(nextRotation.exactDate) : null;
+      const rotationText = !format.rotating
+        ? "Roteert niet"
+        : nextRotation.exactDate
+          ? `${nextRotation.label}${remainingDays !== null ? ` · nog ${remainingDays} dagen` : ""}`
+          : `${nextRotation.label} · datum nog niet bevestigd`;
+      elements.statRow.innerHTML = `
+        <div class="stat"><span>Platform</span><strong>${platformLabel(format)}</strong></div>
+        <div class="stat"><span>Rotatie</span><strong>${format.rotating ? "Ja" : "Nee"}</strong></div>
+        <div class="stat"><span>Volgende rotatie</span><strong>${escapeHtml(rotationText)}</strong></div>
+        <div class="stat"><span>Sets in overzicht</span><strong>${sets.length}</strong></div>`;
+
+      const callouts = [];
+      if (format.rotating) {
+        const nextSets = nextRotation.codes.map(code => getSetMap().get(code)).filter(Boolean);
+        const preview = nextSets.slice(0, 10).map(set => `<span class="rotation-mini" title="${escapeHtml(set.name)}"><img src="${escapeHtml(set.icon_svg_uri)}" alt="" loading="lazy"></span>`).join("");
+        const title = format.rotationModel === "alchemy-live" ? "Verwachte eerstvolgende groep." : "Deze sets verdwijnen als eerste.";
+        const timing = format.rotationModel === "alchemy-live"
+          ? "Alchemy volgt geen eenvoudig kalenderjaar. Dit is een verwachting op basis van de oudste nog legale jaargang; de live Scryfall-legaliteit blijft leidend."
+          : nextRotation.exactDate
+            ? `De rotatie staat op ${formatDate(nextRotation.exactDate)}${remainingDays !== null ? `, over ${remainingDays} dagen` : ""}.`
+            : `${nextRotation.label}. De exacte datum is nog niet bevestigd in de beschikbare setplanning.`;
+        callouts.push(`<div class="rotation-callout"><span class="callout-icon" aria-hidden="true">↻</span><div class="rotation-copy"><strong>${title}</strong> ${timing}${preview ? `<div class="rotation-preview" aria-label="Sets in de eerstvolgende rotatiegroep">${preview}</div>` : ""}</div></div>`);
+      }
+      if (format.scope === "live-legality") {
+        callouts.push(`<div class="scope-callout"><span class="callout-icon" aria-hidden="true">↯</span><span><strong>Automatische legaliteitscontrole.</strong> De site controleert deze kaartpool dagelijks via Scryfall. Nieuwe releases verschijnen vanzelf en geroteerde sets worden automatisch verwijderd.</span></div>`);
+      }
+      if (format.cardLevel) {
+        callouts.push(`<div class="scope-callout"><span class="callout-icon" aria-hidden="true">i</span><span><strong>Dit zijn bronnen van de kaartpool, geen garantie per set.</strong> Gebruik de kaartzoeker op de homepage voor een specifieke kaart; banned, restricted en digitale uitzonderingen worden daar afzonderlijk getoond.</span></div>`);
+      }
+      elements.calloutArea.innerHTML = callouts.join("");
+      elements.apiAlert.hidden = !state.apiFailed;
+
+      document.querySelectorAll(".view-btn").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.view === state.view)));
+      renderSetList();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function updatePageMetadata(slug = null) {
+      const format = slug ? FORMAT_DATA[slug] : null;
+      const title = format ? `${format.name} legaliteit · MTG Set Legality` : "MTG Set Legality";
+      const description = format
+        ? `Bekijk welke Magic: The Gathering-sets binnen ${format.name} speelbaar zijn${format.rotating ? " en wanneer ze roteren" : ""}.`
+        : "Bekijk welke Magic: The Gathering-sets en kaarten momenteel binnen ieder format speelbaar zijn.";
+      document.title = title;
+      document.getElementById("metaDescription")?.setAttribute("content", description);
+      document.getElementById("ogTitle")?.setAttribute("content", title);
+      document.getElementById("ogDescription")?.setAttribute("content", description);
+    }
+
+    function showHome(updateHash = true) {
+      state.selectedFormat = null;
+      elements.detailView.hidden = true;
+      elements.homeView.hidden = false;
+      document.documentElement.style.setProperty("--accent-rgb", "210, 166, 90");
+      if (updateHash && location.hash) history.pushState(null, "", location.pathname + location.search);
+      updatePageMetadata();
+      updateHomeNotices();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function openFormat(slug, updateHash = true) {
+      if (!FORMAT_DATA[slug]) return;
+      if (updateHash && location.hash !== `#${slug}`) history.pushState(null, "", `#${slug}`);
+      updatePageMetadata(slug);
+      renderDetail(slug);
+    }
+
+    function setHomeFilter(filter) {
+      state.homeFilter = filter;
+      document.querySelectorAll(".filter-btn").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.filter === filter)));
+      renderFormats();
+    }
+
+    function showToast(message) {
+      elements.toast.textContent = message;
+      elements.toast.classList.add("show");
+      clearTimeout(showToast.timeout);
+      showToast.timeout = setTimeout(() => elements.toast.classList.remove("show"), 2200);
+    }
+
+    function getCardLegality(card, slug) {
+      if (slug === "explorer") {
+        const onArena = Array.isArray(card.games) && card.games.includes("arena");
+        return onArena ? (card.legalities?.pioneer || "not_legal") : "not_legal";
+      }
+      const keys = CARD_LEGALITY_KEYS[slug] || [];
+      for (const key of keys) {
+        if (card.legalities && Object.prototype.hasOwnProperty.call(card.legalities, key)) return card.legalities[key];
+      }
+      return "unknown";
+    }
+
+    function legalityLabel(status) {
+      return ({ legal: "Legal", restricted: "Restricted", banned: "Verboden", not_legal: "Niet legal", unknown: "Onbekend" })[status] || "Onbekend";
+    }
+
+    function safeCardImageUrl(value) {
+      try {
+        const url = new URL(String(value || ""));
+        const trustedHosts = new Set(["cards.scryfall.io", "c1.scryfall.com"]);
+        return url.protocol === "https:" && trustedHosts.has(url.hostname) ? url.href : "";
+      } catch {
+        return "";
+      }
+    }
+
+    function getCardImages(card) {
+      const imageFrom = item => safeCardImageUrl(item?.image_uris?.normal || item?.image_uris?.large || item?.image_uris?.png || item?.image_uris?.small);
+      const faceImages = Array.isArray(card.card_faces)
+        ? card.card_faces.map(face => ({ name: face.name || card.name, url: imageFrom(face) })).filter(image => image.url)
+        : [];
+      if (faceImages.length) return faceImages;
+      const primaryUrl = imageFrom(card);
+      return primaryUrl ? [{ name: card.name, url: primaryUrl }] : [];
+    }
+
+    let cardAutocompleteTimer = 0;
+
+    function closeCardSuggestions(clear = false) {
+      clearTimeout(cardAutocompleteTimer);
+      state.autocompleteController?.abort();
+      state.autocompleteController = null;
+      state.autocompleteRequest += 1;
+      elements.cardSuggestions.hidden = true;
+      elements.cardSuggestions.innerHTML = "";
+      elements.cardQuery.setAttribute("aria-expanded", "false");
+      elements.cardQuery.removeAttribute("aria-activedescendant");
+      state.activeSuggestion = -1;
+      if (clear) state.cardSuggestions = [];
+    }
+
+    function renderCardSuggestions(statusMessage = "") {
+      state.activeSuggestion = Math.min(state.activeSuggestion, state.cardSuggestions.length - 1);
+
+      if (statusMessage) {
+        elements.cardSuggestions.innerHTML = `<li class="card-suggestion-status" role="option" aria-disabled="true">${escapeHtml(statusMessage)}</li>`;
+      } else {
+        elements.cardSuggestions.innerHTML = state.cardSuggestions.map((name, index) => `
+          <li class="card-suggestion" id="card-suggestion-${index}" role="option" aria-selected="${index === state.activeSuggestion}" data-card-suggestion="${escapeHtml(name)}">
+            <span>${escapeHtml(name)}</span>
+          </li>`).join("");
+      }
+
+      const hasContent = Boolean(statusMessage || state.cardSuggestions.length);
+      elements.cardSuggestions.hidden = !hasContent;
+      elements.cardQuery.setAttribute("aria-expanded", String(hasContent));
+      if (state.activeSuggestion >= 0) elements.cardQuery.setAttribute("aria-activedescendant", `card-suggestion-${state.activeSuggestion}`);
+      else elements.cardQuery.removeAttribute("aria-activedescendant");
+    }
+
+    function setActiveCardSuggestion(index) {
+      if (!state.cardSuggestions.length) return;
+      state.activeSuggestion = (index + state.cardSuggestions.length) % state.cardSuggestions.length;
+      renderCardSuggestions();
+      document.getElementById(`card-suggestion-${state.activeSuggestion}`)?.scrollIntoView({ block: "nearest" });
+    }
+
+    async function loadCardSuggestions(rawQuery, requestId) {
+      const query = rawQuery.trim();
+      const cacheKey = query.toLocaleLowerCase("en");
+
+      if (state.autocompleteCache.has(cacheKey)) {
+        if (requestId !== state.autocompleteRequest) return;
+        state.cardSuggestions = state.autocompleteCache.get(cacheKey);
+        state.activeSuggestion = -1;
+        renderCardSuggestions(state.cardSuggestions.length ? "" : "Geen passende kaartnamen gevonden.");
+        return;
+      }
+
+      const controller = new AbortController();
+      state.autocompleteController = controller;
+
+      try {
+        const url = new URL(SITE_CONFIG.cardAutocompleteEndpoint);
+        url.searchParams.set("q", query);
+        url.searchParams.set("include_extras", "false");
+        url.searchParams.set("include_multilingual", "false");
+        const response = await fetch(url, { signal: controller.signal, headers: { Accept: "application/json" } });
+        const payload = await response.json();
+        if (!response.ok || !Array.isArray(payload.data)) throw new Error("Suggesties niet beschikbaar");
+        if (requestId !== state.autocompleteRequest) return;
+
+        const suggestions = [...new Set(payload.data.filter(name => typeof name === "string"))].slice(0, SITE_CONFIG.autocompleteLimit);
+        state.autocompleteCache.set(cacheKey, suggestions);
+        if (state.autocompleteCache.size > 40) state.autocompleteCache.delete(state.autocompleteCache.keys().next().value);
+        state.cardSuggestions = suggestions;
+        state.activeSuggestion = -1;
+        renderCardSuggestions(suggestions.length ? "" : "Geen passende kaartnamen gevonden.");
+      } catch (error) {
+        if (error.name === "AbortError" || requestId !== state.autocompleteRequest) return;
+        state.cardSuggestions = [];
+        state.activeSuggestion = -1;
+        renderCardSuggestions("Suggesties tijdelijk niet beschikbaar. Handmatig controleren kan wel.");
+      } finally {
+        if (requestId === state.autocompleteRequest) state.autocompleteController = null;
+      }
+    }
+
+    function chooseCardSuggestion(cardName) {
+      elements.cardQuery.value = cardName;
+      closeCardSuggestions(true);
+      searchCard(cardName);
+    }
+
+    async function searchCard(cardName) {
+      const query = cardName.trim();
+      if (!query) return;
+      closeCardSuggestions(true);
+      elements.cardSearchButton.disabled = true;
+      elements.cardSearchButton.textContent = "Zoeken…";
+      elements.cardResult.hidden = false;
+      elements.cardResult.innerHTML = `<p class="card-result-meta">Kaart en actuele legaliteit worden opgezocht…</p>`;
+
+      try {
+        const url = new URL(SITE_CONFIG.cardNamedEndpoint);
+        url.searchParams.set("fuzzy", query);
+        const response = await fetch(url, { headers: { Accept: "application/json" } });
+        const card = await response.json();
+        if (!response.ok || card.object === "error") throw new Error(card.details || "Kaart niet gevonden");
+
+        const set = getSetMap().get(String(card.set || "").toLowerCase());
+        const safeScryfallUrl = String(card.scryfall_uri || "").startsWith("https://scryfall.com/") ? card.scryfall_uri : "";
+        const cardImages = getCardImages(card);
+        const legalities = Object.keys(FORMAT_DATA).map(slug => {
+          const status = getCardLegality(card, slug);
+          const className = ["legal","restricted"].includes(status) ? status : status === "unknown" ? "unknown" : "not-legal";
+          return `<div class="legality-item ${className}"><span>${escapeHtml(FORMAT_DATA[slug].name)}</span><strong>${escapeHtml(legalityLabel(status))}</strong></div>`;
+        }).join("");
+
+        const cardPreview = cardImages.length ? `
+          <div class="card-preview">
+            <div class="card-image-stage">
+              ${cardImages.map((image, index) => `<img class="card-face-image" data-card-face="${index}" src="${escapeHtml(image.url)}" alt="Kaartafbeelding van ${escapeHtml(image.name)}" width="488" height="680" loading="${index === 0 ? "eager" : "lazy"}" decoding="async" ${index === 0 ? "" : "hidden"}>`).join("")}
+            </div>
+            ${cardImages.length > 1 ? `<button class="card-face-btn" type="button" data-card-face-toggle aria-label="Toon de achterkant van ${escapeHtml(card.name)}">↻ Toon achterkant</button>` : ""}
+            <span class="card-image-credit">Kaartafbeelding via Scryfall</span>
+          </div>` : `
+          <div class="card-preview">
+            <div class="card-image-placeholder" aria-label="Geen kaartafbeelding beschikbaar">
+              ${set?.icon_svg_uri ? `<img src="${escapeHtml(set.icon_svg_uri)}" alt="Setsymbool van ${escapeHtml(set.name)}">` : `<span class="set-code">${escapeHtml(card.set || "MTG")}</span>`}
+            </div>
+            <span class="card-image-credit">Geen kaartafbeelding beschikbaar</span>
+          </div>`;
+
+        elements.cardResult.innerHTML = `
+          <div class="card-result-layout">
+            ${cardPreview}
+            <div class="card-result-info">
+              <div class="card-result-head">
+                <div class="card-result-symbol">${set?.icon_svg_uri ? `<img src="${escapeHtml(set.icon_svg_uri)}" alt="Setsymbool van ${escapeHtml(set.name)}">` : `<span class="set-code">${escapeHtml(card.set || "MTG")}</span>`}</div>
+                <div><h2>${escapeHtml(card.name)}</h2><p class="card-result-meta">${escapeHtml(card.set_name || "Onbekende set")} · ${escapeHtml(String(card.set || "").toUpperCase())} · legaliteit op kaartniveau</p></div>
+                ${safeScryfallUrl ? `<a class="ghost-btn" href="${escapeHtml(safeScryfallUrl)}" target="_blank" rel="noreferrer">Bekijk kaart ↗</a>` : ""}
+              </div>
+              <div class="legality-grid">${legalities}</div>
+            </div>
+          </div>
+        `;
+      } catch (error) {
+        elements.cardResult.innerHTML = `<p class="card-result-error"><strong>Geen kaart gevonden.</strong><br>${escapeHtml(error.message || "Probeer de volledige Engelse kaartnaam.")}</p>`;
+      } finally {
+        elements.cardSearchButton.disabled = false;
+        elements.cardSearchButton.textContent = "Controleer kaart";
+      }
+    }
+
+    function populateDeckFormats() {
+      elements.deckFormat.innerHTML = Object.entries(FORMAT_DATA).map(([slug, format]) => {
+        const rotation = format.rotating ? "roterend" : "niet-roterend";
+        return `<option value="${slug}">${escapeHtml(format.name)} · ${escapeHtml(platformLabel(format))} · ${rotation}</option>`;
+      }).join("");
+      const preferred = [state.favoriteFormat, state.lastFormat, "standard"].find(slug => slug && FORMAT_DATA[slug]);
+      elements.deckFormat.value = preferred || "standard";
+    }
+
+    function normalizeDeckName(value, loose = false) {
+      const normalized = String(value || "").normalize("NFKD").toLocaleLowerCase("en").replace(/[’‘]/g, "'").replace(/\s+/g, " ").trim();
+      return loose ? normalized.replace(/[^\p{L}\p{N}]+/gu, " ").trim() : normalized;
+    }
+
+    function parseDeckList(text) {
+      const entries = new Map();
+      const sectionHeaders = /^(deck|mainboard|main deck|sideboard|commander|commanders|companion|companions|maybeboard|considering|lands|creatures|instants|sorceries|artifacts|enchantments|planeswalkers)$/i;
+
+      String(text || "").split(/\r?\n/).forEach(rawLine => {
+        let line = rawLine.trim();
+        if (!line || line.startsWith("#") || line.startsWith("//")) return;
+        const bareHeader = line.replace(/^\[|\]$/g, "").replace(/:$/, "").trim();
+        if (sectionHeaders.test(bareHeader) || /^\d+\s+cards?$/i.test(bareHeader)) return;
+
+        line = line.replace(/^SB:\s*/i, "");
+        const quantityMatch = line.match(/^(\d+)\s*[xX]?\s+(.+)$/);
+        const quantity = quantityMatch ? Math.max(1, Math.min(999, Number(quantityMatch[1]))) : 1;
+        let name = quantityMatch ? quantityMatch[2].trim() : line;
+        name = name
+          .replace(/\s+\*[A-Z]+\*\s*$/i, "")
+          .replace(/\s+\[(?:foil|etched)\]\s*$/i, "")
+          .replace(/\s+\([A-Z0-9]{2,8}\)\s+\S+\s*$/i, "")
+          .replace(/\s+\([A-Z0-9]{2,8}\)\s*$/i, "")
+          .trim();
+        if (!name || sectionHeaders.test(name)) return;
+
+        const key = normalizeDeckName(name);
+        const existing = entries.get(key);
+        if (existing) existing.quantity += quantity;
+        else entries.set(key, { name, quantity });
+      });
+
+      const list = Array.from(entries.values());
+      return { entries: list, total: list.reduce((sum, entry) => sum + entry.quantity, 0), unique: list.length };
+    }
+
+    function updateDeckCount() {
+      const parsed = parseDeckList(elements.deckList.value);
+      elements.deckCount.textContent = parsed.total
+        ? `${parsed.total} kaarten · ${parsed.unique} unieke kaartnamen`
+        : "Nog geen kaarten ingevoerd";
+    }
+
+    async function fetchDeckCollection(entries, signal, onProgress) {
+      const cards = [];
+      const notFound = [];
+      const batches = [];
+      for (let index = 0; index < entries.length; index += SITE_CONFIG.deckBatchSize) batches.push(entries.slice(index, index + SITE_CONFIG.deckBatchSize));
+
+      for (let index = 0; index < batches.length; index += 1) {
+        const response = await fetch(SITE_CONFIG.cardsCollectionEndpoint, {
+          method: "POST",
+          signal,
+          headers: { Accept: "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify({ identifiers: batches[index].map(entry => ({ name: entry.name })) })
+        });
+        const payload = await response.json();
+        if (!response.ok || !Array.isArray(payload.data)) throw new Error(payload.details || "De kaartcollectie kon niet worden gecontroleerd.");
+        cards.push(...payload.data);
+        if (Array.isArray(payload.not_found)) notFound.push(...payload.not_found);
+        onProgress?.(index + 1, batches.length);
+        if (index < batches.length - 1) await delay(Math.max(100, SITE_CONFIG.probeDelayMs));
+      }
+      return { cards, notFound };
+    }
+
+    function getDeckStatus(card, formatSlug, quantity) {
+      if (!card) return { status: "not_found", issue: true, warning: false, label: "Niet gevonden" };
+      const status = getCardLegality(card, formatSlug);
+      if (status === "restricted") {
+        const issue = quantity > 1;
+        return { status, issue, warning: !issue, label: issue ? "Restricted · maximaal 1" : "Restricted · 1 toegestaan" };
+      }
+      if (status === "legal") return { status, issue: false, warning: false, label: "Legal" };
+      if (status === "banned") return { status, issue: true, warning: false, label: "Verboden" };
+      if (status === "not_legal") return { status, issue: true, warning: false, label: "Niet legal" };
+      return { status: "unknown", issue: true, warning: false, label: "Niet te bepalen" };
+    }
+
+    function renderDeckResult(parsed, cards, formatSlug) {
+      const format = FORMAT_DATA[formatSlug];
+      const exactMap = new Map();
+      const looseMap = new Map();
+      cards.forEach(card => {
+        const names = [card.name, ...(Array.isArray(card.card_faces) ? card.card_faces.map(face => face.name) : [])].filter(Boolean);
+        names.forEach(name => {
+          exactMap.set(normalizeDeckName(name), card);
+          looseMap.set(normalizeDeckName(name, true), card);
+        });
+      });
+
+      const checked = parsed.entries.map(entry => {
+        const card = exactMap.get(normalizeDeckName(entry.name)) || looseMap.get(normalizeDeckName(entry.name, true)) || null;
+        return { ...entry, card, ...getDeckStatus(card, formatSlug, entry.quantity) };
+      }).sort((a, b) => Number(b.issue) - Number(a.issue) || Number(b.warning) - Number(a.warning) || a.name.localeCompare(b.name, "en"));
+
+      const issueEntries = checked.filter(entry => entry.issue);
+      const warningEntries = checked.filter(entry => entry.warning);
+      const issueQuantity = issueEntries.reduce((sum, entry) => sum + entry.quantity, 0);
+      const legalQuantity = parsed.total - issueQuantity;
+      const foundCount = checked.filter(entry => entry.card).length;
+      const passed = issueEntries.length === 0;
+      const statusTitle = passed
+        ? `Alle ${parsed.total} kaarten zijn legal in ${format.name}`
+        : `${issueQuantity} van de ${parsed.total} kaarten vragen aandacht`;
+      const statusCopy = passed
+        ? (warningEntries.length === 1 ? `Eén kaart is restricted, maar staat niet vaker dan één keer in de lijst.` : warningEntries.length > 1 ? `${warningEntries.length} kaarten zijn restricted, maar staan niet vaker dan één keer in de lijst.` : `Er zijn geen verboden of niet-legale kaarten aangetroffen.`)
+        : `${legalQuantity} kaarten zijn legal; controleer de rood gemarkeerde regels.`;
+
+      const rows = checked.map(entry => {
+        const rowClass = entry.issue ? "issue" : entry.warning ? "warning" : "legal";
+        const safeUrl = String(entry.card?.scryfall_uri || "").startsWith("https://scryfall.com/") ? entry.card.scryfall_uri : "";
+        const displayName = entry.card?.name || entry.name;
+        const nameMarkup = safeUrl
+          ? `<a class="deck-card-name" href="${escapeHtml(safeUrl)}" target="_blank" rel="noreferrer">${escapeHtml(displayName)} ↗</a>`
+          : `<span class="deck-card-name">${escapeHtml(displayName)}</span>`;
+        return `<li class="deck-card-row ${rowClass}"><span class="deck-quantity">${entry.quantity}×</span>${nameMarkup}<strong class="deck-card-status">${escapeHtml(entry.label)}</strong></li>`;
+      }).join("");
+
+      elements.deckResult.hidden = false;
+      elements.deckResult.innerHTML = `
+        <div class="deck-result-summary ${passed ? "pass" : "fail"}">
+          <span class="deck-result-mark" aria-hidden="true">${passed ? "✓" : "!"}</span>
+          <div><strong>${escapeHtml(statusTitle)}</strong><p>${escapeHtml(statusCopy)}</p></div>
+        </div>
+        <div class="deck-result-stats">
+          <span class="deck-stat">${parsed.total} kaarten</span>
+          <span class="deck-stat">${parsed.unique} unieke namen</span>
+          <span class="deck-stat">${foundCount} herkend</span>
+          <span class="deck-stat">${issueEntries.length} probleemregels</span>
+        </div>
+        <ul class="deck-card-list">${rows}</ul>
+        <p class="deck-result-note"><strong>Let op:</strong> dit controleert de kaartlegaliteit en restricted-kaarten. Deckgrootte, maximaal vier exemplaren, commander-kleuridentiteit, sideboardregels en andere deckbouwregels worden nog niet beoordeeld.</p>`;
+    }
+
+    async function checkDeck() {
+      const parsed = parseDeckList(elements.deckList.value);
+      const formatSlug = elements.deckFormat.value;
+      elements.deckChecker.open = true;
+
+      if (!parsed.entries.length) {
+        elements.deckResult.hidden = false;
+        elements.deckResult.innerHTML = `<p class="card-result-error"><strong>Geen kaarten gevonden.</strong><br>Plak een decklijst met bijvoorbeeld “4 Lightning Bolt”.</p>`;
+        elements.deckList.focus();
+        return;
+      }
+      if (parsed.unique > SITE_CONFIG.deckMaxUniqueCards) {
+        elements.deckResult.hidden = false;
+        elements.deckResult.innerHTML = `<p class="card-result-error"><strong>Deze lijst is te groot.</strong><br>Gebruik maximaal ${SITE_CONFIG.deckMaxUniqueCards} unieke kaartnamen per controle.</p>`;
+        return;
+      }
+      if (!FORMAT_DATA[formatSlug]) return;
+
+      state.deckCheckController?.abort();
+      const controller = new AbortController();
+      state.deckCheckController = controller;
+      elements.deckSubmit.disabled = true;
+      elements.deckSubmit.textContent = "Controleren…";
+      elements.deckResult.hidden = false;
+      elements.deckResult.setAttribute("aria-busy", "true");
+      elements.deckResult.innerHTML = `<p class="card-result-meta">${parsed.unique} unieke kaartnamen worden gecontroleerd in ${escapeHtml(FORMAT_DATA[formatSlug].name)}…</p>`;
+
+      try {
+        const collection = await fetchDeckCollection(parsed.entries, controller.signal, (current, total) => {
+          elements.deckSubmit.textContent = total > 1 ? `Controleren ${current}/${total}…` : "Controleren…";
+        });
+        if (controller.signal.aborted) return;
+        renderDeckResult(parsed, collection.cards, formatSlug);
+      } catch (error) {
+        if (error.name === "AbortError") return;
+        elements.deckResult.innerHTML = `<p class="card-result-error"><strong>Deckcontrole niet gelukt.</strong><br>${escapeHtml(error.message || "Scryfall is tijdelijk niet bereikbaar. Probeer het opnieuw.")}</p>`;
+      } finally {
+        if (state.deckCheckController === controller) {
+          state.deckCheckController = null;
+          elements.deckSubmit.disabled = false;
+          elements.deckSubmit.textContent = "Controleer deck";
+          elements.deckResult.removeAttribute("aria-busy");
+        }
+      }
+    }
+
+    async function loadDeckFile(file) {
+      if (!file) return;
+      if (file.size > SITE_CONFIG.deckFileMaxBytes) throw new Error("Het bestand is groter dan 1 MB.");
+      state.deckCheckController?.abort();
+      const text = await file.text();
+      elements.deckList.value = text;
+      elements.deckResult.hidden = true;
+      updateDeckCount();
+      showToast(`${file.name} geladen`);
+    }
+
+    async function copyCurrentLink() {
+      const url = location.href;
+      try {
+        await navigator.clipboard.writeText(url);
+        showToast("Link gekopieerd");
+      } catch {
+        const input = document.createElement("textarea");
+        input.value = url;
+        input.style.position = "fixed";
+        input.style.opacity = "0";
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand("copy");
+        input.remove();
+        showToast("Link gekopieerd");
+      }
+    }
+
+    function readCache(allowExpired = false) {
+      try {
+        const raw = localStorage.getItem(SITE_CONFIG.cacheKey);
+        if (!raw) return null;
+        const cached = JSON.parse(raw);
+        const age = Date.now() - cached.savedAt;
+        const hasLegality = cached.legality && Array.isArray(cached.legality.standard) && Array.isArray(cached.legality.alchemy);
+        if (!Array.isArray(cached.data) || !hasLegality) return null;
+        const isFresh = age <= SITE_CONFIG.cacheHours * 60 * 60 * 1000;
+        if (!allowExpired && !isFresh) return null;
+        return { ...cached, isFresh };
+      } catch { return null; }
+    }
+
+    function writeCache(data, legality) {
+      const savedAt = Date.now();
+      try { localStorage.setItem(SITE_CONFIG.cacheKey, JSON.stringify({ savedAt, data, legality })); } catch { /* Opslag kan geblokkeerd zijn. */ }
+      return savedAt;
+    }
+
+    function setUpdatedLabel() {
+      if (state.liveStatus === "loading") {
+        elements.updatedLabel.textContent = "Live legaliteit wordt gecontroleerd…";
+        return;
+      }
+      if (state.liveStatus === "live" || state.liveStatus === "cache") {
+        const date = state.lastSync ? dateFormatter.format(new Date(state.lastSync)) : formatDate(todayIso());
+        elements.updatedLabel.textContent = `Live data · bijgewerkt op ${date}`;
+        return;
+      }
+      if (state.liveStatus === "stale") {
+        const date = state.lastSync ? dateFormatter.format(new Date(state.lastSync)) : formatDate(SITE_CONFIG.fallbackUpdated);
+        elements.updatedLabel.textContent = `Cache · laatst bijgewerkt op ${date}`;
+        return;
+      }
+      elements.updatedLabel.textContent = `Offline snapshot · ${formatDate(SITE_CONFIG.fallbackUpdated)}`;
+    }
+
+    function delay(milliseconds) {
+      return new Promise(resolve => setTimeout(resolve, milliseconds));
+    }
+
+    async function fetchJsonWithRetry(url, retries = 1) {
+      let lastError;
+      for (let attempt = 0; attempt <= retries; attempt += 1) {
+        try {
+          const response = await fetch(url, { headers: { Accept: "application/json" } });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return await response.json();
+        } catch (error) {
+          lastError = error;
+          if (attempt < retries) await delay(250 * (attempt + 1));
+        }
+      }
+      throw lastError;
+    }
+
+    async function fetchAllCardsForSet(setCode) {
+      const firstUrl = new URL(SITE_CONFIG.cardsSearchEndpoint);
+      firstUrl.searchParams.set("q", `e:${setCode}`);
+      firstUrl.searchParams.set("unique", "cards");
+      let nextUrl = firstUrl.toString();
+      const cards = [];
+      let pages = 0;
+
+      while (nextUrl && pages < 6) {
+        const payload = await fetchJsonWithRetry(nextUrl, 1);
+        if (!Array.isArray(payload.data)) throw new Error("Ongeldige kaartrespons");
+        cards.push(...payload.data);
+        pages += 1;
+        nextUrl = payload.has_more && payload.next_page ? payload.next_page : null;
+        await delay(SITE_CONFIG.probeDelayMs);
+      }
+      if (!cards.length) throw new Error("Geen kaarten gevonden");
+      return cards;
+    }
+
+    function detectLegalChanges(nextLegality) {
+      try {
+        const previousRaw = localStorage.getItem("mtg-legality-last-live-codes");
+        const previous = previousRaw ? JSON.parse(previousRaw) : null;
+        if (previous) {
+          const added = [];
+          const removed = [];
+          ["standard","alchemy"].forEach(key => {
+            (nextLegality[key] || []).filter(code => !(previous[key] || []).includes(code)).forEach(code => added.push(`${code.toUpperCase()} (${FORMAT_DATA[key].name})`));
+            (previous[key] || []).filter(code => !(nextLegality[key] || []).includes(code)).forEach(code => removed.push(`${code.toUpperCase()} (${FORMAT_DATA[key].name})`));
+          });
+          const parts = [];
+          if (added.length) parts.push(`${added.length} nieuwe set${added.length === 1 ? "" : "s"}`);
+          if (removed.length) parts.push(`${removed.length} set${removed.length === 1 ? "" : "s"} uit roulatie`);
+          state.changeSummary = parts.length ? `Nieuw sinds je vorige bezoek: ${parts.join(" en ")}.` : "";
+        }
+        localStorage.setItem("mtg-legality-last-live-codes", JSON.stringify(nextLegality));
+      } catch { /* Vergelijken is optioneel. */ }
+      updateHomeNotices();
+    }
+
+    async function discoverLiveLegality(sets) {
+      const currentYear = Number(todayIso().slice(0, 4));
+      const candidates = sets.filter(set => {
+        const releaseYear = Number(set.released_at?.slice(0, 4));
+        const supportedType = isMainSet(set) || set.set_type === "alchemy";
+        return validCurrentSet(set) && supportedType && releaseYear >= currentYear - 4;
+      });
+      const legality = { standard: [], alchemy: [] };
+      const failedCodes = [];
+      let successes = 0;
+
+      for (const set of candidates) {
+        try {
+          const cards = await fetchAllCardsForSet(set.code);
+
+          ["standard", "alchemy"].forEach(key => {
+            const legalCards = cards.filter(card => card.legalities?.[key] === "legal").length;
+            const required = Math.max(3, Math.ceil(cards.length * .55));
+            if (legalCards >= required) legality[key].push(set.code);
+          });
+          successes += 1;
+        } catch {
+          failedCodes.push(set.code);
+        }
+      }
+
+      ["standard","alchemy"].forEach(key => {
+        failedCodes.filter(code => state.legality[key].includes(code)).forEach(code => legality[key].push(code));
+        legality[key] = Array.from(new Set(legality[key]));
+      });
+      return { ok: successes > 0, partial: failedCodes.length > 0, legality, failedCodes };
+    }
+
+    async function refreshSetData(force = false) {
+      const cached = readCache(true);
+      if (cached) {
+        state.sets = uniqueByCode([...FALLBACK_SETS, ...cached.data]);
+        state.legality = cached.legality;
+        state.apiFailed = false;
+        state.liveStatus = cached.isFresh && !force ? "cache" : "stale";
+        state.lastSync = cached.savedAt;
+        state.staleCache = cached;
+        setUpdatedLabel();
+        if (state.selectedFormat) renderDetail(state.selectedFormat);
+        if (cached.isFresh && !force) return;
+      }
+
+      if (!cached) state.liveStatus = "loading";
+      state.apiFailed = false;
+      setUpdatedLabel();
+      try {
+        const payload = await fetchJsonWithRetry(SITE_CONFIG.setsEndpoint, 1);
+        if (!payload || !Array.isArray(payload.data)) throw new Error("Ongeldige respons");
+        const clean = payload.data.map(set => ({
+          code: String(set.code || "").toLowerCase(),
+          name: set.name,
+          released_at: set.released_at,
+          icon_svg_uri: set.icon_svg_uri,
+          set_type: set.set_type,
+          digital: Boolean(set.digital),
+          card_count: Number(set.card_count || 0)
+        })).filter(set => set.code && set.name && set.released_at);
+        state.sets = uniqueByCode([...FALLBACK_SETS, ...clean]);
+        if (state.selectedFormat) renderDetail(state.selectedFormat);
+
+        const discovery = await discoverLiveLegality(clean);
+        if (!discovery.ok) throw new Error("Legaliteitscontrole mislukt");
+        state.legality = discovery.legality;
+        state.apiFailed = discovery.partial;
+        state.liveStatus = "live";
+        if (!discovery.partial) {
+          state.lastSync = writeCache(clean, discovery.legality);
+          detectLegalChanges(discovery.legality);
+        } else {
+          state.lastSync = Date.now();
+          elements.apiAlertText.textContent = `${discovery.failedCodes.length} setcontroles konden niet worden afgerond. Voor die sets is de laatst bekende legaliteit behouden.`;
+        }
+      } catch {
+        state.apiFailed = true;
+        state.liveStatus = cached ? "stale" : "fallback";
+        elements.apiAlertText.textContent = cached
+          ? "Scryfall is momenteel niet volledig bereikbaar. De laatst succesvol opgeslagen gegevens blijven zichtbaar."
+          : "De live legaliteitscontrole kon niet worden afgerond. De ingebouwde, offline gegevens blijven zichtbaar.";
+      }
+
+      setUpdatedLabel();
+      if (state.selectedFormat) renderDetail(state.selectedFormat);
+    }
+
+    function handleHash() {
+      const slug = location.hash.replace(/^#/, "").toLowerCase();
+      if (FORMAT_DATA[slug]) openFormat(slug, false);
+      else showHome(false);
+    }
+
+    document.addEventListener("click", event => {
+      const cardSuggestion = event.target.closest("[data-card-suggestion]");
+      if (cardSuggestion) {
+        chooseCardSuggestion(cardSuggestion.dataset.cardSuggestion);
+        return;
+      }
+
+      if (!event.target.closest(".card-query-wrap")) closeCardSuggestions();
+
+      const faceToggle = event.target.closest("[data-card-face-toggle]");
+      if (faceToggle) {
+        const preview = faceToggle.closest(".card-preview");
+        const faces = Array.from(preview?.querySelectorAll("[data-card-face]") || []);
+        const activeIndex = faces.findIndex(face => !face.hidden);
+        const nextIndex = (activeIndex + 1) % faces.length;
+        faces.forEach((face, index) => { face.hidden = index !== nextIndex; });
+        const showingBack = nextIndex > 0;
+        faceToggle.textContent = showingBack ? "↺ Toon voorkant" : "↻ Toon achterkant";
+        faceToggle.setAttribute("aria-label", showingBack ? "Toon de voorkant van de kaart" : "Toon de achterkant van de kaart");
+        return;
+      }
+
+      const favoriteButton = event.target.closest("[data-favorite]");
+      if (favoriteButton) {
+        setFavorite(favoriteButton.dataset.favorite);
+        return;
+      }
+
+      const resumeButton = event.target.closest("[data-resume]");
+      if (resumeButton) {
+        openFormat(resumeButton.dataset.resume);
+        return;
+      }
+
+      const formatButton = event.target.closest("[data-format]");
+      if (formatButton) {
+        event.preventDefault();
+        openFormat(formatButton.dataset.format);
+      }
+
+      const filterButton = event.target.closest("[data-filter]");
+      if (filterButton) setHomeFilter(filterButton.dataset.filter);
+
+      const viewButton = event.target.closest("[data-view]");
+      if (viewButton) {
+        state.view = viewButton.dataset.view;
+        safeStorageSet("mtg-legality-view", state.view);
+        document.querySelectorAll(".view-btn").forEach(button => button.setAttribute("aria-pressed", String(button === viewButton)));
+        renderSetList();
+      }
+    });
+
+    elements.cardFinder.addEventListener("submit", event => {
+      event.preventDefault();
+      searchCard(elements.cardQuery.value);
+    });
+    elements.cardQuery.addEventListener("input", event => {
+      clearTimeout(cardAutocompleteTimer);
+      state.autocompleteController?.abort();
+      state.autocompleteController = null;
+      const requestId = ++state.autocompleteRequest;
+      const query = event.target.value.trim();
+      state.cardSuggestions = [];
+      state.activeSuggestion = -1;
+
+      if (query.length < SITE_CONFIG.autocompleteMinChars) {
+        elements.cardSuggestions.hidden = true;
+        elements.cardSuggestions.innerHTML = "";
+        elements.cardQuery.setAttribute("aria-expanded", "false");
+        elements.cardQuery.removeAttribute("aria-activedescendant");
+        return;
+      }
+
+      renderCardSuggestions("Kaartnamen zoeken…");
+      cardAutocompleteTimer = setTimeout(() => loadCardSuggestions(query, requestId), SITE_CONFIG.autocompleteDelayMs);
+    });
+    elements.cardQuery.addEventListener("keydown", event => {
+      if (event.key === "ArrowDown" && state.cardSuggestions.length) {
+        event.preventDefault();
+        setActiveCardSuggestion(state.activeSuggestion + 1);
+      } else if (event.key === "ArrowUp" && state.cardSuggestions.length) {
+        event.preventDefault();
+        setActiveCardSuggestion(state.activeSuggestion <= 0 ? state.cardSuggestions.length - 1 : state.activeSuggestion - 1);
+      } else if (event.key === "Enter" && state.activeSuggestion >= 0) {
+        event.preventDefault();
+        chooseCardSuggestion(state.cardSuggestions[state.activeSuggestion]);
+      } else if (event.key === "Escape" || event.key === "Tab") {
+        closeCardSuggestions();
+      }
+    });
+    elements.cardQuery.addEventListener("focus", () => {
+      if (elements.cardQuery.value.trim().length >= SITE_CONFIG.autocompleteMinChars && state.cardSuggestions.length) renderCardSuggestions();
+    });
+    elements.deckForm.addEventListener("submit", event => {
+      event.preventDefault();
+      checkDeck();
+    });
+    elements.deckList.addEventListener("input", () => {
+      state.deckCheckController?.abort();
+      updateDeckCount();
+      if (!elements.deckResult.hidden) elements.deckResult.hidden = true;
+    });
+    elements.deckFormat.addEventListener("change", () => {
+      state.deckCheckController?.abort();
+      if (!elements.deckResult.hidden) elements.deckResult.hidden = true;
+    });
+    elements.deckFile.addEventListener("change", async event => {
+      try {
+        await loadDeckFile(event.target.files?.[0]);
+      } catch (error) {
+        elements.deckResult.hidden = false;
+        elements.deckResult.innerHTML = `<p class="card-result-error"><strong>Bestand niet geladen.</strong><br>${escapeHtml(error.message || "Gebruik een tekstbestand met een decklijst.")}</p>`;
+      } finally {
+        event.target.value = "";
+      }
+    });
+    document.getElementById("backButton").addEventListener("click", () => showHome());
+    document.getElementById("brandButton").addEventListener("click", () => showHome());
+    document.getElementById("copyButton").addEventListener("click", copyCurrentLink);
+    document.getElementById("retryButton").addEventListener("click", () => refreshSetData(true));
+    elements.favoriteDetail.addEventListener("click", () => state.selectedFormat && setFavorite(state.selectedFormat));
+    elements.loadMoreButton.addEventListener("click", () => { state.visibleLimit += state.pageSize; renderSetList(); });
+    elements.reverseButton.addEventListener("click", () => { state.ascending = !state.ascending; state.visibleLimit = state.pageSize; renderSetList(); });
+    elements.setSearch.addEventListener("input", event => { state.query = event.target.value; state.visibleLimit = state.pageSize; renderSetList(); });
+    window.addEventListener("popstate", handleHash);
+    window.addEventListener("hashchange", handleHash);
+    document.addEventListener("visibilitychange", () => {
+      const cacheAge = Date.now() - (state.lastSync || 0);
+      if (document.visibilityState === "visible" && cacheAge > SITE_CONFIG.cacheHours * 60 * 60 * 1000) refreshSetData(true);
+    });
+
+    setUpdatedLabel();
+    populateDeckFormats();
+    updateDeckCount();
+    renderFormats();
+    handleHash();
+    refreshSetData();
+  </script>
+</body>
+</html>

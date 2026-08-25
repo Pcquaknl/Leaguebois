@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07131d">
+  <meta name="description" content="Verdeel de League of Legends-rollen willekeurig over één tot vijf spelers.">
+  <title>Role Randomizer · Leaguebois</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Naar hoofdinhoud</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="home-link" href="../" aria-label="Terug naar de Leaguebois startpagina"><span aria-hidden="true">←</span> Leaguebois</a>
+      <span class="page-label">Role Randomizer</span>
+    </div>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="container" aria-labelledby="page-title">
+      <p class="eyebrow">Klaar voor de volgende pot</p>
+      <h1 id="page-title">League of Legends<br><em>Role Randomizer</em></h1>
+      <p class="intro">Voer de spelers in en laat Leaguebois de vijf rollen verdelen.</p>
+
+      <div id="player-input" class="input-panel">
+        <fieldset>
+          <legend>Wie spelen er mee?</legend>
+          <p class="field-help">Voer één tot vijf spelersnamen in.</p>
+          <div class="player-grid">
+            <label><span>Speler 1</span><input type="text" id="player1" placeholder="Naam" autocomplete="off"></label>
+            <label><span>Speler 2</span><input type="text" id="player2" placeholder="Naam" autocomplete="off"></label>
+            <label><span>Speler 3</span><input type="text" id="player3" placeholder="Naam" autocomplete="off"></label>
+            <label><span>Speler 4</span><input type="text" id="player4" placeholder="Naam" autocomplete="off"></label>
+            <label><span>Speler 5</span><input type="text" id="player5" placeholder="Naam" autocomplete="off"></label>
+          </div>
+        </fieldset>
+
+        <div class="options" aria-label="Extra opties">
+          <label class="option"><input type="checkbox" id="enable-dj"><span><strong>DIEJEE</strong><small>Wijs ook de DJ van de avond aan</small></span></label>
+          <label class="option"><input type="checkbox" id="enable-support-reroll"><span><strong>Support reroll</strong><small>Geef Support een extra kans</small></span></label>
+        </div>
+
+        <button id="start-btn" class="primary-button" type="button">Start de randomizer</button>
+      </div>
+
+      <div id="game" class="game-panel hidden" aria-live="polite">
+        <div id="wheel-container">
+          <div id="wheel" class="wheel" aria-hidden="true">
+            <img id="wheel-icon" src="" alt="" class="wheel-icon">
+          </div>
+          <p id="current-player">Huidige speler: …</p>
+        </div>
+
+        <div id="slotmachine-container" class="hidden">
+          <div class="slotmachine"><ul id="slotmachine-list"></ul></div>
+          <p id="dj-message">Shotjeeeeeeeeee</p>
+        </div>
+
+        <div id="results"></div>
+        <button id="reset-btn" class="secondary-button hidden" type="button">Opnieuw rollen</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
