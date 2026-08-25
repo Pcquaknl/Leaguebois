@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#07131d">
-  <meta name="description" content="Leaguebois: snelle toegang tot onze game-tools, waaronder de LoL Role Randomizer en MTG Set Legality.">
+  <meta name="description" content="Leaguebois: snelle toegang tot de Role Randomizer, MTG Set Legality en PalAtlas voor Palworld.">
   <title>Leaguebois · Game tools</title>
   <style>
     :root {
@@ -176,7 +176,7 @@
 
     .tool-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
       gap: 18px;
     }
 
@@ -232,6 +232,7 @@
 
     .tool-card.role { --card-rgb: 85, 180, 176; }
     .tool-card.mtg { --card-rgb: 213, 181, 111; }
+    .tool-card.palworld { --card-rgb: 112, 196, 241; }
 
     .card-top {
       display: flex;
@@ -342,7 +343,7 @@
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow">Leaguebois hub</p>
         <h1 id="page-title">Alles voor de volgende <em>game.</em></h1>
-        <p class="lead">Twee tools, één vaste plek. Verdeel de rollen voor de volgende League-pot of controleer direct je Magic-kaarten en decks.</p>
+        <p class="lead">Drie game-tools, één vaste plek. Verdeel de rollen voor de volgende League-pot, controleer je Magic-deck of open PalAtlas voor Palworld.</p>
       </section>
 
       <nav class="tool-grid" aria-label="Beschikbare tools">
@@ -373,12 +374,26 @@
             <span class="card-action">Open MTG-tool <span aria-hidden="true">→</span></span>
           </span>
         </a>
+
+        <a class="tool-card palworld" href="https://palatlas.pcquak.chatgpt.site/" aria-label="Open PalAtlas voor Palworld">
+          <span class="card-top">
+            <span class="tool-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48"><path d="M24 42s13-10.8 13-23A13 13 0 1 0 11 19c0 12.2 13 23 13 23Z"></path><circle cx="24" cy="19" r="5"></circle><path d="M19 10.5 15.5 7M29 10.5 32.5 7M17.5 23.5l-4 2M30.5 23.5l4 2"></path></svg>
+            </span>
+            <span class="card-tag">Palworld</span>
+          </span>
+          <span class="card-copy">
+            <h2>PalAtlas</h2>
+            <p>Doorzoek Pals, plan breedingcombinaties en gebruik de kaart als snelle companion tijdens het spelen.</p>
+            <span class="card-action">Open PalAtlas <span aria-hidden="true">↗</span></span>
+          </span>
+        </a>
       </nav>
     </div>
   </main>
 
   <footer>
-    <div class="shell">Leaguebois is een onafhankelijke fanhub en is niet verbonden aan Riot Games, Wizards of the Coast of hun merken.</div>
+    <div class="shell">Leaguebois is een onafhankelijke fanhub en is niet verbonden aan Riot Games, Wizards of the Coast, Pocketpair of hun merken.</div>
   </footer>
 </body>
 </html>
