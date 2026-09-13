@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08111f">
+  <meta name="description" content="Age of Empires II civilization helper: vergelijk twee civs, unique units, counters, bonuses en upgrades.">
+  <title>AoE2 Civ Helper · Leaguebois</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-4 md:p-6">
+<div class="max-w-7xl mx-auto">
+  <div class="hero-card mb-6">
+    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+      <div>
+        <div class="eyebrow">Leaguebois • Second Screen Helper</div>
+        <h1 class="text-4xl md:text-5xl font-black text-amber-300 mb-2 tracking-tight">
+          AoE2 DE — Complete Civ Tech Helper
+        </h1>
+        <p class="text-slate-300 text-base md:text-lg max-w-3xl">
+          Jouw originele helper, maar dan visueel strakker. Kies twee civilizations en zie direct hun unique units, counters, techs, bonuses en upgrade-overzicht.
+        </p>
+      </div>
+      <div class="legend-row">
+        <span class="legend-chip">✅ Beschikbaar</span>
+        <span class="legend-chip">❌ Mist / geen toegang</span>
+        <span class="legend-chip">⭐ Extra sterk / specialiteit</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="selector-shell mb-8">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-4 items-end">
+      <div class="select-wrap">
+        <label class="select-label text-green-400">Mijn Civilisatie</label>
+        <select id="myCiv" class="select-box">
+<option value="Armenians">Armenians</option>
+<option value="Aztecs">Aztecs</option>
+<option value="Bengalis">Bengalis</option>
+<option value="Berbers">Berbers</option>
+<option value="Bohemians">Bohemians</option>
+<option value="Britons">Britons</option>
+<option value="Bulgarians">Bulgarians</option>
+<option value="Burgundians">Burgundians</option>
+<option value="Burmese">Burmese</option>
+<option value="Byzantines">Byzantines</option>
+<option value="Celts">Celts</option>
+<option value="Chinese">Chinese</option>
+<option value="Cumans">Cumans</option>
+<option value="Dravidians">Dravidians</option>
+<option value="Ethiopians">Ethiopians</option>
+<option value="Franks" selected>Franks</option>
+<option value="Georgians">Georgians</option>
+<option value="Goths">Goths</option>
+<option value="Gurjaras">Gurjaras</option>
+<option value="Hindustanis">Hindustanis</option>
+<option value="Huns">Huns</option>
+<option value="Incas">Incas</option>
+<option value="Italians">Italians</option>
+<option value="Japanese">Japanese</option>
+<option value="Khmer">Khmer</option>
+<option value="Koreans">Koreans</option>
+<option value="Lithuanians">Lithuanians</option>
+<option value="Magyars">Magyars</option>
+<option value="Malay">Malay</option>
+<option value="Malians">Malians</option>
+<option value="Mayans">Mayans</option>
+<option value="Mongols">Mongols</option>
+<option value="Persians">Persians</option>
+<option value="Poles">Poles</option>
+<option value="Portuguese">Portuguese</option>
+<option value="Romans">Romans</option>
+<option value="Saracens">Saracens</option>
+<option value="Sicilians">Sicilians</option>
+<option value="Slavs">Slavs</option>
+<option value="Spanish">Spanish</option>
+<option value="Tatars">Tatars</option>
+<option value="Teutons">Teutons</option>
+<option value="Turks">Turks</option>
+<option value="Vietnamese">Vietnamese</option>
+<option value="Vikings">Vikings</option>
+</select>
+      </div>
+
+      <button id="swapBtn" class="swap-btn" type="button" aria-label="Wissel civilizations">⇄</button>
+
+      <div class="select-wrap">
+        <label class="select-label text-red-400">Tegenstander</label>
+        <select id="oppCiv" class="select-box">
+<option value="Armenians">Armenians</option>
+<option value="Aztecs">Aztecs</option>
+<option value="Bengalis">Bengalis</option>
+<option value="Berbers">Berbers</option>
+<option value="Bohemians">Bohemians</option>
+<option value="Britons">Britons</option>
+<option value="Bulgarians">Bulgarians</option>
+<option value="Burgundians">Burgundians</option>
+<option value="Burmese">Burmese</option>
+<option value="Byzantines">Byzantines</option>
+<option value="Celts">Celts</option>
+<option value="Chinese">Chinese</option>
+<option value="Cumans">Cumans</option>
+<option value="Dravidians">Dravidians</option>
+<option value="Ethiopians">Ethiopians</option>
+<option value="Franks">Franks</option>
+<option value="Georgians">Georgians</option>
+<option value="Goths">Goths</option>
+<option value="Gurjaras">Gurjaras</option>
+<option value="Hindustanis">Hindustanis</option>
+<option value="Huns">Huns</option>
+<option value="Incas">Incas</option>
+<option value="Italians">Italians</option>
+<option value="Japanese">Japanese</option>
+<option value="Khmer">Khmer</option>
+<option value="Koreans">Koreans</option>
+<option value="Lithuanians">Lithuanians</option>
+<option value="Magyars">Magyars</option>
+<option value="Malay">Malay</option>
+<option value="Malians">Malians</option>
+<option value="Mayans">Mayans</option>
+<option value="Mongols" selected>Mongols</option>
+<option value="Persians">Persians</option>
+<option value="Poles">Poles</option>
+<option value="Portuguese">Portuguese</option>
+<option value="Romans">Romans</option>
+<option value="Saracens">Saracens</option>
+<option value="Sicilians">Sicilians</option>
+<option value="Slavs">Slavs</option>
+<option value="Spanish">Spanish</option>
+<option value="Tatars">Tatars</option>
+<option value="Teutons">Teutons</option>
+<option value="Turks">Turks</option>
+<option value="Vietnamese">Vietnamese</option>
+<option value="Vikings">Vikings</option>
+</select>
+      </div>
+    </div>
+  </div>
+
+  <div id="mainContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
+  <p class="footer-note">Unieke units en counters staan bewust extra prominent, zodat je tijdens een potje snel ziet hoe of wat.</p>
+</div>
+  <script src="data-civs.js"></script>
+  <script src="data-units.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
