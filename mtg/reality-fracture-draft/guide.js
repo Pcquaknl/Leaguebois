@@ -73,7 +73,7 @@ function numericGrade(c){return RATE[c.name]?.[0]||0}
 function esc(s){return String(s??"").replace(/[&<>"']/g,x=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[x]))}
 function openImage(src,name){const d=document.querySelector("#imageDialog"),im=document.querySelector("#largeImage");im.src=src;im.alt=name;d.showModal()}
 let allCards=[];
-fetch("./cards.json").then(r=>{if(!r.ok)throw new Error("card data");return r.json()}).then(cards=>{allCards=cards;renderCards(allCards)}).catch(()=>{document.querySelector("#count").textContent="Kaartlijst kon niet laden. Vernieuw de pagina."});
+fetch("./cards.json?v=20261018").then(r=>{if(!r.ok)throw new Error("card data");return r.json()}).then(cards=>{allCards=cards;renderCards(allCards)}).catch(()=>{document.querySelector("#count").textContent="Kaartlijst kon niet laden. Vernieuw de pagina."});
 filters.forEach(el=>el.addEventListener(el.id==="search"?"input":"change",()=>allCards.length&&renderCards(allCards)));
 document.querySelector("#reset").addEventListener("click",()=>{filters.forEach(x=>{if(x.id!=="sort")x.value=""});document.querySelector("#sort").value="grade";renderCards(allCards)});
 document.querySelector("#closeDialog").addEventListener("click",()=>document.querySelector("#imageDialog").close());
