@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d0d0f">
+  <meta name="description" content="Compacte Reality Fracture draftguide voor archetypen, kaartkeuzes, deckbouw en Arena Best-of-One.">
+  <title>Reality Fracture Draftguide · Leaguebois</title>
+  <link rel="stylesheet" href="./style.css">
+  <script defer src="./guide.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Naar de guide</a>
+  <header class="topbar"><div class="wrap nav">
+    <a class="back" href="../" aria-label="Terug naar MTG">← MTG</a>
+    <a class="brand" href="../../"><span class="mark">✦</span><span><b>Leaguebois</b><small>MTG · LIMITED</small></span></a>
+    <span class="stamp">REALITY FRACTURE <i>·</i> DRAFT</span>
+  </div></header>
+  <main id="main" class="wrap">
+    <section class="hero">
+      <div><p class="eyebrow">De draft naast je Arena-tafel</p><h1>Reality Fracture <em>Draftguide</em></h1>
+        <p class="lead">Zoek een kaart, check de setdata en kies je plan. Kaarten en afbeeldingen komen uit Scryfall; statistieken zijn alleen opgenomen waar ze gepubliceerd zijn.</p></div>
+      <aside class="data-card"><span class="status-dot"></span><div><b>Data bijgewerkt</b><small>Kaarten: Scryfall · geraadpleegd 18 okt 2026</small><small>17Lands Premier Draft: kaartcijfers t/m 14 okt; kleurenparen t/m 10 okt 2026</small></div></aside>
+    </section>
+
+    <section class="quick" aria-label="Snelle draftinformatie">
+      <div class="quick-head"><div><span class="eyebrow">Eerst dit</span><h2>Snelle drafthulp</h2></div><span class="pill">Arena · Premier Draft · Bo1</span></div>
+      <div class="quick-grid">
+        <article class="panel"><h3>Wat wint drafts?</h3><ul><li>Beoordeel eerst de kaart, daarna pas het archetype. Neem een duidelijk sterkere kaart vroeg; forceer geen tweekleurenplan op pick 1.</li><li>Blauw presteert in de vroege 17Lands-steekproef sterk. WU en UB staan bovenaan; GU staat onderaan. Gebruik dat als tiebreaker, niet als bevel.</li><li>Speel twee kleuren als basis. Splash alleen met fixing en een kaart die de moeite waard is; de vroege data laat bij meerdere paren lagere winstpercentages zien met splash.</li><li>Vul je curve met vroege plays en interactie. De set beloont tempo, surveil en herhaalbare waarde; een hand vol dure payoffs doet te weinig.</li></ul></article>
+        <article class="panel"><h3>Kleur open?</h3><ul><li>Een premium common/uncommon laat laat in het pack zien is een positief signaal.</li><li>Een sterke kaart die terugkomt op de wheel, plus meerdere speelbare kaarten in dezelfde kleur, is beter bewijs dan één late middelmatige kaart.</li><li>Let per booster op kwaliteit én hoeveelheid; kaarten die jij doorgeeft kunnen de volgende speler juist jouw kleur in trekken.</li><li>Setsignal: blauw heeft veel hoog scorende commons, maar verwacht dat meer spelers dit ook zien. Stap over als de packs het tegenspreken.</li></ul></article>
+        <article class="panel"><h3>Synergie of power?</h3><p>Vroege picks: neem de beste losse kaart tenzij de kaarten dicht bij elkaar liggen. Vanaf pack 2 en 3 tellen curve, kleuren en synergie zwaarder.</p><p>Een archetype-enabler is pas een pick als je genoeg payoffs hebt of de enabler zelf goed is. Neem geen matige build-around boven efficiënte removal of een sterke threat.</p><p class="small">Kaartgrades zijn geen pick-order-waarheid: GIH WR is een associatie in decks die de kaart trokken, geen geïsoleerde kaartkracht.</p></article>
+      </div>
+      <div class="pair-strip" id="pairStrip" aria-label="Vroege winrates per kleurenpaar"></div>
+      <p class="tiny-note">17Lands-snapshot: Premier Draft, 29 sep–9 okt (UTC), 373.911 games; twee kleuren gemiddeld 55,2%. Het 17Lands-publiek wint gemiddeld vaker dan alle Arena-spelers; vergelijk paren met elkaar, niet met 50%. Resultaten zijn observationeel.</p>
+    </section>
+
+    <section class="archetypes" id="archetypes">
+      <div class="section-heading"><div><span class="eyebrow">10 officiële tweekleurenplannen</span><h2>Archetypen</h2></div><p>Gebaseerd op Wizards’ Reality Fracture-prereleasegids. De rol- en instapadviezen zijn praktische duiding; de winstpercentages zijn 17Lands-data.</p></div>
+      <div class="archetype-grid" id="archetypeGrid"></div>
+    </section>
+
+    <section class="cards" id="kaarten">
+      <div class="section-heading"><div><span class="eyebrow">Scryfall-kaartlijst · 285 kaarten</span><h2>Kaartzoeker</h2></div><p>Zoek tijdens de pack, filter op kleur, mana value, rarity, archetype en rol. Klik op een kaartafbeelding voor de grote versie.</p></div>
+      <div class="filters">
+        <label class="search">Zoek kaart<input id="search" type="search" placeholder="Naam of kaarttekst…" autocomplete="off"></label>
+        <label>Kleur<select id="color"><option value="">Alle kleuren</option><option value="W">Wit</option><option value="U">Blauw</option><option value="B">Zwart</option><option value="R">Rood</option><option value="G">Groen</option><option value="M">Meerkleurig</option><option value="C">Kleurloos</option></select></label>
+        <label>Mana value<select id="mv"><option value="">Alle</option><option value="0-2">0–2</option><option value="3">3</option><option value="4">4</option><option value="5+">5+</option></select></label>
+        <label>Rarity<select id="rarity"><option value="">Alle rarities</option><option value="common">Common</option><option value="uncommon">Uncommon</option><option value="rare">Rare</option><option value="mythic">Mythic</option></select></label>
+        <label>Archetype<select id="archetype"><option value="">Alle archetypen</option></select></label>
+        <label>Rol<select id="role"><option value="">Alle rollen</option><option value="Removal">Removal</option><option value="Threat">Threat</option><option value="Combat trick">Combat trick</option><option value="Fixing / ramp">Fixing / ramp</option><option value="Card advantage">Card advantage</option><option value="Enabler">Archetype-enabler</option><option value="Overig">Overig</option></select></label>
+        <label>Sorteren<select id="sort"><option value="grade">Hoogste GIH / rating</option><option value="name">Naam A–Z</option><option value="mv">Mana value</option></select></label>
+        <button class="reset" id="reset" type="button">Wis filters</button>
+      </div>
+      <div class="table-meta"><span id="count" aria-live="polite"></span><span>GIH WR = winstpercentage van decks waarin de kaart is getrokken of in de starthand zat.</span></div>
+      <div class="table-wrap"><table><thead><tr><th>Kaart</th><th>Kleur</th><th>MV</th><th>Rarity</th><th>Rol</th><th>Rating</th><th>GIH WR · games</th><th>Waarom / synergie</th></tr></thead><tbody id="cardRows"></tbody></table></div>
+      <div class="mobile-cards" id="mobileCards"></div>
+      <p class="tiny-note">A: uitzonderlijke pick · B: sterk · C: speelbaar/gemiddeld · D: vervangbaar · F: meestal niet spelen. Data-grade volgt GIH WR: A ≥60%, B 57–59,9%, C 54,7–56,9%, D 52–54,6%, F &lt;52%. Deze ruwe grenzen zijn een compacte leeswijzer, geen 17Lands-officiële rating. Bij weinig games kan een kaart bewegen. “Geen gepubliceerde score” betekent geen rating verzonnen.</p>
+    </section>
+
+    <section class="build-play">
+      <div class="section-heading"><div><span class="eyebrow">Van 45 picks naar 40 kaarten</span><h2>Deck bouwen & spelen</h2></div></div>
+      <div class="quick-grid">
+        <article class="panel"><h3>Deckbouw</h3><ul><li>Begin met 17 landen / 23 spells. Ga naar 18 als je ramp, veel 5+ mana kaarten of mana-hongerige prepared spells hebt; 16 alleen met lage curve en goede filtering.</li><li>Richtlijn: 14–17 creatures, 2–4 echte interacties, 2–4 value/enabler-spells. Laat de curve en archetypebehoefte beslissen.</li><li>Beoogde curve: 2-drop plays, stevige 3-drops, genoeg 4-drops; beperk spells op 5+ tenzij ze de game overnemen of je ramp hebt.</li><li>Twee kleuren: ongeveer 8/9 bronnen per kleur, bij voorkeur meer van je vroeg benodigde kleur. Splash vraagt meerdere betrouwbare bronnen (Heartwood/fixing) en liefst geen dubbele gekleurde pip.</li><li>Laatste check: minstens 5 vroege plays; removal tegen grote threats; genoeg creatures; duidelijke manier om te winnen; geen losse build-around zonder ondersteuning.</li></ul></article>
+        <article class="panel"><h3>Bo1: mulligan & sequencing</h3><ul><li>Keep 2–4 land met relevante vroege plays en kleuren. Mulligan meestal een 1-land hand zonder goedkope filtering/ramp, of een 5+ land hand zonder actie.</li><li>De Arena Bo1-hand smoothing kan landverhoudingen in openingshanden beïnvloeden; bouw je mana nog steeds op een normale curve en houd twijfelachtige handen niet alleen vanwege dat systeem.</li><li><b>Empower Jace:</b> zonder Jace-token maak je eerst een blauwe Jace met 0 loyalty en leg je de genoemde counters erop. De token heeft −1 surveil 1 en −3 trek een kaart; hij heeft geen plus-ability.</li><li><b>Prepared:</b> cast de kopie uit exile op het moment dat de spell is toegestaan. Als de prepared permanent verdwijnt of unprepared wordt voordat je cast, verdwijnt de spellkopie ook.</li><li><b>Heartwood:</b> de token levert R of G en telt als artifact. Gebruik de mana vóór combat alleen als je die niet nodig hebt om een truc of instant te representeren.</li><li>Tel graveyard richting zeven vóór je threshold-spells kiest. Bewaar burn voor lethal of een blocker die je race breekt; in Bo1 weet je niet of de tegenstander een antwoord heeft.</li></ul></article>
+      </div>
+    </section>
+
+    <section class="sources" id="bronnen"><h2>Bronnen & onzekerheden</h2><ul>
+      <li><a href="https://magic.wizards.com/en/news/feature/reality-fracture-prerelease-guide" target="_blank" rel="noopener">Wizards: Reality Fracture Prerelease Guide</a> — archetypen, strategiebeschrijvingen en voorbeeld commons/uncommons.</li>
+      <li><a href="https://magic.wizards.com/en/news/feature/reality-fracture-mechanics" target="_blank" rel="noopener">Wizards: Reality Fracture Mechanics</a> en <a href="https://magic.wizards.com/en/news/feature/reality-fracture-release-notes" target="_blank" rel="noopener">Release Notes</a> — regels en kaartinteracties.</li>
+      <li><a href="https://scryfall.com/sets/fra" target="_blank" rel="noopener">Scryfall: Reality Fracture</a> en <a href="https://scryfall.com/docs/api" target="_blank" rel="noopener">Scryfall API</a> — kaartteksten, kleuren, mana value, rarity en afbeeldingen. Setbestand opgehaald 18 oktober 2026.</li>
+      <li><a href="https://www.17lands.com/public_datasets" target="_blank" rel="noopener">17Lands Public Data</a> — data-publicatie en methodiek. Kaartwinrates en paarcijfers hieronder zijn overgenomen uit de op 14 oktober geraadpleegde <a href="https://portentlab.com/articles/reality-fracture-most-potent-new-cards" target="_blank" rel="noopener">Reality Fracture Limited GIH-samenvatting</a> en de <a href="https://portentlab.com/articles/reality-fracture-draft-early-read" target="_blank" rel="noopener">17Lands-paaranalyse (data t/m 10 oktober)</a>.</li>
+      <li>Kaart-GIH-tabel bevat alleen kaarten waarvan de genoemde samenvatting individuele cijfers publiceert (minimaal 500 games in hand); overige kaartcijfers zijn niet in de tabel gepubliceerd. Pair winrates zijn observationeel en skill-skewed. Archetype-specifieke kaartwaarderingen ontbreken; geen pseudo-precisie toegevoegd.</li>
+    </ul><p class="disclaimer">Magic: The Gathering en de kaartafbeeldingen zijn eigendom van Wizards of the Coast. Leaguebois is een onafhankelijke fanwebsite en wordt niet door Wizards onderschreven. Kaartdata/afbeeldingen via Scryfall.</p></section>
+  </main>
+  <dialog id="imageDialog" aria-label="Kaartafbeelding"><button id="closeDialog" aria-label="Sluiten">×</button><img id="largeImage" alt=""></dialog>
+  <footer><div class="wrap foot"><a href="../">← Terug naar MTG</a><span>Leaguebois · Reality Fracture Limited</span></div></footer>
+</body>
+</html>
