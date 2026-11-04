@@ -1133,7 +1133,7 @@
       autocompleteLimit: 8,
       autocompleteDelayMs: 240,
       deckBatchSize: 75,
-      deckRotationBatchSize: 18,
+      deckRotationBatchSize: 8,
       deckMaxUniqueCards: 250,
       deckFileMaxBytes: 1048576,
       cacheKey: "mtg-set-legality-scryfall-v3",
@@ -1988,13 +1988,13 @@
 
     function parseDeckList(text) {
       const entries = new Map();
-      const sectionHeaders = /^(deck|mainboard|main deck|sideboard|commander|commanders|companion|companions|maybeboard|considering|lands|creatures|instants|sorceries|artifacts|enchantments|planeswalkers)$/i;
+      const sectionHeaders = /^(about|deck|mainboard|main deck|sideboard|commander|commanders|companion|companions|maybeboard|considering|lands|creatures|instants|sorceries|artifacts|enchantments|planeswalkers)$/i;
 
       String(text || "").split(/\r?\n/).forEach(rawLine => {
         let line = rawLine.trim();
         if (!line || line.startsWith("#") || line.startsWith("//")) return;
         const bareHeader = line.replace(/^\[|\]$/g, "").replace(/:$/, "").trim();
-        if (sectionHeaders.test(bareHeader) || /^\d+\s+cards?$/i.test(bareHeader)) return;
+        if (sectionHeaders.test(bareHeader) || /^name(?:\s+|:)\S/i.test(bareHeader) || /^\d+\s+cards?$/i.test(bareHeader)) return;
 
         line = line.replace(/^SB:\s*/i, "");
         const quantityMatch = line.match(/^(\d+)\s*[xX]?\s+(.+)$/);
@@ -2068,16 +2068,25 @@
         batches.push(oracleIds.slice(index, index + SITE_CONFIG.deckRotationBatchSize));
       }
 
-      for (let index = 0; index < batches.length; index += 1) {
-        const oracleFilter = batches[index].map(id => `oracleid:${id}`).join(" or ");
+      async function fetchRotationBatch(batch) {
+        const oracleFilter = batch.map(id => `oracleid:${id}`).join(" or ");
         const query = `(${oracleFilter}) (${setFilter}) unique:prints`;
         let nextPage = `${SITE_CONFIG.cardsSearchEndpoint}?q=${encodeURIComponent(query)}&order=released&dir=desc`;
 
         while (nextPage) {
           const response = await fetch(nextPage, { signal, headers: { Accept: "application/json" } });
           const payload = await response.json();
-          if (response.status === 404) break;
-          if (!response.ok || !Array.isArray(payload.data)) throw new Error(payload.details || "De rotatiegegevens konden niet worden opgehaald.");
+          if (response.status === 404) return;
+          if (!response.ok || !Array.isArray(payload.data)) {
+            if (response.status === 400 && batch.length > 1) {
+              const middle = Math.ceil(batch.length / 2);
+              await fetchRotationBatch(batch.slice(0, middle));
+              await delay(Math.max(100, SITE_CONFIG.probeDelayMs));
+              await fetchRotationBatch(batch.slice(middle));
+              return;
+            }
+            throw new Error(payload.details || "De rotatiegegevens konden niet worden opgehaald.");
+          }
 
           payload.data.forEach(printing => {
             if (!printing.oracle_id || !legalCodes.has(printing.set)) return;
@@ -2088,7 +2097,10 @@
           nextPage = payload.has_more && /^https:\/\/api\.scryfall\.com\//.test(String(payload.next_page || "")) ? payload.next_page : null;
           if (nextPage) await delay(Math.max(100, SITE_CONFIG.probeDelayMs));
         }
+      }
 
+      for (let index = 0; index < batches.length; index += 1) {
+        await fetchRotationBatch(batches[index]);
         onProgress?.(index + 1, batches.length);
         if (index < batches.length - 1) await delay(Math.max(100, SITE_CONFIG.probeDelayMs));
       }
@@ -2158,7 +2170,7 @@
       return { status: "unknown", issue: true, warning: false, label: "Niet te bepalen" };
     }
 
-    function renderDeckResult(parsed, cards, formatSlug, rotationSets = new Map()) {
+    function renderDeckResult(parsed, cards, formatSlug, rotationSets = new Map(), rotationWarning = "") {
       const format = FORMAT_DATA[formatSlug];
       const exactMap = new Map();
       const looseMap = new Map();
@@ -2224,6 +2236,7 @@
           <span class="deck-stat">${issueEntries.length} probleemregels</span>
         </div>
         ${rotationSummary ? `<div class="deck-rotation-summary"><strong>${format.rotating ? "Wanneer roteert dit deck?" : "Rotatie van dit format"}</strong><div class="deck-rotation-groups">${rotationSummary}</div></div>` : ""}
+        ${rotationWarning ? `<p class="deck-result-note"><strong>Rotatiedata gedeeltelijk beschikbaar:</strong> ${escapeHtml(rotationWarning)}</p>` : ""}
         <ul class="deck-card-list">${rows}</ul>
         <p class="deck-result-note"><strong>Let op:</strong> dit controleert de kaartlegaliteit en restricted-kaarten. Deckgrootte, maximaal vier exemplaren, commander-kleuridentiteit, sideboardregels en andere deckbouwregels worden nog niet beoordeeld.</p>`;
     }
@@ -2260,11 +2273,18 @@
           elements.deckSubmit.textContent = total > 1 ? `Controleren ${current}/${total}…` : "Controleren…";
         });
         if (controller.signal.aborted) return;
-        const rotationSets = await fetchDeckRotationSets(collection.cards, formatSlug, controller.signal, (current, total) => {
-          elements.deckSubmit.textContent = total > 1 ? `Rotaties ${current}/${total}…` : "Rotaties ophalen…";
-        });
+        let rotationSets = new Map();
+        let rotationWarning = "";
+        try {
+          rotationSets = await fetchDeckRotationSets(collection.cards, formatSlug, controller.signal, (current, total) => {
+            elements.deckSubmit.textContent = total > 1 ? `Rotaties ${current}/${total}…` : "Rotaties ophalen…";
+          });
+        } catch (error) {
+          if (error.name === "AbortError") return;
+          rotationWarning = "De extra herdrukcontrole was tijdelijk niet bereikbaar. De kaartlegaliteit is wel volledig gecontroleerd.";
+        }
         if (controller.signal.aborted) return;
-        renderDeckResult(parsed, collection.cards, formatSlug, rotationSets);
+        renderDeckResult(parsed, collection.cards, formatSlug, rotationSets, rotationWarning);
       } catch (error) {
         if (error.name === "AbortError") return;
         elements.deckResult.innerHTML = `<p class="card-result-error"><strong>Deckcontrole niet gelukt.</strong><br>${escapeHtml(error.message || "Scryfall is tijdelijk niet bereikbaar. Probeer het opnieuw.")}</p>`;
