@@ -54,3 +54,23 @@ test('preserves actual item level, enchantment and socket positions', () => {
   assert.equal(updated.snapshots[0].equipment[0].itemLevel,12);
   assert.equal(old.equipment[0].itemLevel,undefined);
 });
+
+
+test('keeps only trusted real character and equipment images', () => {
+  const valid='https://render.worldofwarcraft.com/forever-eu/character/76/8992076-main-raw.png';
+  const icon='https://wow.zamimg.com/images/wow/icons/large/inv_sword_04.jpg';
+  const snap=normalize({...source,render:valid,items:[{slot:'MAIN_HAND',id:123,name:'Dagger',icon}]},character,now);
+  assert.equal(snap.render,valid); assert.equal(snap.equipment[0].icon,icon); assert.equal(snap.observedAt,new Date(now).toISOString());
+  const bad=normalize({...source,render:'https://evil.example/fake.png',items:[{slot:'MAIN_HAND',id:123,name:'Dagger',icon:'https://evil.example/icon.jpg'}]},character,now);
+  assert.equal(bad.render,undefined); assert.equal(bad.equipment[0].icon,undefined);
+});
+
+test('stores observed milestones without inventing unseen levels', () => {
+  const before=normalize({...source,level:19,fetchedAt:now-60000},character,now-60000);
+  const after=normalize({...source,level:20,fetchedAt:now},character,now);
+  const result=merge({snapshots:[before]},[character],[{id:character.id,status:'ok',snapshot:after}],now);
+  assert.equal(result.milestones.find(m=>m.level===20)?.basis,'crossing');
+  assert.equal(result.milestones.some(m=>m.level===10),false);
+  const again=merge(result,[character],[{id:character.id,status:'ok',snapshot:after}],now);
+  assert.equal(again.milestones.filter(m=>m.level===20).length,1);
+});

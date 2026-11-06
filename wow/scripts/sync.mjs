@@ -1,6 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { deriveMilestones } from '../progress.mjs';
 
 const slots = { HEAD:'Head', NECK:'Neck', SHOULDER:'Shoulders', BACK:'Back', CHEST:'Chest', WRIST:'Wrists', HANDS:'Hands', WAIST:'Waist', LEGS:'Legs', FEET:'Feet', FINGER_1:'Ring 1', FINGER_2:'Ring 2', TRINKET_1:'Trinket 1', TRINKET_2:'Trinket 2', MAIN_HAND:'Main Hand', OFF_HAND:'Off Hand' };
 const cleanString = value => typeof value === 'string' && value.length > 0 && value.length < 200 ? value : undefined;
@@ -9,6 +10,13 @@ function portrait(value) {
   try {
     const url = new URL(value);
     return url.protocol === 'https:' && url.hostname === 'render.worldofwarcraft.com' && url.pathname.startsWith('/forever-eu/character/') ? url.href : undefined;
+  } catch { return undefined; }
+}
+
+function itemIcon(value) {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:' && url.hostname === 'wow.zamimg.com' && url.pathname.startsWith('/images/wow/icons/') ? url.href : undefined;
   } catch { return undefined; }
 }
 
@@ -21,12 +29,13 @@ export function normalize(data, character, now = Date.now()) {
     if (!slot || !Number.isInteger(item.id) || !cleanString(item.name)) return [];
     const gems = Array.isArray(item.gems) ? item.gems.slice(0, 6).map(gem => Number.isSafeInteger(gem?.id) && gem.id > 0 ? gem.id : 0) : [];
     return [{ slot, id: item.id, name: item.name, quality: (cleanString(item.quality) || 'common').toLowerCase(),
+      ...(itemIcon(item.icon) ? {icon:itemIcon(item.icon)} : {}),
       ...(Number.isSafeInteger(item.ilvl) && item.ilvl > 0 && item.ilvl <= 1000 ? {itemLevel:item.ilvl} : {}),
       ...(Number.isSafeInteger(item.enchantId) && item.enchantId > 0 ? {enchantId:item.enchantId} : {}),
       ...(cleanString(item.enchant) ? {enchant:item.enchant} : {}),
       ...(gems.some(Boolean) ? {gems} : {}) }];
   }) : [];
-  return { characterId: character.id, at: new Date(fetched).toISOString(), level: data.level, class: cleanString(data.className), race: cleanString(data.race), faction: cleanString(data.faction), guild: cleanString(data.guild), itemLevel: typeof data.averageIlvl === 'number' && Number.isFinite(data.averageIlvl) ? data.averageIlvl : undefined, portrait: portrait(data.avatar), equipment, source: 'Armory WoW Forever' };
+  return { characterId: character.id, at: new Date(fetched).toISOString(), observedAt:new Date(now).toISOString(), level: data.level, class: cleanString(data.className), race: cleanString(data.race), faction: cleanString(data.faction), guild: cleanString(data.guild), itemLevel: typeof data.averageIlvl === 'number' && Number.isFinite(data.averageIlvl) ? data.averageIlvl : undefined, portrait: portrait(data.avatar), render: portrait(data.render), equipment, source: 'Armory WoW Forever' };
 }
 
 export async function fetchProfile(character, now, request = fetch) {
@@ -44,7 +53,7 @@ export async function fetchProfile(character, now, request = fetch) {
 }
 
 const comparable = snapshot => {
-  const { at, source, ...fields } = snapshot;
+  const { at, observedAt, source, ...fields } = snapshot;
   return JSON.stringify(fields);
 };
 
@@ -66,16 +75,16 @@ export function merge(previous, characters, profiles, now = Date.now()) {
         const current = currentItems.find(candidate => candidate.slot === item.slot && candidate.id === item.id);
         if (!current) return item;
         const extra = {};
-        for (const field of ['itemLevel','enchantId','enchant','gems']) if (current[field] !== undefined) extra[field] = current[field];
+        for (const field of ['itemLevel','enchantId','enchant','gems','icon']) if (current[field] !== undefined) extra[field] = current[field];
         return { ...item, ...extra };
       });
-      const enriched = { ...old, ...(old.portrait ? {} : profile.snapshot.portrait ? {portrait:profile.snapshot.portrait} : {}), ...(old.equipment ? {equipment} : {}) };
+      const enriched = { ...old, ...(old.portrait ? {} : profile.snapshot.portrait ? {portrait:profile.snapshot.portrait} : {}), ...(old.render ? {} : profile.snapshot.render ? {render:profile.snapshot.render} : {}), ...(old.equipment ? {equipment} : {}) };
       if (JSON.stringify(enriched) !== JSON.stringify(old)) snapshots[snapshots.indexOf(old)] = enriched;
     }
   }
   const ok = profiles.filter(profile => profile.status === 'ok').length;
   const status = ok === characters.length ? 'ready' : profiles.some(profile => profile.status !== 'unavailable') ? 'partial' : 'unavailable';
-  return { schemaVersion:1, mode:'live', status, levelCap:60, generatedAt:new Date(now).toISOString(), characters, snapshots, sourceStatuses, sourceTimes, progression:previous.progression || { dungeons:[], raids:[] } };
+  return { schemaVersion:1, mode:'live', status, levelCap:60, generatedAt:new Date(now).toISOString(), characters, snapshots, milestones:deriveMilestones(snapshots,previous.milestones), sourceStatuses, sourceTimes, progression:previous.progression || { dungeons:[], raids:[] } };
 }
 
 async function main() {
@@ -91,4 +100,5 @@ async function main() {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();
+
 
