@@ -1,0 +1,37 @@
+[
+  {
+    "id": "sylvex-stormcoast",
+    "name": "Sylvex Stormcoast",
+    "region": "EU",
+    "ruleset": "Normal",
+    "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/Sylvex-Stormcoast"
+  },
+  {
+    "id": "fyvix-stormcoast",
+    "name": "Fyvix Stormcoast",
+    "region": "EU",
+    "ruleset": "Normal",
+    "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/fyvix-stormcoast"
+  },
+  {
+    "id": "lumi-stormcoast",
+    "name": "Lumi Stormcoast",
+    "region": "EU",
+    "ruleset": "Normal",
+    "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/lumi-stormcoast"
+  },
+  {
+    "id": "carl-stormcoast",
+    "name": "Carl Stormcoast",
+    "region": "EU",
+    "ruleset": "Normal",
+    "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/Carl-Stormcoast"
+  },
+  {
+    "id": "ketakat-stormcoast",
+    "name": "Ketakat Stormcoast",
+    "region": "EU",
+    "ruleset": "Normal",
+    "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/ketakat-stormcoast"
+  }
+]

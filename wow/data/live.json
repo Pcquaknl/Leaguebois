@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 1,
+  "mode": "live",
+  "status": "partial",
+  "levelCap": 60,
+  "generatedAt": "2026-11-06T18:27:11.178Z",
+  "characters": [
+    {
+      "id": "sylvex-stormcoast",
+      "name": "Sylvex Stormcoast",
+      "region": "EU",
+      "ruleset": "Normal",
+      "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/Sylvex-Stormcoast"
+    },
+    {
+      "id": "fyvix-stormcoast",
+      "name": "Fyvix Stormcoast",
+      "region": "EU",
+      "ruleset": "Normal",
+      "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/fyvix-stormcoast"
+    },
+    {
+      "id": "lumi-stormcoast",
+      "name": "Lumi Stormcoast",
+      "region": "EU",
+      "ruleset": "Normal",
+      "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/lumi-stormcoast"
+    },
+    {
+      "id": "carl-stormcoast",
+      "name": "Carl Stormcoast",
+      "region": "EU",
+      "ruleset": "Normal",
+      "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/Carl-Stormcoast"
+    },
+    {
+      "id": "ketakat-stormcoast",
+      "name": "Ketakat Stormcoast",
+      "region": "EU",
+      "ruleset": "Normal",
+      "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/ketakat-stormcoast"
+    }
+  ],
+  "snapshots": [
+    {
+      "characterId": "sylvex-stormcoast",
+      "at": "2026-11-06T14:27:00Z",
+      "level": 10,
+      "class": "Rogue",
+      "race": "Night Elf",
+      "itemLevel": 3,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-avatar.jpg",
+      "source": "Armory handmatig gecontroleerd 6 november; bron in cache"
+    },
+    {
+      "characterId": "sylvex-stormcoast",
+      "at": "2026-11-06T18:15:04.200Z",
+      "level": 10,
+      "class": "Rogue",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 3,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-avatar.jpg",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 5957,
+          "name": "Handstitched Leather Vest",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Waist",
+          "id": 1369,
+          "name": "Ragged Leather Belt",
+          "quality": "poor"
+        },
+        {
+          "slot": "Legs",
+          "id": 5398,
+          "name": "Canopy Leggings",
+          "quality": "common"
+        },
+        {
+          "slot": "Feet",
+          "id": 1367,
+          "name": "Ragged Leather Boots",
+          "quality": "poor"
+        },
+        {
+          "slot": "Wrists",
+          "id": 5419,
+          "name": "Feral Bracers",
+          "quality": "common"
+        },
+        {
+          "slot": "Hands",
+          "id": 5394,
+          "name": "Archery Training Gloves",
+          "quality": "common"
+        },
+        {
+          "slot": "Back",
+          "id": 281250,
+          "name": "Forest Oracle's Cloak",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Main Hand",
+          "id": 2140,
+          "name": "Carving Knife of the Tiger",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Off Hand",
+          "id": 5392,
+          "name": "Thistlewood Dagger",
+          "quality": "common"
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "fyvix-stormcoast",
+      "at": "2026-11-06T18:15:04.150Z",
+      "level": 13,
+      "class": "Mage",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "itemLevel": 3,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 1561,
+          "name": "Harvester's Robe",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Waist",
+          "id": 4684,
+          "name": "Spellbinder Belt",
+          "quality": "common"
+        },
+        {
+          "slot": "Legs",
+          "id": 12295,
+          "name": "Leggings of the People's Militia",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Feet",
+          "id": 6148,
+          "name": "Web-covered Boots",
+          "quality": "common"
+        },
+        {
+          "slot": "Wrists",
+          "id": 3603,
+          "name": "Knitted Bracers",
+          "quality": "common"
+        },
+        {
+          "slot": "Hands",
+          "id": 793,
+          "name": "Knitted Gloves",
+          "quality": "common"
+        },
+        {
+          "slot": "Back",
+          "id": 6549,
+          "name": "Soldier's Cloak",
+          "quality": "common"
+        },
+        {
+          "slot": "Main Hand",
+          "id": 248008,
+          "name": "Apprentice's Spellstaff",
+          "quality": "uncommon"
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "lumi-stormcoast",
+      "at": "2026-11-06T18:15:04.242Z",
+      "level": 11,
+      "class": "Hunter",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "itemLevel": 4,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 6085,
+          "name": "Footman Tunic",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Waist",
+          "id": 2186,
+          "name": "Outfitter Belt",
+          "quality": "common"
+        },
+        {
+          "slot": "Legs",
+          "id": 2303,
+          "name": "Handstitched Leather Pants",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Feet",
+          "id": 2302,
+          "name": "Handstitched Leather Boots",
+          "quality": "common"
+        },
+        {
+          "slot": "Wrists",
+          "id": 7277,
+          "name": "Handstitched Leather Bracers",
+          "quality": "common"
+        },
+        {
+          "slot": "Hands",
+          "id": 1359,
+          "name": "Lion-stamped Gloves",
+          "quality": "common"
+        },
+        {
+          "slot": "Back",
+          "id": 7276,
+          "name": "Handstitched Leather Cloak",
+          "quality": "common"
+        },
+        {
+          "slot": "Main Hand",
+          "id": 2224,
+          "name": "Militia Dagger",
+          "quality": "common"
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "carl-stormcoast",
+      "at": "2026-11-06T14:27:00Z",
+      "level": 10,
+      "class": "Priest",
+      "race": "Gnome",
+      "itemLevel": 1,
+      "source": "Armory handmatig gecontroleerd 6 november; bron in cache"
+    },
+    {
+      "characterId": "carl-stormcoast",
+      "at": "2026-11-06T18:15:04.178Z",
+      "level": 10,
+      "class": "Priest",
+      "race": "Gnome",
+      "faction": "ALLIANCE",
+      "itemLevel": 2,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 16605,
+          "name": "Friar's Robes of the Light",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Waist",
+          "id": 3363,
+          "name": "Frayed Belt",
+          "quality": "poor"
+        },
+        {
+          "slot": "Legs",
+          "id": 1431,
+          "name": "Patchwork Pants",
+          "quality": "poor"
+        },
+        {
+          "slot": "Feet",
+          "id": 6173,
+          "name": "Snow Boots",
+          "quality": "common"
+        },
+        {
+          "slot": "Wrists",
+          "id": 2326,
+          "name": "Ivy-weave Bracers",
+          "quality": "common"
+        },
+        {
+          "slot": "Hands",
+          "id": 1430,
+          "name": "Patchwork Gloves",
+          "quality": "poor"
+        },
+        {
+          "slot": "Ring 1",
+          "id": 286737,
+          "name": "Avala's Binding",
+          "quality": "common"
+        },
+        {
+          "slot": "Back",
+          "id": 6520,
+          "name": "Pioneer Cloak",
+          "quality": "common"
+        },
+        {
+          "slot": "Main Hand",
+          "id": 2048,
+          "name": "Anvilmar Hammer",
+          "quality": "common"
+        }
+      ],
+      "source": "Armory WoW Forever"
+    }
+  ],
+  "sourceStatuses": {
+    "sylvex-stormcoast": "ok",
+    "fyvix-stormcoast": "ok",
+    "lumi-stormcoast": "ok",
+    "carl-stormcoast": "ok",
+    "ketakat-stormcoast": "not_found"
+  },
+  "progression": {
+    "dungeons": [],
+    "raids": []
+  }
+}

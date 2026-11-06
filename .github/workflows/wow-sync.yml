@@ -1,0 +1,49 @@
+name: WoW Forever Armory synchronisatie
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'wow/**'
+      - '.github/workflows/wow-sync.yml'
+permissions:
+  contents: write
+concurrency:
+  group: wow-armory-sync
+  cancel-in-progress: false
+jobs:
+  synchronize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Herstel de laatst opgeslagen gegevens
+        run: |
+          if git fetch --no-tags origin +refs/heads/wow-live-data:refs/remotes/origin/wow-live-data; then
+            git show refs/remotes/origin/wow-live-data:wow/data/live.json > wow/data/live.json
+          fi
+      - name: Controleer en synchroniseer profielen
+        run: |
+          node --test wow/scripts/sync.test.mjs
+          node wow/scripts/sync.mjs
+      - name: Bewaar de metingen
+        run: |
+          cp wow/data/live.json "$RUNNER_TEMP/wow-live.json"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git show-ref --verify --quiet refs/remotes/origin/wow-live-data; then
+            git switch -c wow-live-data refs/remotes/origin/wow-live-data
+          else
+            git switch --orphan wow-live-data
+          fi
+          mkdir -p wow/data
+          cp "$RUNNER_TEMP/wow-live.json" wow/data/live.json
+          git add wow/data/live.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Update WoW Forever profiles'
+          git push origin HEAD:refs/heads/wow-live-data
