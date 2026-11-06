@@ -47,5 +47,12 @@
     "region": "EU",
     "ruleset": "Normal",
     "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/rint-stormcoast"
+  },
+  {
+    "id": "maradonnie-stormcoast",
+    "name": "Maradonnie Stormcoast",
+    "region": "EU",
+    "ruleset": "Normal",
+    "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/maradonnie-stormcoast"
   }
 ]
