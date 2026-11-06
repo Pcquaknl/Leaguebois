@@ -9,3 +9,9 @@ De workflow schrijft momentopnames naar de aparte branch `wow-live-data`. Laat d
 De repository en de gegevensbranch zijn openbaar. Publiceer hier geen secrets, persoonlijke toegangstokens of niet-openbare gegevens. De oorspronkelijke demo is strikt gescheiden van de echte gegevens. Dungeon- en raidstatussen blijven onbekend totdat een betrouwbare bron ze ondersteunt.
 
 Lokaal controleren: `node --test wow/scripts/sync.test.mjs`. Publiceer de bestanden met de root als GitHub Pages-bron. De synchronisatieworkflow heeft schrijfrechten voor repository-inhoud nodig.
+
+## Iteminformatie en 3D
+
+Op de personagepagina opent hoveren, toetsenbordfocus of aantikken een tooltip. De eigenschappen worden pas opgevraagd bij gebruik via de publieke WoW Forever-tooltip-API van Warcraft DB. Als die bron niet reageert, blijft de naam uit de Armory zichtbaar. Bij een afwijkende itemnaam geeft de tooltip aan dat willekeurige bonussen kunnen afwijken. Beschikbare itemlevels, betoveringen en edelstenen worden uit de Armory meegenomen. De demo vraagt geen echte itemgegevens op.
+
+Het onderdeel 3D laadt pas na openen een ingesloten personagepagina van Armory WoW Forever. De Armory verzorgt zelf het model; de weergave is afhankelijk van de externe site, de beschikbare personagegegevens en WebGL in de browser. Een link naar het volledige profiel blijft beschikbaar. Wij hebben geen beheer over de weergave of beschikbaarheid van de externe viewer.

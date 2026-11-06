@@ -42,3 +42,15 @@ test('incorporates a newly available portrait with the same profile timestamp', 
   assert.equal(updated.snapshots[0].level, first.level);
   assert.equal(first.portrait, undefined);
 });
+
+
+test('preserves actual item level, enchantment and socket positions', () => {
+  const snap = normalize({...source,items:[{slot:'MAIN_HAND',id:123,name:'Dagger',quality:'UNCOMMON',ilvl:12,enchantId:5,enchant:'Sharpened',gems:[null,{id:456}]}]}, character, now);
+  assert.deepEqual(snap.equipment[0], {slot:'Main Hand',id:123,name:'Dagger',quality:'uncommon',itemLevel:12,enchantId:5,enchant:'Sharpened',gems:[0,456]});
+  const old = normalize(source,character,now);
+  const updated = merge({snapshots:[old]},[character],[{id:character.id,status:'ok',snapshot:snap}],now);
+  assert.equal(updated.snapshots.length,1);
+  assert.deepEqual(updated.snapshots[0].equipment[0].gems,[0,456]);
+  assert.equal(updated.snapshots[0].equipment[0].itemLevel,12);
+  assert.equal(old.equipment[0].itemLevel,undefined);
+});
