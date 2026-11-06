@@ -30,7 +30,9 @@ export async function fetchProfile(character, now, request = fetch) {
     if (u.protocol !== 'https:' || u.hostname !== 'armorywowforever.com' || parts.slice(0, 5).join('/') !== '/c/forever/eu/normal') throw Error('Ongeldige Armory-link');
     const response = await request(`https://armorywowforever.com/api/character/forever/eu/normal/${encodeURIComponent(parts.at(-1))}`, { headers: { Accept:'application/json' }, redirect:'manual', signal:AbortSignal.timeout(12000) });
     if (!response.ok) return { id:character.id, status:response.status === 404 ? 'not_found' : 'unavailable' };
-    return { id:character.id, status:'ok', snapshot:normalize(await response.json(), character, now) };
+    const data = await response.json();
+    console.log('Portrait fields', character.id, JSON.stringify({keys:Object.keys(data), avatar:data.avatar, portrait:data.portrait, image:data.image, render:data.render, media:data.media, thumbnail:data.thumbnail}));
+    return { id:character.id, status:'ok', snapshot:normalize(data, character, now) };
   } catch (error) {
     console.warn(`${character.id}: ${error instanceof Error ? error.message : String(error)}`);
     return { id:character.id, status:'unavailable' };
