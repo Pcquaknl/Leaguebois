@@ -70,6 +70,20 @@ async function main() {
   const previous = JSON.parse(await readFile(path.join(root, 'data/live.json'), 'utf8'));
   if (!Array.isArray(characters) || !characters.length || new Set(characters.map(c => c.id)).size !== characters.length) throw Error('Ongeldige personageconfiguratie');
   const now = Date.now();
+  const probes = [
+    'https://armorywowforever.com/c/forever/eu/normal/Sylvex-Stormcoast',
+    'https://armorywowforever.com/modelviewer/live/deployment/viewer/c3f890f/viewer.min.js',
+    'https://forever.warcraftdb.com/api/v1/tooltip/item/5957',
+    'https://forever.warcraftdb.com/api/v1/tooltip/item/281250'
+  ];
+  await Promise.all(probes.map(async url => {
+    try {
+      const res = await fetch(url, {headers:{Origin:'https://leaguebois.nl'},signal:AbortSignal.timeout(10000)});
+      let data;
+      if (url.includes('/tooltip/')) { try { const j=await res.json(); data={name:j.name, quality:j.quality, html:typeof j.html==='string' ? j.html.slice(0,180):undefined}; } catch {} }
+      console.log('Integration probe', JSON.stringify({url,status:res.status,cors:res.headers.get('access-control-allow-origin'),frame:res.headers.get('x-frame-options'),csp:res.headers.get('content-security-policy'),type:res.headers.get('content-type'),data}));
+    } catch(e) { console.log('Integration probe', url, e.message); }
+  }));
   const profiles = await Promise.all(characters.map(character => fetchProfile(character, now)));
   const next = merge(previous, characters, profiles, now);
   await writeFile(path.join(root, 'data/live.json'), JSON.stringify(next, null, 2) + '\n');
