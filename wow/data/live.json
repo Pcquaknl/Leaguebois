@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "partial",
   "levelCap": 60,
-  "generatedAt": "2026-11-06T23:30:33.479Z",
+  "generatedAt": "2026-11-06T23:33:06.010Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -53,6 +53,13 @@
       "region": "EU",
       "ruleset": "Normal",
       "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/rint-stormcoast"
+    },
+    {
+      "id": "maradonnie-stormcoast",
+      "name": "Maradonnie Stormcoast",
+      "region": "EU",
+      "ruleset": "Normal",
+      "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/maradonnie-stormcoast"
     }
   ],
   "snapshots": [
@@ -1243,14 +1250,15 @@
     "carl-stormcoast": "ok",
     "ketakat-stormcoast": "ok",
     "zmatar-stormcoast": "ok",
-    "rint-stormcoast": "not_found"
+    "rint-stormcoast": "not_found",
+    "maradonnie-stormcoast": "not_found"
   },
   "sourceTimes": {
     "sylvex-stormcoast": "2026-11-06T23:15:13.049Z",
     "fyvix-stormcoast": "2026-11-06T23:15:13.121Z",
     "lumi-stormcoast": "2026-11-06T23:15:13.174Z",
     "carl-stormcoast": "2026-11-06T23:15:13.154Z",
-    "zmatar-stormcoast": "2026-11-06T22:39:25.202Z",
+    "zmatar-stormcoast": "2026-11-06T23:30:33.825Z",
     "ketakat-stormcoast": "2026-11-06T23:15:13.146Z"
   },
   "progression": {
