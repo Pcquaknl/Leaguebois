@@ -31,3 +31,14 @@ test('retains observed history and adds only real updates', () => {
   const unavailable = merge(changed,[character],[{id:character.id,status:'unavailable'}],now+120000);
   assert.equal(unavailable.status,'unavailable'); assert.equal(unavailable.snapshots.length,2);
 });
+
+test('incorporates a newly available portrait with the same profile timestamp', () => {
+  const first = normalize(source, character, now);
+  const previous = {snapshots:[first]};
+  const portrait = 'https://render.worldofwarcraft.com/forever-eu/character/76/8992076-avatar.jpg';
+  const updated = merge(previous, [character], [{id:character.id,status:'ok',snapshot:{...first,portrait}}], now);
+  assert.equal(updated.snapshots.length, 1);
+  assert.equal(updated.snapshots[0].portrait, portrait);
+  assert.equal(updated.snapshots[0].level, first.level);
+  assert.equal(first.portrait, undefined);
+});
