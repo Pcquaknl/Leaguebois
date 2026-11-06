@@ -34,6 +34,7 @@ jobs:
       - name: Bewaar de metingen
         run: |
           cp wow/data/live.json "$RUNNER_TEMP/wow-live.json"
+          git restore -- wow/data/live.json
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           if git show-ref --verify --quiet refs/remotes/origin/wow-live-data; then
