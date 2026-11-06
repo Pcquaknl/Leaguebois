@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "partial",
   "levelCap": 60,
-  "generatedAt": "2026-11-06T21:30:02.240Z",
+  "generatedAt": "2026-11-06T22:39:24.857Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -653,6 +653,127 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "sylvex-stormcoast",
+      "at": "2026-11-06T22:37:54.321Z",
+      "level": 12,
+      "class": "Rogue",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 2,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-avatar.jpg",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 5957,
+          "name": "Handstitched Leather Vest",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Waist",
+          "id": 1369,
+          "name": "Ragged Leather Belt",
+          "quality": "poor"
+        },
+        {
+          "slot": "Legs",
+          "id": 1423,
+          "name": "Worn Leather Pants",
+          "quality": "poor"
+        },
+        {
+          "slot": "Feet",
+          "id": 9601,
+          "name": "Cushioned Boots",
+          "quality": "common"
+        },
+        {
+          "slot": "Wrists",
+          "id": 7277,
+          "name": "Handstitched Leather Bracers",
+          "quality": "common"
+        },
+        {
+          "slot": "Hands",
+          "id": 5394,
+          "name": "Archery Training Gloves",
+          "quality": "common"
+        },
+        {
+          "slot": "Back",
+          "id": 281250,
+          "name": "Forest Oracle's Cloak",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Main Hand",
+          "id": 6256,
+          "name": "Fishing Pole",
+          "quality": "common"
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "ketakat-stormcoast",
+      "at": "2026-11-06T22:37:54.229Z",
+      "level": 11,
+      "class": "Druid",
+      "race": "High Order Skyborne",
+      "faction": "ALLIANCE",
+      "itemLevel": 3,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 5957,
+          "name": "Handstitched Leather Vest",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Waist",
+          "id": 4237,
+          "name": "Handstitched Leather Belt",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Legs",
+          "id": 2303,
+          "name": "Handstitched Leather Pants",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Feet",
+          "id": 2302,
+          "name": "Handstitched Leather Boots",
+          "quality": "common"
+        },
+        {
+          "slot": "Wrists",
+          "id": 7277,
+          "name": "Handstitched Leather Bracers",
+          "quality": "common"
+        },
+        {
+          "slot": "Back",
+          "id": 257943,
+          "name": "Hunter's Simple Cloak",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Main Hand",
+          "id": 263314,
+          "name": "Roofing Hammer",
+          "quality": "uncommon"
+        },
+        {
+          "slot": "Off Hand",
+          "id": 15944,
+          "name": "Ancestral Orb",
+          "quality": "uncommon"
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "sourceStatuses": {
@@ -660,16 +781,17 @@
     "fyvix-stormcoast": "ok",
     "lumi-stormcoast": "ok",
     "carl-stormcoast": "ok",
-    "ketakat-stormcoast": "not_found",
+    "ketakat-stormcoast": "ok",
     "zmatar-stormcoast": "ok",
     "rint-stormcoast": "not_found"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-06T21:26:15.557Z",
-    "fyvix-stormcoast": "2026-11-06T21:26:15.617Z",
-    "lumi-stormcoast": "2026-11-06T21:26:15.610Z",
-    "carl-stormcoast": "2026-11-06T21:26:15.481Z",
-    "zmatar-stormcoast": "2026-11-06T21:26:15.550Z"
+    "sylvex-stormcoast": "2026-11-06T22:37:54.321Z",
+    "fyvix-stormcoast": "2026-11-06T22:37:54.449Z",
+    "lumi-stormcoast": "2026-11-06T22:37:54.307Z",
+    "carl-stormcoast": "2026-11-06T22:37:54.310Z",
+    "zmatar-stormcoast": "2026-11-06T21:26:15.550Z",
+    "ketakat-stormcoast": "2026-11-06T22:37:54.229Z"
   },
   "progression": {
     "dungeons": [],
