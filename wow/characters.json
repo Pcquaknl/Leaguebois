@@ -33,5 +33,19 @@
     "region": "EU",
     "ruleset": "Normal",
     "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/ketakat-stormcoast"
+  },
+  {
+    "id": "zmatar-stormcoast",
+    "name": "Zmatar Stormcoast",
+    "region": "EU",
+    "ruleset": "Normal",
+    "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/zmatar-stormcoast"
+  },
+  {
+    "id": "rint-stormcoast",
+    "name": "Rint Stormcoast",
+    "region": "EU",
+    "ruleset": "Normal",
+    "armoryUrl": "https://armorywowforever.com/c/forever/eu/normal/rint-stormcoast"
   }
 ]
