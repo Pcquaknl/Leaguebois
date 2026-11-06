@@ -31,7 +31,11 @@ export async function fetchProfile(character, now, request = fetch) {
     const response = await request(`https://armorywowforever.com/api/character/forever/eu/normal/${encodeURIComponent(parts.at(-1))}`, { headers: { Accept:'application/json' }, redirect:'manual', signal:AbortSignal.timeout(12000) });
     if (!response.ok) return { id:character.id, status:response.status === 404 ? 'not_found' : 'unavailable' };
     const data = await response.json();
-    console.log('Portrait fields', character.id, JSON.stringify({keys:Object.keys(data), avatar:data.avatar, portrait:data.portrait, image:data.image, render:data.render, media:data.media, thumbnail:data.thumbnail}));
+    const charId = Number(data.blizzardId);
+    if (Number.isSafeInteger(charId) && charId > 0) {
+      const url = `https://render.worldofwarcraft.com/forever-eu/character/${charId % 256}/${charId}-avatar.jpg`;
+      try { const img = await fetch(url, {method:'HEAD', signal:AbortSignal.timeout(9000)}); console.log('Portrait CDN', character.id, JSON.stringify({charId, status:img.status, type:img.headers.get('content-type'), sameAsSource:url === data.avatar})); } catch (error) { console.log('Portrait CDN', character.id, error.message); }
+    } else { console.log('Portrait CDN', character.id, 'missing character id', typeof data.blizzardId); }
     return { id:character.id, status:'ok', snapshot:normalize(data, character, now) };
   } catch (error) {
     console.warn(`${character.id}: ${error instanceof Error ? error.message : String(error)}`);
