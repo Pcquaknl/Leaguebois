@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "partial",
   "levelCap": 60,
-  "generatedAt": "2026-11-06T18:59:42.486Z",
+  "generatedAt": "2026-11-06T21:26:14.860Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -411,10 +411,10 @@
     "rint-stormcoast": "not_found"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-06T18:15:04.200Z",
-    "fyvix-stormcoast": "2026-11-06T18:15:04.150Z",
-    "lumi-stormcoast": "2026-11-06T18:15:04.242Z",
-    "carl-stormcoast": "2026-11-06T18:15:04.178Z",
+    "sylvex-stormcoast": "2026-11-06T18:59:42.980Z",
+    "fyvix-stormcoast": "2026-11-06T18:59:42.855Z",
+    "lumi-stormcoast": "2026-11-06T18:59:42.916Z",
+    "carl-stormcoast": "2026-11-06T18:59:43.024Z",
     "zmatar-stormcoast": "2026-11-06T18:59:43.010Z"
   },
   "progression": {
