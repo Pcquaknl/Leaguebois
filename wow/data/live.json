@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "partial",
   "levelCap": 60,
-  "generatedAt": "2026-11-06T22:43:07.096Z",
+  "generatedAt": "2026-11-06T22:56:21.063Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -668,49 +668,60 @@
           "slot": "Chest",
           "id": 5957,
           "name": "Handstitched Leather Vest",
-          "quality": "uncommon"
+          "quality": "uncommon",
+          "itemLevel": 10
         },
         {
           "slot": "Waist",
           "id": 1369,
           "name": "Ragged Leather Belt",
-          "quality": "poor"
+          "quality": "poor",
+          "itemLevel": 5
         },
         {
           "slot": "Legs",
           "id": 1423,
           "name": "Worn Leather Pants",
-          "quality": "poor"
+          "quality": "poor",
+          "itemLevel": 7
         },
         {
           "slot": "Feet",
           "id": 9601,
           "name": "Cushioned Boots",
-          "quality": "common"
+          "quality": "common",
+          "itemLevel": 12
         },
         {
           "slot": "Wrists",
           "id": 7277,
           "name": "Handstitched Leather Bracers",
-          "quality": "common"
+          "quality": "common",
+          "itemLevel": 9
         },
         {
           "slot": "Hands",
           "id": 5394,
           "name": "Archery Training Gloves",
-          "quality": "common"
+          "quality": "common",
+          "itemLevel": 5
         },
         {
           "slot": "Back",
           "id": 281250,
           "name": "Forest Oracle's Cloak",
-          "quality": "uncommon"
+          "quality": "uncommon",
+          "itemLevel": 11
         },
         {
           "slot": "Main Hand",
           "id": 6256,
           "name": "Fishing Pole",
-          "quality": "common"
+          "quality": "common",
+          "itemLevel": 1,
+          "gems": [
+            6529
+          ]
         }
       ],
       "source": "Armory WoW Forever"
@@ -728,49 +739,352 @@
           "slot": "Chest",
           "id": 5957,
           "name": "Handstitched Leather Vest",
-          "quality": "uncommon"
+          "quality": "uncommon",
+          "itemLevel": 10,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
         },
         {
           "slot": "Waist",
           "id": 4237,
           "name": "Handstitched Leather Belt",
-          "quality": "uncommon"
+          "quality": "uncommon",
+          "itemLevel": 10
         },
         {
           "slot": "Legs",
           "id": 2303,
           "name": "Handstitched Leather Pants",
-          "quality": "uncommon"
+          "quality": "uncommon",
+          "itemLevel": 10,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
         },
         {
           "slot": "Feet",
           "id": 2302,
           "name": "Handstitched Leather Boots",
-          "quality": "common"
+          "quality": "common",
+          "itemLevel": 8
         },
         {
           "slot": "Wrists",
           "id": 7277,
           "name": "Handstitched Leather Bracers",
-          "quality": "common"
+          "quality": "common",
+          "itemLevel": 9
         },
         {
           "slot": "Back",
           "id": 257943,
           "name": "Hunter's Simple Cloak",
-          "quality": "uncommon"
+          "quality": "uncommon",
+          "itemLevel": 8
         },
         {
           "slot": "Main Hand",
           "id": 263314,
           "name": "Roofing Hammer",
-          "quality": "uncommon"
+          "quality": "uncommon",
+          "itemLevel": 10
         },
         {
           "slot": "Off Hand",
           "id": 15944,
           "name": "Ancestral Orb",
-          "quality": "uncommon"
+          "quality": "uncommon",
+          "itemLevel": 12
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "fyvix-stormcoast",
+      "at": "2026-11-06T22:37:54.449Z",
+      "level": 13,
+      "class": "Mage",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "itemLevel": 3,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 1561,
+          "name": "Harvester's Robe",
+          "quality": "uncommon",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Waist",
+          "id": 4684,
+          "name": "Spellbinder Belt",
+          "quality": "common",
+          "itemLevel": 13
+        },
+        {
+          "slot": "Legs",
+          "id": 12295,
+          "name": "Leggings of the People's Militia",
+          "quality": "uncommon",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Feet",
+          "id": 6148,
+          "name": "Web-covered Boots",
+          "quality": "common",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Wrists",
+          "id": 3603,
+          "name": "Knitted Bracers",
+          "quality": "common",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Hands",
+          "id": 793,
+          "name": "Knitted Gloves",
+          "quality": "common",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Back",
+          "id": 6549,
+          "name": "Soldier's Cloak",
+          "quality": "common",
+          "itemLevel": 14
+        },
+        {
+          "slot": "Main Hand",
+          "id": 248008,
+          "name": "Apprentice's Spellstaff",
+          "quality": "uncommon",
+          "itemLevel": 12,
+          "gems": [
+            274947
+          ]
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "lumi-stormcoast",
+      "at": "2026-11-06T22:37:54.307Z",
+      "level": 13,
+      "class": "Hunter",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "guild": "Campfire Chronicles",
+      "itemLevel": 4,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 6085,
+          "name": "Footman Tunic",
+          "quality": "uncommon",
+          "itemLevel": 13,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Waist",
+          "id": 4237,
+          "name": "Handstitched Leather Belt",
+          "quality": "uncommon",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Legs",
+          "id": 2303,
+          "name": "Handstitched Leather Pants",
+          "quality": "uncommon",
+          "itemLevel": 10,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Feet",
+          "id": 1173,
+          "name": "Weather-worn Boots",
+          "quality": "common",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Wrists",
+          "id": 7277,
+          "name": "Handstitched Leather Bracers",
+          "quality": "common",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Hands",
+          "id": 1359,
+          "name": "Lion-stamped Gloves",
+          "quality": "common",
+          "itemLevel": 8,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Back",
+          "id": 9745,
+          "name": "Simple Cape",
+          "quality": "common",
+          "itemLevel": 11
+        },
+        {
+          "slot": "Main Hand",
+          "id": 4840,
+          "name": "Long Bayonet",
+          "quality": "common",
+          "itemLevel": 10
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "carl-stormcoast",
+      "at": "2026-11-06T22:37:54.310Z",
+      "level": 13,
+      "class": "Priest",
+      "race": "Gnome",
+      "faction": "ALLIANCE",
+      "itemLevel": 4,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 16605,
+          "name": "Friar's Robes of the Light",
+          "quality": "uncommon",
+          "itemLevel": 5
+        },
+        {
+          "slot": "Waist",
+          "id": 3363,
+          "name": "Frayed Belt",
+          "quality": "poor",
+          "itemLevel": 3
+        },
+        {
+          "slot": "Legs",
+          "id": 2958,
+          "name": "Journeyman's Pants",
+          "quality": "uncommon",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Feet",
+          "id": 860,
+          "name": "Cavalier's Boots",
+          "quality": "common",
+          "itemLevel": 13
+        },
+        {
+          "slot": "Wrists",
+          "id": 2326,
+          "name": "Ivy-weave Bracers",
+          "quality": "common",
+          "itemLevel": 10,
+          "enchantId": 41,
+          "enchant": "Stamina +2"
+        },
+        {
+          "slot": "Hands",
+          "id": 1430,
+          "name": "Patchwork Gloves",
+          "quality": "poor",
+          "itemLevel": 7
+        },
+        {
+          "slot": "Ring 1",
+          "id": 286737,
+          "name": "Avala's Binding",
+          "quality": "common",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Back",
+          "id": 6520,
+          "name": "Pioneer Cloak",
+          "quality": "common",
+          "itemLevel": 9
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "zmatar-stormcoast",
+      "at": "2026-11-06T22:39:25.202Z",
+      "level": 13,
+      "class": "Shaman",
+      "race": "Dwarf",
+      "faction": "ALLIANCE",
+      "itemLevel": 3,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 2108,
+          "name": "Frostmane Leather Vest",
+          "quality": "common",
+          "itemLevel": 4
+        },
+        {
+          "slot": "Waist",
+          "id": 1418,
+          "name": "Worn Leather Belt",
+          "quality": "poor",
+          "itemLevel": 7
+        },
+        {
+          "slot": "Legs",
+          "id": 1423,
+          "name": "Worn Leather Pants",
+          "quality": "poor",
+          "itemLevel": 7
+        },
+        {
+          "slot": "Feet",
+          "id": 6518,
+          "name": "Pioneer Boots",
+          "quality": "common",
+          "itemLevel": 11
+        },
+        {
+          "slot": "Wrists",
+          "id": 3158,
+          "name": "Burnt Hide Bracers",
+          "quality": "common",
+          "itemLevel": 12
+        },
+        {
+          "slot": "Hands",
+          "id": 3152,
+          "name": "Driving Gloves",
+          "quality": "common",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Ring 1",
+          "id": 286737,
+          "name": "Avala's Binding",
+          "quality": "common",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Back",
+          "id": 4662,
+          "name": "Journeyman's Cloak",
+          "quality": "common",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Main Hand",
+          "id": 15268,
+          "name": "Twin-bladed Axe of Strength",
+          "quality": "uncommon",
+          "itemLevel": 16
         }
       ],
       "source": "Armory WoW Forever"
