@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "partial",
   "levelCap": 60,
-  "generatedAt": "2026-11-06T23:54:12.985Z",
+  "generatedAt": "2026-11-07T03:12:43.907Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -1681,6 +1681,172 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "sylvex-stormcoast",
+      "at": "2026-11-06T23:54:13.434Z",
+      "observedAt": "2026-11-07T03:12:43.907Z",
+      "level": 12,
+      "class": "Rogue",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 3,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 5957,
+          "name": "Handstitched Leather Vest",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_wolf.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Waist",
+          "id": 1369,
+          "name": "Ragged Leather Belt",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_24.jpg",
+          "itemLevel": 5
+        },
+        {
+          "slot": "Legs",
+          "id": 1423,
+          "name": "Worn Leather Pants",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_06.jpg",
+          "itemLevel": 7
+        },
+        {
+          "slot": "Feet",
+          "id": 9601,
+          "name": "Cushioned Boots",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 12
+        },
+        {
+          "slot": "Wrists",
+          "id": 7277,
+          "name": "Handstitched Leather Bracers",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_08.jpg",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Hands",
+          "id": 5394,
+          "name": "Archery Training Gloves",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_05.jpg",
+          "itemLevel": 5
+        },
+        {
+          "slot": "Back",
+          "id": 281250,
+          "name": "Forest Oracle's Cloak",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_17.jpg",
+          "itemLevel": 11
+        },
+        {
+          "slot": "Main Hand",
+          "id": 2140,
+          "name": "Carving Knife of the Tiger",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_weapon_shortblade_01.jpg",
+          "itemLevel": 11
+        },
+        {
+          "slot": "Off Hand",
+          "id": 7298,
+          "name": "Blade of Cunning",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_weapon_shortblade_26.jpg",
+          "itemLevel": 13
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "fyvix-stormcoast",
+      "at": "2026-11-06T23:54:13.549Z",
+      "observedAt": "2026-11-07T03:12:43.907Z",
+      "level": 15,
+      "class": "Mage",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "itemLevel": 5,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 1561,
+          "name": "Harvester's Robe",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_13.jpg",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Waist",
+          "id": 4684,
+          "name": "Spellbinder Belt",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_04.jpg",
+          "itemLevel": 13
+        },
+        {
+          "slot": "Legs",
+          "id": 12295,
+          "name": "Leggings of the People's Militia",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_06.jpg",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Feet",
+          "id": 6148,
+          "name": "Web-covered Boots",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Wrists",
+          "id": 710,
+          "name": "Bracers of the People's Militia",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_11.jpg",
+          "itemLevel": 14,
+          "enchantId": 924,
+          "enchant": "Defense +3"
+        },
+        {
+          "slot": "Hands",
+          "id": 1479,
+          "name": "Salma's Oven Mitts",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_06.jpg",
+          "itemLevel": 12
+        },
+        {
+          "slot": "Back",
+          "id": 6549,
+          "name": "Soldier's Cloak",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_17.jpg",
+          "itemLevel": 14
+        },
+        {
+          "slot": "Main Hand",
+          "id": 248008,
+          "name": "Apprentice's Spellstaff",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_staff_18.jpg",
+          "itemLevel": 12
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -1728,12 +1894,12 @@
     "maradonnie-stormcoast": "not_found"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-06T23:15:13.049Z",
-    "fyvix-stormcoast": "2026-11-06T23:15:13.121Z",
-    "lumi-stormcoast": "2026-11-06T23:15:13.174Z",
-    "carl-stormcoast": "2026-11-06T23:15:13.154Z",
+    "sylvex-stormcoast": "2026-11-06T23:54:13.434Z",
+    "fyvix-stormcoast": "2026-11-06T23:54:13.549Z",
+    "lumi-stormcoast": "2026-11-06T23:54:13.378Z",
+    "carl-stormcoast": "2026-11-06T23:54:18.425Z",
     "zmatar-stormcoast": "2026-11-06T23:30:33.825Z",
-    "ketakat-stormcoast": "2026-11-06T23:15:13.146Z",
+    "ketakat-stormcoast": "2026-11-06T23:54:13.457Z",
     "rint-stormcoast": "2026-11-06T23:54:13.292Z"
   },
   "progression": {
