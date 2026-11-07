@@ -1,5 +1,5 @@
 import { hideItemTooltip } from './item-tooltips.js';
-import { renderDashboard, renderMilestones } from './dashboard.mjs?v=20261107';
+import { renderDashboard, renderMilestones } from './dashboard.mjs?v=20261107b';
 import { observedGain } from './progress.mjs';
 import { createVisitTracker } from './visit.mjs';
 const $=s=>document.querySelector(s), app=$('#app');
@@ -55,10 +55,24 @@ function comparePage(){if(compare.length<2)compare=data.characters.slice(0,2).ma
 const staleData=d=>{if(d.mode!=='live')return false;const limit=90*60*1000,checked=Date.parse(d.generatedAt);if(Number.isFinite(checked)&&Date.now()-checked>limit)return true;const ids=Object.entries(d.sourceStatuses||{}).filter(([,status])=>status==='ok').map(([id])=>id);const times=ids.map(id=>Date.parse(d.sourceTimes?.[id])).filter(Number.isFinite);return ids.length>0&&times.length===ids.length&&times.every(at=>Date.now()-at>limit)};
 function render(){hideItemTooltip();const stale=staleData(data);data.freshnessStale=stale;if(stale)data.status='unavailable';const mode=$('#mode-pill');mode.textContent=data.mode==='demo'?'DEMO':stale?'GEGEVENS VEROUDERD':data.status==='ready'?'LIVE':data.status==='partial'?'DEELS LIVE':'BRON NIET BESCHIKBAAR';mode.className=`pill ${data.mode==='demo'||data.status==='unavailable'?'':'live'}`;$('#freshness').textContent=data.generatedAt?'Broncontrole '+age(data.generatedAt).replace(' gezien',''):'Nog geen gegevens';document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===view));app.innerHTML=({dashboard,history:historyPage,milestones:milestonesPage,progression,compare:comparePage,profile})[view]();}
 const LIVE_DATA_URL='https://raw.githubusercontent.com/Pcquaknl/Leaguebois/wow-live-data/wow/data/live.json';
+const LIVE_API_URL='https://api.github.com/repos/Pcquaknl/Leaguebois/contents/wow/data/live.json?ref=wow-live-data';
+async function newerSnapshot(current){
+  try{
+    const response=await fetch(LIVE_API_URL,{cache:'no-store'});
+    if(!response.ok)return current;
+    const file=await response.json();
+    if(file.encoding!=='base64'||typeof file.content!=='string')return current;
+    const bytes=Uint8Array.from(atob(file.content.replace(/\s/g,'')),c=>c.charCodeAt(0));
+    const next=JSON.parse(new TextDecoder().decode(bytes));
+    if(next.mode!=='live'||!Array.isArray(next.characters)||!Array.isArray(next.snapshots))return current;
+    const nextTime=Date.parse(next.generatedAt),currentTime=Date.parse(current.generatedAt);
+    return Number.isFinite(nextTime)&&(!Number.isFinite(currentTime)||nextTime>currentTime)?next:current;
+  }catch{return current}
+}
 async function getData(mode){
   const candidates=mode==='demo'?['./data/demo.json']:[LIVE_DATA_URL,'./data/live.json'];
   let last;
-  for(const url of candidates){try{const requestUrl=url===LIVE_DATA_URL?`${url}?v=${Math.floor(Date.now()/60000)}`:url;const response=await fetch(requestUrl,{cache:'no-store'});if(!response.ok)throw Error(`HTTP ${response.status}`);const incoming=await response.json();if(incoming.mode!==mode||!Array.isArray(incoming.characters)||!Array.isArray(incoming.snapshots))throw Error('Ongeldige dataset');return incoming}catch(error){last=error}}
+  for(const url of candidates){try{const response=await fetch(url,{cache:'no-store'});if(!response.ok)throw Error(`HTTP ${response.status}`);const incoming=await response.json();if(incoming.mode!==mode||!Array.isArray(incoming.characters)||!Array.isArray(incoming.snapshots))throw Error('Ongeldige dataset');return mode==='live'&&staleData(incoming)?await newerSnapshot(incoming):incoming}catch(error){last=error}}
   throw last||Error('Gegevens niet beschikbaar');
 }
 function recordVisit(){if(staleData(data))data.status='unavailable';if(visitTracker&&data.mode==='live')visitState=visitTracker.record(data)}
