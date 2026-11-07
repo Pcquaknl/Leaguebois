@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "partial",
   "levelCap": 60,
-  "generatedAt": "2026-11-07T10:46:47.747Z",
+  "generatedAt": "2026-11-07T13:56:14.173Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -2870,6 +2870,90 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "lumi-stormcoast",
+      "at": "2026-11-07T10:46:48.127Z",
+      "observedAt": "2026-11-07T13:56:14.173Z",
+      "level": 15,
+      "class": "Hunter",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "guild": "Campfire Chronicles",
+      "itemLevel": 4,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 6085,
+          "name": "Footman Tunic",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_09.jpg",
+          "itemLevel": 13,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Waist",
+          "id": 4237,
+          "name": "Handstitched Leather Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_04.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Legs",
+          "id": 2303,
+          "name": "Handstitched Leather Pants",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_wolf.jpg",
+          "itemLevel": 10,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Feet",
+          "id": 1173,
+          "name": "Weather-worn Boots",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_03.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Wrists",
+          "id": 7277,
+          "name": "Handstitched Leather Bracers",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_08.jpg",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Hands",
+          "id": 1359,
+          "name": "Lion-stamped Gloves",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_05.jpg",
+          "itemLevel": 8,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Back",
+          "id": 9745,
+          "name": "Simple Cape",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_22.jpg",
+          "itemLevel": 11
+        },
+        {
+          "slot": "Main Hand",
+          "id": 4840,
+          "name": "Long Bayonet",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_weapon_shortblade_05.jpg",
+          "itemLevel": 10
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -2917,13 +3001,13 @@
     "maradonnie-stormcoast": "not_found"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-07T10:02:47.179Z",
-    "fyvix-stormcoast": "2026-11-07T10:02:47.536Z",
-    "lumi-stormcoast": "2026-11-07T10:02:47.266Z",
-    "carl-stormcoast": "2026-11-07T10:02:47.224Z",
-    "zmatar-stormcoast": "2026-11-07T10:02:47.544Z",
-    "ketakat-stormcoast": "2026-11-07T10:02:47.503Z",
-    "rint-stormcoast": "2026-11-07T10:02:47.467Z"
+    "sylvex-stormcoast": "2026-11-07T10:46:48.087Z",
+    "fyvix-stormcoast": "2026-11-07T10:46:48.131Z",
+    "lumi-stormcoast": "2026-11-07T10:46:48.127Z",
+    "carl-stormcoast": "2026-11-07T10:46:48.173Z",
+    "zmatar-stormcoast": "2026-11-07T10:46:48.213Z",
+    "ketakat-stormcoast": "2026-11-07T10:46:48.146Z",
+    "rint-stormcoast": "2026-11-07T10:46:48.111Z"
   },
   "progression": {
     "dungeons": [],
