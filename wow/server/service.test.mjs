@@ -1,0 +1,45 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {Store} from './store.mjs';
+import {acceptMessage,standings,professions} from './service.mjs';
+import {createHttpServer} from './http.mjs';
+const chars=[{id:'sylvex-stormcoast',name:'Sylvex Stormcoast'}];
+const cfg={discordGuildId:'1',bridgeChannelId:'2',announcementsChannelId:'4',bindings:[{characterId:'sylvex-stormcoast',discordUserId:'3'}]};
+const now=Date.parse('2026-11-07T11:00:00Z');
+const msg={id:'42',guildId:'1',channelId:'2',author:{id:'3'},createdTimestamp:now,content:'[LB1]|Sylvex%20Stormcoast|12|ROGUE|1|Mining~42~75'};
+test('only a bound sender changes live state; duplicates and test messages are ignored',()=>{
+  const s=new Store(':memory:',chars);
+  assert.equal(acceptMessage({...msg,author:{id:'999'}},cfg,s,now).status,'untrusted');
+  assert.equal(acceptMessage({...msg,content:'[LEAGUEBOIS-TEST] automatisch'},cfg,s,now).status,'ignored');
+  assert.equal(s.dataset().snapshots.length,0);
+  assert.equal(acceptMessage(msg,cfg,s,now).status,'stored');
+  assert.equal(acceptMessage(msg,cfg,s,now).status,'duplicate');
+  assert.equal(s.dataset().snapshots.at(-1).professions.Mining,42);
+  assert.match(standings(s.dataset()),/level 12/);
+  assert.match(professions(s.dataset(),'Sylvex'),/Mining 42\/75/);
+  assert.match(professions(s.dataset(),'nobody'),/niet gevonden/);
+  s.close();
+});
+test('public API returns the live dataset and restricts cross-origin access',async t=>{
+  const s=new Store(':memory:',chars);acceptMessage(msg,cfg,s,now);
+  const server=createHttpServer(s,'https://leaguebois.nl');await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+  t.after(()=>{server.close();s.close()});
+  const url=`http://127.0.0.1:${server.address().port}`;
+  let r=await fetch(`${url}/api/live`,{headers:{Origin:'https://leaguebois.nl'}});
+  assert.equal(r.status,200);assert.equal(r.headers.get('access-control-allow-origin'),'https://leaguebois.nl');
+  const data=await r.json();assert.equal(data.snapshots.at(-1).professions.Mining,42);assert.equal(JSON.stringify(data).includes('discordUserId'),false);
+  r=await fetch(`${url}/api/live`,{headers:{Origin:'https://example.org'}});assert.equal(r.headers.get('access-control-allow-origin'),null);
+  r=await fetch(`${url}/api/live`,{method:'POST'});assert.equal(r.status,405);
+});
+test('two players update independently and only their own verified characters',()=>{
+  const players=[...chars,{id:'fyvix-stormcoast',name:'Fyvix Stormcoast'}];
+  const config={...cfg,bindings:[...cfg.bindings,{characterId:'fyvix-stormcoast',discordUserId:'5'}]};
+  const s=new Store(':memory:',players);
+  assert.equal(acceptMessage(msg,config,s,now).status,'stored');
+  const friend={...msg,id:'43',author:{id:'5'},content:'[LB1]|Fyvix%20Stormcoast|15|MAGE|1|Tailoring~35~75'};
+  assert.equal(acceptMessage(friend,config,s,now).status,'stored');
+  assert.equal(acceptMessage({...friend,id:'44',content:msg.content},config,s,now).status,'untrusted');
+  const data=s.dataset(),one=data.snapshots.filter(x=>x.characterId==='sylvex-stormcoast').at(-1),two=data.snapshots.filter(x=>x.characterId==='fyvix-stormcoast').at(-1);
+  assert.equal(one.professions.Mining,42);assert.equal(two.professions.Tailoring,35);
+  s.close();
+});

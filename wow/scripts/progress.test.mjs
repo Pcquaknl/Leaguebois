@@ -31,3 +31,18 @@ test('visit differences require comparable known data and never mix demo', () =>
   assert.deepEqual(captureVisit({mode:'demo',characters,snapshots:[s],sourceStatuses:{one:'ok'}}).players,{});
   assert.deepEqual(captureVisit({mode:'live',characters,snapshots:[s],sourceStatuses:{one:'unavailable'}}).players,{});
 });
+
+test('profession milestones and visit changes require comparable real observations',()=>{
+  const first={...sample(t0,10),professions:{Mining:70}}, second={...sample(t1,11),professions:{Mining:76}};
+  const milestones=deriveMilestones([first,second]);
+  assert.equal(milestones.find(m=>m.kind==='profession'&&m.rank===75)?.basis,'crossing');
+  assert.equal(deriveMilestones([{...sample(t1,11),professions:{Mining:90}}]).some(m=>m.kind==='profession'),false);
+  assert.deepEqual(deriveMilestones([],milestones),milestones);
+  const characters=[{id:'one',name:'One'}],sourceStatuses={one:'ok'};
+  const before=captureVisit({mode:'live',characters,sourceStatuses,snapshots:[first]});
+  const after=captureVisit({mode:'live',characters,sourceStatuses,snapshots:[first,second]});
+  const change=changesSinceVisit(before,after).find(x=>x.kind==='profession');
+  assert.deepEqual({profession:change.profession,from:change.from,to:change.to},{profession:'Mining',from:70,to:76});
+  assert.equal(changesSinceVisit({players:{one:{name:'One',level:10,professions:null}}},after).some(x=>x.kind==='profession'),false);
+});
+

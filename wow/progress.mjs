@@ -41,6 +41,16 @@ export function deriveMilestones(snapshots, previous = []) {
         const id = `${characterId}:level:${level}`;
         if ((crossed || firstAtLevel) && !saved.has(id)) saved.set(id, {id,characterId,kind:'level',level,at:date,basis:crossed?'crossing':'first_seen'});
       }
+      for (const [profession,rank] of Object.entries(s.professions || {})) {
+        if (!Number.isFinite(rank)) continue;
+        const old=prev?.professions?.[profession];
+        for (const milestone of [75,150,225,300]) {
+          const crossed=Number.isFinite(old) && old<milestone && rank>=milestone;
+          const firstAtRank=!Number.isFinite(old) && rank===milestone;
+          const id=`${characterId}:profession:${encodeURIComponent(profession.toLowerCase())}:${milestone}`;
+          if((crossed||firstAtRank)&&!saved.has(id))saved.set(id,{id,characterId,kind:'profession',profession,rank:milestone,at:date,basis:crossed?'crossing':'first_seen'});
+        }
+      }
       if (!Array.isArray(s.equipment)) continue;
       for (const quality of ['rare','epic']) {
         const item = s.equipment.find(e => e && String(e.quality).toLowerCase() === quality && typeof e.name === 'string');
@@ -63,7 +73,8 @@ export function captureVisit(data, now = Date.now()) {
       ? s.equipment.filter(x=>x && typeof x.slot === 'string' && Number.isSafeInteger(x.id))
         .map(x=>({slot:x.slot,id:x.id,name:String(x.name || ''),quality:String(x.quality || '')}))
       : null;
-    players[c.id] = {name:String(c.nickname || c.name || c.id), level:s.level, equipment};
+    const professions=s.professions && typeof s.professions==='object' ? Object.fromEntries(Object.entries(s.professions).filter(([,rank])=>Number.isFinite(rank))) : null;
+    players[c.id] = {name:String(c.nickname || c.name || c.id), level:s.level, equipment, professions};
   }
   return {at:new Date(now).toISOString(),players};
 }
@@ -77,6 +88,13 @@ export function changesSinceVisit(previous, current) {
     if (!old) continue;
     if (Number.isFinite(old.level) && Number.isFinite(player.level) && player.level > old.level)
       changes.push({characterId:id,kind:'level',name:player.name,from:old.level,to:player.level,gained:player.level-old.level});
+    if(old.professions && player.professions){
+      for(const [profession,rank] of Object.entries(player.professions)){
+        const before=old.professions[profession];
+        if(Number.isFinite(before) && Number.isFinite(rank) && rank!==before)
+          changes.push({characterId:id,kind:'profession',name:player.name,profession,from:before,to:rank});
+      }
+    }
     if (Array.isArray(old.equipment) && Array.isArray(player.equipment)) {
       for (const item of player.equipment) {
         const former = old.equipment.find(x=>x.slot===item.slot);
@@ -85,5 +103,7 @@ export function changesSinceVisit(previous, current) {
       }
     }
   }
-  return changes.sort((a,b)=>(a.kind==='level'?0:1)-(b.kind==='level'?0:1));
+  const priority={level:0,profession:1,gear:2};
+  return changes.sort((a,b)=>(priority[a.kind]??3)-(priority[b.kind]??3));
 }
+

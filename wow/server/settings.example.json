@@ -1,0 +1,13 @@
+{
+  "discordGuildId": "VUL_DISCORD_SERVER_ID_IN",
+  "bridgeChannelId": "VUL_GEKOPPELDE_GUILDCHAT_KANAAL_ID_IN",
+  "announcementsChannelId": "VUL_APART_MELDINGENKANAAL_ID_IN",
+  "allowedOrigin": "https://leaguebois.nl",
+  "diagnostics": false,
+  "bindings": [
+    {
+      "characterId": "sylvex-stormcoast",
+      "discordUserId": "VUL_VERTROUWDE_DISCORD_GEBRUIKERS_ID_IN"
+    }
+  ]
+}

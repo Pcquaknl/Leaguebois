@@ -1,4 +1,4 @@
-import { captureVisit } from './progress.mjs';
+import { captureVisit } from './progress.mjs?v=20261107-live';
 const LAST_KEY='leaguebois-wow-last-visit-v1';
 const SESSION_KEY='leaguebois-wow-visit-session-v1';
 const MAX_SESSION_MS=30*60*1000;
@@ -36,3 +36,4 @@ export function createVisitTracker(local,session,clock=Date.now) {
     }
   };
 }
+

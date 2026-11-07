@@ -1,0 +1,7 @@
+## Interface: 16001
+## Title: Leaguebois Live (proefversie)
+## Notes: Optionele level- en beroepsupdates via de gekoppelde guildchat.
+## Version: 0.1.0
+## SavedVariablesPerCharacter: LeagueboisLiveDB
+
+LeagueboisLive.lua

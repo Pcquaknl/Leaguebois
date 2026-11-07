@@ -1,0 +1,48 @@
+name: Leaguebois WoW Live controles
+on:
+  push:
+    paths:
+      - 'wow/server/**'
+      - 'wow/addons/LeagueboisLive/**'
+      - 'wow/app.js'
+      - 'wow/dashboard.mjs'
+      - 'wow/progress.mjs'
+      - 'wow/visit.mjs'
+      - 'wow/scripts/**'
+      - '.github/workflows/wow-live-checks.yml'
+  pull_request:
+    paths:
+      - 'wow/server/**'
+      - 'wow/addons/LeagueboisLive/**'
+      - 'wow/app.js'
+      - 'wow/dashboard.mjs'
+      - 'wow/progress.mjs'
+      - 'wow/visit.mjs'
+      - 'wow/scripts/**'
+      - '.github/workflows/wow-live-checks.yml'
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Controleer site en gegevens
+        run: |
+          node --check wow/app.js
+          node --check wow/dashboard.mjs
+          node --test wow/scripts/*.test.mjs
+      - name: Controleer Discord-dienst
+        working-directory: wow/server
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm test
+      - name: Controleer proefaddon
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lua5.1
+          lua5.1 wow/addons/LeagueboisLive/tests/live.lua wow/addons/LeagueboisLive/LeagueboisLive.lua

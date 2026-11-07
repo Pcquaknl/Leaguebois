@@ -1,4 +1,4 @@
-import { orderedHistory, observedGain, deriveMilestones, captureVisit, changesSinceVisit } from './progress.mjs';
+import { orderedHistory, observedGain, deriveMilestones, captureVisit, changesSinceVisit } from './progress.mjs?v=20261107-live';
 
 const escapeHTML = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const classIcons = {Warrior:'warrior',Mage:'mage',Rogue:'rogue',Priest:'priest',Hunter:'hunter',Warlock:'warlock',Paladin:'paladin',Druid:'druid',Shaman:'shaman',DeathKnight:'deathknight'};
@@ -42,9 +42,10 @@ function roster(data, mode, colors) {
     const gainText=gain===null?'—':`+${gain}`;
     const progress=active?Math.max(0,Math.min(100,(s.level/(data.levelCap||60))*100)):0;
     const stale=data.mode==='live'&&data.sourceStatuses?.[c.id]==='unavailable';
+    const jobs=Object.entries(s?.professions||{}).filter(([,rank])=>Number.isFinite(rank)).slice(0,2).map(([name,rank])=>`${name} ${rank}`).join(' · ');
     return `<button type="button" class="roster-row${active?'':' roster-unavailable'}" data-character="${escapeHTML(c.id)}" style="--class:${color}" aria-label="${escapeHTML(c.name)} ${active?'level '+s.level:'gegevens onbekend'}">
       <span class="roster-rank${rank===1?' rank-first':''}">${rank===1?'♛':rank}</span>${avatar(c,s,color)}
-      <span class="roster-person"><strong>${escapeHTML(shortName(c))}</strong><small>${escapeHTML(s?.class||'Profiel onbekend')} · ${escapeHTML(stale?'bron tijdelijk niet bereikbaar':gap)}</small><span class="roster-bar"><i style="width:${progress}%"></i></span></span>
+      <span class="roster-person"><strong>${escapeHTML(shortName(c))}</strong><small>${escapeHTML(s?.class||'Profiel onbekend')} · ${escapeHTML(stale?'bron tijdelijk niet bereikbaar':gap)}</small>${jobs?`<small class="roster-professions">${escapeHTML(jobs)}</small>`:''}<span class="roster-bar"><i style="width:${progress}%"></i></span></span>
       <span class="roster-value"><strong>${active?s.level:'—'}</strong><small>level</small></span>
       <span class="roster-gain"><strong>${gainText}</strong><small>${gainLabel}</small></span><span class="roster-arrow" aria-hidden="true">›</span>
     </button>`;
@@ -60,6 +61,10 @@ function snapshotActivity(data) {
     for(let i=1;i<h.length;i++){
       const before=h[i-1],after=h[i];
       if(after.level>before.level)events.push({kind:'level',name:shortName(c),from:before.level,to:after.level,at:recentAt(after)});
+      for(const [profession,rank] of Object.entries(after.professions||{})){
+        const old=before.professions?.[profession];
+        if(Number.isFinite(old)&&Number.isFinite(rank)&&rank!==old)events.push({kind:'profession',name:shortName(c),profession,from:old,to:rank,at:recentAt(after)});
+      }
       if(Array.isArray(before.equipment)&&before.equipment.length&&Array.isArray(after.equipment)) {
         for(const item of after.equipment) {
           const old=before.equipment.find(x=>x.slot===item.slot);
@@ -78,11 +83,11 @@ function activity(data,previousVisit,storageAvailable) {
   const hasBaseline=!!previousVisit?.players && data.mode==='live';
   const recent=snapshotActivity(data);
   const rows=hasBaseline?changes.slice(0,5).map(event=>{
-    const text=event.kind==='level'?`${event.name} steeg van level ${event.from} naar ${event.to}`:`${event.name} heeft nu ${event.itemName} uitgerust`;
-    return `<div class="activity-line"><span class="activity-icon ${event.kind}">${event.kind==='level'?'↑':'✦'}</span><span>${escapeHTML(text)}</span></div>`;
+    const text=event.kind==='level'?`${event.name} steeg van level ${event.from} naar ${event.to}`:event.kind==='profession'?`${event.name} · ${event.profession} ${event.from} → ${event.to}`:`${event.name} heeft nu ${event.itemName} uitgerust`;
+    return `<div class="activity-line"><span class="activity-icon ${event.kind}">${event.kind==='level'?'↑':event.kind==='profession'?'◆':'✦'}</span><span>${escapeHTML(text)}</span></div>`;
   }).join(''):recent.slice(0,4).map(event=>{
-    const text=event.kind==='level'?`${event.name} steeg van level ${event.from} naar ${event.to}`:`${event.name} heeft ${event.itemName} uitgerust`;
-    return `<div class="activity-line"><span class="activity-icon ${event.kind}">${event.kind==='level'?'↑':'✦'}</span><span>${escapeHTML(text)}<small>${escapeHTML(fullDate(event.at))} · waargenomen</small></span></div>`;
+    const text=event.kind==='level'?`${event.name} steeg van level ${event.from} naar ${event.to}`:event.kind==='profession'?`${event.name} · ${event.profession} ${event.from} → ${event.to}`:`${event.name} heeft ${event.itemName} uitgerust`;
+    return `<div class="activity-line"><span class="activity-icon ${event.kind}">${event.kind==='level'?'↑':event.kind==='profession'?'◆':'✦'}</span><span>${escapeHTML(text)}<small>${escapeHTML(fullDate(event.at))} · waargenomen</small></span></div>`;
   }).join('');
   const title=hasBaseline?'Sinds je vorige bezoek':'Recent waargenomen';
   const hint=hasBaseline?`Nieuwe metingen sinds ${fullDate(previousVisit.at)} · op dit apparaat`:(storageAvailable?'Na je volgende bezoek zie je wat er voor jou nieuw is.':'Recente metingen van de groep.');
@@ -93,6 +98,7 @@ function activity(data,previousVisit,storageAvailable) {
 function milestoneCopy(data,m) {
   const name=labelName(data,m.characterId);
   if(m.kind==='level')return {title:`${name} · level ${m.level}`,detail:m.basis==='crossing'?'Levelgrens waargenomen':'Bij de eerste meting vastgelegd',icon:m.level===60?'♛':'✦'};
+  if(m.kind==='profession')return {title:`${name} · ${m.profession} ${m.rank}`,detail:m.basis==='crossing'?'Beroepsgrens waargenomen':'Bij de eerste meting vastgelegd',icon:'◆'};
   if(m.kind==='quality')return {title:`${name} · ${m.quality==='epic'?'Epic':'Rare'} voor het eerst vastgelegd`,detail:m.itemName || 'Voor het eerst vastgelegd',icon:m.quality==='epic'?'◆':'◇'};
   return {title:`${name} · mijlpaal`,detail:'Vastgelegd',icon:'✦'};
 }
@@ -107,9 +113,10 @@ function milestonePanel(data){const count=milestonesFor(data).length;return `<se
 
 export function renderDashboard(data,mode,previousVisit,storageAvailable,colors){
   const found=data.characters.filter(c=>Number.isFinite(latest(data,c.id)?.level)).length;
-  const isDemo=data.mode==='demo', stale=data.status==='unavailable';
-  return `<div class="dash-title"><div><div class="eyebrow">LEAGUEBOIS / WOW FOREVER</div><h1>De Stormcoast groep</h1></div><details class="source-status${stale?' source-stale':''}"><summary><span class="status-dot"></span>${isDemo?'Demogegevens':stale?'Gegevens mogelijk oud':`${found}/${data.characters.length} profielen`}</summary><p>${isDemo?'Deze personages zijn fictief.':stale?(data.freshnessStale?'De laatste profielgegevens of broncontrole zijn langer dan 90 minuten oud. De laatst bekende gegevens blijven zichtbaar; een volgende controle kan vertraging hebben.':'De Armory-bron is tijdelijk niet bereikbaar. De laatst bekende gegevens blijven zichtbaar.'):`De Armory wordt ongeveer elke 15 minuten gecontroleerd. Levels kunnen tijdens het spelen achterlopen en meestal pas na uitloggen veranderen. Portretten en profielen ontbreken soms bij de bron.`}</p></details></div>${isDemo?'<div class="note"><b>DEMO</b> — Dit zijn voorbeeldpersonages. <button id="live-button" class="text-button">Terug naar live</button></div>':''}<div class="dashboard-grid">${roster(data,mode,colors)}<div class="dashboard-side">${activity(data,previousVisit,storageAvailable)}${milestonePanel(data)}</div></div>`;
+  const isDemo=data.mode==='demo', stale=data.status==='unavailable', relayDown=!!data.relayUnavailable;
+  return `<div class="dash-title"><div><div class="eyebrow">LEAGUEBOIS / WOW FOREVER</div><h1>De Stormcoast groep</h1></div><details class="source-status${stale||relayDown?' source-stale':''}"><summary><span class="status-dot"></span>${isDemo?'Demogegevens':relayDown?'Livekoppeling vertraagd':stale?'Gegevens mogelijk oud':`${found}/${data.characters.length} profielen`}</summary><p>${isDemo?'Deze personages zijn fictief.':relayDown?'De livekoppeling is niet bereikbaar. De laatst beschikbare gegevens blijven zichtbaar.':stale?(data.freshnessStale?'De laatste profielgegevens of broncontrole zijn langer dan 90 minuten oud. De laatst bekende gegevens blijven zichtbaar; een volgende controle kan vertraging hebben.':'De Armory-bron is tijdelijk niet bereikbaar. De laatst bekende gegevens blijven zichtbaar.'):data.relayDataset?`De addon geeft beschikbare gegevens via de gekoppelde guildchat door. Uitrusting kan uit een oudere Armory-meting komen.`:`De Armory wordt ongeveer elke 15 minuten gecontroleerd. Levels kunnen tijdens het spelen achterlopen en meestal pas na uitloggen veranderen. Portretten en profielen ontbreken soms bij de bron.`}</p></details></div>${isDemo?'<div class="note"><b>DEMO</b> — Dit zijn voorbeeldpersonages. <button id="live-button" class="text-button">Terug naar live</button></div>':''}<div class="dashboard-grid">${roster(data,mode,colors)}<div class="dashboard-side">${activity(data,previousVisit,storageAvailable)}${milestonePanel(data)}</div></div>`;
 }
 
 export function renderMilestones(data){const list=milestonesFor(data);return `<div class="section-head"><div><div class="eyebrow">LEAGUEBOIS / HET GROEPSVERHAAL</div><h1 class="heading">Mijlpalen</h1></div><span class="subtle">${list.length} vastgelegd</span></div><p class="milestone-intro">Dit zijn waargenomen momenten sinds de tracker gegevens verzamelt. Het moment op de site kan later zijn dan het moment in de game.</p><section class="panel dashboard-panel milestone-wall">${milestoneRows(data,Infinity)}</section>`;}
+
 

@@ -1,0 +1,60 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {Store} from './store.mjs';
+const chars=[{id:'one',name:'One Stormcoast'},{id:'two',name:'Two Stormcoast'}];
+const a='2026-11-06T10:00:00Z',b='2026-11-06T11:00:00Z',c='2026-11-06T12:00:00Z',d='2026-11-06T13:00:00Z';
+const snap=(at,level,gear='old')=>({characterId:'one',at,level,class:'Rogue',equipment:[{slot:'Head',id:1,name:gear}]});
+const base=(at,items)=>({mode:'live',generatedAt:at,snapshots:items,sourceStatuses:{one:'ok',two:'not_found'},sourceTimes:{one:at}});
+const update=(level,rank,cap=75)=>({characterId:'one',level,class:'Rogue',professions:{Mining:rank},professionCaps:cap?{Mining:cap}:{},complete:true});
+test('persists observations, avoids duplicates, and posts only observed differences',()=>{
+  const store=new Store(':memory:',chars);store.setArmory(base(a,[snap(a,10)]));
+  const first=store.record('101',b,update(12,42));
+  assert.equal(first.notifications.length,2);assert.match(first.notifications[0],/12/);
+  assert.deepEqual(store.record('101',b,update(12,42)),{duplicate:true,notifications:[]});
+  assert.equal(store.record('102',c,update(12,42)).notifications.length,0);
+  assert.match(store.record('103',d,update(12,45)).notifications[0],/42 → 45/);
+  assert.equal(store.pendingNotifications().length,3);
+  store.markSent(store.pendingNotifications()[0].id);assert.equal(store.pendingNotifications().length,2);
+  const latest=store.dataset().snapshots.filter(s=>s.characterId==='one').at(-1);
+  assert.equal(latest.level,12);assert.equal(latest.professions.Mining,45);assert.equal(latest.equipment[0].name,'old');
+  assert.equal(latest.professionTimes.Mining,d);
+  store.close();
+});
+test('cached Armory cannot revert a seen level; later Armory keeps the known professions',()=>{
+  const store=new Store(':memory:',chars);store.setArmory(base(a,[snap(a,10)]));store.record('201',b,update(12,42));
+  store.setArmory(base(c,[snap(a,10),snap(c,10,'stale')]));
+  let latest=store.dataset().snapshots.filter(s=>s.characterId==='one').at(-1);
+  assert.equal(latest.level,12);assert.equal(latest.equipment[0].name,'old');
+  store.setArmory(base(d,[snap(a,10),snap(c,10,'stale'),snap(d,13,'new')]));
+  latest=store.dataset().snapshots.filter(s=>s.characterId==='one').at(-1);
+  assert.equal(latest.level,13);assert.equal(latest.professions.Mining,42);assert.equal(latest.equipment[0].name,'new');
+  assert.equal(store.setArmory(base(a,[snap(a,10)])),false);
+  store.close();
+});
+test('new profiles get a factual baseline and an unknown new cap removes a stale cap',()=>{
+  const store=new Store(':memory:',chars);
+  const one=store.record('301',a,update(10,70));assert.equal(one.notifications.length,2);
+  store.record('302',b,update(10,80,null));
+  const latest=store.dataset().snapshots.filter(s=>s.characterId==='one').at(-1);
+  assert.equal(latest.professions.Mining,80);assert.equal(latest.professionCaps.Mining,undefined);
+  store.close();
+});
+test('newer incomplete Armory imports do not delete stored history or milestones',()=>{
+  const store=new Store(':memory:',chars);
+  store.setArmory({...base(a,[snap(a,10)]),milestones:[{id:'one:level:10',at:a}]});
+  store.setArmory({...base(b,[snap(b,11)]),milestones:[]});
+  assert.equal(store.getArmory().snapshots.length,2);
+  assert.equal(store.getArmory().milestones.length,1);
+  store.close();
+});
+test('new profession observations keep their own timestamp and do not inherit an unknown cap',()=>{
+  const store=new Store(':memory:',chars);
+  store.setArmory(base(a,[snap(a,10)]));
+  store.record('401',b,update(12,42));
+  store.setArmory(base(d,[snap(a,10),{...snap(c,12),professions:{Mining:65}},snap(d,12)]));
+  const latest=store.dataset().snapshots.filter(s=>s.characterId==='one').at(-1);
+  assert.equal(latest.professions.Mining,65);
+  assert.equal(latest.professionTimes.Mining,c);
+  assert.equal(latest.professionCaps.Mining,undefined);
+  store.close();
+});
