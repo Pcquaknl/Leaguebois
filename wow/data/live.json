@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "partial",
   "levelCap": 60,
-  "generatedAt": "2026-11-07T10:02:46.838Z",
+  "generatedAt": "2026-11-07T10:03:08.155Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -2601,6 +2601,275 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "carl-stormcoast",
+      "at": "2026-11-07T10:02:47.224Z",
+      "observedAt": "2026-11-07T10:03:08.155Z",
+      "level": 14,
+      "class": "Priest",
+      "race": "Gnome",
+      "faction": "ALLIANCE",
+      "itemLevel": 4,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 16605,
+          "name": "Friar's Robes of the Light",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_04.jpg",
+          "itemLevel": 5
+        },
+        {
+          "slot": "Waist",
+          "id": 3363,
+          "name": "Frayed Belt",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_04.jpg",
+          "itemLevel": 3
+        },
+        {
+          "slot": "Legs",
+          "id": 2958,
+          "name": "Journeyman's Pants",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_10.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Feet",
+          "id": 860,
+          "name": "Cavalier's Boots",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 13
+        },
+        {
+          "slot": "Wrists",
+          "id": 2326,
+          "name": "Ivy-weave Bracers",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_12.jpg",
+          "itemLevel": 10,
+          "enchantId": 41,
+          "enchant": "Stamina +2"
+        },
+        {
+          "slot": "Hands",
+          "id": 1430,
+          "name": "Patchwork Gloves",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_18.jpg",
+          "itemLevel": 7
+        },
+        {
+          "slot": "Ring 1",
+          "id": 286737,
+          "name": "Avala's Binding",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_07.jpg",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Back",
+          "id": 6520,
+          "name": "Pioneer Cloak",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_03.jpg",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Main Hand",
+          "id": 281254,
+          "name": "Invader's Mace",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_03.jpg",
+          "itemLevel": 17
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "zmatar-stormcoast",
+      "at": "2026-11-07T10:02:47.544Z",
+      "observedAt": "2026-11-07T10:03:08.155Z",
+      "level": 14,
+      "class": "Shaman",
+      "race": "Dwarf",
+      "faction": "ALLIANCE",
+      "itemLevel": 5,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/162/12843682-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/162/12843682-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 5957,
+          "name": "Handstitched Leather Vest",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_wolf.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Waist",
+          "id": 4237,
+          "name": "Handstitched Leather Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_04.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Legs",
+          "id": 2303,
+          "name": "Handstitched Leather Pants",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_wolf.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Feet",
+          "id": 1503,
+          "name": "Warped Leather Boots",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Wrists",
+          "id": 3158,
+          "name": "Burnt Hide Bracers",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_08.jpg",
+          "itemLevel": 12
+        },
+        {
+          "slot": "Hands",
+          "id": 3152,
+          "name": "Driving Gloves",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_18.jpg",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Ring 1",
+          "id": 286737,
+          "name": "Avala's Binding",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_07.jpg",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Back",
+          "id": 4662,
+          "name": "Journeyman's Cloak",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_15.jpg",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Main Hand",
+          "id": 281253,
+          "name": "Mountaineer's Greataxe",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_axe_09.jpg",
+          "itemLevel": 17
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "rint-stormcoast",
+      "at": "2026-11-07T10:02:47.467Z",
+      "observedAt": "2026-11-07T10:03:08.155Z",
+      "level": 13,
+      "class": "Shaman",
+      "race": "Dwarf",
+      "faction": "ALLIANCE",
+      "itemLevel": 3,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/176/15979440-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/176/15979440-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 1425,
+          "name": "Worn Leather Vest",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shirt_05.jpg",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Waist",
+          "id": 1418,
+          "name": "Worn Leather Belt",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_24.jpg",
+          "itemLevel": 7
+        },
+        {
+          "slot": "Legs",
+          "id": 1423,
+          "name": "Worn Leather Pants",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_06.jpg",
+          "itemLevel": 7
+        },
+        {
+          "slot": "Feet",
+          "id": 281322,
+          "name": "Frosthowl's Footwarmers",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_03.jpg",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Wrists",
+          "id": 3373,
+          "name": "Patchwork Bracers",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Hands",
+          "id": 6171,
+          "name": "Wolf Handler Gloves",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_05.jpg",
+          "itemLevel": 5
+        },
+        {
+          "slot": "Ring 1",
+          "id": 286737,
+          "name": "Avala's Binding",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_07.jpg",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Back",
+          "id": 2905,
+          "name": "Goat Fur Cloak",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_11.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Main Hand",
+          "id": 4563,
+          "name": "Billy Club",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_mace_01.jpg",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Off Hand",
+          "id": 2900,
+          "name": "Stone Buckler",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shield_09.jpg",
+          "itemLevel": 10
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -2648,13 +2917,13 @@
     "maradonnie-stormcoast": "not_found"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-07T07:03:04.419Z",
-    "fyvix-stormcoast": "2026-11-07T07:03:04.440Z",
-    "lumi-stormcoast": "2026-11-07T07:03:04.670Z",
-    "carl-stormcoast": "2026-11-07T07:03:04.683Z",
-    "zmatar-stormcoast": "2026-11-07T07:03:04.610Z",
-    "ketakat-stormcoast": "2026-11-07T07:03:04.694Z",
-    "rint-stormcoast": "2026-11-07T07:03:04.599Z"
+    "sylvex-stormcoast": "2026-11-07T10:02:47.179Z",
+    "fyvix-stormcoast": "2026-11-07T10:02:47.536Z",
+    "lumi-stormcoast": "2026-11-07T10:02:47.266Z",
+    "carl-stormcoast": "2026-11-07T10:02:47.224Z",
+    "zmatar-stormcoast": "2026-11-07T10:02:47.544Z",
+    "ketakat-stormcoast": "2026-11-07T10:02:47.503Z",
+    "rint-stormcoast": "2026-11-07T10:02:47.467Z"
   },
   "progression": {
     "dungeons": [],
