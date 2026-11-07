@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-07T18:41:49.954Z",
+  "generatedAt": "2026-11-07T22:22:32.178Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -3301,6 +3301,450 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "sylvex-stormcoast",
+      "at": "2026-11-07T18:41:50.361Z",
+      "observedAt": "2026-11-07T22:22:32.178Z",
+      "level": 13,
+      "class": "Rogue",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 4,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 5957,
+          "name": "Handstitched Leather Vest",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_wolf.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Waist",
+          "id": 15399,
+          "name": "Dryweed Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_06.jpg",
+          "itemLevel": 14
+        },
+        {
+          "slot": "Legs",
+          "id": 1423,
+          "name": "Worn Leather Pants",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_06.jpg",
+          "itemLevel": 7
+        },
+        {
+          "slot": "Feet",
+          "id": 9601,
+          "name": "Cushioned Boots",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 12
+        },
+        {
+          "slot": "Wrists",
+          "id": 7277,
+          "name": "Handstitched Leather Bracers",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_08.jpg",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Hands",
+          "id": 5394,
+          "name": "Archery Training Gloves",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_05.jpg",
+          "itemLevel": 5
+        },
+        {
+          "slot": "Back",
+          "id": 281250,
+          "name": "Forest Oracle's Cloak",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_17.jpg",
+          "itemLevel": 11
+        },
+        {
+          "slot": "Main Hand",
+          "id": 2140,
+          "name": "Carving Knife of the Tiger",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_weapon_shortblade_01.jpg",
+          "itemLevel": 11
+        },
+        {
+          "slot": "Off Hand",
+          "id": 7298,
+          "name": "Blade of Cunning",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_weapon_shortblade_26.jpg",
+          "itemLevel": 13
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "lumi-stormcoast",
+      "at": "2026-11-07T18:41:50.597Z",
+      "observedAt": "2026-11-07T22:22:32.178Z",
+      "level": 17,
+      "class": "Hunter",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "guild": "Campfire Chronicles",
+      "itemLevel": 8,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/98/2205794-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/98/2205794-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Shoulders",
+          "id": 10405,
+          "name": "Bandit Shoulders",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_27.jpg",
+          "itemLevel": 22
+        },
+        {
+          "slot": "Chest",
+          "id": 6268,
+          "name": "Pioneer Tunic of the Tiger",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shirt_06.jpg",
+          "itemLevel": 13,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Waist",
+          "id": 279897,
+          "name": "Dusty Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Legs",
+          "id": 279900,
+          "name": "Deepgrave Trousers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_01.jpg",
+          "itemLevel": 17,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Feet",
+          "id": 252425,
+          "name": "Dark Leather Boots",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 15,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Wrists",
+          "id": 3158,
+          "name": "Burnt Hide Bracers",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_08.jpg",
+          "itemLevel": 12
+        },
+        {
+          "slot": "Hands",
+          "id": 280096,
+          "name": "Tomb Robber's Gloves",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_18.jpg",
+          "itemLevel": 17,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Back",
+          "id": 3511,
+          "name": "Cloak of the People's Militia",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_14.jpg",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Main Hand",
+          "id": 3192,
+          "name": "Short Bastard Sword of the Monkey",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_sword_40.jpg",
+          "itemLevel": 12
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "carl-stormcoast",
+      "at": "2026-11-07T18:41:50.386Z",
+      "observedAt": "2026-11-07T22:22:32.178Z",
+      "level": 17,
+      "class": "Priest",
+      "race": "Gnome",
+      "faction": "ALLIANCE",
+      "itemLevel": 9,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/255/12294399-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/255/12294399-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 270261,
+          "name": "Robes of the Disgraced Thane",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_09.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Waist",
+          "id": 4699,
+          "name": "Seer's Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_22.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Legs",
+          "id": 1832,
+          "name": "Lucky Trousers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_06.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Feet",
+          "id": 2983,
+          "name": "Seer's Boots",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Wrists",
+          "id": 271096,
+          "name": "Aetherwisp Bracers",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_11.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Hands",
+          "id": 1430,
+          "name": "Patchwork Gloves",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_18.jpg",
+          "itemLevel": 7
+        },
+        {
+          "slot": "Ring 1",
+          "id": 286737,
+          "name": "Avala's Binding",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_07.jpg",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Back",
+          "id": 279899,
+          "name": "Catacomb Cloak",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_11.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Main Hand",
+          "id": 281254,
+          "name": "Invader's Mace",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_03.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Off Hand",
+          "id": 279898,
+          "name": "Dwarven Tome",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_book_07.jpg",
+          "itemLevel": 17
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "zmatar-stormcoast",
+      "at": "2026-11-07T18:41:50.367Z",
+      "observedAt": "2026-11-07T22:22:32.178Z",
+      "level": 17,
+      "class": "Shaman",
+      "race": "Dwarf",
+      "faction": "ALLIANCE",
+      "itemLevel": 8,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/162/12843682-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/162/12843682-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 6085,
+          "name": "Footman Tunic",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_09.jpg",
+          "itemLevel": 13
+        },
+        {
+          "slot": "Waist",
+          "id": 279897,
+          "name": "Dusty Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Legs",
+          "id": 1436,
+          "name": "Frontier Britches",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_05.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Feet",
+          "id": 1503,
+          "name": "Warped Leather Boots",
+          "quality": "poor",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 15,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Wrists",
+          "id": 3205,
+          "name": "Inscribed Leather Bracers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Hands",
+          "id": 280096,
+          "name": "Tomb Robber's Gloves",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_18.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Ring 1",
+          "id": 286737,
+          "name": "Avala's Binding",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_07.jpg",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Back",
+          "id": 279899,
+          "name": "Catacomb Cloak",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_11.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Main Hand",
+          "id": 279895,
+          "name": "Ironforge Greathammer",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_21.jpg",
+          "itemLevel": 18
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "maradonnie-stormcoast",
+      "at": "2026-11-07T21:57:55.925Z",
+      "observedAt": "2026-11-07T22:22:32.178Z",
+      "level": 17,
+      "class": "Druid",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 9,
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 2817,
+          "name": "Soft Leather Tunic",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shirt_10.jpg",
+          "itemLevel": 12
+        },
+        {
+          "slot": "Waist",
+          "id": 279897,
+          "name": "Dusty Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Legs",
+          "id": 279900,
+          "name": "Deepgrave Trousers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_01.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Feet",
+          "id": 4788,
+          "name": "Agile Boots",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 20
+        },
+        {
+          "slot": "Wrists",
+          "id": 5612,
+          "name": "Ivy Cuffs",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_12.jpg",
+          "itemLevel": 13
+        },
+        {
+          "slot": "Hands",
+          "id": 7738,
+          "name": "Evergreen Gloves",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_18.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Back",
+          "id": 5610,
+          "name": "Gustweald Cloak",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_11.jpg",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Main Hand",
+          "id": 279895,
+          "name": "Ironforge Greathammer",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_21.jpg",
+          "itemLevel": 18
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -3344,6 +3788,33 @@
       "itemName": "Ironforge Greathammer",
       "at": "2026-11-07T18:41:49.954Z",
       "basis": "first_seen"
+    },
+    {
+      "id": "lumi-stormcoast:first:rare",
+      "characterId": "lumi-stormcoast",
+      "kind": "quality",
+      "quality": "rare",
+      "itemName": "Dark Leather Boots",
+      "at": "2026-11-07T22:22:32.178Z",
+      "basis": "first_seen"
+    },
+    {
+      "id": "carl-stormcoast:first:rare",
+      "characterId": "carl-stormcoast",
+      "kind": "quality",
+      "quality": "rare",
+      "itemName": "Robes of the Disgraced Thane",
+      "at": "2026-11-07T22:22:32.178Z",
+      "basis": "first_seen"
+    },
+    {
+      "id": "zmatar-stormcoast:first:rare",
+      "characterId": "zmatar-stormcoast",
+      "kind": "quality",
+      "quality": "rare",
+      "itemName": "Ironforge Greathammer",
+      "at": "2026-11-07T22:22:32.178Z",
+      "basis": "first_seen"
     }
   ],
   "sourceStatuses": {
@@ -3357,14 +3828,14 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-07T13:56:14.716Z",
-    "fyvix-stormcoast": "2026-11-07T13:56:14.754Z",
-    "lumi-stormcoast": "2026-11-07T13:56:14.808Z",
-    "carl-stormcoast": "2026-11-07T13:56:14.532Z",
-    "zmatar-stormcoast": "2026-11-07T13:56:14.811Z",
-    "ketakat-stormcoast": "2026-11-07T13:56:14.609Z",
-    "rint-stormcoast": "2026-11-07T13:56:14.707Z",
-    "maradonnie-stormcoast": "2026-11-07T18:41:50.390Z"
+    "sylvex-stormcoast": "2026-11-07T18:41:50.361Z",
+    "fyvix-stormcoast": "2026-11-07T21:58:25.024Z",
+    "lumi-stormcoast": "2026-11-07T18:41:50.597Z",
+    "carl-stormcoast": "2026-11-07T18:41:50.386Z",
+    "zmatar-stormcoast": "2026-11-07T18:41:50.367Z",
+    "ketakat-stormcoast": "2026-11-07T18:41:51.026Z",
+    "rint-stormcoast": "2026-11-07T18:41:51.065Z",
+    "maradonnie-stormcoast": "2026-11-07T21:57:55.925Z"
   },
   "progression": {
     "dungeons": [],
