@@ -1,0 +1,6 @@
+## Interface: 16001
+## Title: Leaguebois Relay Test
+## Notes: Tests whether one opted-in guild message reaches the official Discord bridge.
+## Version: 0.1.0
+
+LeagueboisRelayTest.lua
