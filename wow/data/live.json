@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "partial",
   "levelCap": 60,
-  "generatedAt": "2026-11-07T07:03:03.992Z",
+  "generatedAt": "2026-11-07T07:03:46.867Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -2437,6 +2437,170 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "fyvix-stormcoast",
+      "at": "2026-11-07T07:03:04.440Z",
+      "observedAt": "2026-11-07T07:03:46.867Z",
+      "level": 15,
+      "class": "Mage",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "itemLevel": 5,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/116/10769524-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/116/10769524-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 1561,
+          "name": "Harvester's Robe",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_13.jpg",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Waist",
+          "id": 4684,
+          "name": "Spellbinder Belt",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_04.jpg",
+          "itemLevel": 13
+        },
+        {
+          "slot": "Legs",
+          "id": 12295,
+          "name": "Leggings of the People's Militia",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_06.jpg",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Feet",
+          "id": 6148,
+          "name": "Web-covered Boots",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Wrists",
+          "id": 710,
+          "name": "Bracers of the People's Militia",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_11.jpg",
+          "itemLevel": 14,
+          "enchantId": 924,
+          "enchant": "Defense +3"
+        },
+        {
+          "slot": "Hands",
+          "id": 1479,
+          "name": "Salma's Oven Mitts",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_06.jpg",
+          "itemLevel": 12
+        },
+        {
+          "slot": "Back",
+          "id": 6549,
+          "name": "Soldier's Cloak",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_17.jpg",
+          "itemLevel": 14
+        },
+        {
+          "slot": "Main Hand",
+          "id": 248008,
+          "name": "Apprentice's Spellstaff",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_staff_18.jpg",
+          "itemLevel": 12
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "ketakat-stormcoast",
+      "at": "2026-11-07T07:03:04.694Z",
+      "observedAt": "2026-11-07T07:03:46.867Z",
+      "level": 11,
+      "class": "Druid",
+      "race": "High Order Skyborne",
+      "faction": "ALLIANCE",
+      "itemLevel": 3,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/68/2342212-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/68/2342212-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 5957,
+          "name": "Handstitched Leather Vest",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_wolf.jpg",
+          "itemLevel": 10,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Waist",
+          "id": 4237,
+          "name": "Handstitched Leather Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_04.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Legs",
+          "id": 2303,
+          "name": "Handstitched Leather Pants",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_wolf.jpg",
+          "itemLevel": 10,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Feet",
+          "id": 2302,
+          "name": "Handstitched Leather Boots",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_04.jpg",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Wrists",
+          "id": 7277,
+          "name": "Handstitched Leather Bracers",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_08.jpg",
+          "itemLevel": 9
+        },
+        {
+          "slot": "Back",
+          "id": 257943,
+          "name": "Hunter's Simple Cloak",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_cape_leather_skybornec60_b_01.jpg",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Main Hand",
+          "id": 263314,
+          "name": "Roofing Hammer",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_20.jpg",
+          "itemLevel": 10
+        },
+        {
+          "slot": "Off Hand",
+          "id": 15944,
+          "name": "Ancestral Orb",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_orb_03.jpg",
+          "itemLevel": 12
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -2484,13 +2648,13 @@
     "maradonnie-stormcoast": "not_found"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-07T03:12:44.305Z",
-    "fyvix-stormcoast": "2026-11-07T03:12:44.439Z",
-    "lumi-stormcoast": "2026-11-07T03:12:44.361Z",
-    "carl-stormcoast": "2026-11-07T03:12:44.312Z",
-    "zmatar-stormcoast": "2026-11-07T03:12:44.319Z",
-    "ketakat-stormcoast": "2026-11-07T03:12:44.287Z",
-    "rint-stormcoast": "2026-11-07T03:12:44.300Z"
+    "sylvex-stormcoast": "2026-11-07T07:03:04.419Z",
+    "fyvix-stormcoast": "2026-11-07T07:03:04.440Z",
+    "lumi-stormcoast": "2026-11-07T07:03:04.670Z",
+    "carl-stormcoast": "2026-11-07T07:03:04.683Z",
+    "zmatar-stormcoast": "2026-11-07T07:03:04.610Z",
+    "ketakat-stormcoast": "2026-11-07T07:03:04.694Z",
+    "rint-stormcoast": "2026-11-07T07:03:04.599Z"
   },
   "progression": {
     "dungeons": [],
