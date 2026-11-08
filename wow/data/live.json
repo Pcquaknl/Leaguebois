@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-08T09:59:32.951Z",
+  "generatedAt": "2026-11-08T10:01:30.746Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -4729,6 +4729,178 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "sylvex-stormcoast",
+      "at": "2026-11-08T09:59:33.318Z",
+      "observedAt": "2026-11-08T10:01:30.746Z",
+      "level": 15,
+      "class": "Rogue",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 5,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 5957,
+          "name": "Handstitched Leather Vest",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_wolf.jpg",
+          "itemLevel": 10,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Waist",
+          "id": 15399,
+          "name": "Dryweed Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_06.jpg",
+          "itemLevel": 14
+        },
+        {
+          "slot": "Legs",
+          "id": 5617,
+          "name": "Vagabond Leggings",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_02.jpg",
+          "itemLevel": 13
+        },
+        {
+          "slot": "Feet",
+          "id": 9601,
+          "name": "Cushioned Boots",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 12,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Wrists",
+          "id": 5612,
+          "name": "Ivy Cuffs",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_12.jpg",
+          "itemLevel": 13
+        },
+        {
+          "slot": "Hands",
+          "id": 5394,
+          "name": "Archery Training Gloves",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_05.jpg",
+          "itemLevel": 5,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Back",
+          "id": 4686,
+          "name": "Barbaric Cloth Cloak",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_02.jpg",
+          "itemLevel": 12
+        },
+        {
+          "slot": "Main Hand",
+          "id": 2140,
+          "name": "Carving Knife of the Tiger",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_weapon_shortblade_01.jpg",
+          "itemLevel": 11
+        },
+        {
+          "slot": "Off Hand",
+          "id": 7298,
+          "name": "Blade of Cunning",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_weapon_shortblade_26.jpg",
+          "itemLevel": 13
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "maradonnie-stormcoast",
+      "at": "2026-11-08T09:59:33.354Z",
+      "observedAt": "2026-11-08T10:01:30.746Z",
+      "level": 19,
+      "class": "Druid",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 9,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/216/16046296-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/216/16046296-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 2817,
+          "name": "Soft Leather Tunic",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shirt_10.jpg",
+          "itemLevel": 12
+        },
+        {
+          "slot": "Waist",
+          "id": 279897,
+          "name": "Dusty Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Legs",
+          "id": 15202,
+          "name": "Wildkeeper Leggings",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_02.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Feet",
+          "id": 4788,
+          "name": "Agile Boots",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 20
+        },
+        {
+          "slot": "Wrists",
+          "id": 15403,
+          "name": "Ridgeback Bracers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_10.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Hands",
+          "id": 4239,
+          "name": "Embossed Leather Gloves",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_05.jpg",
+          "itemLevel": 13
+        },
+        {
+          "slot": "Back",
+          "id": 5387,
+          "name": "Enchanted Moonstalker Cloak",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_10.jpg",
+          "itemLevel": 20
+        },
+        {
+          "slot": "Main Hand",
+          "id": 279895,
+          "name": "Ironforge Greathammer",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_21.jpg",
+          "itemLevel": 18
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -4838,14 +5010,14 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-08T08:04:25.794Z",
-    "fyvix-stormcoast": "2026-11-08T08:04:25.620Z",
-    "lumi-stormcoast": "2026-11-08T08:04:25.744Z",
-    "carl-stormcoast": "2026-11-08T08:04:25.399Z",
-    "zmatar-stormcoast": "2026-11-08T08:04:25.748Z",
-    "ketakat-stormcoast": "2026-11-08T08:04:25.838Z",
-    "rint-stormcoast": "2026-11-08T08:04:25.804Z",
-    "maradonnie-stormcoast": "2026-11-08T08:04:25.790Z"
+    "sylvex-stormcoast": "2026-11-08T09:59:33.318Z",
+    "fyvix-stormcoast": "2026-11-08T09:59:33.346Z",
+    "lumi-stormcoast": "2026-11-08T09:59:33.336Z",
+    "carl-stormcoast": "2026-11-08T09:59:33.332Z",
+    "zmatar-stormcoast": "2026-11-08T09:59:33.352Z",
+    "ketakat-stormcoast": "2026-11-08T09:59:33.342Z",
+    "rint-stormcoast": "2026-11-08T09:59:33.384Z",
+    "maradonnie-stormcoast": "2026-11-08T09:59:33.354Z"
   },
   "progression": {
     "dungeons": [],
