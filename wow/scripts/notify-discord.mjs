@@ -57,6 +57,16 @@ export async function deliver(pending, webhook, request = fetch) {
   if (!url) return { pending, sent:0, error:'Discord-webhook is ongeldig.' };
   const remaining = [...pending];
   let sent = 0;
+  if (!remaining.length) {
+    // A read-only check verifies the webhook without posting an invented event.
+    const check = new URL(url);
+    check.search = '';
+    try {
+      const response = await request(check.href, {method:'GET', redirect:'error', signal:AbortSignal.timeout(12000)});
+      if (!response.ok) return {pending:remaining,sent,error:`Discord-webhookcontrole mislukt (HTTP ${response.status}).`};
+      return {pending:remaining,sent,error:null,verified:true};
+    } catch { return {pending:remaining,sent,error:'Discord is tijdelijk niet bereikbaar.'}; }
+  }
   while (remaining.length) {
     const batch = [];
     let length = 0;
@@ -96,6 +106,7 @@ async function main() {
   const result = await deliver(pending,webhook);
   await writeFile(outboxPath,JSON.stringify({version:1,pending:result.pending},null,2)+'\n');
   if (result.error) console.warn(result.error+' Meldingen blijven klaarstaan voor de volgende controle.');
+  else if (result.verified) console.log('Discord-webhook bereikbaar; geen nieuwe meldingen.');
   else console.log(`Discord: ${result.sent} waargenomen meldingen verzonden.`);
 }
 

@@ -60,3 +60,15 @@ test('only acknowledged batches are removed when Discord rate-limits a later bat
   const second=await deliver(first.pending,webhook,async()=>({ok:true}));
   assert.equal(second.sent,5);assert.deepEqual(second.pending,[]);
 });
+
+test('checks webhook access without posting when there are no new events',async()=>{
+  let calls=0;
+  const result=await deliver([],webhook,async (url,options)=>{
+    calls++;assert.equal(options.method,'GET');assert.equal(new URL(url).search,'');return {ok:true};
+  });
+  assert.equal(calls,1);assert.equal(result.verified,true);assert.equal(result.sent,0);
+  const invalid=await deliver([],webhook,async()=>({ok:false,status:404}));
+  assert.match(invalid.error,/404/);assert.deepEqual(invalid.pending,[]);
+  const offline=await deliver([],webhook,async()=>{throw Error(webhook)});
+  assert.ok(offline.error);assert.equal(offline.error.includes('Secret'),false);
+});
