@@ -19,6 +19,34 @@ test('distinguishes missing from unavailable profiles', async () => {
   assert.equal(missing.status,'not_found'); assert.equal(limited.status,'unavailable');
 });
 
+test('rechecks an old cached profile once and uses a newer valid observation', async () => {
+  const replies=[{...source,level:15,fromCache:true,fetchedAt:now-3600000},{...source,level:16,fromCache:true,fetchedAt:now+1000}];
+  let requests=0, pauseMs=0;
+  const profile=await fetchProfile(character,now,async()=>({ok:true,json:async()=>replies[requests++]}),async ms=>{pauseMs=ms});
+  assert.equal(requests,2);assert.equal(pauseMs,5000);assert.equal(profile.status,'ok');assert.equal(profile.snapshot.level,16);
+  assert.equal(profile.snapshot.observedAt,new Date(now+5000).toISOString());
+});
+
+test('retains the valid old profile if a cache refresh fails and avoids retrying fresh responses', async () => {
+  let requests=0;
+  const first=await fetchProfile(character,now,async()=>{
+    requests++;
+    return requests===1 ? {ok:true,json:async()=>({...source,level:15,fromCache:true,fetchedAt:now-3600000})} : {ok:false,status:429};
+  },async()=>{});
+  assert.equal(first.status,'ok');assert.equal(first.snapshot.level,15);assert.equal(requests,2);
+  requests=0;
+  const fresh=await fetchProfile(character,now,async()=>{requests++;return {ok:true,json:async()=>({...source,fromCache:true})}},async()=>{throw Error('fresh profiles must not wait')});
+  assert.equal(fresh.status,'ok');assert.equal(requests,1);
+});
+
+test('does not accept an unrelated or undated response on the follow-up request', async () => {
+  for (const candidate of [{...source,name:'Different Player',level:60,fetchedAt:now},{...source,level:60,fetchedAt:undefined}]) {
+    let count=0;
+    const result=await fetchProfile(character,now,async()=>({ok:true,json:async()=>count++===0?{...source,level:15,fromCache:true,fetchedAt:now-3600000}:candidate}),async()=>{});
+    assert.equal(result.status,'ok');assert.equal(result.snapshot.level,15);assert.equal(count,2);
+  }
+});
+
 test('retains observed history and adds only real updates', () => {
   const first = normalize(source,character,now);
   const previous = {snapshots:[first]};
@@ -74,3 +102,4 @@ test('stores observed milestones without inventing unseen levels', () => {
   const again=merge(result,[character],[{id:character.id,status:'ok',snapshot:after}],now);
   assert.equal(again.milestones.filter(m=>m.level===20).length,1);
 });
+

@@ -1,4 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
+import { setTimeout as delay } from 'node:timers/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { deriveMilestones } from '../progress.mjs';
@@ -38,14 +39,32 @@ export function normalize(data, character, now = Date.now()) {
   return { characterId: character.id, at: new Date(fetched).toISOString(), observedAt:new Date(now).toISOString(), level: data.level, class: cleanString(data.className), race: cleanString(data.race), faction: cleanString(data.faction), guild: cleanString(data.guild), itemLevel: typeof data.averageIlvl === 'number' && Number.isFinite(data.averageIlvl) ? data.averageIlvl : undefined, portrait: portrait(data.avatar), render: portrait(data.render), equipment, source: 'Armory WoW Forever' };
 }
 
-export async function fetchProfile(character, now, request = fetch) {
+export async function fetchProfile(character, now, request = fetch, pause = delay) {
   try {
     const u = new URL(character.armoryUrl);
     const parts = u.pathname.split('/');
     if (u.protocol !== 'https:' || u.hostname !== 'armorywowforever.com' || parts.slice(0, 5).join('/') !== '/c/forever/eu/normal') throw Error('Ongeldige Armory-link');
-    const response = await request(`https://armorywowforever.com/api/character/forever/eu/normal/${encodeURIComponent(parts.at(-1))}`, { headers: { Accept:'application/json' }, redirect:'manual', signal:AbortSignal.timeout(12000) });
+    const endpoint = `https://armorywowforever.com/api/character/forever/eu/normal/${encodeURIComponent(parts.at(-1))}`;
+    const fetchOnce = () => request(endpoint, { headers: { Accept:'application/json' }, redirect:'manual', signal:AbortSignal.timeout(12000) });
+    const response = await fetchOnce();
     if (!response.ok) return { id:character.id, status:response.status === 404 ? 'not_found' : 'unavailable' };
-    return { id:character.id, status:'ok', snapshot:normalize(await response.json(), character, now) };
+    const raw = await response.json();
+    const initial = normalize(raw, character, now);
+    // This Armory can return an old cached profile while it refreshes in the background.
+    // Make one bounded follow-up request, retaining the valid first result if it fails.
+    if (raw.fromCache === true && Number.isFinite(raw.fetchedAt) && raw.fetchedAt > 0 && now - raw.fetchedAt > 10*60*1000) {
+      try {
+        await pause(5000);
+        const retry = await fetchOnce();
+        if (retry.ok) {
+          const candidate = await retry.json();
+          if (Number.isFinite(candidate.fetchedAt) && candidate.fetchedAt > raw.fetchedAt && candidate.fetchedAt <= now + 300000) {
+            return { id:character.id, status:'ok', snapshot:normalize(candidate, character, now + 5000) };
+          }
+        }
+      } catch { /* use the validated initial profile if the follow-up fails */ }
+    }
+    return { id:character.id, status:'ok', snapshot:initial };
   } catch (error) {
     console.warn(`${character.id}: ${error instanceof Error ? error.message : String(error)}`);
     return { id:character.id, status:'unavailable' };
@@ -100,5 +119,6 @@ async function main() {
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) await main();
+
 
 
