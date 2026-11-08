@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-07T22:22:32.178Z",
+  "generatedAt": "2026-11-08T01:46:18.917Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -3745,6 +3745,188 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "zmatar-stormcoast",
+      "at": "2026-11-07T22:22:33.120Z",
+      "observedAt": "2026-11-08T01:46:18.917Z",
+      "level": 19,
+      "class": "Shaman",
+      "race": "Dwarf",
+      "faction": "ALLIANCE",
+      "itemLevel": 10,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/162/12843682-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/162/12843682-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Shoulders",
+          "id": 10405,
+          "name": "Bandit Shoulders",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_27.jpg",
+          "itemLevel": 22
+        },
+        {
+          "slot": "Chest",
+          "id": 15311,
+          "name": "Feral Harness of the Bear",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_04.jpg",
+          "itemLevel": 22
+        },
+        {
+          "slot": "Waist",
+          "id": 279897,
+          "name": "Dusty Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Legs",
+          "id": 1310,
+          "name": "Smith's Trousers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_02.jpg",
+          "itemLevel": 20
+        },
+        {
+          "slot": "Feet",
+          "id": 6582,
+          "name": "Scouting Boots of the Gorilla",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 22
+        },
+        {
+          "slot": "Wrists",
+          "id": 3205,
+          "name": "Inscribed Leather Bracers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Hands",
+          "id": 12522,
+          "name": "Bingles' Flying Gloves",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_05.jpg",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Ring 1",
+          "id": 286737,
+          "name": "Avala's Binding",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_07.jpg",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Back",
+          "id": 279899,
+          "name": "Catacomb Cloak",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_11.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Main Hand",
+          "id": 279895,
+          "name": "Ironforge Greathammer",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_21.jpg",
+          "itemLevel": 18
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "rint-stormcoast",
+      "at": "2026-11-07T22:22:33.122Z",
+      "observedAt": "2026-11-08T01:46:18.917Z",
+      "level": 18,
+      "class": "Shaman",
+      "race": "Dwarf",
+      "faction": "ALLIANCE",
+      "itemLevel": 9,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/176/15979440-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/176/15979440-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 2961,
+          "name": "Burnt Leather Vest",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shirt_09.jpg",
+          "itemLevel": 11
+        },
+        {
+          "slot": "Waist",
+          "id": 279897,
+          "name": "Dusty Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Legs",
+          "id": 1436,
+          "name": "Frontier Britches",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_05.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Feet",
+          "id": 6092,
+          "name": "Black Whelp Boots",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Wrists",
+          "id": 1213,
+          "name": "Gnoll Kindred Bracers",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_04.jpg",
+          "itemLevel": 14
+        },
+        {
+          "slot": "Hands",
+          "id": 9780,
+          "name": "Bandit Gloves of the Eagle",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_15.jpg",
+          "itemLevel": 20
+        },
+        {
+          "slot": "Ring 1",
+          "id": 286737,
+          "name": "Avala's Binding",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_07.jpg",
+          "itemLevel": 8
+        },
+        {
+          "slot": "Back",
+          "id": 6378,
+          "name": "Seer's Cape",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_05.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Main Hand",
+          "id": 279895,
+          "name": "Ironforge Greathammer",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_21.jpg",
+          "itemLevel": 18
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -3815,6 +3997,15 @@
       "itemName": "Ironforge Greathammer",
       "at": "2026-11-07T22:22:32.178Z",
       "basis": "first_seen"
+    },
+    {
+      "id": "rint-stormcoast:first:rare",
+      "characterId": "rint-stormcoast",
+      "kind": "quality",
+      "quality": "rare",
+      "itemName": "Ironforge Greathammer",
+      "at": "2026-11-08T01:46:18.917Z",
+      "basis": "first_seen"
     }
   ],
   "sourceStatuses": {
@@ -3828,13 +4019,13 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-07T18:41:50.361Z",
+    "sylvex-stormcoast": "2026-11-07T22:22:32.571Z",
     "fyvix-stormcoast": "2026-11-07T21:58:25.024Z",
-    "lumi-stormcoast": "2026-11-07T18:41:50.597Z",
-    "carl-stormcoast": "2026-11-07T18:41:50.386Z",
-    "zmatar-stormcoast": "2026-11-07T18:41:50.367Z",
-    "ketakat-stormcoast": "2026-11-07T18:41:51.026Z",
-    "rint-stormcoast": "2026-11-07T18:41:51.065Z",
+    "lumi-stormcoast": "2026-11-07T22:22:32.488Z",
+    "carl-stormcoast": "2026-11-07T22:22:32.601Z",
+    "zmatar-stormcoast": "2026-11-07T22:22:33.120Z",
+    "ketakat-stormcoast": "2026-11-07T22:22:32.567Z",
+    "rint-stormcoast": "2026-11-07T22:22:33.122Z",
     "maradonnie-stormcoast": "2026-11-07T21:57:55.925Z"
   },
   "progression": {
