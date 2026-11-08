@@ -32,3 +32,13 @@ Er staat een proefversie van de addon in `addons/LeagueboisLive/` en van de onli
 
 De WoW–Discord-guildchat, automatische addonberichten en bottoegang moeten eerst in een echte guild worden getest. De dienst vereist configuratie, een Discord-app, een token als servergeheim en blijvende opslag. `live-config.json` is standaard leeg: de gepubliceerde pagina blijft de bestaande Armory gebruiken tot een beheerder een werkende HTTPS-API instelt. Zie `server/README.md` voor installatie, beveiliging en beperkingen.
 
+## Discord-meldingen zonder WoW-guild
+
+De bestaande Armory-synchronisatie kan optioneel via een Discord-webhook berichten plaatsen wanneer twee opgeslagen profielen een hoger level of een nieuw Rare/Epic/Legendary-item in dezelfde uitrustingspositie tonen. De meldingscode ondersteunt ook beroepsstijgingen zodra een betrouwbare gegevensbron deze standen levert. De huidige Armory-import bevat **geen** beroepsstanden; die verschijnen dus nog niet. Een eerste stand of een ontbrekend profiel wordt niet als vooruitgang gepresenteerd. GitHub Actions wordt gepland om de 15 minuten, maar kan later of helemaal niet starten en de Armory kan zelf pas na uitloggen een nieuwere stand tonen. Er is voor deze route geen guild, addon, afzonderlijke bot of pc-programma nodig. Een webhook ondersteunt alleen berichten, geen slashcommando's.
+
+1. Maak in het gewenste Discord-kanaal onder **Kanaal bewerken → Integraties → Webhooks** een webhook. Beheerrechten voor webhooks zijn nodig.
+2. Sla de webhook-URL uitsluitend op als GitHub Actions repository secret met de naam `WOW_DISCORD_WEBHOOK_URL`: repository → **Settings → Secrets and variables → Actions → New repository secret**. De URL bevat een geheim en hoort niet in chat, bestanden, commits of de website.
+3. Start optioneel in **Actions → WoW Forever Armory synchronisatie → Run workflow** een controle. Er worden alleen nieuwe waargenomen verschillen sinds de vorige opname gemeld; de eerste bekende stand levert geen meldingen op.
+
+Zonder secret zijn de meldingen uitgeschakeld en blijft de website normaal werken. Mislukte berichten blijven in `wow-live-data` als wachtrij staan voor een volgende controle. Bij een storing tussen Discord-verzending en het wegschrijven van de bevestiging kan een melding dubbel verschijnen. De data en wachtrij bevatten alleen de openbare voortgang, nooit de webhook-URL. Kijk voor de huidige bronstatus in de workflow; een wachtende of vertraagde GitHub-run biedt geen tijdsgarantie.
+

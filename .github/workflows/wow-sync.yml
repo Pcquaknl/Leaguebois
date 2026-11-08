@@ -27,10 +27,18 @@ jobs:
           if git fetch --no-tags origin +refs/heads/wow-live-data:refs/remotes/origin/wow-live-data; then
             git show refs/remotes/origin/wow-live-data:wow/data/live.json > wow/data/live.json
           fi
+          if ! git show refs/remotes/origin/wow-live-data:wow/data/discord-outbox.json > "$RUNNER_TEMP/wow-outbox.json" 2>/dev/null; then
+            printf '{"version":1,"pending":[]}\n' > "$RUNNER_TEMP/wow-outbox.json"
+          fi
+          cp wow/data/live.json "$RUNNER_TEMP/wow-before.json"
       - name: Controleer en synchroniseer profielen
         run: |
           node --test wow/scripts/*.test.mjs
           node wow/scripts/sync.mjs
+      - name: Verstuur optionele Discord-meldingen
+        env:
+          WOW_DISCORD_WEBHOOK_URL: ${{ secrets.WOW_DISCORD_WEBHOOK_URL }}
+        run: node wow/scripts/notify-discord.mjs "$RUNNER_TEMP/wow-before.json" wow/data/live.json "$RUNNER_TEMP/wow-outbox.json"
       - name: Bewaar de metingen
         run: |
           cp wow/data/live.json "$RUNNER_TEMP/wow-live.json"
@@ -44,8 +52,8 @@ jobs:
           fi
           mkdir -p wow/data
           cp "$RUNNER_TEMP/wow-live.json" wow/data/live.json
-          git add wow/data/live.json
+          cp "$RUNNER_TEMP/wow-outbox.json" wow/data/discord-outbox.json
+          git add wow/data/live.json wow/data/discord-outbox.json
           if git diff --cached --quiet; then exit 0; fi
           git commit -m 'Update WoW Forever profiles'
           git push origin HEAD:refs/heads/wow-live-data
-
