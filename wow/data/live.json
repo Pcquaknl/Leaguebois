@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-09T07:16:39.982Z",
+  "generatedAt": "2026-11-09T17:38:45.672Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -6657,6 +6657,282 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "fyvix-stormcoast",
+      "at": "2026-11-09T17:38:46.481Z",
+      "observedAt": "2026-11-09T17:38:50.672Z",
+      "level": 19,
+      "class": "Mage",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "guild": "Campfire Chronicles",
+      "itemLevel": 12,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/116/10769524-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/116/10769524-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Shoulders",
+          "id": 4314,
+          "name": "Double-Stitched Woolen Shoulders",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_06.jpg",
+          "itemLevel": 22
+        },
+        {
+          "slot": "Chest",
+          "id": 5202,
+          "name": "Corsair's Overshirt",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shirt_08.jpg",
+          "itemLevel": 22
+        },
+        {
+          "slot": "Waist",
+          "id": 253885,
+          "name": "Novice Arcanist's Sash",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_43a.jpg",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Legs",
+          "id": 273289,
+          "name": "Ogre Loincloth",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_09.jpg",
+          "itemLevel": 22,
+          "enchantId": 8481,
+          "enchant": "Stamina +2 and Armor +16"
+        },
+        {
+          "slot": "Feet",
+          "id": 4312,
+          "name": "Soft-soled Linen Boots",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_09.jpg",
+          "itemLevel": 16
+        },
+        {
+          "slot": "Wrists",
+          "id": 14166,
+          "name": "Buccaneer's Bracers of Spirit",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_12.jpg",
+          "itemLevel": 19
+        },
+        {
+          "slot": "Hands",
+          "id": 2984,
+          "name": "Seer's Gloves",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_18.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Back",
+          "id": 6378,
+          "name": "Seer's Cape",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_05.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Main Hand",
+          "id": 2042,
+          "name": "Staff of Westfall",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_staff_10.jpg",
+          "itemLevel": 24,
+          "gems": [
+            277485
+          ]
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "lumi-stormcoast",
+      "at": "2026-11-09T17:38:46.390Z",
+      "observedAt": "2026-11-09T17:38:50.672Z",
+      "level": 25,
+      "class": "Hunter",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "guild": "Campfire Chronicles",
+      "itemLevel": 14,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/98/2205794-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/98/2205794-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Shoulders",
+          "id": 10405,
+          "name": "Bandit Shoulders",
+          "quality": "common",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_27.jpg",
+          "itemLevel": 22
+        },
+        {
+          "slot": "Chest",
+          "id": 2041,
+          "name": "Tunic of Westfall",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_07.jpg",
+          "itemLevel": 24
+        },
+        {
+          "slot": "Waist",
+          "id": 10403,
+          "name": "Blackened Defias Belt",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_26.jpg",
+          "itemLevel": 22
+        },
+        {
+          "slot": "Legs",
+          "id": 3056,
+          "name": "Forest Leather Pants",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_07.jpg",
+          "itemLevel": 26
+        },
+        {
+          "slot": "Feet",
+          "id": 2033,
+          "name": "Ambassador's Boots",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_08.jpg",
+          "itemLevel": 28
+        },
+        {
+          "slot": "Wrists",
+          "id": 270015,
+          "name": "Bravo's Armbands",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg",
+          "itemLevel": 22
+        },
+        {
+          "slot": "Hands",
+          "id": 2988,
+          "name": "Inscribed Leather Gloves",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_18.jpg",
+          "itemLevel": 19
+        },
+        {
+          "slot": "Ring 1",
+          "id": 1319,
+          "name": "Ring of Iron Will",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_31.jpg",
+          "itemLevel": 25
+        },
+        {
+          "slot": "Back",
+          "id": 5193,
+          "name": "Cape of the Brotherhood",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_08.jpg",
+          "itemLevel": 24
+        },
+        {
+          "slot": "Main Hand",
+          "id": 6094,
+          "name": "Piercing Axe",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_throwingaxe_01.jpg",
+          "itemLevel": 19
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "maradonnie-stormcoast",
+      "at": "2026-11-09T17:38:46.166Z",
+      "observedAt": "2026-11-09T17:38:50.672Z",
+      "level": 25,
+      "class": "Druid",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 12,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/216/16046296-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/216/16046296-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Neck",
+          "id": 281290,
+          "name": "Replica Crescent Necklace",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_necklace_11.jpg",
+          "itemLevel": 26
+        },
+        {
+          "slot": "Chest",
+          "id": 2817,
+          "name": "Soft Leather Tunic",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shirt_10.jpg",
+          "itemLevel": 12
+        },
+        {
+          "slot": "Waist",
+          "id": 4249,
+          "name": "Dark Leather Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg",
+          "itemLevel": 25
+        },
+        {
+          "slot": "Legs",
+          "id": 1310,
+          "name": "Smith's Trousers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_02.jpg",
+          "itemLevel": 20
+        },
+        {
+          "slot": "Feet",
+          "id": 14568,
+          "name": "Bristlebark Boots",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_08.jpg",
+          "itemLevel": 23
+        },
+        {
+          "slot": "Wrists",
+          "id": 281251,
+          "name": "Courier's Wristguards",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_02.jpg",
+          "itemLevel": 24
+        },
+        {
+          "slot": "Hands",
+          "id": 5629,
+          "name": "Hammerfist Gloves",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_05.jpg",
+          "itemLevel": 20
+        },
+        {
+          "slot": "Back",
+          "id": 1930,
+          "name": "Stonemason Cloak",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_11.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Main Hand",
+          "id": 279895,
+          "name": "Ironforge Greathammer",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_21.jpg",
+          "itemLevel": 18
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -6799,14 +7075,14 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-09T07:16:40.578Z",
-    "fyvix-stormcoast": "2026-11-09T07:16:40.389Z",
-    "lumi-stormcoast": "2026-11-09T07:16:40.440Z",
-    "carl-stormcoast": "2026-11-09T07:16:40.491Z",
-    "zmatar-stormcoast": "2026-11-09T07:16:40.343Z",
-    "ketakat-stormcoast": "2026-11-09T07:16:40.471Z",
-    "rint-stormcoast": "2026-11-09T07:16:40.363Z",
-    "maradonnie-stormcoast": "2026-11-09T07:16:40.548Z"
+    "sylvex-stormcoast": "2026-11-09T17:38:46.475Z",
+    "fyvix-stormcoast": "2026-11-09T17:38:46.481Z",
+    "lumi-stormcoast": "2026-11-09T17:38:46.390Z",
+    "carl-stormcoast": "2026-11-09T17:38:46.534Z",
+    "zmatar-stormcoast": "2026-11-09T17:38:46.463Z",
+    "ketakat-stormcoast": "2026-11-09T17:38:46.142Z",
+    "rint-stormcoast": "2026-11-09T17:38:46.560Z",
+    "maradonnie-stormcoast": "2026-11-09T17:38:46.166Z"
   },
   "progression": {
     "dungeons": [],
