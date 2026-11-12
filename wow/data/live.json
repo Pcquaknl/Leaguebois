@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-12T03:27:33.532Z",
+  "generatedAt": "2026-11-12T11:42:06.553Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -10832,6 +10832,238 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "fyvix-stormcoast",
+      "at": "2026-11-12T11:42:07.127Z",
+      "observedAt": "2026-11-12T11:42:11.553Z",
+      "level": 27,
+      "class": "Mage",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "guild": "Campfire Chronicles",
+      "itemLevel": 24,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/116/10769524-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/116/10769524-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Head",
+          "id": 10289,
+          "name": "Durable Hat of the Owl",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_helmet_15.jpg",
+          "itemLevel": 32
+        },
+        {
+          "slot": "Neck",
+          "id": 5002,
+          "name": "Glowing Green Talisman",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_necklace_01.jpg",
+          "itemLevel": 30
+        },
+        {
+          "slot": "Shoulders",
+          "id": 3560,
+          "name": "Mantle of Honor",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_05.jpg",
+          "itemLevel": 35
+        },
+        {
+          "slot": "Chest",
+          "id": 5202,
+          "name": "Corsair's Overshirt",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shirt_08.jpg",
+          "itemLevel": 22,
+          "enchantId": 44,
+          "enchant": "Minor Absorption"
+        },
+        {
+          "slot": "Waist",
+          "id": 253885,
+          "name": "Novice Arcanist's Sash",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_43a.jpg",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Legs",
+          "id": 273289,
+          "name": "Ogre Loincloth",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_09.jpg",
+          "itemLevel": 22,
+          "enchantId": 8481,
+          "enchant": "Stamina +2 and Armor +16"
+        },
+        {
+          "slot": "Feet",
+          "id": 9820,
+          "name": "Durable Boots of the Prophet",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_03.jpg",
+          "itemLevel": 31
+        },
+        {
+          "slot": "Wrists",
+          "id": 9768,
+          "name": "Greenweave Bracers of Spirit",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_12.jpg",
+          "itemLevel": 21,
+          "enchantId": 924,
+          "enchant": "Defense +3"
+        },
+        {
+          "slot": "Hands",
+          "id": 270029,
+          "name": "Town Clerk's Mittens",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_27.jpg",
+          "itemLevel": 28
+        },
+        {
+          "slot": "Ring 1",
+          "id": 2933,
+          "name": "Seal of Wrynn",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_05.jpg",
+          "itemLevel": 31
+        },
+        {
+          "slot": "Ring 2",
+          "id": 2043,
+          "name": "Ring of Forlorn Spirits",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_01.jpg",
+          "itemLevel": 35
+        },
+        {
+          "slot": "Back",
+          "id": 2902,
+          "name": "Cloak of the Faith",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_06.jpg",
+          "itemLevel": 30,
+          "enchantId": 65,
+          "enchant": "+2 All Resistances"
+        },
+        {
+          "slot": "Main Hand",
+          "id": 2280,
+          "name": "Kam's Walking Stick",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_staff_06.jpg",
+          "itemLevel": 29
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "rint-stormcoast",
+      "at": "2026-11-12T11:42:07.174Z",
+      "observedAt": "2026-11-12T11:42:11.553Z",
+      "level": 27,
+      "class": "Shaman",
+      "race": "Dwarf",
+      "faction": "ALLIANCE",
+      "guild": "Campfire Chronicles",
+      "itemLevel": 19,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/176/15979440-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/176/15979440-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Shoulders",
+          "id": 273804,
+          "name": "Executioner Mantle",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_08.jpg",
+          "itemLevel": 26
+        },
+        {
+          "slot": "Chest",
+          "id": 6603,
+          "name": "Dervish Tunic of the Sorcerer",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_01.jpg",
+          "itemLevel": 30
+        },
+        {
+          "slot": "Waist",
+          "id": 270007,
+          "name": "Worn Miner's Waistcord",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_22.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Legs",
+          "id": 270016,
+          "name": "Dreamer's Leggings",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_06.jpg",
+          "itemLevel": 22
+        },
+        {
+          "slot": "Feet",
+          "id": 15341,
+          "name": "Pathfinder Footpads of the Eagle",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 30
+        },
+        {
+          "slot": "Wrists",
+          "id": 7410,
+          "name": "Infiltrator Bracers of the Champion",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg",
+          "itemLevel": 31
+        },
+        {
+          "slot": "Hands",
+          "id": 9780,
+          "name": "Bandit Gloves of the Eagle",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_15.jpg",
+          "itemLevel": 20
+        },
+        {
+          "slot": "Ring 1",
+          "id": 1319,
+          "name": "Ring of Iron Will",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_31.jpg",
+          "itemLevel": 25
+        },
+        {
+          "slot": "Ring 2",
+          "id": 1449,
+          "name": "Minor Channeling Ring",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_13.jpg",
+          "itemLevel": 24
+        },
+        {
+          "slot": "Back",
+          "id": 15135,
+          "name": "Cutthroat's Cape of Strength",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_08.jpg",
+          "itemLevel": 30
+        },
+        {
+          "slot": "Main Hand",
+          "id": 6093,
+          "name": "Orc Crusher",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_mace_07.jpg",
+          "itemLevel": 27
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -11006,14 +11238,14 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-12T03:27:34.016Z",
-    "fyvix-stormcoast": "2026-11-12T03:27:34.027Z",
-    "lumi-stormcoast": "2026-11-12T03:27:34.112Z",
-    "carl-stormcoast": "2026-11-12T03:27:34.078Z",
-    "zmatar-stormcoast": "2026-11-12T03:27:34.047Z",
-    "ketakat-stormcoast": "2026-11-12T03:27:34.006Z",
-    "rint-stormcoast": "2026-11-12T03:27:34.021Z",
-    "maradonnie-stormcoast": "2026-11-12T03:27:33.908Z"
+    "sylvex-stormcoast": "2026-11-12T11:42:07.117Z",
+    "fyvix-stormcoast": "2026-11-12T11:42:07.127Z",
+    "lumi-stormcoast": "2026-11-12T11:42:06.934Z",
+    "carl-stormcoast": "2026-11-12T11:42:07.185Z",
+    "zmatar-stormcoast": "2026-11-12T11:42:06.914Z",
+    "ketakat-stormcoast": "2026-11-12T11:42:07.094Z",
+    "rint-stormcoast": "2026-11-12T11:42:07.174Z",
+    "maradonnie-stormcoast": "2026-11-12T11:42:07.197Z"
   },
   "progression": {
     "dungeons": [],
