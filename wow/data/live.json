@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-14T14:56:58.370Z",
+  "generatedAt": "2026-11-14T19:47:05.936Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -13569,6 +13569,95 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "sylvex-stormcoast",
+      "at": "2026-11-14T19:47:06.403Z",
+      "observedAt": "2026-11-14T19:47:10.936Z",
+      "level": 21,
+      "class": "Rogue",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 10,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Chest",
+          "id": 5957,
+          "name": "Handstitched Leather Vest",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_wolf.jpg",
+          "itemLevel": 10,
+          "enchantId": 15,
+          "enchant": "Stamina +1 and Armor +8"
+        },
+        {
+          "slot": "Waist",
+          "id": 279897,
+          "name": "Dusty Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Legs",
+          "id": 15202,
+          "name": "Wildkeeper Leggings",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_02.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Feet",
+          "id": 252425,
+          "name": "Dark Leather Boots",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 15
+        },
+        {
+          "slot": "Wrists",
+          "id": 15403,
+          "name": "Ridgeback Bracers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_10.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Hands",
+          "id": 5629,
+          "name": "Hammerfist Gloves",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_05.jpg",
+          "itemLevel": 20
+        },
+        {
+          "slot": "Back",
+          "id": 271097,
+          "name": "Spiritwraith Drape",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_12.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Main Hand",
+          "id": 5540,
+          "name": "Pearl-handled Dagger",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_weapon_shortblade_05.jpg",
+          "itemLevel": 23
+        },
+        {
+          "slot": "Off Hand",
+          "id": 5540,
+          "name": "Pearl-handled Dagger",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_weapon_shortblade_05.jpg",
+          "itemLevel": 23
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -13775,14 +13864,14 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-14T14:56:58.829Z",
-    "fyvix-stormcoast": "2026-11-14T14:56:58.742Z",
-    "lumi-stormcoast": "2026-11-14T14:56:58.803Z",
-    "carl-stormcoast": "2026-11-14T14:56:58.853Z",
-    "zmatar-stormcoast": "2026-11-14T14:56:58.808Z",
-    "ketakat-stormcoast": "2026-11-14T14:56:58.649Z",
-    "rint-stormcoast": "2026-11-14T14:56:58.825Z",
-    "maradonnie-stormcoast": "2026-11-14T14:56:58.791Z"
+    "sylvex-stormcoast": "2026-11-14T19:47:06.403Z",
+    "fyvix-stormcoast": "2026-11-14T19:47:06.472Z",
+    "lumi-stormcoast": "2026-11-14T19:47:06.420Z",
+    "carl-stormcoast": "2026-11-14T19:47:06.408Z",
+    "zmatar-stormcoast": "2026-11-14T19:47:06.416Z",
+    "ketakat-stormcoast": "2026-11-14T19:47:06.412Z",
+    "rint-stormcoast": "2026-11-14T19:47:06.584Z",
+    "maradonnie-stormcoast": "2026-11-14T19:47:06.645Z"
   },
   "progression": {
     "dungeons": [],
