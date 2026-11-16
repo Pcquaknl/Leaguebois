@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-16T01:35:28.781Z",
+  "generatedAt": "2026-11-16T08:33:48.139Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -17143,14 +17143,14 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-16T01:35:29.280Z",
-    "fyvix-stormcoast": "2026-11-16T01:35:29.276Z",
-    "lumi-stormcoast": "2026-11-16T01:35:29.363Z",
-    "carl-stormcoast": "2026-11-16T01:35:29.350Z",
-    "zmatar-stormcoast": "2026-11-16T01:35:29.371Z",
-    "ketakat-stormcoast": "2026-11-16T01:35:29.266Z",
-    "rint-stormcoast": "2026-11-16T01:35:29.367Z",
-    "maradonnie-stormcoast": "2026-11-16T01:35:29.356Z"
+    "sylvex-stormcoast": "2026-11-16T08:33:48.621Z",
+    "fyvix-stormcoast": "2026-11-16T08:33:48.714Z",
+    "lumi-stormcoast": "2026-11-16T08:33:48.608Z",
+    "carl-stormcoast": "2026-11-16T08:33:48.738Z",
+    "zmatar-stormcoast": "2026-11-16T08:33:48.616Z",
+    "ketakat-stormcoast": "2026-11-16T08:33:48.749Z",
+    "rint-stormcoast": "2026-11-16T08:33:48.671Z",
+    "maradonnie-stormcoast": "2026-11-16T08:33:48.709Z"
   },
   "progression": {
     "dungeons": [],
