@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-17T10:44:52.697Z",
+  "generatedAt": "2026-11-17T19:26:11.732Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -18144,6 +18144,271 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "rint-stormcoast",
+      "at": "2026-11-17T19:26:12.436Z",
+      "observedAt": "2026-11-17T19:26:16.732Z",
+      "level": 33,
+      "class": "Shaman",
+      "race": "Dwarf",
+      "faction": "ALLIANCE",
+      "guild": "Campfire Chronicles",
+      "itemLevel": 31,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/176/15979440-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/176/15979440-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Head",
+          "id": 4052,
+          "name": "Insignia Cap",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_helmet_15.jpg",
+          "itemLevel": 35
+        },
+        {
+          "slot": "Neck",
+          "id": 273049,
+          "name": "Archmagister's Faceted Pendant",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_necklacea8.jpg",
+          "itemLevel": 35
+        },
+        {
+          "slot": "Shoulders",
+          "id": 4197,
+          "name": "Berylline Pads",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_05.jpg",
+          "itemLevel": 36
+        },
+        {
+          "slot": "Chest",
+          "id": 273038,
+          "name": "Garb of Fallen Felbark",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shirt_09.jpg",
+          "itemLevel": 34
+        },
+        {
+          "slot": "Waist",
+          "id": 6409,
+          "name": "Insignia Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_09.jpg",
+          "itemLevel": 34
+        },
+        {
+          "slot": "Legs",
+          "id": 9833,
+          "name": "Scaled Leather Leggings of the Eagle",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_02.jpg",
+          "itemLevel": 33
+        },
+        {
+          "slot": "Feet",
+          "id": 15341,
+          "name": "Pathfinder Footpads of the Eagle",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 30
+        },
+        {
+          "slot": "Wrists",
+          "id": 7410,
+          "name": "Infiltrator Bracers of the Champion",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg",
+          "itemLevel": 31,
+          "enchantId": 247,
+          "enchant": "Agility +3"
+        },
+        {
+          "slot": "Hands",
+          "id": 279849,
+          "name": "Runebound Gloves",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_15.jpg",
+          "itemLevel": 36
+        },
+        {
+          "slot": "Ring 1",
+          "id": 6749,
+          "name": "Tiger Band",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_13.jpg",
+          "itemLevel": 32
+        },
+        {
+          "slot": "Ring 2",
+          "id": 281304,
+          "name": "Prospector's Signet",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_03.jpg",
+          "itemLevel": 31
+        },
+        {
+          "slot": "Trinket 1",
+          "id": 280766,
+          "name": "Satchel of Potions",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_bag_08.jpg",
+          "itemLevel": 33
+        },
+        {
+          "slot": "Back",
+          "id": 281319,
+          "name": "Golem War Cloak",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_20.jpg",
+          "itemLevel": 32
+        },
+        {
+          "slot": "Main Hand",
+          "id": 279841,
+          "name": "Defender of Dalaran",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
+          "itemLevel": 36
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "maradonnie-stormcoast",
+      "at": "2026-11-17T19:26:12.334Z",
+      "observedAt": "2026-11-17T19:26:16.732Z",
+      "level": 44,
+      "class": "Druid",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 38,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/216/16046296-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/216/16046296-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Head",
+          "id": 4124,
+          "name": "Cap of Harmony",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_helmet_15.jpg",
+          "itemLevel": 40
+        },
+        {
+          "slot": "Neck",
+          "id": 10824,
+          "name": "Amberglow Talisman",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_necklace_07.jpg",
+          "itemLevel": 44
+        },
+        {
+          "slot": "Shoulders",
+          "id": 10774,
+          "name": "Fleshhide Shoulders",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_28.jpg",
+          "itemLevel": 42
+        },
+        {
+          "slot": "Chest",
+          "id": 5739,
+          "name": "Barbaric Harness",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_04.jpg",
+          "itemLevel": 38
+        },
+        {
+          "slot": "Waist",
+          "id": 273039,
+          "name": "Blightleaf Rope",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_10.jpg",
+          "itemLevel": 34
+        },
+        {
+          "slot": "Legs",
+          "id": 9624,
+          "name": "Triprunner Dungarees",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_08.jpg",
+          "itemLevel": 37
+        },
+        {
+          "slot": "Feet",
+          "id": 9450,
+          "name": "Gnomebot Operating Boots",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_03.jpg",
+          "itemLevel": 34
+        },
+        {
+          "slot": "Wrists",
+          "id": 270076,
+          "name": "Tidal Bracers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_09.jpg",
+          "itemLevel": 40
+        },
+        {
+          "slot": "Hands",
+          "id": 279849,
+          "name": "Runebound Gloves",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_15.jpg",
+          "itemLevel": 36
+        },
+        {
+          "slot": "Ring 1",
+          "id": 9538,
+          "name": "Talvash's Gold Ring",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_03.jpg",
+          "itemLevel": 37
+        },
+        {
+          "slot": "Ring 2",
+          "id": 10710,
+          "name": "Dragonclaw Ring",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_04.jpg",
+          "itemLevel": 39
+        },
+        {
+          "slot": "Trinket 1",
+          "id": 280766,
+          "name": "Satchel of Potions",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_bag_08.jpg",
+          "itemLevel": 33
+        },
+        {
+          "slot": "Trinket 2",
+          "id": 2820,
+          "name": "Nifty Stopwatch",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_pocketwatch_01.jpg",
+          "itemLevel": 50
+        },
+        {
+          "slot": "Back",
+          "id": 10776,
+          "name": "Silky Spider Cape",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_17.jpg",
+          "itemLevel": 42
+        },
+        {
+          "slot": "Main Hand",
+          "id": 279841,
+          "name": "Defender of Dalaran",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
+          "itemLevel": 36
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -18358,14 +18623,14 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-17T10:44:53.384Z",
-    "fyvix-stormcoast": "2026-11-17T10:44:53.234Z",
-    "lumi-stormcoast": "2026-11-17T10:44:53.200Z",
-    "carl-stormcoast": "2026-11-17T10:44:53.167Z",
-    "zmatar-stormcoast": "2026-11-17T10:44:53.262Z",
-    "ketakat-stormcoast": "2026-11-17T10:44:53.338Z",
-    "rint-stormcoast": "2026-11-17T10:44:53.021Z",
-    "maradonnie-stormcoast": "2026-11-17T10:44:53.314Z"
+    "sylvex-stormcoast": "2026-11-17T19:26:12.388Z",
+    "fyvix-stormcoast": "2026-11-17T19:26:12.412Z",
+    "lumi-stormcoast": "2026-11-17T19:26:12.251Z",
+    "carl-stormcoast": "2026-11-17T19:26:12.360Z",
+    "zmatar-stormcoast": "2026-11-17T19:26:12.187Z",
+    "ketakat-stormcoast": "2026-11-17T19:26:12.107Z",
+    "rint-stormcoast": "2026-11-17T19:26:12.436Z",
+    "maradonnie-stormcoast": "2026-11-17T19:26:12.334Z"
   },
   "progression": {
     "dungeons": [],
