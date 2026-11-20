@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-20T12:44:23.809Z",
+  "generatedAt": "2026-11-20T20:46:04.570Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -22183,6 +22183,141 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "maradonnie-stormcoast",
+      "at": "2026-11-20T20:46:05.437Z",
+      "observedAt": "2026-11-20T20:46:09.570Z",
+      "level": 47,
+      "class": "Druid",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 41,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/216/16046296-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/216/16046296-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Head",
+          "id": 9479,
+          "name": "Embrace of the Lycan",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/ability_mount_whitedirewolf.jpg",
+          "itemLevel": 49
+        },
+        {
+          "slot": "Neck",
+          "id": 9641,
+          "name": "Lifeblood Amulet",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_necklace_02.jpg",
+          "itemLevel": 50
+        },
+        {
+          "slot": "Shoulders",
+          "id": 10774,
+          "name": "Fleshhide Shoulders",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_28.jpg",
+          "itemLevel": 42
+        },
+        {
+          "slot": "Chest",
+          "id": 9473,
+          "name": "Jinxed Hoodoo Skin",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_05.jpg",
+          "itemLevel": 49
+        },
+        {
+          "slot": "Waist",
+          "id": 4131,
+          "name": "Belt of Corruption",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_17.jpg",
+          "itemLevel": 44
+        },
+        {
+          "slot": "Legs",
+          "id": 9624,
+          "name": "Triprunner Dungarees",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_08.jpg",
+          "itemLevel": 37
+        },
+        {
+          "slot": "Feet",
+          "id": 9450,
+          "name": "Gnomebot Operating Boots",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_03.jpg",
+          "itemLevel": 34
+        },
+        {
+          "slot": "Wrists",
+          "id": 270076,
+          "name": "Tidal Bracers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_09.jpg",
+          "itemLevel": 40
+        },
+        {
+          "slot": "Hands",
+          "id": 6727,
+          "name": "Razzeric's Racing Grips",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_24.jpg",
+          "itemLevel": 41
+        },
+        {
+          "slot": "Ring 1",
+          "id": 9538,
+          "name": "Talvash's Gold Ring",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_03.jpg",
+          "itemLevel": 37
+        },
+        {
+          "slot": "Ring 2",
+          "id": 10710,
+          "name": "Dragonclaw Ring",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_04.jpg",
+          "itemLevel": 39
+        },
+        {
+          "slot": "Trinket 1",
+          "id": 280766,
+          "name": "Satchel of Potions",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_bag_08.jpg",
+          "itemLevel": 33
+        },
+        {
+          "slot": "Trinket 2",
+          "id": 2820,
+          "name": "Nifty Stopwatch",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_pocketwatch_01.jpg",
+          "itemLevel": 50
+        },
+        {
+          "slot": "Back",
+          "id": 14270,
+          "name": "Gaea's Cloak of the Monkey",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_14.jpg",
+          "itemLevel": 45
+        },
+        {
+          "slot": "Main Hand",
+          "id": 279841,
+          "name": "Defender of Dalaran",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_hammer_04.jpg",
+          "itemLevel": 36
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -22397,14 +22532,14 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-20T12:44:24.590Z",
-    "fyvix-stormcoast": "2026-11-20T12:44:24.677Z",
-    "lumi-stormcoast": "2026-11-20T12:44:24.769Z",
-    "carl-stormcoast": "2026-11-20T12:44:24.449Z",
-    "zmatar-stormcoast": "2026-11-20T12:44:24.700Z",
-    "ketakat-stormcoast": "2026-11-20T12:44:24.723Z",
-    "rint-stormcoast": "2026-11-20T12:44:24.555Z",
-    "maradonnie-stormcoast": "2026-11-20T12:44:24.640Z"
+    "sylvex-stormcoast": "2026-11-20T20:46:06.956Z",
+    "fyvix-stormcoast": "2026-11-20T20:46:05.143Z",
+    "lumi-stormcoast": "2026-11-20T20:46:05.410Z",
+    "carl-stormcoast": "2026-11-20T20:46:05.275Z",
+    "zmatar-stormcoast": "2026-11-20T20:46:05.708Z",
+    "ketakat-stormcoast": "2026-11-20T20:46:05.329Z",
+    "rint-stormcoast": "2026-11-20T20:46:05.365Z",
+    "maradonnie-stormcoast": "2026-11-20T20:46:05.437Z"
   },
   "progression": {
     "dungeons": [],
