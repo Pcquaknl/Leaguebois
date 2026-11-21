@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-21T01:48:36.043Z",
+  "generatedAt": "2026-11-21T08:52:01.588Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -23284,6 +23284,125 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "sylvex-stormcoast",
+      "at": "2026-11-21T08:52:02.379Z",
+      "observedAt": "2026-11-21T08:52:06.588Z",
+      "level": 25,
+      "class": "Rogue",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 15,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Neck",
+          "id": 279870,
+          "name": "Tarnished Locket",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_necklace_08.jpg",
+          "itemLevel": 24
+        },
+        {
+          "slot": "Shoulders",
+          "id": 5404,
+          "name": "Serpent's Shoulders",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_08.jpg",
+          "itemLevel": 23
+        },
+        {
+          "slot": "Chest",
+          "id": 271212,
+          "name": "Bloodied Chestwraps",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_bandage_14.jpg",
+          "itemLevel": 22,
+          "enchantId": 8481,
+          "enchant": "Stamina +2 and Armor +16"
+        },
+        {
+          "slot": "Waist",
+          "id": 279897,
+          "name": "Dusty Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Legs",
+          "id": 10410,
+          "name": "Leggings of the Fang",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_11.jpg",
+          "itemLevel": 22,
+          "enchantId": 8481,
+          "enchant": "Stamina +2 and Armor +16"
+        },
+        {
+          "slot": "Feet",
+          "id": 252425,
+          "name": "Dark Leather Boots",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 15,
+          "enchantId": 8481,
+          "enchant": "Stamina +2 and Armor +16"
+        },
+        {
+          "slot": "Wrists",
+          "id": 15403,
+          "name": "Ridgeback Bracers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_10.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Hands",
+          "id": 10413,
+          "name": "Gloves of the Fang",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_18.jpg",
+          "itemLevel": 19,
+          "enchantId": 8481,
+          "enchant": "Stamina +2 and Armor +16"
+        },
+        {
+          "slot": "Ring 1",
+          "id": 279867,
+          "name": "Slain Baron's Signet",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_19.jpg",
+          "itemLevel": 23
+        },
+        {
+          "slot": "Back",
+          "id": 271097,
+          "name": "Spiritwraith Drape",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_12.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Main Hand",
+          "id": 1937,
+          "name": "Buzz Saw",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_sword_24.jpg",
+          "itemLevel": 23
+        },
+        {
+          "slot": "Off Hand",
+          "id": 5191,
+          "name": "Cruel Barb",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_sword_24.jpg",
+          "itemLevel": 24
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -23498,14 +23617,14 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-21T01:48:36.725Z",
-    "fyvix-stormcoast": "2026-11-21T01:48:36.450Z",
-    "lumi-stormcoast": "2026-11-21T01:48:36.525Z",
-    "carl-stormcoast": "2026-11-21T01:48:36.671Z",
-    "zmatar-stormcoast": "2026-11-21T01:48:36.552Z",
-    "ketakat-stormcoast": "2026-11-21T01:48:36.377Z",
-    "rint-stormcoast": "2026-11-21T01:48:36.474Z",
-    "maradonnie-stormcoast": "2026-11-21T01:48:36.698Z"
+    "sylvex-stormcoast": "2026-11-21T08:52:02.379Z",
+    "fyvix-stormcoast": "2026-11-21T08:52:02.078Z",
+    "lumi-stormcoast": "2026-11-21T08:52:02.488Z",
+    "carl-stormcoast": "2026-11-21T08:52:02.531Z",
+    "zmatar-stormcoast": "2026-11-21T08:52:02.189Z",
+    "ketakat-stormcoast": "2026-11-21T08:52:02.433Z",
+    "rint-stormcoast": "2026-11-21T08:52:02.155Z",
+    "maradonnie-stormcoast": "2026-11-21T08:52:02.599Z"
   },
   "progression": {
     "dungeons": [],
