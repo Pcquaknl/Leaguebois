@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-26T12:18:10.969Z",
+  "generatedAt": "2026-11-26T21:43:54.625Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -29903,6 +29903,387 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "sylvex-stormcoast",
+      "at": "2026-11-26T21:43:55.223Z",
+      "observedAt": "2026-11-26T21:43:59.625Z",
+      "level": 28,
+      "class": "Rogue",
+      "race": "Night Elf",
+      "faction": "ALLIANCE",
+      "itemLevel": 15,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/76/8992076-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Neck",
+          "id": 279870,
+          "name": "Tarnished Locket",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_necklace_08.jpg",
+          "itemLevel": 24
+        },
+        {
+          "slot": "Shoulders",
+          "id": 5404,
+          "name": "Serpent's Shoulders",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_08.jpg",
+          "itemLevel": 23
+        },
+        {
+          "slot": "Chest",
+          "id": 271212,
+          "name": "Bloodied Chestwraps",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_bandage_14.jpg",
+          "itemLevel": 22,
+          "enchantId": 8481,
+          "enchant": "Stamina +2 and Armor +16"
+        },
+        {
+          "slot": "Waist",
+          "id": 279897,
+          "name": "Dusty Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_03.jpg",
+          "itemLevel": 17
+        },
+        {
+          "slot": "Legs",
+          "id": 10410,
+          "name": "Leggings of the Fang",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_11.jpg",
+          "itemLevel": 22,
+          "enchantId": 8481,
+          "enchant": "Stamina +2 and Armor +16"
+        },
+        {
+          "slot": "Feet",
+          "id": 252425,
+          "name": "Dark Leather Boots",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_05.jpg",
+          "itemLevel": 15,
+          "enchantId": 8481,
+          "enchant": "Stamina +2 and Armor +16"
+        },
+        {
+          "slot": "Wrists",
+          "id": 3202,
+          "name": "Forest Leather Bracers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_06.jpg",
+          "itemLevel": 24
+        },
+        {
+          "slot": "Hands",
+          "id": 10413,
+          "name": "Gloves of the Fang",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_18.jpg",
+          "itemLevel": 19,
+          "enchantId": 8481,
+          "enchant": "Stamina +2 and Armor +16"
+        },
+        {
+          "slot": "Ring 1",
+          "id": 279867,
+          "name": "Slain Baron's Signet",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_19.jpg",
+          "itemLevel": 23
+        },
+        {
+          "slot": "Back",
+          "id": 271097,
+          "name": "Spiritwraith Drape",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_12.jpg",
+          "itemLevel": 18
+        },
+        {
+          "slot": "Main Hand",
+          "id": 1937,
+          "name": "Buzz Saw",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_sword_24.jpg",
+          "itemLevel": 23
+        },
+        {
+          "slot": "Off Hand",
+          "id": 5191,
+          "name": "Cruel Barb",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_sword_24.jpg",
+          "itemLevel": 24
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "fyvix-stormcoast",
+      "at": "2026-11-26T21:43:55.143Z",
+      "observedAt": "2026-11-26T21:43:59.625Z",
+      "level": 37,
+      "class": "Mage",
+      "race": "Human",
+      "faction": "ALLIANCE",
+      "guild": "Campfire Chronicles",
+      "itemLevel": 30,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/116/10769524-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/116/10769524-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Head",
+          "id": 10289,
+          "name": "Durable Hat of the Owl",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_helmet_15.jpg",
+          "itemLevel": 32
+        },
+        {
+          "slot": "Neck",
+          "id": 281321,
+          "name": "Giantstone Medallion",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_necklace_15.jpg",
+          "itemLevel": 32
+        },
+        {
+          "slot": "Shoulders",
+          "id": 3560,
+          "name": "Mantle of Honor",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_05.jpg",
+          "itemLevel": 35
+        },
+        {
+          "slot": "Chest",
+          "id": 9623,
+          "name": "Civinad Robes",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_cloth_18.jpg",
+          "itemLevel": 37,
+          "enchantId": 8487,
+          "enchant": "Stamina +4 and Armor +32"
+        },
+        {
+          "slot": "Waist",
+          "id": 273039,
+          "name": "Blightleaf Rope",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_10.jpg",
+          "itemLevel": 34
+        },
+        {
+          "slot": "Legs",
+          "id": 273289,
+          "name": "Ogre Loincloth",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_09.jpg",
+          "itemLevel": 22,
+          "enchantId": 8481,
+          "enchant": "Stamina +2 and Armor +16"
+        },
+        {
+          "slot": "Feet",
+          "id": 9820,
+          "name": "Durable Boots of the Prophet",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_03.jpg",
+          "itemLevel": 31
+        },
+        {
+          "slot": "Wrists",
+          "id": 273036,
+          "name": "Graveweave Bindings",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_10.jpg",
+          "itemLevel": 31
+        },
+        {
+          "slot": "Hands",
+          "id": 9609,
+          "name": "Shilly Mitts",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_27.jpg",
+          "itemLevel": 32
+        },
+        {
+          "slot": "Ring 1",
+          "id": 2043,
+          "name": "Ring of Forlorn Spirits",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_01.jpg",
+          "itemLevel": 35
+        },
+        {
+          "slot": "Ring 2",
+          "id": 271670,
+          "name": "Curl of Life",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_12.jpg",
+          "itemLevel": 33
+        },
+        {
+          "slot": "Trinket 1",
+          "id": 280766,
+          "name": "Satchel of Potions",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_bag_08.jpg",
+          "itemLevel": 33
+        },
+        {
+          "slot": "Back",
+          "id": 9605,
+          "name": "Repairman's Cape",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_06.jpg",
+          "itemLevel": 32
+        },
+        {
+          "slot": "Main Hand",
+          "id": 281312,
+          "name": "Fallen Dragon's Scepter",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_staff_08.jpg",
+          "itemLevel": 32
+        }
+      ],
+      "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "zmatar-stormcoast",
+      "at": "2026-11-26T21:43:55.247Z",
+      "observedAt": "2026-11-26T21:43:59.625Z",
+      "level": 40,
+      "class": "Shaman",
+      "race": "Dwarf",
+      "faction": "ALLIANCE",
+      "guild": "Campfire Chronicles",
+      "itemLevel": 30,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/162/12843682-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/162/12843682-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Head",
+          "id": 7441,
+          "name": "Sentinel Cap of the Boar",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_helmet_15.jpg",
+          "itemLevel": 38
+        },
+        {
+          "slot": "Neck",
+          "id": 12047,
+          "name": "Spectral Necklace of the Beast",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_necklace_04.jpg",
+          "itemLevel": 30
+        },
+        {
+          "slot": "Shoulders",
+          "id": 4197,
+          "name": "Berylline Pads",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_05.jpg",
+          "itemLevel": 36
+        },
+        {
+          "slot": "Chest",
+          "id": 273805,
+          "name": "Blackrock Harness",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_chest_leather_04.jpg",
+          "itemLevel": 26
+        },
+        {
+          "slot": "Waist",
+          "id": 10403,
+          "name": "Blackened Defias Belt",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_26.jpg",
+          "itemLevel": 22
+        },
+        {
+          "slot": "Legs",
+          "id": 274939,
+          "name": "Southern Watch Leggings",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_03.jpg",
+          "itemLevel": 40
+        },
+        {
+          "slot": "Feet",
+          "id": 277226,
+          "name": "Disjointed Shoes",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_06.jpg",
+          "itemLevel": 28
+        },
+        {
+          "slot": "Wrists",
+          "id": 270015,
+          "name": "Bravo's Armbands",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_07.jpg",
+          "itemLevel": 22,
+          "enchantId": 823,
+          "enchant": "Strength +4"
+        },
+        {
+          "slot": "Hands",
+          "id": 274957,
+          "name": "Lumber Luggers",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_21.jpg",
+          "itemLevel": 38
+        },
+        {
+          "slot": "Ring 1",
+          "id": 6749,
+          "name": "Tiger Band",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_13.jpg",
+          "itemLevel": 32
+        },
+        {
+          "slot": "Ring 2",
+          "id": 2933,
+          "name": "Seal of Wrynn",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_05.jpg",
+          "itemLevel": 31
+        },
+        {
+          "slot": "Trinket 1",
+          "id": 280766,
+          "name": "Satchel of Potions",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_bag_08.jpg",
+          "itemLevel": 33
+        },
+        {
+          "slot": "Back",
+          "id": 15547,
+          "name": "Thick Scale Cloak of Power",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_17.jpg",
+          "itemLevel": 29
+        },
+        {
+          "slot": "Main Hand",
+          "id": 6830,
+          "name": "Bonebiter",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_axe_04.jpg",
+          "itemLevel": 44
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -30141,14 +30522,14 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-26T12:18:11.745Z",
-    "fyvix-stormcoast": "2026-11-26T12:18:11.588Z",
-    "lumi-stormcoast": "2026-11-26T12:18:11.495Z",
-    "carl-stormcoast": "2026-11-26T12:18:11.773Z",
-    "zmatar-stormcoast": "2026-11-26T12:18:11.847Z",
-    "ketakat-stormcoast": "2026-11-26T12:18:11.684Z",
-    "rint-stormcoast": "2026-11-26T12:18:11.807Z",
-    "maradonnie-stormcoast": "2026-11-26T12:18:11.944Z"
+    "sylvex-stormcoast": "2026-11-26T21:43:55.223Z",
+    "fyvix-stormcoast": "2026-11-26T21:43:55.143Z",
+    "lumi-stormcoast": "2026-11-26T21:43:55.193Z",
+    "carl-stormcoast": "2026-11-26T21:43:55.112Z",
+    "zmatar-stormcoast": "2026-11-26T21:43:55.247Z",
+    "ketakat-stormcoast": "2026-11-26T21:43:55.073Z",
+    "rint-stormcoast": "2026-11-26T21:43:55.169Z",
+    "maradonnie-stormcoast": "2026-11-26T21:43:55.282Z"
   },
   "progression": {
     "dungeons": [],
