@@ -3,7 +3,7 @@
   "mode": "live",
   "status": "ready",
   "levelCap": 60,
-  "generatedAt": "2026-11-27T03:49:12.177Z",
+  "generatedAt": "2026-11-27T13:12:32.308Z",
   "characters": [
     {
       "id": "sylvex-stormcoast",
@@ -31244,6 +31244,146 @@
         }
       ],
       "source": "Armory WoW Forever"
+    },
+    {
+      "characterId": "rint-stormcoast",
+      "at": "2026-11-27T13:12:33.196Z",
+      "observedAt": "2026-11-27T13:12:37.308Z",
+      "level": 43,
+      "class": "Shaman",
+      "race": "Dwarf",
+      "faction": "ALLIANCE",
+      "guild": "Campfire Chronicles",
+      "itemLevel": 40,
+      "portrait": "https://render.worldofwarcraft.com/forever-eu/character/176/15979440-avatar.jpg",
+      "render": "https://render.worldofwarcraft.com/forever-eu/character/176/15979440-main-raw.png",
+      "equipment": [
+        {
+          "slot": "Head",
+          "id": 275002,
+          "name": "War Handler's Gaze",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_helmet_117.jpg",
+          "itemLevel": 45
+        },
+        {
+          "slot": "Neck",
+          "id": 279850,
+          "name": "Curio-Adorned Necklace",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_necklace_04.jpg",
+          "itemLevel": 44
+        },
+        {
+          "slot": "Shoulders",
+          "id": 7718,
+          "name": "Herod's Shoulder",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shoulder_01.jpg",
+          "itemLevel": 42
+        },
+        {
+          "slot": "Chest",
+          "id": 273038,
+          "name": "Garb of Fallen Felbark",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_shirt_09.jpg",
+          "itemLevel": 34
+        },
+        {
+          "slot": "Waist",
+          "id": 279882,
+          "name": "Rusted Troll War Belt",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_belt_09.jpg",
+          "itemLevel": 42
+        },
+        {
+          "slot": "Legs",
+          "id": 274962,
+          "name": "Crocskin Waders",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_pants_13.jpg",
+          "itemLevel": 42
+        },
+        {
+          "slot": "Feet",
+          "id": 7444,
+          "name": "Sentinel Boots of the Sorcerer",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_boots_wolf.jpg",
+          "itemLevel": 37,
+          "enchantId": 8490,
+          "enchant": "Stamina +5 and Armor +40"
+        },
+        {
+          "slot": "Wrists",
+          "id": 15620,
+          "name": "Gryphon Mail Bracelets of the Gorilla",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_bracer_13.jpg",
+          "itemLevel": 47
+        },
+        {
+          "slot": "Hands",
+          "id": 9960,
+          "name": "Warmonger's Gauntlets of Power",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_gauntlets_26.jpg",
+          "itemLevel": 47,
+          "enchantId": 8490,
+          "enchant": "Stamina +5 and Armor +40"
+        },
+        {
+          "slot": "Ring 1",
+          "id": 276899,
+          "name": "Knucklebound Thimble",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_01.jpg",
+          "itemLevel": 38
+        },
+        {
+          "slot": "Ring 2",
+          "id": 11997,
+          "name": "Greenstone Circle of the Eagle",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_jewelry_ring_08.jpg",
+          "itemLevel": 38
+        },
+        {
+          "slot": "Trinket 1",
+          "id": 280766,
+          "name": "Satchel of Potions",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_bag_08.jpg",
+          "itemLevel": 33
+        },
+        {
+          "slot": "Trinket 2",
+          "id": 274615,
+          "name": "Heart of the Primeval",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_elemental_primal_water.jpg",
+          "itemLevel": 40
+        },
+        {
+          "slot": "Back",
+          "id": 279855,
+          "name": "Torn Cultist Cloak",
+          "quality": "uncommon",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_misc_cape_19.jpg",
+          "itemLevel": 46
+        },
+        {
+          "slot": "Main Hand",
+          "id": 280604,
+          "name": "Rage of the Storm",
+          "quality": "rare",
+          "icon": "https://wow.zamimg.com/images/wow/icons/large/inv_mace_42.jpg",
+          "itemLevel": 40
+        }
+      ],
+      "source": "Armory WoW Forever"
     }
   ],
   "milestones": [
@@ -31490,14 +31630,14 @@
     "maradonnie-stormcoast": "ok"
   },
   "sourceTimes": {
-    "sylvex-stormcoast": "2026-11-27T03:49:12.700Z",
-    "fyvix-stormcoast": "2026-11-27T03:49:12.834Z",
-    "lumi-stormcoast": "2026-11-27T03:49:12.888Z",
-    "carl-stormcoast": "2026-11-27T03:49:12.741Z",
-    "zmatar-stormcoast": "2026-11-27T03:49:12.913Z",
-    "ketakat-stormcoast": "2026-11-27T03:49:12.806Z",
-    "rint-stormcoast": "2026-11-27T03:49:12.859Z",
-    "maradonnie-stormcoast": "2026-11-27T03:49:12.781Z"
+    "sylvex-stormcoast": "2026-11-27T13:12:33.290Z",
+    "fyvix-stormcoast": "2026-11-27T13:12:33.337Z",
+    "lumi-stormcoast": "2026-11-27T13:12:33.147Z",
+    "carl-stormcoast": "2026-11-27T13:12:33.219Z",
+    "zmatar-stormcoast": "2026-11-27T13:12:33.361Z",
+    "ketakat-stormcoast": "2026-11-27T13:12:33.264Z",
+    "rint-stormcoast": "2026-11-27T13:12:33.196Z",
+    "maradonnie-stormcoast": "2026-11-27T13:12:33.386Z"
   },
   "progression": {
     "dungeons": [],
